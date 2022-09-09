@@ -12,7 +12,7 @@ TBD
 | 1          | Въведение в Python - какво е Python, настройка на средата | XX.XX.2022 |
 | 2          | [Променливи, разклонения, цикли](https://github.com/lyubolp/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow)                            | XX.XX.2022 |
 | 3          | Обектно-ориентирано програмиране в Python                 | XX.XX.2022 |
-| 4          | Функционално програмиране в Python                        | XX.XX.2022 |
+| 4          | [Функционално програмиране в Python](https://github.com/lyubolp/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)                        | XX.XX.2022 |
 | 5          | Представяне на структури от данни и алгоритми над тях     | XX.XX.2022 |
 | 6          | Типова система на езика                                   | XX.XX.2022 |
 | 7          | Грешки и изключения                                       | XX.XX.2022 |

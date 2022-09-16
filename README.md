@@ -8,7 +8,7 @@ Github repository към (бъдещия) курс по Python във ФМИ
 
 | Тема номер | Тема                                                      | Дата       | Лектор     |
 | ---------- | --------------------------------------------------------- | ---------- | ---------- |
-| 1          | Въведение в Python - какво е Python, настройка на средата | 04.10.2022 | Любо/Алекс |
+| 1          | [Въведение в Python - какво е Python, настройка на средата](https://github.com/fmipython/PythonCourse2022/blob/main/01%20-%20%D0%92%D1%8A%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20Python.pdf) | 04.10.2022 | Любо/Алекс |
 | 2          | [Променливи, разклонения, цикли](https://github.com/fmipython/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow) | 06.10.2022 | Алекс |
 | 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 13.10.2022 | Алекс |
 | 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 25.10.2022 | Любо  |

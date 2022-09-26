@@ -1,13 +1,19 @@
 # Курс "Програмиране с Python" 2022
-Github repository към (бъдещия) курс по Python във ФМИ
+
+![Logo](https://raw.githubusercontent.com/fmipython/PythonCourse2022/main/misc/logo.png)
+
+Github repository към курса "Програмиране с Python" във ФМИ
+
+email: pythoncoursefmi@gmail.com
 
 ## Провеждане
-Вторник и четвъртък, 18:00, зала XXX
+Вторник и четвъртък, 18:15, зала XXX
 
 ## Материали
 
 | Тема номер | Тема                                                      | Дата       | Лектор     |
 | ---------- | --------------------------------------------------------- | ---------- | ---------- |
+| 0 | [Въведение към курса](https://github.com/fmipython/PythonCourse2022/blob/main/00%20-%20%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5%20%D1%81%20Python.pdf) | 04.10.2022 | Любо/Алекс/Иван |
 | 1          | [Въведение в Python - какво е Python, настройка на средата](https://github.com/fmipython/PythonCourse2022/blob/main/01%20-%20%D0%92%D1%8A%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20Python.pdf) | 04.10.2022 | Любо/Алекс |
 | 2          | [Променливи, разклонения, цикли](https://github.com/fmipython/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow) | 06.10.2022 | Алекс |
 | 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 13.10.2022 | Алекс |
@@ -15,7 +21,7 @@ Github repository към (бъдещия) курс по Python във ФМИ
 | 5          | Представяне на структури от данни и алгоритми над тях     | 03.11.2022 | Иван       |
 | 6          | Типова система на езика                                   | 15.11.2022 | Алекс      |
 | 7          | Грешки и изключения                                       | 17.11.2022 | Алекс      |
-| 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/blob/main/08%20-%20Files/08%20-%20Files.ipynb)                                          | 22.11.2022 | Любо       |
+| 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 22.11.2022 | Любо       |
 | 9          | Многонишково програмиране                                 | 29.11.2022 | Любо       |
 | 10         | Работа със заявки                                         | 06.12.2022 | Алекс      |
 | 11         | Сравнение на версии 2 и 3 на Python: прилики и разлики    | 13.12.2022 | Любо       |
@@ -27,7 +33,15 @@ Github repository към (бъдещия) курс по Python във ФМИ
 | 17         | Използване на C код в Python                              | 19.01.2023 | Любо       |
 | 18         | Външни библиотеки (numpy, pandas, matplotlib)             | XX.XX.2023 | Любо       |
 
-## Полезни линкове:
+## Как да си пуснем материалите ?
 
-TBD
+Преди да пуснете каквото и да е, трябва да имате инсталиран `git` и `python`
 
+1. Клонирате това repo (с помощта на `git clone https://github.com/fmipython/PythonCourse2022`)
+2. В папката `PythonCourse2022` стартирате нова конзола/терминал
+3. `pip install jupyter jupyterlab`
+4. `jupyter lab`
+
+## Принос
+
+Ако откриете бъг, правописна грешка или генерално нещо грешно, може да отворите pull request чрез съответен branch съдържащ номера на лекцията. При промяна на някоя от тетрадките, силно препоръчително е да изпълните тетрадката отначало преди качването в Git.

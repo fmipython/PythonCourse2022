@@ -13,25 +13,25 @@ email: pythoncoursefmi@gmail.com
 
 | Тема номер | Тема                                                      | Дата       | Лектор     |
 | ---------- | --------------------------------------------------------- | ---------- | ---------- |
-| 0 | [Въведение към курса](https://github.com/fmipython/PythonCourse2022/blob/main/00%20-%20%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5%20%D1%81%20Python.pdf) | 05.10.2022 | Любо/Алекс/Иван |
-| 1          | [Въведение в Python - какво е Python, настройка на средата](https://github.com/fmipython/PythonCourse2022/blob/main/01%20-%20%D0%92%D1%8A%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20Python.pdf) | 05.10.2022 | Любо/Алекс |
-| 2          | [Променливи, разклонения, цикли](https://github.com/fmipython/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow) | 07.10.2022, 12.10.2022 | Алекс |
-| 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 14.10.2022, 19.10.2022, 21.10.2022 | Алекс |
-| 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 26.10.2022, 28.10.2022, 02.11.2022 | Любо  |
-| 5          | Представяне на структури от данни и алгоритми над тях     | 04.11.2022, 09.11.2022, 11.11.2022 | Иван       |
-| 6          | Типова система на езика                                   | 16.11.2022 | Алекс      |
-| 7          | Грешки и изключения                                       | 18.11.2022 | Алекс      |
-| 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 23.11.2022 | Любо       |
-| 9          | Многонишково програмиране                                 | 30.11.2022, 02.12.2022 | Любо       |
-| 10         | Работа със заявки                                         | 07.12.2022, 09.12.2022 | Алекс      |
-| 11         | Сравнение на версии 2 и 3 на Python: прилики и разлики    | 14.12.2022 | Любо       |
-| 12         | [Работа с Git](https://github.com/fmipython/PythonCourse2022/tree/main/12%20-%20Git)                                              | 14.12.2022 | Алекс      |
-| 13         | Модули и пакети                                           | 16.12.2022, 21.12.2022, 23.12.2022 | Алекс      |
-| 14         | Принципи на качествения код на Python                     | 04.01.2023, 06.01.2023 | Любо       |
-| 15         | Тестване в Python                                         | 11.01.2023, 13.01.2023 | Алекс      |
-| 16         | Уеб програмиране. Flask                                   | 18.01.2023 | Любо       |
-| 17         | Използване на C код в Python                              | 20.01.2023 | Любо       |
-| 18         | Външни библиотеки (numpy, pandas, matplotlib)             | XX.XX.2023 | Любо       |
+| 0 | [Въведение към курса](https://github.com/fmipython/PythonCourse2022/blob/main/00%20-%20%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5%20%D1%81%20Python.pdf) | 05.10.2022 | [Любо](https://github.com/lyubolp)/[Алекс](https://github.com/yalishanda42)/[Иван](https://github.com/luchev) |
+| 1          | [Въведение в Python - какво е Python, настройка на средата](https://github.com/fmipython/PythonCourse2022/blob/main/01%20-%20%D0%92%D1%8A%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B2%20Python.pdf) | 05.10.2022 | [Любо](https://github.com/lyubolp)/[Алекс](https://github.com/yalishanda42) |
+| 2          | [Променливи, разклонения, цикли](https://github.com/fmipython/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow) | 07.10.2022, 12.10.2022 | [Алекс](https://github.com/yalishanda42) |
+| 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 14.10.2022, 19.10.2022, 21.10.2022 | [Алекс](https://github.com/yalishanda42) |
+| 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 26.10.2022, 28.10.2022, 02.11.2022 | [Любо](https://github.com/lyubolp)  |
+| 5          | Представяне на структури от данни и алгоритми над тях     | 04.11.2022, 09.11.2022, 11.11.2022 | [Иван](https://github.com/luchev)       |
+| 6          | Типова система на езика                                   | 16.11.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 7          | Грешки и изключения                                       | 18.11.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 23.11.2022 | [Любо](https://github.com/lyubolp)       |
+| 9          | Многонишково програмиране                                 | 30.11.2022, 02.12.2022 | [Любо](https://github.com/lyubolp)       |
+| 10         | Работа със заявки                                         | 07.12.2022, 09.12.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 11         | Сравнение на версии 2 и 3 на Python: прилики и разлики    | 14.12.2022 | [Любо](https://github.com/lyubolp)       |
+| 12         | [Работа с Git](https://github.com/fmipython/PythonCourse2022/tree/main/12%20-%20Git)                                              | 14.12.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 13         | Модули и пакети                                           | 16.12.2022, 21.12.2022, 23.12.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 14         | Принципи на качествения код на Python                     | 04.01.2023, 06.01.2023 | [Любо](https://github.com/lyubolp)       |
+| 15         | Тестване в Python                                         | 11.01.2023, 13.01.2023 | [Алекс](https://github.com/yalishanda42)      |
+| 16         | Уеб програмиране. Flask                                   | 18.01.2023 | [Любо](https://github.com/lyubolp)       |
+| 17         | Използване на C код в Python                              | 20.01.2023 | [Любо](https://github.com/lyubolp)       |
+| 18         | Външни библиотеки (numpy, pandas, matplotlib)             | XX.XX.2023 | [Любо](https://github.com/lyubolp)       |
 
 ## Как да си пуснем материалите ?
 

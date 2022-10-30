@@ -18,7 +18,7 @@ email: pythoncoursefmi@gmail.com
 | 2          | [Променливи, разклонения, цикли](https://github.com/fmipython/PythonCourse2022/tree/main/02%20-%20Variables%2C%20types%2C%20control%20flow) | 07.10.2022, 12.10.2022 | [Алекс](https://github.com/yalishanda42) |
 | 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 14.10.2022, 19.10.2022, 21.10.2022 | [Алекс](https://github.com/yalishanda42) |
 | 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 26.10.2022, 28.10.2022, 02.11.2022 | [Любо](https://github.com/lyubolp)  |
-| 5          | Представяне на структури от данни и алгоритми над тях     | 04.11.2022, 09.11.2022, 11.11.2022 | [Иван](https://github.com/luchev)       |
+| 5          | [Представяне на структури от данни и алгоритми над тях](https://github.com/fmipython/PythonCourse2022/tree/main/05%20-%20Data%20Structures%20and%20Oddities)     | 04.11.2022, 09.11.2022, 11.11.2022 | [Иван](https://github.com/luchev)       |
 | 6          | Типова система на езика                                   | 16.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 7          | Грешки и изключения                                       | 18.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 23.11.2022 | [Любо](https://github.com/lyubolp)       |
@@ -44,4 +44,4 @@ email: pythoncoursefmi@gmail.com
 
 ## Принос
 
-Ако откриете бъг, правописна грешка или генерално нещо грешно, може да отворите pull request чрез съответен branch съдържащ номера на лекцията. При промяна на някоя от тетрадките, силно препоръчително е да изпълните тетрадката отначало преди качването в Git.
+Ако откриете бъг, правописна грешка или генерално нещо грешно, може да отворите pull request чрез съответен branch съдържащ номера на лекцията. При промяна на някоя от тетрадките, силно препоръчитлно е да изпълните тетрадката отначало преди качването в Git.

@@ -19,7 +19,7 @@ email: pythoncoursefmi@gmail.com
 | 3          | [Обектно-ориентирано програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/03%20-%20OOP)                           | 14.10.2022, 19.10.2022, 21.10.2022 | [Алекс](https://github.com/yalishanda42) |
 | 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 26.10.2022, 28.10.2022, 02.11.2022 | [Любо](https://github.com/lyubolp)  |
 | 5          | [Представяне на структури от данни и алгоритми над тях](https://github.com/fmipython/PythonCourse2022/tree/main/05%20-%20Data%20Structures%20and%20Oddities)     | 04.11.2022, 09.11.2022, 11.11.2022 | [Иван](https://github.com/luchev)       |
-| 6          | Типова система на езика                                   | 11.11.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 6          | [Типова система на езика](https://github.com/fmipython/PythonCourse2022/tree/main/06%20-%20Typing%20Hints)                                   | 11.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 7          | Грешки и изключения                                       | 16.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 18.11.2022 | [Любо](https://github.com/lyubolp)       |
 | 9          | Многонишково програмиране                                 | 22.11.2022, 23.11.2022 | [Любо](https://github.com/lyubolp)       |

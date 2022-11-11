@@ -44,7 +44,7 @@ email: pythoncoursefmi@gmail.com
 
 ## Задания за самостоятелна работа
 
-Инструкции за заданията може да намерите [тук](https://github.com/fmipython/PythonCourse2022/blob/main/README.md)
+Инструкции за заданията може да намерите [тук](https://github.com/fmipython/PythonCourse2022/blob/main/assignments.md)
 
 ## Принос
 

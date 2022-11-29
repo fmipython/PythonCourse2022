@@ -20,10 +20,10 @@ email: pythoncoursefmi@gmail.com
 | 4          | [Функционално програмиране в Python](https://github.com/fmipython/PythonCourse2022/tree/main/04%20-%20Functional%20Programming)             | 26.10.2022, 28.10.2022, 02.11.2022 | [Любо](https://github.com/lyubolp)  |
 | 5          | [Представяне на структури от данни и алгоритми над тях](https://github.com/fmipython/PythonCourse2022/tree/main/05%20-%20Data%20Structures%20and%20Oddities)     | 04.11.2022, 09.11.2022, 11.11.2022 | [Иван](https://github.com/luchev)       |
 | 6          | [Типова система на езика](https://github.com/fmipython/PythonCourse2022/tree/main/06%20-%20Typing%20Hints)                                   | 11.11.2022 | [Алекс](https://github.com/yalishanda42)      |
-| 7          | Грешки и изключения                                       | 16.11.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 7          | [Грешки и изключения](https://github.com/fmipython/PythonCourse2022/tree/main/07%20-%20Exceptions%20Handling) | 16.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 18.11.2022 | [Любо](https://github.com/lyubolp)       |
-| 9          | Многонишково програмиране                                 | 22.11.2022, 23.11.2022 | [Любо](https://github.com/lyubolp)       |
-| 10         | Работа със заявки                                         | 30.11.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 9          | [Многонишково програмиране](https://github.com/fmipython/PythonCourse2022/tree/main/09%20-%20Multithreading) | 22.11.2022, 23.11.2022 | [Любо](https://github.com/lyubolp)       |
+| 10         | [Работа със заявки](https://github.com/fmipython/PythonCourse2022/tree/main/10%20-%20Requests) | 30.11.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 11         | Сравнение на версии 2 и 3 на Python: прилики и разлики    | 02.12.2022 | [Любо](https://github.com/lyubolp)       |
 | 12         | [Работа с Git](https://github.com/fmipython/PythonCourse2022/tree/main/12%20-%20Git)                                              | 02.12.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 13         | Модули и пакети                                           | 07.12.2022, 14.12.2022, 16.12.2022 | [Алекс](https://github.com/yalishanda42)      |

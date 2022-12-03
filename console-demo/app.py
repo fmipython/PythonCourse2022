@@ -63,9 +63,9 @@ if not response:
     exit(1)
 
 forecasts = response.json()["list"]
+forecasts.sort(key=lambda x: -x["dt"])  # biggest (most recent) datetime first
 
 if not is_requesting_whole_day:
-    forecasts.sort(key=lambda x: -x["dt"])  # biggest (most recent) datetime first
     temperature = forecasts[0]["main"]["temp"]
     print(temperature)
 else:

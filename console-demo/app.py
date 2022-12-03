@@ -27,7 +27,7 @@ API_KEY = os.getenv("API_KEY")
 if not API_KEY:
     error_msg = """
 Please supply a valid API key using either
-`export API_KEY=...`. before running the command
+`export API_KEY=...` before running the command
 or
 creating a file named `.env` in the current directory and putting API_KEY=... inside.
 """

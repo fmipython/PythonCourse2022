@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Модули и пакети &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Работа с Git" href="../12%20-%20Git/README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/13 - Modules/13 - Modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/13 - Modules/13 - Modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F13 - Modules/13 - Modules.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/13 - Modules/13 - Modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/13 - Modules/13 - Modules.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Какво е модул?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Как да създам модул?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Добре, обаче
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+   къде точно търси?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Варианти на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Пакети
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#init-py">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __init__.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Релативни импорти
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-name-main">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+    <span class="pre">
+     __name__
+    </span>
+    <span class="pre">
+     ==
+    </span>
+    <span class="pre">
+     "__main__"
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Модули и пакети</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Какво е модул?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Как да създам модул?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Добре, обаче
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+   къде точно търси?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Варианти на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     import
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Пакети
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#init-py">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     __init__.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Релативни импорти
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if-name-main">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     if
+    </span>
+    <span class="pre">
+     __name__
+    </span>
+    <span class="pre">
+     ==
+    </span>
+    <span class="pre">
+     "__main__"
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Модули и пакети<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>Какво е модул?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>Всеки един Python файл (.py) на практика е модул. Освен това е възможно библиотека, написана на С, и вмъкната динамично също да бъде модул. Третия тип модули са вградените в езика такива.</p>
+<p>В тази лекция се фокусираме върху първия тип и модули и как можем да ги създаваме, вмъкваме и боравим с тях.</p>
+</section>
+<section id="id3">
+<h2>Как да създам модул?<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>Казахме, че всеки Python файл е валиден модул.</p>
+<p>Нека създадем един такъв с няколко дефиниции вътре (в папката с тази тетрадка вече би трябвало да се съдържа файл <code class="docutils literal notranslate"><span class="pre">hitchhikers.py</span></code>).</p>
+</section>
+<section id="import">
+<h2><code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#import" title="Permalink to this headline">#</a></h2>
+<p>Имената, функциите и класовете, които създадохме в този файл, не могат да бъдат достъпени директно от друг файл:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>compute()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">compute</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;compute&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем обаче да ги вмъкнем в друг файл (модул) чрез <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">{името_на_модула}</span></code> (името на файла преди разширението <code class="docutils literal notranslate"><span class="pre">.py</span></code> се превръща в име на модула):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import hitchhikers
+
+hitchhikers.compute()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hm, I&#39;ll have to think about that. Return to this place in exactly 7.5 million years...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">import</span></code> освен, че интерпретира целия код на модула, добавя имената и дефинициите в един обект от тип модул, имащ името на модула. Затова и ги достъпваме чрез <code class="docutils literal notranslate"><span class="pre">името_на_модула.име_на_обекта</span></code>.</p>
+<p>Какво се съдържа в един модул можем лесно да видим с <code class="docutils literal notranslate"><span class="pre">dir()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir(hitchhikers)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ANSWER&#39;,
+ &#39;TheGreatDeepThought&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;compute&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hitchhikers.ANSWER
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>computer = hitchhikers.TheGreatDeepThought()
+computer.ask()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shush! The show is back on.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hitchhikers.__name__
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hitchhikers&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir()  # by default it shows the contents of the *current* module
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;In&#39;,
+ &#39;Out&#39;,
+ &#39;_&#39;,
+ &#39;_2&#39;,
+ &#39;_3&#39;,
+ &#39;_4&#39;,
+ &#39;_6&#39;,
+ &#39;__&#39;,
+ &#39;___&#39;,
+ &#39;__builtin__&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;__vsc_ipynb_file__&#39;,
+ &#39;_dh&#39;,
+ &#39;_i&#39;,
+ &#39;_i1&#39;,
+ &#39;_i2&#39;,
+ &#39;_i3&#39;,
+ &#39;_i4&#39;,
+ &#39;_i5&#39;,
+ &#39;_i6&#39;,
+ &#39;_i7&#39;,
+ &#39;_ih&#39;,
+ &#39;_ii&#39;,
+ &#39;_iii&#39;,
+ &#39;_oh&#39;,
+ &#39;computer&#39;,
+ &#39;exit&#39;,
+ &#39;get_ipython&#39;,
+ &#39;hitchhikers&#39;,
+ &#39;os&#39;,
+ &#39;quit&#39;,
+ &#39;sys&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>__name__
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;__main__&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Добре, обаче <code class="docutils literal notranslate"><span class="pre">import</span></code> къде точно търси?<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Директорията, в която се намира Python скрипта, който се изпълнява (или текущата, ако интерпретаторът е пуснат интерактивно)</p></li>
+<li><p>Директориите, които са описани в <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> променливата на средата</p></li>
+<li><p>Лист от директории, зададен по време на инсталацията на Python</p></li>
+</ol>
+<p>Този списък от възможни директории може да се види със <code class="docutils literal notranslate"><span class="pre">sys.path</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import sys
+sys.path
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Users/alexander.ignatov/Documents/PythonCourse2022/13 - Modules&#39;,
+ &#39;/Users/alexander.ignatov/.vscode/extensions/ms-toolsai.jupyter-2022.9.1303220346/pythonFiles&#39;,
+ &#39;/Users/alexander.ignatov/.vscode/extensions/ms-toolsai.jupyter-2022.9.1303220346/pythonFiles/lib/python&#39;,
+ &#39;/opt/homebrew/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python310.zip&#39;,
+ &#39;/opt/homebrew/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10&#39;,
+ &#39;/opt/homebrew/Cellar/python@3.10/3.10.8/Frameworks/Python.framework/Versions/3.10/lib/python3.10/lib-dynload&#39;,
+ &#39;&#39;,
+ &#39;/Users/alexander.ignatov/Library/Python/3.10/lib/python/site-packages&#39;,
+ &#39;/opt/homebrew/lib/python3.10/site-packages&#39;,
+ &#39;/opt/homebrew/Cellar/pygments/2.13.0_1/libexec/lib/python3.10/site-packages&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>Варианти на <code class="docutils literal notranslate"><span class="pre">import</span></code><a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>С <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">{module}</span> <span class="pre">import</span> <span class="pre">{something},</span> <span class="pre">{something_else},</span> <span class="pre">...</span></code> можем да импортираме само определени имена от модула, като те биват добавени към съдържанието на текущия (т.е. достъпваме ги без името на оригиналния модул и точка отпред):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from hitchhikers import compute
+compute()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hm, I&#39;ll have to think about that. Return to this place in exactly 7.5 million years...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+</div>
+</div>
+<p>С <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">{module}</span> <span class="pre">import</span> <span class="pre">{something}</span> <span class="pre">as</span> <span class="pre">{alias},</span> <span class="pre">{something_else}</span> <span class="pre">as</span> <span class="pre">{other_alias},</span> <span class="pre">...</span></code> можем да прекръстим импортираните имена:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from hitchhikers import ANSWER, TheGreatDeepThought as Computer
+comp = Computer()
+comp.ask() == ANSWER
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shush! The show is back on.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot;ANSWER&quot; in dir()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме абсолютно всички имена на вмъкнем и ползваме в текущия модул по този начин (без тези, започващи с подчертавка <code class="docutils literal notranslate"><span class="pre">_</span></code>), можем да използваме астериск <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># изпълни тази клетка ако си изпълнил горните, за да се зачистят import-ите
+del hitchhikers, ANSWER, compute, Computer
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from hitchhikers import *
+
+compute() == ANSWER
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hm, I&#39;ll have to think about that. Return to this place in exactly 7.5 million years...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Лимитация на астерикс синтаксиса е, че не може да използва в блок (може само на най-външното ниво на модула):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del compute, ANSWER, TheGreatDeepThought
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def obtain_answer():
+    from hitchhikers import *  # 💥
+    return compute()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="kn">from</span> <span class="nn">hitchhikers</span> <span class="kn">import</span> <span class="o">*</span>
+                            <span class="o">^</span>
+<span class="ne">SyntaxError</span>: import * only allowed at module level
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както казахме, по подразбиране from {module} import * вмъква абсолютно всички имена от <code class="docutils literal notranslate"><span class="pre">module</span></code>, които не започват с подчертавка. Имаме всъщност контрол над това, кое може да се вмъкне чрез астерикс, като дефинираме <code class="docutils literal notranslate"><span class="pre">__all__</span></code> във въпросния модул. Стойността му е лист от всички имена, които ще бъдат вмъкнати от <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
+<p><em>Пример</em>:</p>
+<p>След добавяне на</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;compute&#39;</span><span class="p">,</span> <span class="s1">&#39;TheGreatDeepThought&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>в <code class="docutils literal notranslate"><span class="pre">hitchhikers.py</span></code>, следният код, изпълнен в <code class="docutils literal notranslate"><span class="pre">script.py</span></code> (в същата директория) ще хвърли <code class="docutils literal notranslate"><span class="pre">NameError</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hitchhikers</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hitchhikers</span><span class="o">.</span><span class="n">ANSWER</span><span class="p">)</span>  <span class="c1"># 💥</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>Пакети<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>Пакет e набор от модули. За Python всяка директория, в която има модули, се превръща в пакет (package).</p>
+<p><em>Note</em>: Във версии по-ранни от Python 3.3 трябва задължително в директорията да има файл с име <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>.</p>
+<p>В директорията на тетрадката би трябвало да има папка <code class="docutils literal notranslate"><span class="pre">game</span></code>, съдържаща няколко файла и папки:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!tree game
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">game</span>
+├── engine.py
+├── level.py
+├── player.py
+└── <span class=" -Color -Color-Bold -Color-Bold-Blue">players</span>
+    ├── ai.py
+    ├── input_player.py
+    └── mock_player.py
+
+1 directory, 6 files
+</pre></div>
+</div>
+</div>
+</div>
+<p>В горния пример <code class="docutils literal notranslate"><span class="pre">game</span></code> е пакет, съдържащ модулите <code class="docutils literal notranslate"><span class="pre">engine</span></code>, <code class="docutils literal notranslate"><span class="pre">level</span></code> и <code class="docutils literal notranslate"><span class="pre">player</span></code>. Освен тях, той съдържа и подпакетът <code class="docutils literal notranslate"><span class="pre">players</span></code>.</p>
+<p>Ако искаме да вмъкнем някой модул от пакета, можем да го направим чрез името на пакета (или всички пакети по веригата, разделени с точка), последвано от точка и името на въпросния модул:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import game.level
+
+game.level.EASY
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Level(word=&#39;SCRIPT&#39;, failed_attempts=10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import game.players.ai
+
+game.players.ai.AI(10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;game.players.ai.AI at 0x10bc62b90&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Вече въведените по-горе синтактични варианти на <code class="docutils literal notranslate"><span class="pre">import</span></code> също важат:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from game.players.ai import AI
+from game.level import EASY as easy, MEDIUM as medium, HARD as hard
+from game.engine import *
+</pre></div>
+</div>
+</div>
+</div>
+<p>Освен това, можем и да вмъкнем модули чрез <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">{package}</span> <span class="pre">import</span> <span class="pre">{module}</span> <span class="pre">[as</span> <span class="pre">{alias}],</span> <span class="pre">...</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from game import level, engine
+
+print(level.EASY)
+print(engine.GameState)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Level(word=&#39;SCRIPT&#39;, failed_attempts=10)
+&lt;enum &#39;GameState&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="init-py">
+<h2><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code><a class="headerlink" href="#init-py" title="Permalink to this headline">#</a></h2>
+<p>На теория можем и да импортнем само пакета. По подразбиране това няма да добави нови модули и имена:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>del game.level, game.player, game.engine  # зачисти тетрадката от предните импорти
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import game
+
+game.level  # 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">game</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">game</span><span class="o">.</span><span class="n">level</span>
+
+<span class="ne">AttributeError</span>: module &#39;game&#39; has no attribute &#39;level&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме да добавим и модули от пакета при импортирането му, можем да ги импортнем в <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, намиращ се в директорията на пакета.</p>
+<p>Т.е. ако в <code class="docutils literal notranslate"><span class="pre">game/__init__.py</span></code> имаме:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">game.engine</span><span class="o">,</span> <span class="nn">game.level</span><span class="o">,</span> <span class="nn">game.player</span>
+</pre></div>
+</div>
+<p>то можем да импортнем пакета <code class="docutils literal notranslate"><span class="pre">game</span></code> и да използваме всички модули от него:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># в друг файл, извън пакета `game`:</span>
+<span class="kn">import</span> <span class="nn">game</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">EASY</span><span class="p">)</span>  <span class="c1"># no error</span>
+</pre></div>
+</div>
+<p>В <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> можем да напишем какъвто искаме инициализационен код, глобален за всички модули в пакета. Съдържанието на скрипта се изпълнява веднага при импортиране на пакета.</p>
+<p>Както при модулите, така и тука можем да дефинираме поведението на <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">{package}</span> <span class="pre">import</span> <span class="pre">*</span></code> чрез <code class="docutils literal notranslate"><span class="pre">__all__</span></code>. По подразбиране, както видяхме за <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">{package}</span></code>, това е празен списък, т.е. нищо няма да се вмъкне (за разлика от поведението при модулите, когато се вмъква абсолютно всяко име от модула, което не започва с подчертавка).</p>
+<p>Т.е. ако напишем в <code class="docutils literal notranslate"><span class="pre">game/__init__.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;engine&quot;</span><span class="p">,</span> <span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;player&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>то ще можем:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># в друг файл, извън пакета `game`:</span>
+<span class="kn">from</span> <span class="nn">game</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">level</span><span class="o">.</span><span class="n">EASY</span><span class="p">)</span>  <span class="c1"># no error</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2>Релативни импорти<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>Дотук разгледахме примерни за <strong>абсолютни</strong> импорти, т.е. достъпът до даден модул от рамките на пакета или извън него става през пътя от пакета до модула, например <code class="docutils literal notranslate"><span class="pre">game.players.ai</span></code> достъпва модулът <code class="docutils literal notranslate"><span class="pre">ai</span></code> от пакета <code class="docutils literal notranslate"><span class="pre">players</span></code> в пакета <code class="docutils literal notranslate"><span class="pre">game</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import game.players.ai
+</pre></div>
+</div>
+</div>
+</div>
+<p>Със значението на <code class="docutils literal notranslate"><span class="pre">.</span></code> и <code class="docutils literal notranslate"><span class="pre">..</span></code> от Unix файловата система, можем да използваме същите тези символи за <strong>релативни</strong> импорти в Python. Те се оценяват спрямо локацията на <code class="docutils literal notranslate"><span class="pre">import</span></code> statement-a.</p>
+<p>Например, във файла <code class="docutils literal notranslate"><span class="pre">game/players/input_player.py</span></code> ни трябва <code class="docutils literal notranslate"><span class="pre">player</span></code> модула от пакета <code class="docutils literal notranslate"><span class="pre">game</span></code>. Можем да го направим по абсолютен и релативен начин:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">game</span> <span class="kn">import</span> <span class="n">player</span>  <span class="c1"># абсолютен импорт</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">player</span>  <span class="c1"># релативен импорт</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> означава “пакетът, намиращ се над текущия”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..pkg</span></code> означва модулът/пакетът <code class="docutils literal notranslate"><span class="pre">pkg</span></code> от пакетът, намиращ се над текущия.</p></li>
+</ul>
+<p>Например:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">..player</span> <span class="kn">import</span> <span class="n">Player</span>
+</pre></div>
+</div>
+<p>Ще вмъкне името <code class="docutils literal notranslate"><span class="pre">Player</span></code> от модула <code class="docutils literal notranslate"><span class="pre">player</span></code> от пакета, намиращ се над текущия.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> означава “текущия пакет”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.pkg</span></code> означава модулът/пакетът <code class="docutils literal notranslate"><span class="pre">pkg</span></code> от текущия пакет.</p></li>
+</ul>
+<p>Релативните импорти имат недостатъка обаче, че зависят от местоположението на <code class="docutils literal notranslate"><span class="pre">import</span></code>-a. Освен това в скриптове (т.е. изпълним код, който не е вмъкнат чрез модул) имат различно поведение:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from . import hitchhikers
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">hitchhikers</span>
+
+<span class="ne">ImportError</span>: attempted relative import with no known parent package
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="if-name-main">
+<h2><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;</span></code><a class="headerlink" href="#if-name-main" title="Permalink to this headline">#</a></h2>
+<p>Както бяхме споменали, при импорт се изпълнява кода на съответния модул. Като пример за това можем да изведем философията на Python, намираща се във вградения модул <code class="docutils literal notranslate"><span class="pre">this</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import this
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Текущо-изпълнимият файл/модул/скрипт за Python се казва <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>, т.е. неговия <code class="docutils literal notranslate"><span class="pre">__name__</span></code> е <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>__name__
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;__main__&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако файлът не се изпълнява директно, а бъде импортнат от друг, то в неговия <code class="docutils literal notranslate"><span class="pre">__name__</span></code> ще е името на модула. Това означава, че можем да различим дали файлът се изпълнява директно или е импортнат.</p>
+<p>Полезно е в случаите, когато искаме да напишем примерно някакви тестове или демонстрации на модула, които да се изпълнят само ако го изпълним директно, и да не се изпълняват при всяко вмъкване. . В такива случаи използваме <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span> <span class="pre">...</span></code> (разгледайте например <code class="docutils literal notranslate"><span class="pre">game/engine.py</span></code>).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./13 - Modules"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../12%20-%20Git/README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Работа с Git</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

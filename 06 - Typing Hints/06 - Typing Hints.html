@@ -1,0 +1,1476 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Type Hints &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Грешки и изключения" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html" />
+    <link rel="prev" title="Data Structures &amp; Oddities" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/06 - Typing Hints/06 - Typing Hints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/06 - Typing Hints/06 - Typing Hints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F06 - Typing Hints/06 - Typing Hints.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/06 - Typing Hints/06 - Typing Hints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/06 - Typing Hints/06 - Typing Hints.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vs-round-2">
+   Динамично vs. статично типизиране. Round 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-hints-and-mypy">
+   Type Hints and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mypy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Синтаксис и особености на анотациите
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Анотиране на различните вградени типове
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#union-optional">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Union
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Optional
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#any">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Any
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generics">
+     Generics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Собствени типове
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Консистентни типове
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duck-typing">
+     Duck typing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#protocol">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Protocol
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataclass">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     @dataclass
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Type Hints</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vs-round-2">
+   Динамично vs. статично типизиране. Round 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-hints-and-mypy">
+   Type Hints and
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     mypy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Синтаксис и особености на анотациите
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Анотиране на различните вградени типове
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#union-optional">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Union
+      </span>
+     </code>
+     и
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Optional
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#any">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Any
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generics">
+     Generics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Собствени типове
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Консистентни типове
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duck-typing">
+     Duck typing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#protocol">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Protocol
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataclass">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     @dataclass
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="type-hints">
+<h1>Type Hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">#</a></h1>
+<section id="vs-round-2">
+<h2>Динамично vs. статично типизиране. Round 2<a class="headerlink" href="#vs-round-2" title="Permalink to this headline">#</a></h2>
+<p>Динамичното типизиране позволява гъвкавост, но това идва и със своите недостатъци от гледна точка на поддръжката и четимостта на кода.</p>
+<p>Например, ако имаме следната функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def validate_serial_number(serial_number):
+    pass  # definition is irrelevant for this example
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако нямаме поглед над имплементацията на функцията (или пък имаме, но не е тривиално да се прецени точно имплементацията с какви типове борави), то тогава как да разберем <code class="docutils literal notranslate"><span class="pre">serial_number</span></code> дали да ѝ го подадем като <code class="docutils literal notranslate"><span class="pre">int</span></code> или <code class="docutils literal notranslate"><span class="pre">str</span></code>? Или пък може да е <code class="docutils literal notranslate"><span class="pre">list</span></code> от <code class="docutils literal notranslate"><span class="pre">int</span></code>-ове дори?</p>
+<p>Също така, от името на функцията не става много ясно тя какво връща - дали не връща нищо, а само изпълнява проверки и странични ефекти, или пък проверява валидността на номера и връща <code class="docutils literal notranslate"><span class="pre">bool</span></code>, или пък връща някакъв тип за грешка при неуспех, а <code class="docutils literal notranslate"><span class="pre">None</span></code> при успех?</p>
+</section>
+<section id="type-hints-and-mypy">
+<h2>Type Hints and <code class="docutils literal notranslate"><span class="pre">mypy</span></code><a class="headerlink" href="#type-hints-and-mypy" title="Permalink to this headline">#</a></h2>
+<p>От Python 3.5 насам можем да пишем “подсказки” за очаквания тип (или очакваните типове, в случай че са повече от един).</p>
+<p>В случая функцията можем да я анотираме по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def validate_serial_number(serial_number: str) -&gt; bool:
+    pass  # ...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Трябва да се отбележи, че тези анотации са само hints (“подсказки” за програмиста), т.е. не получаваме поведението на статично типизираните езици, тъй като интерпретатора не следи за спазването на анотациите:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(a: int, b: int) -&gt; int:
+    return a + b
+
+print(&quot;Passing `int`: &quot;, add(1, 2))
+print(&quot;Passing `str`: &quot;, add(&quot;1&quot;, &quot;2&quot;))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Passing `int`:  3
+Passing `str`:  12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това въпросно следене може да стане чрез т.нар. “type checkers”. Най-използваният е <a class="reference external" href="http://mypy-lang.org/">mypy</a>.</p>
+<p>В PyCharm би трябвало по подразбиране да е включено, докато във VS Code може да се включи от настройките на <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python extension-a</a>:</p>
+<p><img alt="mypy in VS Code" src="../_images/mypy-vscode.png" /></p>
+<p>При включването на настройката за пръв път би трябвало да се покаже долу вдясно диалогов попъп, от който да може да се инсталира <code class="docutils literal notranslate"><span class="pre">mypy</span></code> автоматично.</p>
+<p>След включването, всяка некоректност ще се показва като грешка във VSCode по подобен начин:</p>
+<p><img alt="mypy in action" src="../_images/mypy-in-action.png" /></p>
+</section>
+<section id="id1">
+<h2>Синтаксис и особености на анотациите<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Анотациите са добавени в Python 3.0 и оригинално са нямали конкретна семантика или общоприета употреба. Понеже са интуитивно удобни за указване на типове, <a class="reference external" href="https://peps.python.org/pep-0484/">PEP484</a> и <a class="reference external" href="https://www.python.org/dev/peps/pep-0526/">PEP526</a> предлагат и стандартизират точно тази им употреба.</p>
+<p>Анотации могат да се добавят към променливи и функции. Те отиват в <code class="docutils literal notranslate"><span class="pre">__annotations__</span></code> списъка на модула или на функцията, респективно. Това означава, че могат и runtime да бъдат достъпни:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>variable: int = 42
+
+print(f&quot;{__annotations__ = }&quot;)  # module.__annotations__ keeps the annotations of all variables in the module
+
+
+def function(f: float, b: bool = True) -&gt; int:
+    return int(f) if b else 0  # this is the most meaningless function ever
+
+print(f&quot;{function.__annotations__ = }&quot;)  # functions have that dunder as well
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__annotations__ = {&#39;variable&#39;: &lt;class &#39;int&#39;&gt;}
+function.__annotations__ = {&#39;f&#39;: &lt;class &#39;float&#39;&gt;, &#39;b&#39;: &lt;class &#39;bool&#39;&gt;, &#39;return&#39;: &lt;class &#39;int&#39;&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Забележка</em>: По общоприета питонска конвенция за стил, интервали около <code class="docutils literal notranslate"><span class="pre">=</span></code> на именованите аргументи се слагат ако има анотация, но се пропускат ако няма:</p>
+<p>ОК:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>Not quite OK:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p><em>Забележка 2</em>: Възможна е анотация на имe без да му бъде присвоявана стойност. Опитът за достъп обаче преди да му бъде присвоена такава впоследствие ще доведе до грешка, понеже още не е дефинирана:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>name: str
+
+print(name)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;name&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Анотиране на различните вградени типове<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>Както видяхме, използваме самият тип за да го анотираме, т.е. <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code> и т.н. са валидни в анотации. (да, <code class="docutils literal notranslate"><span class="pre">None</span></code> освен стойност, е и тип сам по себе си)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def i_wanna_print(something: str, terminator: str = &quot;\n&quot;) -&gt; None:
+    print(something, terminator=terminator)
+
+def extract_nums_from_input_row(row: str) -&gt; list:
+    return list(map(int, row.split()))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Във функцията <code class="docutils literal notranslate"><span class="pre">extract_nums_from_input_row</span></code> в горният пример обаче не знаем всичко за return типа. Знаем, че е <code class="docutils literal notranslate"><span class="pre">list</span></code>, но лист от какво?</p>
+<p>Проблемът с такива generic типове като <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> и т.н. решаваме като укажем типа на елементите в тях в квадратни скоби. От Python 3.9 насам можем директно да ползваме builtin типовете, но за версии 3.5 до 3.8 вкл. трябва да импортнем подходящите класове от <code class="docutils literal notranslate"><span class="pre">typing</span></code> модула:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Python 3.5 to 3.8
+
+from typing import List, Tuple, Dict
+
+def extract_nums_from_input_row(row: str) -&gt; List[int]:
+    return list(map(int, row.split()))
+
+def multiply(a: Tuple[int, int, int], b: Tuple[int, int, int]) -&gt; Tuple[int, int, int]:
+    return sum(x * y for x, y in zip(a, b))
+
+def bind_names_to_ages(names: List[str], ages: List[int]) -&gt; Dict[str, int]:
+    return dict(zip(names, ages))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Python 3.9+
+
+def extract_nums_from_input_row(row: str) -&gt; list[int]:
+    return list(map(int, row.split()))
+
+def multiply(a: tuple[int, int, int], b: tuple[int, int, int]) -&gt; tuple[int, int, int]:
+    return sum(x * y for x, y in zip(a, b))
+
+def bind_names_to_ages(names: list[str], ages: list[int]) -&gt; dict[str, int]:
+    return dict(zip(names, ages))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме <code class="docutils literal notranslate"><span class="pre">tuple</span></code> да има точно 2 елемента от тип <code class="docutils literal notranslate"><span class="pre">int</span></code> например, можем да го анотираме като <code class="docutils literal notranslate"><span class="pre">Tuple[int,</span> <span class="pre">int]</span></code>. Ако искаме да има произволен брой елементи от тип <code class="docutils literal notranslate"><span class="pre">int</span></code>, можем да го анотираме като <code class="docutils literal notranslate"><span class="pre">Tuple[int,</span> <span class="pre">...]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calculate_polynomial(coefficients: tuple[float, ...], x: float) -&gt; float:
+    return sum(k * (x ** n) for n, k in enumerate(reversed(coefficients)))
+</pre></div>
+</div>
+</div>
+</div>
+<p>При указване на <code class="docutils literal notranslate"><span class="pre">*args</span></code> и/или <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> е нужно да укажем само типа на съответните елементи, без <code class="docutils literal notranslate"><span class="pre">tuple</span></code> или <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calculate_polynomial(*coefficients: float, x: float) -&gt; float:
+    return sum(k * (x ** n) for n, k in enumerate(reversed(coefficients)))
+</pre></div>
+</div>
+</div>
+</div>
+<p>За удобство можем да си създваме alias-и за различни типове, които да ги използваме по-късно:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Vector3D = tuple[float, float, float]
+
+def multiply(a: Vector3D, b: Vector3D) -&gt; Vector3D:
+    return sum(x * y for x, y in zip(a, b))
+</pre></div>
+</div>
+</div>
+</div>
+<p>В случай, че искаме да анотираме функция, която например подаваме като параметър, ползвамe <code class="docutils literal notranslate"><span class="pre">Callable</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Callable
+
+def bubble_sort(arr: list[int], comparator: Callable[[int, int], bool]) -&gt; list[int]:
+    arr = arr.copy()
+    for _ in range(len(arr)):
+        for j in range(len(arr) - 1):
+            if not comparator(arr[j], arr[j + 1]):
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+
+bubble_sort([1, 2, 3], lambda x, y: x &gt; y)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 2, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="union-optional">
+<h3><code class="docutils literal notranslate"><span class="pre">Union</span></code> и <code class="docutils literal notranslate"><span class="pre">Optional</span></code><a class="headerlink" href="#union-optional" title="Permalink to this headline">#</a></h3>
+<p>Понякога можем да поддържаме по няколко възможни типа. Целта на <code class="docutils literal notranslate"><span class="pre">Union</span></code> е да “обедини” тези типове в един. Например, ако искаме да можем да подаваме и <code class="docutils literal notranslate"><span class="pre">int</span></code> и <code class="docutils literal notranslate"><span class="pre">str</span></code> като аргументи на функция, можем да го анотираме като <code class="docutils literal notranslate"><span class="pre">Union[int,</span> <span class="pre">str]</span></code>  или  <code class="docutils literal notranslate"><span class="pre">Union[str,</span> <span class="pre">int]</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Union
+
+def is_serial_number_valid(serial_number: Union[str, int]) -&gt; bool:
+    serial = str(serial_number)
+    return (
+        len(serial) == 10 
+        and serial.isdigit() 
+        and serial[-1] == sum(map(int, serial[:-1])) % 10
+    )
+</pre></div>
+</div>
+</div>
+</div>
+<p>От Python 3.10 насам можем да използваме оператора <code class="docutils literal notranslate"><span class="pre">|</span></code> вместо <code class="docutils literal notranslate"><span class="pre">Union</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def is_serial_number_valid(serial_number: str | int) -&gt; bool:
+    serial = str(serial_number)
+    return (
+        len(serial) == 10 
+        and serial.isdigit() 
+        and serial[-1] == sum(map(int, serial[:-1])) % 10
+    )
+
+def calculate_polynomial(*coefficients: int | float | complex, x: int | float | complex) -&gt; complex:
+    return complex(sum(k * (x ** n) for n, k in enumerate(reversed(coefficients))))
+
+calculate_polynomial(-1, 5j, 6.9, 0, 94, x=42)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-3099430.4+370440j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Много често се налага да имаме стойност по подразбиране <code class="docutils literal notranslate"><span class="pre">None</span></code> вместо такава на даден тип или пък да връщаме <code class="docutils literal notranslate"><span class="pre">None</span></code> вместо стойност от даден тип. Това е и идеята на <code class="docutils literal notranslate"><span class="pre">Optional</span></code>, който е тип на практика еквивалентен на <code class="docutils literal notranslate"><span class="pre">Union</span></code> с <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import hashlib
+
+from typing import Optional
+
+def hash_password(password: str, salt: Optional[str] = None) -&gt; bytes:
+    hash = hashlib.sha256(password.encode())
+    if salt is not None:
+        hash.update(salt.encode())
+    return hash.digest()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Equivalent:
+
+import hashlib
+
+def hash_password(password: str, salt: str | None = None) -&gt; bytes:
+    hash = hashlib.sha256(password.encode())
+    if salt is not None:
+        hash.update(salt.encode())
+    return hash.digest()
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="any">
+<h3><code class="docutils literal notranslate"><span class="pre">Any</span></code><a class="headerlink" href="#any" title="Permalink to this headline">#</a></h3>
+<p>Ако искаме даден тип да е произволен, можем да го анотираме с <code class="docutils literal notranslate"><span class="pre">Any</span></code>. Type-checker-ите няма да хвърлят грешка, който и тип да подаваме като стойност на нещо, което се очаква да е от тип <code class="docutils literal notranslate"><span class="pre">Any</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Any
+
+def i_wanna_print(something: Any, terminator: str = &quot;\n&quot;) -&gt; None:
+    print(something, terminator=terminator)
+
+def play_audio(filename: str, options: dict[str, Any]) -&gt; None:
+    if options[&quot;BITRATE&quot;] == 320:
+        print(&quot;Playing in high quality&quot;)
+    
+    if options[&quot;LOOP&quot;]:
+        print(&quot;Playing in loop&quot;)
+
+    #...
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generics">
+<h3>Generics<a class="headerlink" href="#generics" title="Permalink to this headline">#</a></h3>
+<p>В някои случаи обаче ако използваме <code class="docutils literal notranslate"><span class="pre">Any</span></code> директно всъщност заличаваме информация, която ни е нужна после.</p>
+<p>Например нека разгледаме следната функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
+from typing import Any
+
+def shuffled(l: list[Any]) -&gt; list[Any]:
+    return random.sample(l, len(l))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако я използваме обаче в следния контекст:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+suits = &quot;♠♥♦♣&quot;
+ranks = &quot;AKQJT98765432&quot;
+
+brand_new_deck = [f&quot;{rank}{suit}&quot; for suit in suits for rank in ranks] # -&gt; list[str]
+
+shuffled_deck = shuffled(brand_new_deck) # -&gt; list[Any] !!!
+
+# Сега `shuffled_deck` за type-checker-ите е list[Any] вместо list[str]
+# т.е. изгубихме типовата информация, която би трябвало да имаме.
+# Когато се опитаме да направим нещо специфично за `str`
+# ще ни го подчертаят като невъзможно или неопределено.
+
+from collections import Counter
+suits_dealt = Counter(card[1] for card in shuffled_deck[::4]) # ⚠️ card[1] ще ни го дава като опит за индексиране на `Any`, а не `str`
+print(suits_dealt)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counter({&#39;♥&#39;: 5, &#39;♦&#39;: 4, &#39;♠&#39;: 2, &#39;♣&#39;: 2})
+</pre></div>
+</div>
+</div>
+</div>
+<p>За да се справим с този проблем трябва да обявим такива типови параметри като generics чрез <code class="docutils literal notranslate"><span class="pre">TypeVar</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import TypeVar
+
+T = TypeVar(&quot;T&quot;)
+def shuffled(l: list[T]) -&gt; list[T]:
+    return random.sample(l, len(l))
+</pre></div>
+</div>
+</div>
+</div>
+<p>С примерът горе статичния type-checker ще знае, че каквито елементи има листът, който е подаден като аргумент на <code class="docutils literal notranslate"><span class="pre">shuffled</span></code>, такива и ще бъдат елементите на върнатия лист.</p>
+<p>Можем и да дадем ограничения за <code class="docutils literal notranslate"><span class="pre">TypeVar</span></code>-овете. Ако искаме в горния пример <code class="docutils literal notranslate"><span class="pre">T</span></code> да ни бъде <code class="docutils literal notranslate"><span class="pre">int</span></code> или <code class="docutils literal notranslate"><span class="pre">str</span></code>, можем да напишем:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import TypeVar
+
+T = TypeVar(&quot;T&quot;, int, str)
+def shuffled(l: list[T]) -&gt; list[T]:
+    return random.sample(l, len(l))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Собствени типове<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Нашите собствени класове също могат да се използват като типове:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Person:
+    def __init__(self, name: str, age: int) -&gt; None:
+        self.name = name
+        self.age = age
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Person(name={self.name}, age={self.age})&quot;
+
+    def to_dict(self) -&gt; dict[str, Any]:
+        return {&quot;name&quot;: self.name, &quot;age&quot;: self.age}
+
+
+def get_people() -&gt; list[Person]:
+    return [Person(&quot;John&quot;, 42), Person(&quot;Jane&quot;, 37)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук особеното е, че в дефиницията на методи няма нужда да анотираме <code class="docutils literal notranslate"><span class="pre">self</span></code> - той винаги ще е от типа на класа.</p>
+<p>Когато обаче имаме метод, който приема или връща обект от типа на класа, към който е, съществуват особености за различните версии на езика. В Python 3.10 не е грешка да се използва името на класа още в дефиницията му, докато в по-старите версии - е. От Python 3.7+ може да се импортне <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>, за да работи това, докато за по-стари версии решението е просто да се напише името на класа като стринг в анотацията.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Person:
+    def __init__(self, name: str, age: int) -&gt; None:
+        self.name = name
+        self.age = age
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Person(name={self.name}, age={self.age})&quot;
+
+    def to_dict(self) -&gt; dict[str, Any]:
+        return {&quot;name&quot;: self.name, &quot;age&quot;: self.age}
+
+    # Python 3.10+ way
+    # or for Python 3.7-3.9 you also have to add `from __future__ import annotations`
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -&gt; Person:
+        return cls(**data)
+
+    # Python &lt;3.7 way
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -&gt; &quot;Person&quot;:
+        return cls(**data)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да си декларираме собствени типове, които да са съставени от други типове. Това се прави с <code class="docutils literal notranslate"><span class="pre">NewType</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import NewType, Optional
+
+PersonId = NewType(&quot;PersonId&quot;, int)
+
+class Person:
+    def __init__(self, id: PersonId, name: str, age: int) -&gt; None:
+        self.id = id
+        self.name = name
+        self.age = age
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Person(id={self.id}, name={self.name}, age={self.age})&quot;
+
+    def to_dict(self) -&gt; dict[str, Any]:
+        return vars(self)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -&gt; Person:
+        return cls(**data)
+
+def get_person_by_id(id: PersonId, database: list[Person]) -&gt; Optional[Person]:
+    return next((person for person in database if person.id == id), None)  # `next` has an optional second parameter - default value
+
+database = [
+    Person(PersonId(37), &quot;Lana Xes&quot;, 18),
+    Person(PersonId(69), &quot;Axl Rose&quot;, 60),
+]
+
+print(get_person_by_id(PersonId(37), database))
+print(get_person_by_id(PersonId(666), database))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Person(id=37, name=Lana Xes, age=18)
+None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук обаче бихме имали проблем в случай, че имаме наследник на този клас. Например:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Admin(Person):
+    def __init__(self, id: PersonId, name: str, age: int, can_ban: bool) -&gt; None:
+        super().__init__(id, name, age)
+        self.can_ban = can_ban
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Admin(id={self.id}, name={self.name}, age={self.age}, can_ban={self.can_ban})&quot;
+
+    def ban(self, person: Person) -&gt; None:
+        if self.can_ban:
+            print(f&quot;{self.name} is banning {person.name}.&quot;)
+        else:
+            print(f&quot;{self.name} is not allowed to ban anyone.&quot;)
+
+
+pesho = Person(PersonId(42), &quot;Pesho&quot;, 42)
+peshos_dict = pesho.to_dict()
+
+pesho_evolved = Admin.from_dict({**peshos_dict, &quot;can_ban&quot;: True})  # -&gt; Person, at least for the static type checker
+
+pesho_evolved.ban(pesho)  # ⚠️ type checker will complain that type `Person` has no method `ban`
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pesho is banning Pesho.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това поправяме отново с <code class="docutils literal notranslate"><span class="pre">TypeVar</span></code>, този път използвайки именования параметър <code class="docutils literal notranslate"><span class="pre">bound</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Type
+
+PersonId = NewType(&quot;PersonId&quot;, int)
+TPerson = TypeVar(&quot;TPerson&quot;, bound=&quot;Person&quot;)  # в кавички, защото `Person` още не съществува
+
+class Person:
+    def __init__(self, id: PersonId, name: str, age: int) -&gt; None:
+        self.id = id
+        self.name = name
+        self.age = age
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Person(id={self.id}, name={self.name}, age={self.age})&quot;
+
+    def to_dict(self) -&gt; dict[str, Any]:
+        return vars(self)
+
+    @classmethod
+    def from_dict(cls: Type[TPerson], data: dict[str, Any]) -&gt; TPerson:  # &lt;- тук са промените
+        return cls(**data)
+
+    def some_other_common_method(self: TPerson) -&gt; Any:  # &lt;- тук е важно да укажем какъв тип е `self`, ако ще се наследява
+        pass 
+
+class Admin(Person):
+    def __init__(self, id: PersonId, name: str, age: int, can_ban: bool) -&gt; None:
+        super().__init__(id, name, age)
+        self.can_ban = can_ban
+
+    def __repr__(self) -&gt; str:
+        return f&quot;Admin(id={self.id}, name={self.name}, age={self.age}, can_ban={self.can_ban})&quot;
+
+    def ban(self, person: Person) -&gt; None:
+        if self.can_ban:
+            print(f&quot;{self.name} is banning {person.name}.&quot;)
+        else:
+            print(f&quot;{self.name} is not allowed to ban anyone.&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Консистентни типове<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Type checker-ите се оплакват само когато видят неконсистенти типове.</p>
+<p>Казваме, че типът <code class="docutils literal notranslate"><span class="pre">T</span></code> е консистентен с типа <code class="docutils literal notranslate"><span class="pre">U</span></code>, тогава и само тогава когато <strong>поне едно</strong> от следните условия е изпълнено:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> е подтип на <code class="docutils literal notranslate"><span class="pre">U</span></code>  (<span class="math notranslate nohighlight">\( T \subset U \)</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> е <code class="docutils literal notranslate"><span class="pre">Any</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">U</span></code> е <code class="docutils literal notranslate"><span class="pre">Any</span></code></p></li>
+</ol>
+<p>Тук е хубаво да отбележим, без да навлизаме в много подробности, че това дали <code class="docutils literal notranslate"><span class="pre">T</span></code> е подтип на <code class="docutils literal notranslate"><span class="pre">U</span></code> в случаите на generic типове зависи от тяхната вариантност. Например, като отчетем факта, че <code class="docutils literal notranslate"><span class="pre">bool</span></code> е подтип на <code class="docutils literal notranslate"><span class="pre">int</span></code>, получаваме следното поведение:</p>
+<ul class="simple">
+<li><p><strong>Ковариантност:</strong> <code class="docutils literal notranslate"><span class="pre">tuple[bool]</span></code> е подтип на <code class="docutils literal notranslate"><span class="pre">tuple[int]</span></code> ( <span class="math notranslate nohighlight">\( T \subset U \Rightarrow C[T] \subset C[U] \)</span>)</p></li>
+<li><p><strong>Инвариантност:</strong> <code class="docutils literal notranslate"><span class="pre">list[bool]</span></code> не е нито подтип, нито надтип на <code class="docutils literal notranslate"><span class="pre">list[int]</span></code></p></li>
+<li><p><strong>Контравариантност:</strong> <code class="docutils literal notranslate"><span class="pre">Callable[[int],</span> <span class="pre">...]</span></code> е подтип на <code class="docutils literal notranslate"><span class="pre">Callable[[bool],</span> <span class="pre">...]</span></code> ( <span class="math notranslate nohighlight">\( T \subset U \Rightarrow C[U] \subset C[T] \)</span>)</p></li>
+</ul>
+</section>
+<section id="duck-typing">
+<h3>Duck typing<a class="headerlink" href="#duck-typing" title="Permalink to this headline">#</a></h3>
+<blockquote>
+<div><p>Ако изглежда като патка, плува като патка и квака като патка, то е патка.</p>
+</div></blockquote>
+<p>В програмирането съществуват два варианта за типизация: <strong>номинална</strong> и <strong>структурна</strong>.</p>
+<ul class="simple">
+<li><p>При <strong>номиналната</strong> типизация типовете са именувани и се сравняват по име и декларация, например <code class="docutils literal notranslate"><span class="pre">bool</span></code> наследява <code class="docutils literal notranslate"><span class="pre">int</span></code>, защото така е деклариран. В Python се ползва предимно номинално типизиране.</p></li>
+<li><p>При <strong>структурната</strong> типизация типовете се сравняват по-скоро по тяхната структура, т.е. какви методи притежават и т.н. Като пример можем да дадем <code class="docutils literal notranslate"><span class="pre">__len__</span></code> - можем на теория да декларираме структура <code class="docutils literal notranslate"><span class="pre">Sized</span></code>, към която би принадлежало всичко, което има метод <code class="docutils literal notranslate"><span class="pre">__len__</span></code>, независимо от името и декларацията му.</p></li>
+</ul>
+<p>В динамичната типизация често са по-важни наборът от методи, които един обект притежава, а не конретния му тип и декларация на базови класове. Именно това стои зад термина duck typing.</p>
+<p>В <code class="docutils literal notranslate"><span class="pre">typing</span></code> модулът ни предоставя готови такива структури (или протоколи), които са често използвани. Например точно такъв <code class="docutils literal notranslate"><span class="pre">Sized</span></code> какъвто описахме по-горе има там:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Sized
+
+def get_length_squared(obj: Sized) -&gt; int:
+    return len(obj) ** 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>В горният метод е най-удачно да се анотира аргумента със <code class="docutils literal notranslate"><span class="pre">Sized</span></code>, понеже <code class="docutils literal notranslate"><span class="pre">Any</span></code> би подвел програмиста, че абсолютно всичко е окей, но на практика не е съвсем така - абсолютно всичко, <em><strong>което дефинира <code class="docutils literal notranslate"><span class="pre">__len__</span></code></strong></em> е окей. Точно това ни казва протоколът <code class="docutils literal notranslate"><span class="pre">Sized</span></code>.</p>
+<p>Други полезни и често-използвано протоколи са например <code class="docutils literal notranslate"><span class="pre">Sequence</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>, <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> и <code class="docutils literal notranslate"><span class="pre">Container</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Iterable[]</span></code> - итеруеми, т.е. всичко, което дефинира <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> <em><strong>или</strong></em> <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Sequence[]</span></code> - редици, т.е. всичко, което дефинира <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> <em><strong>и</strong></em> <code class="docutils literal notranslate"><span class="pre">__len__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Container[]</span></code> - всичко, което дефинира <code class="docutils literal notranslate"><span class="pre">__contains__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Iterator[]</span></code> - всичко, което дефинира <code class="docutils literal notranslate"><span class="pre">__next__</span></code> <em><strong>и</strong></em> <code class="docutils literal notranslate"><span class="pre">__iter__</span></code></p></li>
+</ul>
+<p>Конкретно тези 4 протокoла са и абстрактни базови класове. От Python 3.9 насам е deprecate-нато те да се импортват от <code class="docutils literal notranslate"><span class="pre">typing</span></code> модула - вместо това може да си се използва директно <code class="docutils literal notranslate"><span class="pre">collections.abc</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sequence</span></code> дефинира още и <code class="docutils literal notranslate"><span class="pre">__contains__</span></code> и <code class="docutils literal notranslate"><span class="pre">__reversed__</span></code>, които използват имплементацията на другите два метода. Също така по дефиниця може да забележим, че всички редици са и итеруеми, и контейнери.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from collections.abc import Iterable
+
+Number = int | float | complex
+
+def multiply(a: Iterable[Number], b: Iterable[Number]) -&gt; Number:
+    return sum(a * b for a, b in zip(a, b))
+</pre></div>
+</div>
+</div>
+</div>
+<section id="protocol">
+<h4><code class="docutils literal notranslate"><span class="pre">Protocol</span></code><a class="headerlink" href="#protocol" title="Permalink to this headline">#</a></h4>
+<p>Можем естествено и сами да си дефинираме протокол, с <code class="docutils literal notranslate"><span class="pre">typing.Protocol</span></code>.</p>
+<p>Да предположим, че имаме подобни класове (примерно предоставени от някои библиотеки):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Child:
+    def quack(self) -&gt; None:
+        print(&quot;Quack!&quot;)
+
+class Physicist:
+    def quack(self) -&gt; None:
+        print(&quot;Quark.&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Номинално те нямат нищо общо (нямат общ базов клас), но структурно имат общ метод. Да предположим и че точно този метод ни трябва за някаква функция, като тази:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def make_quack(duck):
+    duck.quack()
+</pre></div>
+</div>
+</div>
+</div>
+<p>Как ще анотираме аргумента <code class="docutils literal notranslate"><span class="pre">duck</span></code> на функцията?</p>
+<p><code class="docutils literal notranslate"><span class="pre">Any</span></code> не ни върши достатъчна работа, понеже не всичко може да <code class="docutils literal notranslate"><span class="pre">quack()</span></code>-а. На практика искаме да си дефинираме наш си протокол, който да съдържа само този метод:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Protocol
+
+class Duck(Protocol):
+    def quack(self) -&gt; None:
+        ...  # yes, this is valid Python syntax apparently
+
+def make_quack(duck: Duck) -&gt; None:
+    duck.quack()
+
+peshi = Child()
+feynman = Physicist()
+
+make_quack(peshi)
+make_quack(feynman)
+# static type-checkers will not complain about above 2 invocations.
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Quack!
+Quark.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> и <code class="docutils literal notranslate"><span class="pre">issubclass</span></code> да работят с протоколите ни, трябва да ги декорираме с <code class="docutils literal notranslate"><span class="pre">typing.runtime_checkable</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Protocol, runtime_checkable
+
+@runtime_checkable
+class Duck(Protocol):
+    def quack(self) -&gt; None:
+        ...
+
+print(f&quot;{isinstance(peshi, Duck) = }&quot;)
+print(f&quot;{issubclass(Physicist, Duck) = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>isinstance(peshi, Duck) = True
+issubclass(Physicist, Duck) = True
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note:</em> преди Python 3.8 <code class="docutils literal notranslate"><span class="pre">Protocol</span></code> се намира в <code class="docutils literal notranslate"><span class="pre">typing_extensions</span></code> модула.</p>
+</section>
+</section>
+</section>
+<section id="dataclass">
+<h2><code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code><a class="headerlink" href="#dataclass" title="Permalink to this headline">#</a></h2>
+<p>Говорейки за typing няма как вече да не намесим и един полезен декоратор - <code class="docutils literal notranslate"><span class="pre">dataclasses.dataclass</span></code>, вмъкнал се в езика с Python 3.7.</p>
+<p>Както подсказва донякъде името му, той има за цел да помогне с дефинирането на прости класове, които имат за цел предимно да съхраняват някакви атрибути с някакви данни (подобно на типовете, за които бихме използвали <code class="docutils literal notranslate"><span class="pre">struct</span></code> вместо <code class="docutils literal notranslate"><span class="pre">class</span></code> в С++ / С# например).</p>
+<p>Предоставя ни изключително голямо синтактично удобство, понеже следния клас:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from dataclasses import dataclass
+
+@dataclass
+class User:
+    id: int
+    username: str
+    email: str
+    is_admin: bool = False
+</pre></div>
+</div>
+</div>
+</div>
+<p>е абсолютно еквивалентен на:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class User:
+    def __init__(self, id: int, username: str, email: str, is_admin: bool = False) -&gt; None:
+        self.id = id
+        self.username = username
+        self.email = email
+        self.is_admin = is_admin
+
+    def __repr__(self) -&gt; str:
+        return f&quot;User(id={self.id}, username={self.username}, email={self.email}, is_admin={self.is_admin})&quot;
+
+    def __eq__(self, other: object) -&gt; bool:
+        if not isinstance(other, User):
+            return False
+
+        return vars(self) == vars(other)
+
+    # Python 3.10+ only, used for the `match` statement
+    def __match_args__(self) -&gt; tuple[int, str, str, bool]:
+        return self.id, self.username, self.email, self.is_admin
+</pre></div>
+</div>
+</div>
+</div>
+<p>И това са само част от способностите на <code class="docutils literal notranslate"><span class="pre">&#64;dataclass</span></code>. Той приема различни параметри, с които още можем да укажем дали класът да е immutable (<code class="docutils literal notranslate"><span class="pre">frozen=True</span></code>), да има <code class="docutils literal notranslate"><span class="pre">__hash__</span></code>, дефиниции на операторите за сравнение, и др.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> 
+    <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="nb">repr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">eq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">unsafe_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">match_args</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="n">kw_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">slots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">weakref_slot</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Point:
+    x: int | float = 0
+    y: int | float = 0
+
+s = {Point(1, 2), Point(), Point(1, 2)}
+print(s)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{Point(x=1, y=2), Point(x=0, y=0)}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Повече информация в <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html#dataclasses.dataclass">документацията</a>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./06 - Typing Hints"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Structures &amp; Oddities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Грешки и изключения</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

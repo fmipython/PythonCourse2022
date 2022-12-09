@@ -1,0 +1,1591 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Многонишково програмиране с Python &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Сравнение на версии 2 и 3 на Python: прилики и разлики" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html" />
+    <link rel="prev" title="Работа с файлове в Python" href="../08%20-%20Files/08%20-%20Files.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/09 - Multithreading/09 - Multithreading.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/09 - Multithreading/09 - Multithreading.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F09 - Multithreading/09 - Multithreading.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/09 - Multithreading/09 - Multithreading.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/09 - Multithreading/09 - Multithreading.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Скалиране от 1 към много
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Какво е конкурентност ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Какво е паралелизъм ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Модерните процесори
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Какво е нишка ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threads">
+   Работа с нишки (Threads)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-gil">
+   Python GIL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threads-round-2">
+   Threads, round 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Семафори
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#event">
+     Event
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   “Многопроцесност”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#process">
+     Process
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Комуникация между процеси
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#queue">
+       Queue
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pipe">
+       Pipe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shared-memory">
+       Shared memory
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asyncio">
+   asyncio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#async-io-coroutines">
+     Какво са async IO и coroutines ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Примери
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Многонишково програмиране с Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Скалиране от 1 към много
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Какво е конкурентност ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Какво е паралелизъм ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Модерните процесори
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Какво е нишка ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threads">
+   Работа с нишки (Threads)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-gil">
+   Python GIL
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#threads-round-2">
+   Threads, round 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Семафори
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#event">
+     Event
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   “Многопроцесност”
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#process">
+     Process
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Комуникация между процеси
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#queue">
+       Queue
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pipe">
+       Pipe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#shared-memory">
+       Shared memory
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asyncio">
+   asyncio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#async-io-coroutines">
+     Какво са async IO и coroutines ?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   Примери
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Многонишково програмиране с Python<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h1>
+<p>План на лекцията:</p>
+<ul class="contains-task-list simple">
+<li><p>Скалиране от 1 към много</p></li>
+<li><p>Какво е нишка ?</p></li>
+<li><p>Работа с нишки (Threads)</p></li>
+<li><p>Python GIL</p></li>
+<li><p>Threads, round 2</p></li>
+<li><p>“Многопроцесност”</p></li>
+<li><p>asyncio</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Примери</p></li>
+</ul>
+<section id="id1">
+<h2>Скалиране от 1 към много<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Нека се върнем към едни по-прости времена - когато процесорът (да го наречем “v1”) може да изпълнява една-единствена задача. Нека освен този прост процесор, да имаме и набор от задачи - <code class="docutils literal notranslate"><span class="pre">[t1,</span> <span class="pre">t2,</span> <span class="pre">t3]</span></code>.
+Процесорът взима първата задача, изпълнява я, взема втората задача, изпълнява нея, и така докато не мине през всички задачи.</p>
+<p>(Картинка, на която t1 -&gt; t2 —&gt; t3 –&gt;)</p>
+<p>Нека си представим, че задачата <code class="docutils literal notranslate"><span class="pre">t2</span></code> отнема повече време, защото трябва да изчака за някакъв ресурс (например файлова операция). В това време, нашия процесор v1 чака, и не прави никакви изчисления. Това със сигурност не е оптимално.</p>
+<section id="id2">
+<h3>Какво е конкурентност ?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Нека да вземем един нов, по-добър процесор (“v2”), който може да разпознае кога даден процес чака за ресурс, и в такава ситуация да даде приоритет на друг процес.
+В тази ситуация, когато <code class="docutils literal notranslate"><span class="pre">t2</span></code> чака за ресурс, процесорът може да пусне <code class="docutils literal notranslate"><span class="pre">t3</span></code> по-рано. Когато ресурсът на <code class="docutils literal notranslate"><span class="pre">t2</span></code> стане наличен, процесорът ще спре <code class="docutils literal notranslate"><span class="pre">t3</span></code>, и ще даде време обратно на <code class="docutils literal notranslate"><span class="pre">t2</span></code>.</p>
+<p>(Картинка, на която t1 -&gt; t2 -&gt; t3 –&gt; t2 -&gt;)</p>
+<p>Това изпълнение, ни позволява да изпълним задачите си по-бързо - вместо да чакаме <code class="docutils literal notranslate"><span class="pre">t2</span></code> да приключи, това време в чакане може да се използва за изпълнението на <code class="docutils literal notranslate"><span class="pre">t3</span></code>.</p>
+<p>Този модел на изпълнение, в който изпълнението на следващата задача не е нужно да изчаква приключването на текущата, се нарича “конкурентно изпълнение”.
+Важно е да се отбележи, че конкурентното изпълнение не е едновременно (паралелно) изпълнение на задачи - продължаваме да изпълняваме по една задача в даден момент, просто редът им не е детерминиран. Ние не знаем в какъв ред ще се изпълнят задачите и коя от тях ще бъде изпълнена първа.</p>
+</section>
+<section id="id3">
+<h3>Какво е паралелизъм ?<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Колкото и оптимално да е раздаването на процесорно време от нашия v2 процесор, той все още не може да прави паралелни изчисления. Затова нека въведем нашия “v3” процесор - той ще е два v2 процесора “залепени” един за друг. Това би означавало, че нашия v3 процесор може да изпълнява две задачи едновременно (паралелно).</p>
+</section>
+<section id="id4">
+<h3>Модерните процесори<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Модерните процесори са изградени от няколко ядра (8, 10, 16), които могат да изпълняват различни задачи паралелно. В идеалния свят, ако нашата задача отнема <code class="docutils literal notranslate"><span class="pre">t</span></code> време на 1 ядро, то на <code class="docutils literal notranslate"><span class="pre">n</span></code> ядра, би трябвало да отнеме <code class="docutils literal notranslate"><span class="pre">t/n</span></code> време.</p>
+</section>
+</section>
+<section id="id5">
+<h2>Какво е нишка ?<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Нишката може да бъде разглеждана като най-малката смислена поредица от инструкции, които да бъдат изпълнени. Един процес съдържа една или повече нишки.
+Нишките могат да комуникират една с друга, с помощта на споделена памет или с т.нар. канали.</p>
+<p>Съществуват два вида нишки - нишки на ядрото (kernel threads) и потребителски нишки (user threads). Нишките на ядрото са менажирани от kernel-а - той се грижи за предаването на изпълнението от една нишка на друга. Kernel нишките споделят една и съща памет и файлови ресурси. Всяка нишка обаче има собствен стек, копие на регистрите и специална памет за конкретната нишка.</p>
+<p>User нишките (наричани още “зелени” нишки, green threads) се управляват на ниво потребителски процес. Ядрото на ОС не знае за тяхното съществуване. Факта, че те се оправляват от потребителски процеси, прави предаването на контрола между всяка от тях евтина операция (от гледна точка на kernel-а, няма смяна на изпълняващата се нишка, съответно няма context switch). Главния недостатък на user нишките е при изпълнението на блокиращи операции (най-често свързани с IO операции) - при такава операция, вместо да се блокира само една нишка, се блокира целия процес.</p>
+<p>Съществуват три модела за работа с нишки, определяни от съотношението на брой kernel threads към user threads</p>
+<ul class="simple">
+<li><p>1:1 - в този модел, на всяка нишка създадена от потребителя съотвества на kernel нишка</p></li>
+<li><p>N:1 - в този модел, всяка нишка създадена от потребителя се съпоставя към една kernel нишка</p></li>
+<li><p>M:N - в този модел, M на брой потребителски нишки се съпоставят към N на брой kernel нишки</p></li>
+</ul>
+</section>
+<section id="threads">
+<h2>Работа с нишки (Threads)<a class="headerlink" href="#threads" title="Permalink to this headline">#</a></h2>
+<p>За работа с нишки в Python използваме библиотеката <code class="docutils literal notranslate"><span class="pre">threading</span></code>. Тя ни предоставя различни инструменти за стартиране, синхронизиране и обща работа с нишки.</p>
+<p>Основният клас с който ще работим, е класът <code class="docutils literal notranslate"><span class="pre">Thread</span></code>. Той има за цел да се погрижи за изпълнението на дадено парче питонски код, в отделна нишка. Можем да зададем кода, който искаме да изпълним по два начин - като <code class="docutils literal notranslate"><span class="pre">Callable</span></code> обект, подаден на конструктора на <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, или като създадем собствен клас, който да наследи <code class="docutils literal notranslate"><span class="pre">Thread</span></code> и да презапишем <code class="docutils literal notranslate"><span class="pre">run</span></code> метода.</p>
+<p>За да стартираме нишка, трябва да извикаме <code class="docutils literal notranslate"><span class="pre">start</span></code> метода - той има за цел да подготви нова нишка, в която да бъде изпълнено съдържанието на <code class="docutils literal notranslate"><span class="pre">run</span></code> метода.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from threading import Thread
+
+def hi():
+    print(&quot;Thread with a Callable in the init&quot;)
+
+t1 = Thread(target=hi)
+t1.start()
+
+class MyThread(Thread):
+    def run(self):
+        print(&quot;Custom Thread class&quot;)
+
+t2 = MyThread()
+t2.start()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thread with a Callable in the init
+Custom Thread class
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук е важно да се отбележи, че когато наследяваме от <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, не трябва да предефинираме никакви други методи, освен <code class="docutils literal notranslate"><span class="pre">__init__</span></code> и <code class="docutils literal notranslate"><span class="pre">run</span></code>. Можем да добавяме нови методи, но не трябва да променяме поведението на останалите методи в <code class="docutils literal notranslate"><span class="pre">Thread</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from threading import Thread
+from time import sleep
+
+def delayed_hi():
+    sleep(2)
+    print(&quot;Overslept a bit... hi&quot;)
+
+t1 = Thread(target=delayed_hi)
+t1.start()
+print(&quot;The early bird gets the worm&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The early bird gets the worm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Overslept a bit... hi
+</pre></div>
+</div>
+</div>
+</div>
+<p>В горния пример, изпълнението на програмата продължава напред със следващите редове код. Програмата ни приключва тогава, когато всички нишки за приключили работа.</p>
+<p>Ако искаме да изчакаме дадена нишка да приключи преди да продължим с изпълнението на кода, можем да използваме метода <code class="docutils literal notranslate"><span class="pre">join</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from threading import Thread
+from time import sleep
+
+def delayed_hi():
+    sleep(1)
+    print(&quot;I&#39;m a thread&quot;)
+
+t1 = Thread(target=delayed_hi)
+t1.start()
+
+print(&quot;The thread has started&quot;)
+print(&quot;I want to wait for it to end&quot;)
+t1.join()  # Comment this, to see the change
+print(&quot;The thread has finished&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The thread has started
+I want to wait for it to end
+I&#39;m a thread
+The thread has finished
+</pre></div>
+</div>
+</div>
+</div>
+<p>Методът <code class="docutils literal notranslate"><span class="pre">join</span></code> спира изпълненето на кода, докато нишката не приключи работата си или не срещне <code class="docutils literal notranslate"><span class="pre">Exception</span></code>. Възможно е да подадем <code class="docutils literal notranslate"><span class="pre">timeout</span></code> параметър на <code class="docutils literal notranslate"><span class="pre">join</span></code> - той индикира колко време да изчакаме нишката да приключи. Важно е да отбележим, че след изтичането на <code class="docutils literal notranslate"><span class="pre">timeout</span></code> параметъра, нишката може да продължи да работи. С методът <code class="docutils literal notranslate"><span class="pre">is_alive</span></code> можем да проверим дали дадена нишка все още работи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from threading import Thread
+from time import sleep 
+
+def sleepy_thread():
+    print(&quot;&gt;Going to sleep&quot;)
+    sleep(20)
+    print(&quot;&gt;Did a really good nap&quot;)
+
+t1 = Thread(target=sleepy_thread)
+t1.start()
+
+print(f&quot;Is the thread working ? {t1.is_alive()}&quot;)
+
+print(&quot;Let&#39;s give it some time&quot;)
+sleep(2)
+
+print(&quot;Time to get up !&quot;)
+t1.join(timeout=3)
+
+print(f&quot;Is the thread working ? {t1.is_alive()}&quot;)
+t1.join()
+
+print(f&quot;What about now ? {t1.is_alive()}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;Going to sleep
+Is the thread working ? True
+Let&#39;s give it some time
+Time to get up !
+Is the thread working ? True
+&gt;Did a really good nap
+What about now ? False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Друга важна особеност на <code class="docutils literal notranslate"><span class="pre">Thread</span></code>, е че ако нашата функция връща някакъв резутлат, той няма да ни бъде върнат, ако функцията се изпълнява през thread.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from threading import Thread
+
+def return_a_value():
+    return 5
+
+t1 = Thread(target=return_a_value)
+
+res = t1.start()
+print(f&quot;{res=}, {type(res)=}&quot;)
+
+res = t1.join()
+print(f&quot;{res=}, {type(res)=}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>res=None, type(res)=&lt;class &#39;NoneType&#39;&gt;
+res=None, type(res)=&lt;class &#39;NoneType&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека разгледаме следния практически пример - имаме следната функция, която изчислява (до някаква степен) безкрайна сума. Като пример, ще вземем следната сума  $<span class="math notranslate nohighlight">\( \sum_{k=0}^{\infty} \frac{99^k}{(99(k+1))^{97}}  \)</span>$</p>
+<p>Можем да напишеш функция, която изчислява част от реда - с начално <span class="math notranslate nohighlight">\( k_{start} \)</span> и крайно <span class="math notranslate nohighlight">\( k_{end} \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+
+def calculate_partial_sum(start: int, end: int) -&gt; int:
+    sum = 0
+    for k in range(start, end + 1):
+        numerator = (99 ** k)
+        denominator = (99 * (k+1)) ** 97
+        sum += numerator // denominator
+    
+    return sum
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека изчислим първите 24000 члена на този ред</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+
+start = time.time()
+calculate_partial_sum(0, 24000)
+end = time.time()
+
+print(f&#39;The call took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The call took 13.06 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Забелязваме, че кода ни отнема ~13 секунди да пресметне първите 24000 члена да реда. В този си вариант, членове на реда не зависят един от друг - това ни позволява да ги пресмятаме на интервали, които можем да пуснем на няколко нишки.</p>
+<p>Нека като първи пример пуснем две нишки - едната да изчисли първите 12000 члена, а втората, останалите.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+from threading import Thread
+
+t1 = Thread(target=calculate_partial_sum, args=(0, 12000))
+t2 = Thread(target=calculate_partial_sum, args=(12001, 24000))
+
+start = time.time()
+t1.start()
+t2.start()
+
+while t1.is_alive() or t2.is_alive():
+    time.sleep(0.1)
+
+end = time.time()
+print(f&#39;The 2 threads took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 2 threads took 14.82 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Забелязваме, че на две нишки, кодът ни се изпълни за ~15 секунди - изненада. Нека пробваме на 4 нишки, каква е ситуацията.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+from threading import Thread
+
+t1 = Thread(target=calculate_partial_sum, args=(0, 6000))
+t2 = Thread(target=calculate_partial_sum, args=(6001, 12000))
+t3 = Thread(target=calculate_partial_sum, args=(12001, 18000))
+t4 = Thread(target=calculate_partial_sum, args=(18001, 24000))
+
+start = time.time()
+t1.start()
+t2.start()
+t3.start()
+t4.start()
+
+while t1.is_alive() or t2.is_alive() or t3.is_alive() or t4.is_alive():
+    time.sleep(0.1)
+
+end = time.time()
+print(f&#39;The 4 threads took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 4 threads took 21.37 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>С 4 нишки, нещата стават още по-бавни… Какво се случва ?</p>
+</section>
+<section id="python-gil">
+<h2>Python GIL<a class="headerlink" href="#python-gil" title="Permalink to this headline">#</a></h2>
+<p>Една от особенностите на Python, е т.нар. global interpreter lock (GIL) - накратко, само една нишка може да работи с интерпретатора на Python в даден момент.
+Това е направено с цел, да се реши проблема с промяната на променлива от една нишка, докато друга я достъпва. (По-конкретно, проблемът може да се появи, когато дадена памет трябва да се освободи, след като в едната нишка се стига до порция от кода, в който променливата вече не се използва).</p>
+<p>Съществуването на GIL в Python улеснява писането на код - нашия код винаги е thread-safe (няма как две нишки да се борят за един и същ ресурс). Освен това, GIL позволява използването на C библиотеки, които не са предвидени за работа в многонишков режим.</p>
+<p>Наличието на GIL в Python обаче означава, че нашия “многонишков” код всъщност не е многонишков - да, ние стартираме няколко нишки, но те се изпълняват конкурентно, а не паралелно. На практика това означава, че при задачи, в които разчитаме единствено на операциите на процесора, кодът ни ще се държи все едно се изпълнява на една нишка.</p>
+<p>Това обаче е вярно за задачи, които са изцяло зависими от процесора - както казахме по-горе, понякога нашите задачи трябва да “чакат” за някакъв ресурс (например файл) - тогава интерпретатора ще отнеме контрола на чакащата нишка, и ще го предаде на следвщата нишка чакаща време за изпълнение. На практика това означава, че използването на нишки в Python би донесло подобрение във времето за изпълнение, независимо от GIL.</p>
+<p>Ситуации в които това би било вярно, е когато работим с GUI - през повечето време нашата програма няма да прави CPU изчисления, и активната нишка ще е тази, върху която се изпълнява графичния интерфейс. Друг пример, е когато имаме задачи с много IO операции - писане или четене от файлове.</p>
+<p>Ако искате да научите повече детайли за GIL, може да разгледате <a class="reference external" href="https://realpython.com/python-gil/">тази</a> статия, или <a class="reference external" href="https://www.youtube.com/watch?v=Obt-vMVdM8s">този</a> клип.</p>
+</section>
+<section id="threads-round-2">
+<h2>Threads, round 2<a class="headerlink" href="#threads-round-2" title="Permalink to this headline">#</a></h2>
+<p>Освен начини за създаване на нишки, в <code class="docutils literal notranslate"><span class="pre">threading</span></code> библиотеката се намират и полезни инструменти за синхронизация между нишки. Синхронизацията между нишки представлява механизми, които осигуряват правилната работа със споделени ресурси между няколко нишки.</p>
+<section id="id6">
+<h3>Семафори<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Първият обект който ще разгледаме, е семафорът. Семафорът съдържа брояч, който ако е по-голям от 0, позволява на дадена нишка да влезе в т.нар. критична секция (да достъпи споделен ресурс между нишки). С влизането в тази критична секция на една нишка, брояча се намаля с 1. Когато една нишка излезе от критичната секция “връща” семафора (увеличава неговия брояч с 1). Ако друга нишка стигне до тази критична секция, и брояча на семафора е 0, нишката ще трябва да изчака докато брояча е отново по-голям от 0.</p>
+<p>В Python, семафора е реализиран в <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code> класа. Той съдържа два основни метода - <code class="docutils literal notranslate"><span class="pre">acquire</span></code> и <code class="docutils literal notranslate"><span class="pre">release</span></code>. <code class="docutils literal notranslate"><span class="pre">acquire</span></code> метода проверява дали брояча е със стойност по-голяма от 0. Ако е така, намалява брояча с 1 и продължава напред. Ако брояча обаче е със стойност 0, изчаква докато брояча не стане &gt; 1. <code class="docutils literal notranslate"><span class="pre">release</span></code> метода пък увеличава стойността на брояча с 1.</p>
+<p>Ще разгледаме следния пример - имаме две нишки, всяка от която ще пише в общ списък. За да гарантираме, че във всеки даден момент само една нишка ще пише в списъка, ще използваме семафор.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import threading
+
+def add_another_item_to_list(item: int, items: list[int], semaphore: threading.Semaphore):
+    print(&quot;Waiting to write in the list&quot;)
+
+    semaphore.acquire()
+    items.append(item)
+    semaphore.release()
+
+    print(&quot;Wrote successfully in the list&quot;)
+
+semaphore = threading.Semaphore(1)  # Стойността подадена в конструктора е началната стойност на брояча на семафора
+items = []
+t1 = threading.Thread(target=add_another_item_to_list, args=(1, items, semaphore))
+t2 = threading.Thread(target=add_another_item_to_list, args=(2, items, semaphore))
+
+t1.start()
+t2.start()
+
+print(items)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waiting to write in the list
+Wrote successfully in the list
+Waiting to write in the list
+Wrote successfully in the list
+[1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да използваме семафори и да подсигурим, че една нишка ще се изпълни преди която и да е друга. Нека този пъти имаме 3 нишки, и искаме да подсигурим, че нишка 1 ще се изпълни винаги преди 2 и 3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
+import threading
+
+def add_another_item_to_list(item: int, items: list[int], semaphore: threading.Semaphore, is_first_thread: bool = False):
+    print(f&quot;Waiting to write {item} in the list&quot;)
+
+    if not is_first_thread:
+        semaphore.acquire()
+
+    items.append(item)
+    semaphore.release()
+
+    print(f&quot;Successfully wrote {item} in the list&quot;)
+
+semaphore = threading.Semaphore(0)  # Стойността подадена в конструктора е началната стойност на брояча на семафора
+items = []
+
+t1 = threading.Thread(target=add_another_item_to_list, args=(1, items, semaphore, True))
+t2 = threading.Thread(target=add_another_item_to_list, args=(2, items, semaphore))
+t3 = threading.Thread(target=add_another_item_to_list, args=(3, items, semaphore))
+
+threads = [t1, t2, t3]
+random.shuffle(threads)
+
+for thread in threads:
+    thread.start()
+
+for thread in threads:
+    thread.join()
+    
+print(items)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waiting to write 3 in the list
+Waiting to write 2 in the list
+Waiting to write 1 in the list
+Successfully wrote 1 in the list
+Successfully wrote 3 in the list
+Successfully wrote 2 in the list
+[1, 3, 2]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="event">
+<h3>Event<a class="headerlink" href="#event" title="Permalink to this headline">#</a></h3>
+<p>Нека разгледаме следната ситуация - имаме N на брой нишки, като първата от тях трябва да изпълни някакъв код, преди да могат да продължат другите. За цел синхронизация, трябва да имаме механизъм, чрез който всичко освен първата нишка да изчакат, докато първата нишка не каже че е приключила.</p>
+<p>Един начин по който можем да имплементираме това е със специален флаг - докато флага има стойност <code class="docutils literal notranslate"><span class="pre">False</span></code>, нашите нишки няма да се изпълняват. Когато флага стане <code class="docutils literal notranslate"><span class="pre">True</span></code>, имаме зелена светлина за изпълнението на останалите нишки.</p>
+<p>Python ни предлага удобен механизъм за решаването на този проблем - <code class="docutils literal notranslate"><span class="pre">Event</span></code> класа. Той разполага със следните методи:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">is_set()</span></code> - проверява дали флага е със стойност <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set()</span></code> - задава стойност на флага <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clear()</span></code> - изчиства стойноста на флага (задава се стойност <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wait()</span></code> - блокира текущата нишка, докато флага не стане <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+</ul>
+<p>Нека разгледаме примера, в който една нишка ще направи някакви изчисления, ще ги запази в променлива, а друга нишка ще използват тази стойност.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import threading
+import time
+
+constant = 0
+
+def calculate_variable(event_signalizer: threading.Event):
+    print(&quot;Calculating the variable...&quot;)
+    time.sleep(1)
+
+    global constant
+    constant = 42
+    print(&quot;Done !&quot;)
+    event_signalizer.set()
+
+def other_calculations(event_signalizer: threading.Event):
+    print(&quot;Starting other calculations...&quot;)
+    event_signalizer.wait()
+    result = constant ** 2
+    print(f&quot;The result is {result}&quot;)
+
+event = threading.Event()
+t1 = threading.Thread(target=calculate_variable, args=(event,))
+t2 = threading.Thread(target=other_calculations, args=(event, ))
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating the variable...
+Starting other calculations...
+Done !
+The result is 1764
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id7">
+<h2>“Многопроцесност”<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://docs.python.org/3.10/library/multiprocessing.html#module-multiprocessing">https://docs.python.org/3.10/library/multiprocessing.html#module-multiprocessing</a></p>
+<p>Един начин да заобиколим GIL-а, е да използваме множество процеси - така всяка задача има собствен Python интерпретатор (съответно и собствен GIL). <code class="docutils literal notranslate"><span class="pre">multiprocessing</span></code> библиотеката предоставя подобни на <code class="docutils literal notranslate"><span class="pre">threading</span></code> функции, чрез които можем да реализираме истинска паралелност.</p>
+<section id="process">
+<h3>Process<a class="headerlink" href="#process" title="Permalink to this headline">#</a></h3>
+<p>Можем да стартираме нов процес, като инстанцираме обект от тип <code class="docutils literal notranslate"><span class="pre">Process</span></code> - той работи по същия начин както <code class="docutils literal notranslate"><span class="pre">Thread</span></code> класа.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from multiprocessing import Process
+
+def hello_from_the_other_side(name: str):
+    print(f&quot;Hello, {name}&quot;)
+
+p1 = Process(target=hello_from_the_other_side, args=(&quot;Lyubo&quot;, ))
+p1.start()
+p1.join()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Lyubo
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека повторим примера с пресмятането на реда от по-горе, но този път ще използваме <code class="docutils literal notranslate"><span class="pre">Process</span></code> обекти, вместо <code class="docutils literal notranslate"><span class="pre">Thread</span></code> такива.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+
+def calculate_partial_sum(start: int, end: int) -&gt; int:
+    sum = 0
+    for k in range(start, end + 1):
+        numerator = (99 ** k)
+        denominator = (99 * (k+1)) ** 97
+        sum += numerator // denominator
+    
+    return sum
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+
+start = time.time()
+calculate_partial_sum(0, 24000)
+end = time.time()
+
+print(f&#39;The call took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The call took 12.72 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+from multiprocessing import Process
+
+t1 = Process(target=calculate_partial_sum, args=(0, 12000))
+t2 = Process(target=calculate_partial_sum, args=(12001, 24000))
+
+start = time.time()
+t1.start()
+t2.start()
+
+while t1.is_alive() or t2.is_alive():
+    time.sleep(0.1)
+
+end = time.time()
+print(f&#39;The 2 processes took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 2 processes took 10.52 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+from multiprocessing import Process
+
+t1 = Process(target=calculate_partial_sum, args=(0, 6000))
+t2 = Process(target=calculate_partial_sum, args=(6001, 12000))
+t3 = Process(target=calculate_partial_sum, args=(12001, 18000))
+t4 = Process(target=calculate_partial_sum, args=(18001, 24000))
+
+start = time.time()
+t1.start()
+t2.start()
+t3.start()
+t4.start()
+
+while t1.is_alive() or t2.is_alive() or t3.is_alive() or t4.is_alive():
+    time.sleep(0.1)
+
+end = time.time()
+print(f&#39;The 4 processes took {(end-start):.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The 4 processes took 6.62 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Макар и не с много, виждаме подобрение във времето при скалирането от 1 процес на 2 процеса, и от 2 на 4 - това забавяне идва от предимно от баланса на задачите - втория процес има по-сложна задача, затова му отнема повече време.</p>
+</section>
+<section id="id8">
+<h3>Комуникация между процеси<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>Имаме няколко варианта за комуникация между процесите - Queue, pipe, споделена памет и т.нар. “сървърен процес”</p>
+<section id="queue">
+<h4>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">#</a></h4>
+<p>Можем да създадем опашка, която да бъде споделена между процеси - тя е синхронизирана, т.е. няма риск от race conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
+from multiprocessing import Process, Queue
+
+def put_in_the_queue(q):
+    q.put(random.randint(0, 10))
+
+q = Queue()
+p1 = Process(target=put_in_the_queue, args=(q, ))
+p2 = Process(target=put_in_the_queue, args=(q, ))
+
+p1.start()
+p2.start()
+
+p1.join()
+p2.join()
+
+print(f&#39;Amount of items in the Queue: {q.qsize()}&#39;)
+
+while q.qsize() &gt; 0:
+    print(f&#39;Item in the Queue: {q.get()}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Amount of items in the Queue: 2
+Item in the Queue: 10
+Item in the Queue: 4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pipe">
+<h4>Pipe<a class="headerlink" href="#pipe" title="Permalink to this headline">#</a></h4>
+<p>Вместо опашка, която е обща за всички процеси/нишки, можем да използваме “тръба” (пайп), свързана към два процеса/нишки. Тя позволява двупосочна комуникация между процеси. Извикването на <code class="docutils literal notranslate"><span class="pre">Pipe</span></code> ни връща два обекта - пайп през който можем да изпращаме данни, и пайп през който можем да получаваме данни. С подаване на <code class="docutils literal notranslate"><span class="pre">duplex</span></code> аргумента със стойност <code class="docutils literal notranslate"><span class="pre">True</span></code>, двата пайпа получават възможността за четене и писане.  Чрез методите <code class="docutils literal notranslate"><span class="pre">send</span></code> и <code class="docutils literal notranslate"><span class="pre">recv</span></code> може да изпращаме и получаваме съобщения по Pipe-а. <code class="docutils literal notranslate"><span class="pre">recv</span></code> блокира процеса/нишката, докато не се получи съобщение, което да се обработи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+from multiprocessing import Process, Pipe, connection
+
+def wait_and_send(pipe: connection.Connection):
+    print(&quot;Sending a message&quot;)
+    time.sleep(1)
+    pipe.send(42)
+
+def receive_and_print(pipe: connection.Connection):
+    msg = pipe.recv()
+    print(f&quot;Received a message: {msg}&quot;)
+
+send_pipe, receive_pipe = Pipe()
+p1 = Process(target=wait_and_send, args=(send_pipe, ))
+p2 = Process(target=receive_and_print, args=(receive_pipe, ))
+
+p1.start()
+p2.start()
+
+p1.join()
+p2.join()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sending a message
+Received a message: 42
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shared-memory">
+<h4>Shared memory<a class="headerlink" href="#shared-memory" title="Permalink to this headline">#</a></h4>
+<p>Ако пък искаме да използваме директно споделена памет под някакъв вид (променлива или масив), можем да заделим така с помощта на класовете <code class="docutils literal notranslate"><span class="pre">Value</span></code> и <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from multiprocessing import Process, Value
+
+def calculate_area(radius: float, pi: Value, result: Value):
+    result.value = pi.value * (radius ** 2)
+
+pi = Value(&#39;f&#39;, 3.14)
+result = Value(&#39;f&#39;)
+
+p1 = Process(target=calculate_area, args=(3, pi, result))
+p1.start()
+p1.join()
+
+print(f&#39;The result is {result.value}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The result is 28.260000228881836
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import random
+from multiprocessing import Process, Array, Value
+
+def add_to_array(arr: Array, free_index: Value):
+    arr[free_index.value] = random.randint(0, 100)
+    free_index.value = free_index.value + 1
+
+free_index = Value(&#39;i&#39;, 0)
+arr = Array(&#39;i&#39;, 5)
+
+p1 = Process(target=add_to_array, args=(arr, free_index))
+p2 = Process(target=add_to_array, args=(arr, free_index))
+p3 = Process(target=add_to_array, args=(arr, free_index))
+p4 = Process(target=add_to_array, args=(arr, free_index))
+p5 = Process(target=add_to_array, args=(arr, free_index))
+
+procs = [p1, p2, p3, p4, p5]
+
+for proc in procs:
+    proc.start()
+
+for proc in procs:
+    proc.join()
+
+print(f&#39;The array contains {len(arr)} items&#39;)
+
+for i in arr:
+    print(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The array contains 5 items
+3
+25
+82
+51
+96
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="asyncio">
+<h2>asyncio<a class="headerlink" href="#asyncio" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://docs.python.org/3.10/library/asyncio.html#module-asyncio">https://docs.python.org/3.10/library/asyncio.html#module-asyncio</a></p>
+<p>Една от по-интересните (и полезни) функционалности в Python, е поддържката на <code class="docutils literal notranslate"><span class="pre">async/await</span></code> синтаксиса. Благодарение на него, можем да реализираме асинхронни IO операции. Модулът <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> ни дава множество функции и обекти свързани с async IO в Python.</p>
+<section id="async-io-coroutines">
+<h3>Какво са async IO и coroutines ?<a class="headerlink" href="#async-io-coroutines" title="Permalink to this headline">#</a></h3>
+<p>Async IO е вид конкурентно изпълнение на функции - асинхроността ни дава възможност да “спрем” изпълнението на дадена функция в един момент докато те изчакват някакъв ресурс, и да дадем контрола на друга такава функция. Тези функции, които имат възможността да бъдат спирани и продължавани се наричат корутини (coroutines). Основната разлика с многонишковото и многопроцесорното програмиране е, че тук използваме един процес и една нишка.</p>
+<p>Async IO ни позволява да изпълняваме coroutines в т.нар. event loop - докато една coroutine чака, event loop-а може да пусне друга да се изпълнява.</p>
+<p>Нека разгледаме една проста функция, и нейния coroutine еквивалент:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(x: int, y: int) -&gt; int:
+    return x + y
+
+async def add(x: int, y: int) -&gt; int:
+    return x + y
+</pre></div>
+</div>
+</div>
+</div>
+<p>За да изпълним дадената функция, трябва да я добавим към текущия event loop. Може да си представим event loop-а като безкраен цикъл, който изпълнява нашите функции в дадено време.</p>
+<p>От нас се изисква да пуснем event loop-а, да добавим нашата coroutine в списъка за изпълнение и да спрем loop-а след като функцията ни е изпълнена - това може да бъде изпълнено чрез ключовата дума <code class="docutils literal notranslate"><span class="pre">await</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import asyncio
+
+async def add(x: int, y: int) -&gt; int:
+    return x + y
+
+result = await add(2, 3)
+print(result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>С помощта на <code class="docutils literal notranslate"><span class="pre">await</span></code>, ние казваме - добави тази функция в event loop-а, и когато се изпълни, вземи резултата, и го принтирай на екрана.</p>
+<p>Нека разгледаме следните две функции - <code class="docutils literal notranslate"><span class="pre">fast_hi</span></code> и <code class="docutils literal notranslate"><span class="pre">slow_hi</span></code> - едната ще изчака 1 секунда, и ще изпише “Hi”, а другата ще изчака 3 секунди, преди да изпише “Hi”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import asyncio
+
+async def fast_hi():
+    print(&quot;Starting fast hi&quot;)
+    await asyncio.sleep(1)
+    print(&quot;Fast said hi&quot;)
+
+async def slow_hi():
+    print(&quot;Starting slow hi&quot;)
+    await asyncio.sleep(3)
+    print(&quot;Slow said hi&quot;)
+
+await fast_hi()
+await slow_hi()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting fast hi
+Fast said hi
+Starting slow hi
+Slow said hi
+</pre></div>
+</div>
+</div>
+</div>
+<p>В текущото изпълнение, двете ни функции работят последователно. Но можем да ги накараме да работят конкурентно, като ги превърнем в задачи <code class="docutils literal notranslate"><span class="pre">Task</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import asyncio
+
+async def fast_hi():
+    print(&quot;Starting fast hi&quot;)
+    await asyncio.sleep(1)
+    print(&quot;Fast said hi&quot;)
+
+async def slow_hi():
+    print(&quot;Starting slow hi&quot;)
+    await asyncio.sleep(3)
+    print(&quot;Slow said hi&quot;)
+
+slow_task = asyncio.create_task(slow_hi())
+fast_task = asyncio.create_task(fast_hi())
+
+await slow_task
+await fast_task
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Starting slow hi
+Starting fast hi
+Fast said hi
+Slow said hi
+</pre></div>
+</div>
+</div>
+</div>
+<p>За превръщането на coroutine в <code class="docutils literal notranslate"><span class="pre">Task</span></code> използваме <code class="docutils literal notranslate"><span class="pre">asyncio.create_task</span></code>. При текущата подредба, <code class="docutils literal notranslate"><span class="pre">slow_task</span></code> започва първа изпълнението си, и достига до 3-секундното чакане. Вместо да седи и да не прави нищо, изпълнението се сменя върху <code class="docutils literal notranslate"><span class="pre">fast_task</span></code>, докато изчакваме нашия 3-секунден <code class="docutils literal notranslate"><span class="pre">sleep</span></code> да приключи.</p>
+<p>До момента трябваше ръчно да създаваме coroutines и техните Task-ове. Но всъщност ние можем и динамично да правим извиквания към вече дефинираната ни coroutine. За целта използваме <code class="docutils literal notranslate"><span class="pre">asyncio.gather</span></code>. Нека имаме coroutine, който има за цел да умножи две числа и да върне резултата. Също така, нека имаме даден наброй входа. Искаме да извършим операциите върху тях асинхронно.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import asyncio
+
+async def multiply(a: int, b: int) -&gt; int:
+    return a * b
+
+inputs = [(8, 2), (1, 12), (-2, -4), (3, -3)]
+
+coroutines = [multiply(first, second) for first, second in inputs]
+
+results = await asyncio.gather(*coroutines)
+
+print(results)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16, 12, 8, -9]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">asyncio</span></code> е обширна тема, която няма да покрием изцяло в курса. Оставяме няколко полезни линка, за тези които искат да навлязат по-надълбоко с <code class="docutils literal notranslate"><span class="pre">asyncio</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://realpython.com/async-io-python/#async-io-in-context">https://realpython.com/async-io-python/#async-io-in-context</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.10/library/asyncio.html#module-asyncio">https://docs.python.org/3.10/library/asyncio.html#module-asyncio</a></p></li>
+<li><p><a class="reference external" href="https://www.goodreads.com/book/show/50083143-using-asyncio-in-python">https://www.goodreads.com/book/show/50083143-using-asyncio-in-python</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id9">
+<h2>Примери<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p>WIP</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./09 - Multithreading"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../08%20-%20Files/08%20-%20Files.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Работа с файлове в Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Сравнение на версии 2 и 3 на Python: прилики и разлики</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

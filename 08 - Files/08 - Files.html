@@ -1,0 +1,2321 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Работа с файлове в Python &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Многонишково програмиране с Python" href="../09%20-%20Multithreading/09%20-%20Multithreading.html" />
+    <link rel="prev" title="Грешки и изключения" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/08 - Files/08 - Files.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/08 - Files/08 - Files.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F08 - Files/08 - Files.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/08 - Files/08 - Files.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/08 - Files/08 - Files.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Предварителна подготовка
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#windows-unix">
+   Кратка интродукция за работата с пътища, Windows и Unix.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Представяне на файловете в Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Четене на файлове
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Писане на файлове
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Работа с файлове и пътища
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Преглеждане на съдържание на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Преместване на файл
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Изтриване на файл
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Създаване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Преместване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Изтриване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Обща работа с пътища
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Обхождане на директории
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#with">
+   Използване на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     with
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tell-seek">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tell
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     seek
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id14">
+   Примери
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Решение на пример 1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Решение на пример 2
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   Задачи
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Работа с файлове в Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Предварителна подготовка
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#windows-unix">
+   Кратка интродукция за работата с пътища, Windows и Unix.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Представяне на файловете в Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Четене на файлове
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Писане на файлове
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Работа с файлове и пътища
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Преглеждане на съдържание на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Преместване на файл
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Изтриване на файл
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Създаване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Преместване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Изтриване на директория
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Обща работа с пътища
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Обхождане на директории
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#with">
+   Използване на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     with
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tell-seek">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tell
+    </span>
+   </code>
+   и
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     seek
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id14">
+   Примери
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Решение на пример 1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Решение на пример 2
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id19">
+   Задачи
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/08_files/08%20-%20Files/08%20-%20Files.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="python">
+<h1>Работа с файлове в Python<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h1>
+<p>План на лекцията:</p>
+<ul class="simple">
+<li><p>Кратка интродукция за работата с пътища, Windows и Unix</p></li>
+<li><p>Представяне на файловете в Python</p></li>
+<li><p>Четене на файлове</p></li>
+<li><p>Писане на файлове</p></li>
+<li><p>Работа с файлове и пътища</p></li>
+<li><p>Използване на <code class="docutils literal notranslate"><span class="pre">with</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tell</span></code> и <code class="docutils literal notranslate"><span class="pre">seek</span></code></p></li>
+<li><p>Примери</p></li>
+<li><p>Задачи</p></li>
+</ul>
+<section id="id1">
+<h2>Предварителна подготовка<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!mkdir files
+!curl -o files/lorem_ipsum.txt https://raw.githubusercontent.com/lyubolp/PythonCourse2022/08_files/08%20-%20Files/files/1.txt
+!echo &quot;hello&quot; &gt; files/hello.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100   448  100   448    0     0   2093      0 --:--:-- --:--:-- --:--:--  2083
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="windows-unix">
+<h2>Кратка интродукция за работата с пътища, Windows и Unix.<a class="headerlink" href="#windows-unix" title="Permalink to this headline">#</a></h2>
+<p>Път в една файлова система посочва локацията и името на даден обект (бил той файл или директория). Пример за път в Linux/MacOS е <code class="docutils literal notranslate"><span class="pre">/home/user/myfile.txt</span></code>, а в Windows - <code class="docutils literal notranslate"><span class="pre">C:\Users\user\myfile.txt</span></code>.</p>
+<p>Забелязва се, че пътищата в Windows и Unix-базираните ОС се разделят с различни черти. Нашият Python код трябва да е съвместим и с двата начина за разделя на пътища.</p>
+<p>За наше улеснение, Python предлага функцията <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>, която по подадени имена на директории/файлове, конструира правилния спрямо нашия OS път.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;lyubo&#39;</span><span class="p">,</span> <span class="s1">&#39;myfile.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/lyubo/myfile.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Понеже кодът е изпълнен под Linux, получаваме Unix-ски път. Ако изпълним обаче същия код под Windows, ще получим правилен Windows-ки път.</p>
+</section>
+<section id="id2">
+<h2>Представяне на файловете в Python<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>Python предоставя API за работа с файлове и потоци. Python работи с т.нар. “file objects” - това може да са файлове на диска, sockets, pipes и други потоци.</p>
+<p>Освен с текстови файлове, можем да работим и с бинарни файлове. За момента обаче, ще се спрем само върху текстовите файлове.</p>
+<p>Можем да отворим един файл за работа, с помощта на функцията <code class="docutils literal notranslate"><span class="pre">open</span></code>. В най-простия си вид, тя приема път към файл.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;_io.TextIOWrapper name=&#39;files/lorem_ipsum.txt&#39; mode=&#39;r&#39; encoding=&#39;UTF-8&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>След като приключим работа с един файл, не трябва да забравяме да го затворим. Затварянето на един файл става с помощта на <code class="docutils literal notranslate"><span class="pre">close</span></code> метода.</p>
+<p>Забелязваме, че обекта който получаваме като резултат от <code class="docutils literal notranslate"><span class="pre">open</span></code> има име (<code class="docutils literal notranslate"><span class="pre">files/lorem_ipsum.txt</span></code>), режим (<code class="docutils literal notranslate"><span class="pre">r</span></code>) и кодиране (<code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>).</p>
+<p>Един файл може да бъде отворен в няколко различни режима:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> - отваря файла за четене</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> - отваря файла за писане, като файла първо бива зачистен</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> - отваря файла за писане, като новото съдържание се записва в края на файла</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> - създава файла, ако не съществува. Ако файла вече съществува, се хвърля <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> - отваря файл в бинарен режим</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code> - отваря файл в текстови режим</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> - отваря файла за четене и писане</p></li>
+</ul>
+<p>Освен режима на отваряне, можем да променим и кодирането, с което се опитваме да четем файла. По подразбиране, използваме <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>.</p>
+<p>Ако се опитаме да запишем файл в несъществуваща директория, ще получим грешка</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;non_existing_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;new_file.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">40e729170234</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;non_existing_dir&#39;</span><span class="p">,</span> <span class="s1">&#39;new_file.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;files/non_existing_dir/new_file.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Четене на файлове<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>В Python имаме три метода, чрез които можем да четем от файлове: <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">readline</span></code> и <code class="docutils literal notranslate"><span class="pre">readlines</span></code>.</p>
+<p>Нека първо разгледаме метода <code class="docutils literal notranslate"><span class="pre">read</span></code>. Той прочита целия файл и запазва съдържанието му в променлива, като един голям низ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</pre></div>
+</div>
+</div>
+</div>
+<p>Веднъж прочетен един файл, следващото прочитане ще ни върне празен низ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+content=
+</pre></div>
+</div>
+</div>
+</div>
+<p>Друг вариант за четене на файл, е ред по ред - това става с помощта на метода <code class="docutils literal notranslate"><span class="pre">readline</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+content=Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+</pre></div>
+</div>
+</div>
+</div>
+<p>След прочитане на последния ред, <code class="docutils literal notranslate"><span class="pre">readline</span></code> връща празен низ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">content</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+content=Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+content=Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+content=Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+content=
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме да получим списък от всички редове във файл, можем да използваме <code class="docutils literal notranslate"><span class="pre">readlines</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">content</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=[&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n&#39;, &#39;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n&#39;, &#39;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n&#39;, &#39;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+content=Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+content=Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+content=Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</pre></div>
+</div>
+</div>
+</div>
+<p>Вместо да използваме <code class="docutils literal notranslate"><span class="pre">readlines</span></code>, можем да итерираме директно по файл обекта.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fd</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;content=</span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>content=Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+
+content=Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+content=Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+content=Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>Писане на файлове<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>За писане на файлове в Python може да използваме методите <code class="docutils literal notranslate"><span class="pre">write</span></code> и <code class="docutils literal notranslate"><span class="pre">writelines</span></code></p>
+<p>Методът <code class="docutils literal notranslate"><span class="pre">write</span></code> записва низ във файла. Позицията зависи от начина по който е отворен файла (с или без изтриване на текущото съдържание).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;hello_world.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;hello_world.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello world
+</pre></div>
+</div>
+</div>
+</div>
+<p>Припомням, че ако отворим файла в режим <code class="docutils literal notranslate"><span class="pre">w</span></code>, то ще изтрием текущото му съдържание.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Really important&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Oops, forgot to write something down</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Should really not forget this&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Should really not forget this
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме да пишем в края на файла, трябва да използваме режим <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file_2.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Really important</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Oops, forgot to write something down</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file_2.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Should really not forget this</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;my_important_file_2.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Really important
+Should really not forget this
+</pre></div>
+</div>
+</div>
+</div>
+<p>Методът <code class="docutils literal notranslate"><span class="pre">writelines</span></code> приема списък от “редове”, които да бъдат записани във файла.</p>
+<p><strong>Забележка</strong>: <code class="docutils literal notranslate"><span class="pre">writelines</span></code> не добавя автоматично нови редове след всеки елемент, затова се очаква всеки елемент от списъка да съдържа нов ред в себе си.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;writelines_example.txt&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">lines_to_write</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;this</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;are</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;my</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;lines</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines_to_write</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;writelines_example.txt&#39;</span><span class="p">))</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+this
+are
+my
+lines
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук е добре да се отбележи, че можем да записваме и други типове данни, освен низове (е не точно, но…).</p>
+<p>Стига даден тип (или обект) да има низово представяне, можем да го запишем във файл.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">other_types_in_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;other_types_in_files.txt&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">other_types_in_files</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">other_types_in_files</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+[2, 3, 4]
+{&#39;a&#39;: 2, &#39;b&#39;: 3, &#39;c&#39;: 4}
+(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>Работа с файлове и пътища<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Python предлага удобен начин за работа с файлове. Вградената библиотека <code class="docutils literal notranslate"><span class="pre">os</span></code> съдържа всичко необходимо за работата с файлове и директории.</p>
+<p>Ще разгледаме как можем да:</p>
+<ul class="simple">
+<li><p>Прегледаме съдържанието на директория</p></li>
+<li><p>Преместим файл</p></li>
+<li><p>Изтрием файл</p></li>
+<li><p>Създадем директория</p></li>
+<li><p>Преместим директория</p></li>
+<li><p>Изтрием директория</p></li>
+<li><p>Обща работа с пътища</p></li>
+<li><p>Обхождане на директории</p></li>
+</ul>
+<section id="id6">
+<h3>Преглеждане на съдържание на директория<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Можем да видим съдържанието на директория като използваме <code class="docutils literal notranslate"><span class="pre">os.listdir</span></code> метода. Той ни връща списък от низове, съдържащи имената на директориите и файловете в исканата от нас папка.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;lorem_ipsum.txt&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;other_types_in_files.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h3>Преместване на файл<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>Преместването на файл става чрез “преименуването му” (или всъщност, преименуването на файл е преместването му като файл с друго име 🤔) - това в Python става с помощта на функцията <code class="docutils literal notranslate"><span class="pre">os.rename</span></code>. Тя приема два аргумента - source път и destination път (т.е. старото и новото име на файла)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_to_be_moved</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;to_be_moved.txt&#39;</span><span class="p">)</span>
+
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_to_be_moved</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This file is to be moved&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">file_moved</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;file_moved.txt&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file_to_be_moved</span><span class="p">,</span> <span class="n">file_moved</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;to_be_moved.txt&#39;, &#39;lorem_ipsum.txt&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;other_types_in_files.txt&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако вече съществува файл със същото име се случват едно от две неща:</p>
+<ul class="simple">
+<li><p>Ако кодът се изпълнява под Windows, се хвърля <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code>.</p></li>
+<li><p>Ако кодът се изпълнява под Linux/MacOS и имаме права върху файла върху който ще пишем, той ще бъде презаписан</p></li>
+</ul>
+<p>Нека разгледаме следната ситуация: имаме файл <code class="docutils literal notranslate"><span class="pre">files/a/file.txt</span></code>, който искаме да преместим в <code class="docutils literal notranslate"><span class="pre">files/b</span></code>, но директорията <code class="docutils literal notranslate"><span class="pre">b</span></code> не съществува.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!mkdir files/a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_to_be_moved</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">)</span>
+
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_to_be_moved</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This file is to be moved&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file_to_be_moved</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="mi">2</span><span class="n">ff9908a5e16</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file_to_be_moved</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;file.txt&#39;</span><span class="p">))</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;files/a/file.txt&#39; -&gt; &#39;files/b/file.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h3>Изтриване на файл<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>Изтриването на файл се случва чрез метода <code class="docutils literal notranslate"><span class="pre">os.remove</span></code>. Той приема един аргумент - пътят към файла, който ще бъде изтрит.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;to_removed.txt&#39;</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This file will be deleted&#39;</span><span class="p">)</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;to_removed.txt&#39;, &#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако се опитаме да изтрием директория с <code class="docutils literal notranslate"><span class="pre">os.remove</span></code>, ще получим грешка <code class="docutils literal notranslate"><span class="pre">IsADirectoryError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IsADirectoryError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="n">b40f4eb2e94c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+
+<span class="ne">IsADirectoryError</span>: [Errno 21] Is a directory: &#39;files&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>А ако опитаме да изтрием файл, който не съществува, ще получим грешка <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">non_existant_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;this_file_does_not_exist.txt&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">non_existant_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="mf">3e3114601185</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">non_existant_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;this_file_does_not_exist.txt&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">non_existant_path</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;files/this_file_does_not_exist.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h3>Създаване на директория<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>В Python създаването на директория става чрез метода <code class="docutils literal notranslate"><span class="pre">os.mkdir</span></code>. Той приема пътя към директорията, която да бъде създадена.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;hello.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Само за информация: Можем да зададем права на директорията, с помощта на аргумента <code class="docutils literal notranslate"><span class="pre">mode</span></code>.</p>
+<p>Ако се опитаме да създадем директория, която вече съществува, ще получим <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_existing_directory&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="n">e40d002b820f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="ne">FileExistsError</span>: [Errno 17] File exists: &#39;files/mkdir_existing_directory&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека опитаме да създадем няколко нови директории, една под друга.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_parent&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_child&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">45</span><span class="o">-</span><span class="n">ad15298990ac</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_parent&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_child&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;files/mkdir_example_parent/mkdir_example_child&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук получаваме грешка - <code class="docutils literal notranslate"><span class="pre">os.mkdir</span></code> не може да създаде несъществуващите директории над последната. За целта трябва да използваме метода <code class="docutils literal notranslate"><span class="pre">os.makedirs</span></code>. Той приема отново като аргумент пътят към директорията, която искаме да създадем, както и права на директорията/директориите.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_parent&#39;</span><span class="p">,</span> <span class="s1">&#39;mkdir_example_child&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;mkdir_example_parent&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Един допълнителен аргумент, който <code class="docutils literal notranslate"><span class="pre">makedirs</span></code> приема, е аргумента <code class="docutils literal notranslate"><span class="pre">exist_ok</span></code>. Той контролира дали да се хвърли грешка, ако крайната директория която искаме да създадем, вече съществува.</p>
+</section>
+<section id="id10">
+<h3>Преместване на директория<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>Освен за преместване на файлове, <code class="docutils literal notranslate"><span class="pre">os.rename</span></code> работи и за директории.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;rename_dir_example_1&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">target_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;renamed_dir_example_1&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">target_file_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;mkdir_example_parent&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;rename_dir_example_1&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;mkdir_example_parent&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;renamed_dir_example_1&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както споменахме по-горе, ако дестинацията съществува, под Windows <code class="docutils literal notranslate"><span class="pre">os.rename</span></code> хвърля <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code>.</p>
+<p>Под Unix системи (Linux, MacOS) поведението е малко по-различно:</p>
+<ul class="simple">
+<li><p>Ако source пътя е файл, а destination пътя е директория, се хвърля <code class="docutils literal notranslate"><span class="pre">IsADirectory</span></code> грешка</p></li>
+<li><p>Ако source пътя е директория, а destination пътя е файл, се хвърля <code class="docutils literal notranslate"><span class="pre">NotADirectory</span></code> грешка</p></li>
+<li><p>Ако destination е съществуваща директория:</p>
+<ul>
+<li><p>Ако е празна, преместването е успешно</p></li>
+<li><p>Ако не е празна, се хвърля <code class="docutils literal notranslate"><span class="pre">OSError</span></code> грешка</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id11">
+<h3>Изтриване на директория<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>Изтриването на директория става чрез функцията <code class="docutils literal notranslate"><span class="pre">os.rmdir</span></code>. Тя приема пътя към директорията, която трябва да бъде изтрита.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;remove_dir_example_1&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;mkdir_example_parent&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;remove_dir_example_1&#39;, &#39;file_moved.txt&#39;, &#39;renamed_dir_example_1&#39;, &#39;hello_world.txt&#39;]
+After = [&#39;lorem_ipsum.txt&#39;, &#39;a&#39;, &#39;my_important_file_2.txt&#39;, &#39;writelines_example.txt&#39;, &#39;mkdir_existing_directory&#39;, &#39;seek_exampe.txt&#39;, &#39;hello.txt&#39;, &#39;mkdir_example_parent&#39;, &#39;tell_exampe.txt&#39;, &#39;my_important_file.txt&#39;, &#39;walk_example&#39;, &#39;mkdir_example&#39;, &#39;other_types_in_files.txt&#39;, &#39;file_moved.txt&#39;, &#39;renamed_dir_example_1&#39;, &#39;hello_world.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако директорията, която се опитаме да изтрием, не е празна, ще получим <code class="docutils literal notranslate"><span class="pre">OSError</span></code>. А ако тя не съществува, ще получим <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">non_existing_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;non_existing_dir&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">non_existing_dir</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">49</span><span class="o">-</span><span class="mi">18</span><span class="n">c20a4e9047</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">non_existing_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;non_existing_dir&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">non_existing_dir</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;files/non_existing_dir&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">50</span><span class="o">-</span><span class="mf">8046e22</span><span class="n">d30ce</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">)</span>
+
+<span class="ne">OSError</span>: [Errno 39] Directory not empty: &#39;files&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Освен <code class="docutils literal notranslate"><span class="pre">os.rmdir</span></code>, Python предлага и друга функция за изтриване на директории - <code class="docutils literal notranslate"><span class="pre">os.removedirs</span></code>. Тя обаче работи по специфичен начин. <code class="docutils literal notranslate"><span class="pre">os.removedirs</span></code> приема път до директория, като освен да премахва последната директория от пътя, функцията се опитва да премахне и всички празни директории нагоре, като спира при първата директория, която не е успяла да премахне успешно.</p>
+<p>Нека за целта създадем следната структура - <code class="docutils literal notranslate"><span class="pre">files/remove_dirs_example</span></code> ще е основната ни директория. В нея ще имаме две поддиректории - <code class="docutils literal notranslate"><span class="pre">first</span></code> и <code class="docutils literal notranslate"><span class="pre">second</span></code>. В <code class="docutils literal notranslate"><span class="pre">first</span></code> ще създадем още няколко поддиректории, като всичките ще са празни. В <code class="docutils literal notranslate"><span class="pre">second</span></code> ще създадем един файл и една поддиректория.</p>
+<p>Ще се опитаме да извикаме <code class="docutils literal notranslate"><span class="pre">os.removedirs</span></code> върху най-долната директории в <code class="docutils literal notranslate"><span class="pre">first</span></code> и <code class="docutils literal notranslate"><span class="pre">second</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">main_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;remove_dirs_example&#39;</span><span class="p">)</span>
+
+<span class="n">first_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">main_dir</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">)</span>
+<span class="n">empty_first_subdirs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+
+<span class="n">second_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">main_dir</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">)</span>
+<span class="n">empty_second_subdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">second_dir</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">empty_second_dir_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">second_dir</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">empty_first_subdirs</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">empty_second_subdir</span><span class="p">)</span>
+
+
+<span class="n">fd</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">empty_second_dir_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hi&#39;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Before = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">main_dir</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">removedirs</span><span class="p">(</span><span class="n">empty_first_subdirs</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">removedirs</span><span class="p">(</span><span class="n">empty_second_subdir</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;After = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">main_dir</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before = [&#39;second&#39;, &#39;first&#39;]
+After = [&#39;second&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Как работи <code class="docutils literal notranslate"><span class="pre">os.removedirs</span></code> в този случай ?</p>
+<p>Върху <code class="docutils literal notranslate"><span class="pre">files/first/a/b/c</span></code>:</p>
+<ol class="simple">
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">c</span></code> =&gt; тя е празна, изтрива се</p></li>
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">b</span></code> =&gt; тя е празна, изтрива се</p></li>
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">a</span></code> =&gt; тя е празна, изтрива се</p></li>
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">first</span></code> =&gt; тя е празна, изтрива се</p></li>
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">remove_dirs_example</span></code> =&gt; тя не е празна, спираме</p></li>
+</ol>
+<p>Върху <code class="docutils literal notranslate"><span class="pre">files/second/d</span></code>:</p>
+<ol class="simple">
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">d</span></code> =&gt; тя е празна, изтрива се</p></li>
+<li><p>Опитваме да изтрием <code class="docutils literal notranslate"><span class="pre">second</span></code> =&gt; тя не е празна, спираме</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">os.removedirs</span></code> е много подходяща когато имаме много празни директории една в друга, но е редно да се използва внимателно.</p>
+<p>За любопитните: Съществува функция <a class="reference external" href="https://docs.python.org/3.10/library/shutil.html#shutil.rmtree"><code class="docutils literal notranslate"><span class="pre">rmtree</span></code></a>, намираща се в <code class="docutils literal notranslate"><span class="pre">shutil</span></code> библиотеката, която изтрива папка и всички в нея. Нея няма да я разглеждаме в курса.</p>
+</section>
+<section id="id12">
+<h3>Обща работа с пътища<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>В началото видяхме, че за да построим един път до файл или директория в Python, трябва да използваме <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>. Освен <code class="docutils literal notranslate"><span class="pre">join</span></code>, <a class="reference external" href="https://docs.python.org/3.10/library/os.path.html"><code class="docutils literal notranslate"><span class="pre">os.path</span></code></a> предлага много други полезни функции за работа с пътища.</p>
+<p>Ще се спрем върху една част от тях, която е по-вероятно да използвате във всекидневната си работа с Python:</p>
+<ul class="simple">
+<li><p>os.path.exists - проверка дали пътят сочи към валиден файл или директория</p></li>
+<li><p>os.path.isdir - дали пътят сочи към валидна директория</p></li>
+<li><p>os.path.isfile - дали пътят сочи към валиден файл</p></li>
+<li><p>os.path.split - отделя последната част от път</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Does the files directory exist: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Does the files/lorem_ipsum.txt file exist: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;lorem_ipsum.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Does the files/ala-bala.txt file exist: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;ala-bala.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Does the files directory exist: True
+Does the files/lorem_ipsum.txt file exist: True
+Does the files/ala-bala.txt file exist: False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files&quot; a directory: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files/lorem_ipsum.txt&quot; a directory: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;lorem_ipsum.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files/ala-bala.txt&quot; a directory: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;ala-bala.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Although the file does not exist, isdir returns False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is &quot;files&quot; a directory: True
+Is &quot;files/lorem_ipsum.txt&quot; a directory: False
+Is &quot;files/ala-bala.txt&quot; a directory: False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files&quot; a file: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files/lorem_ipsum.txt&quot; a file: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;lorem_ipsum.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is &quot;files/ala-bala.txt&quot; a directory: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;files&quot;</span><span class="p">,</span> <span class="s2">&quot;ala-bala.txt&quot;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Although the file does not exist, isfile returns False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is &quot;files&quot; a file: False
+Is &quot;files/lorem_ipsum.txt&quot; a file: True
+Is &quot;files/ala-bala.txt&quot; a directory: False
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">os.path.split</span></code> отделя последната част от пътя от останалия. Връща ни наредена двойка от <code class="docutils literal notranslate"><span class="pre">head</span></code> и <code class="docutils literal notranslate"><span class="pre">tail</span></code>, където <code class="docutils literal notranslate"><span class="pre">tail</span></code> съдържа последната част от пътя, а <code class="docutils literal notranslate"><span class="pre">head</span></code> останалото</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">long_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;long_path = </span><span class="si">{</span><span class="n">long_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;long_path splitted: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">long_path</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>long_path = /foo/bar/baz
+long_path splitted: (&#39;/foo/bar&#39;, &#39;baz&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да отбележим няколко по-специални случая:</p>
+<ul class="simple">
+<li><p>Ако пътят е празен, <code class="docutils literal notranslate"><span class="pre">split</span></code> ще ни върне празни <code class="docutils literal notranslate"><span class="pre">head</span></code> и <code class="docutils literal notranslate"><span class="pre">tail</span></code></p></li>
+<li><p>Ако пътят завършва с <code class="docutils literal notranslate"><span class="pre">/</span></code> (или <code class="docutils literal notranslate"><span class="pre">\</span></code> под Windows), <code class="docutils literal notranslate"><span class="pre">tail</span></code> ще е празен низ</p></li>
+<li><p>Ако пътят не съдържа <code class="docutils literal notranslate"><span class="pre">/</span></code>(или <code class="docutils literal notranslate"><span class="pre">\</span></code> под Windows), <code class="docutils literal notranslate"><span class="pre">head</span></code> ще е празен низ</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;split with empty path returns = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">empty_path</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">ending_with_separator</span> <span class="o">=</span> <span class="s1">&#39;/foo/bar/&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;split with path ending in / returns = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">ending_with_separator</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">no_separators</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;split with no separators returns = </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">no_separators</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>split with empty path returns = (&#39;&#39;, &#39;&#39;)
+split with path ending in / returns = (&#39;/foo/bar&#39;, &#39;&#39;)
+split with no separators returns = (&#39;&#39;, &#39;foo&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id13">
+<h3>Обхождане на директории<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>Понякога искаме да обходим цялото директорийно дърво отдадена точка надолу. Python ни позволява да направи това сравнително лесно, с помощта на функцията <code class="docutils literal notranslate"><span class="pre">os.walk</span></code>.</p>
+<p>Тя приема като аргумент директорията, от което започва обхождането. Като резултат, тя ни връща генератор съдържащ името на текущата директория, имената на директориите в текущата директория и имената на файловете в текущата директория.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Setup</span>
+<span class="n">example_root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;walk_example&#39;</span><span class="p">)</span>
+
+<span class="n">d_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">d_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b1&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">b2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b2&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">b2_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d1&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d2&#39;</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">files_for_d</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;file</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">file_for_d</span> <span class="ow">in</span> <span class="n">files_for_d</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_for_d</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Content for </span><span class="si">{</span><span class="n">file_for_d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">files_for_b2</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;file</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">file_for_b2</span> <span class="ow">in</span> <span class="n">files_for_b2</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_for_b2</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Content for </span><span class="si">{</span><span class="n">file_for_b2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># os.walk</span>
+
+<span class="k">for</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">subdirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">example_root_dir</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;In </span><span class="si">{</span><span class="n">dirname</span><span class="si">}</span><span class="s1">, which has subdirs: </span><span class="si">{</span><span class="n">subdirs</span><span class="si">}</span><span class="s1"> and files: </span><span class="si">{</span><span class="n">files</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In files/walk_example, which has subdirs: [&#39;a&#39;] and files: []
+In files/walk_example/a, which has subdirs: [&#39;b2&#39;, &#39;b1&#39;, &#39;b&#39;] and files: []
+In files/walk_example/a/b2, which has subdirs: [] and files: []
+In files/walk_example/a/b1, which has subdirs: [] and files: []
+In files/walk_example/a/b, which has subdirs: [&#39;c&#39;] and files: []
+In files/walk_example/a/b/c, which has subdirs: [&#39;d1&#39;, &#39;d&#39;, &#39;d2&#39;] and files: []
+In files/walk_example/a/b/c/d1, which has subdirs: [] and files: []
+In files/walk_example/a/b/c/d, which has subdirs: [] and files: [&#39;file2&#39;, &#39;file3&#39;, &#39;file4&#39;, &#39;file1&#39;, &#39;file0&#39;]
+In files/walk_example/a/b/c/d2, which has subdirs: [] and files: []
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="with">
+<h2>Използване на <code class="docutils literal notranslate"><span class="pre">with</span></code><a class="headerlink" href="#with" title="Permalink to this headline">#</a></h2>
+<p>Досега в работата ни с файлове, забелязахме че трябва да подсигурим, че сме затворили файла. Проблемът идва, когато трябва да се справим с грешки, които могат да бъда хвърлени от различните операции с файлове. Дори и при хвърлена грешка, ние все пак трябва да си затворим файла.</p>
+<p>Python ни позволява два начина да се справим с този проблем - <code class="docutils literal notranslate"><span class="pre">try/finally</span></code> и <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
+<p>След всеки <code class="docutils literal notranslate"><span class="pre">try</span></code> блок, може да поставим един друг блок, който да се изпълнява винаги след <code class="docutils literal notranslate"><span class="pre">try</span></code> или <code class="docutils literal notranslate"><span class="pre">except</span></code> блоковете. Този допълнителен блок се казва <code class="docutils literal notranslate"><span class="pre">finally</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raiser</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Hello there&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">raiser</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After the exception, this will be printed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After the exception, this will be printed
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">58</span><span class="o">-</span><span class="mi">7202</span><span class="n">c6019a97</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">raiser</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After the exception, this will be printed&#39;</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-58-7202c6019a97&gt;</span> in <span class="ni">raiser</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">raiser</span><span class="p">():</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Hello there&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">raiser</span><span class="p">()</span>
+
+<span class="ne">ValueError</span>: Hello there
+</pre></div>
+</div>
+</div>
+</div>
+<p>По подобен начин можем да използваме <code class="docutils literal notranslate"><span class="pre">finally</span></code> за да затворим отворения файл.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</pre></div>
+</div>
+</div>
+</div>
+<p>Така, дори и да получим грешка при четене (или каквато и да е друга операция в <code class="docutils literal notranslate"><span class="pre">try</span></code> блока), файла ще бъде затворен.</p>
+<p>От тук можем да стигнем до заключението - при работата с ресурси, имаме процес по отваряне и процес по затваряне (независимо от грешки). Python ни предлага и друга синтактична конструкция за работа с такива структури - <code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">with</span></code> ни позволява отварянето на нов контекст. В него може да отворим ресурс, а след излизането от блока, този ресурс се затваря автоматично.</p>
+<p>Общият вид на <code class="docutils literal notranslate"><span class="pre">with</span></code> е следния:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="o">&lt;</span><span class="n">expression</span><span class="o">&gt;</span> <span class="k">as</span> <span class="o">&lt;</span><span class="n">variable</span><span class="o">&gt;</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ако искаме да отворим файл и да прочетем нещо с <code class="docutils literal notranslate"><span class="pre">with</span></code>, кода би изглеждал по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Is the file closed ? </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">closed</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
+Is the file closed ? True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Дори и при грешка, файлът ще бъде затворен. Ако искаме обаче да хванем грешката, все пак трябва да изпозлваме <code class="docutils literal notranslate"><span class="pre">try/catch</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lorem_ipsum.txt&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+</pre></div>
+</div>
+</div>
+</div>
+<p>Начинът по който <code class="docutils literal notranslate"><span class="pre">with</span></code> работи е, че извиква два специални магически метода - <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> и <code class="docutils literal notranslate"><span class="pre">__exit__</span></code>, който се изпълняват при влизане и излизане съответно от контекст мениджъра.</p>
+<p>По-конкретно, <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> метода се изивиква в <code class="docutils literal notranslate"><span class="pre">as</span></code> частта на <code class="docutils literal notranslate"><span class="pre">with</span></code>. В него връщаме обекта, който ще бъде присвоен на променливата след <code class="docutils literal notranslate"><span class="pre">as</span></code>.</p>
+<p>Файловите обекти имплементират <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> метода, където затварят отворения файл.</p>
+<p>Ако искаме и нашите класове да работят с контекстните мениджъри, трябва да имплементираме <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> и <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> методите.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ContextableClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">some_var</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">some_var</span> <span class="o">=</span> <span class="n">some_var</span>
+    
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Entering the context manager&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exiting the context manager&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">ContextableClass</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">instance</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">instance</span><span class="o">.</span><span class="n">some_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Entering the context manager
+5
+Exiting the context manager
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tell-seek">
+<h2><code class="docutils literal notranslate"><span class="pre">tell</span></code> и <code class="docutils literal notranslate"><span class="pre">seek</span></code><a class="headerlink" href="#tell-seek" title="Permalink to this headline">#</a></h2>
+<p>Писането и четенето от файлове всъщност се осъществява символ по символ. Така например за да запишем ‘hello’, трябва първо да запишем <code class="docutils literal notranslate"><span class="pre">h</span></code>, после <code class="docutils literal notranslate"><span class="pre">e</span></code> и т.н.</p>
+<p>Както при писането с клавиатура имаме позиция върху която пишем, така и при работата с файлове имаме позиция, на която четем или пишем.</p>
+<p>Python ни позволява да вземем текущата позиция за четене/писане, както и да преместим тази позиция на друго място.</p>
+<p>Можем да вземем позиция на курсора във файла с помощта на метода <code class="docutils literal notranslate"><span class="pre">tell</span></code>. Той ще ни върне като резултат цяло число, символизиращо броя символи след началото на файла.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;tell_exampe.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># First lets create the file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;abc</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;def</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;ghi</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now lets read </span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Current position = </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Reading a line... </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Current position = </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Reading another line... </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Current position = </span><span class="si">{</span><span class="n">fp</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current position = 0
+Reading a line... abc
+
+Current position = 4
+Reading another line... def
+
+Current position = 8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да зададем позиция на курсора във файла с помощта на метода <code class="docutils literal notranslate"><span class="pre">seek</span></code>. Той приема два аргумента - какво отместване (<code class="docutils literal notranslate"><span class="pre">offset</span></code>) да направим и от къде (<code class="docutils literal notranslate"><span class="pre">whence</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">whence</span></code> приема три стойност:</p>
+<ul class="simple">
+<li><p>0 (или <code class="docutils literal notranslate"><span class="pre">os.SEEK_SET</span></code>) - означава спрямо началото на файла</p></li>
+<li><p>1 (или <code class="docutils literal notranslate"><span class="pre">os.SEEK_CUR</span></code>) - означава спрямо текущата позиция</p></li>
+<li><p>2 (или <code class="docutils literal notranslate"><span class="pre">os.SEEK_END</span></code>) - означава спрямо края на файла</p></li>
+</ul>
+<p>При работа с текстови файлове, отместването е само спрямо началото на файла. Можем единствено да преместим курсора до края на файла с <code class="docutils literal notranslate"><span class="pre">seek(0,</span> <span class="pre">2)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;seek_exampe.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># First lets create the file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;abcdefghijk&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+
+    <span class="n">fp</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ab!defghijk@
+</pre></div>
+</div>
+</div>
+</div>
+<p>Бележка: Ако бяхте отворили файла за писане с режим <code class="docutils literal notranslate"><span class="pre">a</span></code>, щяхме да можем да пишем само в края. Режим <code class="docutils literal notranslate"><span class="pre">r+</span></code> ни дава права за четене и пренаписване.</p>
+</section>
+<section id="id14">
+<h2>Примери<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<section id="id15">
+<h3>Пример 1<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>Напишете функция <code class="docutils literal notranslate"><span class="pre">split_path</span></code>, която приема път (като низ), и го разделя на съставните му части. Използвайте <code class="docutils literal notranslate"><span class="pre">os.path.split</span></code>.</p>
+<section id="id16">
+<h4>Решение на пример 1<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">def</span> <span class="nf">split_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">head</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">tail</span><span class="p">]</span>
+    <span class="k">while</span> <span class="n">head</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">head</span> <span class="o">!=</span> <span class="n">file_path</span><span class="p">:</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">head</span>
+        <span class="n">head</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tail</span><span class="p">)</span>
+
+    <span class="n">result</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">split_path</span><span class="p">(</span><span class="s1">&#39;/foo/bar/baz&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">split_path</span><span class="p">(</span><span class="s1">&#39;/foo/bar/baz/&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">split_path</span><span class="p">(</span><span class="s1">&#39;/foo&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">split_path</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;&#39;, &#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;]
+[&#39;&#39;, &#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;, &#39;&#39;]
+[&#39;&#39;, &#39;foo&#39;]
+[&#39;foo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id17">
+<h3>Пример 2<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<p>Даден е клас <code class="docutils literal notranslate"><span class="pre">Person</span></code>, който съдържа информация за човек - неговите имена, рожденна дата, възраст и работа.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__birthdate</span> <span class="o">=</span> <span class="n">birthdate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__job</span> <span class="o">=</span> <span class="n">job</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">first_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__last_name</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">birthdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__birthdate</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__age</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__job</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Напишете клас <code class="docutils literal notranslate"><span class="pre">PersonSerializer</span></code>, съдържащ следните методи:</p>
+<ul class="simple">
+<li><p>Метод, който приема обект от тип <code class="docutils literal notranslate"><span class="pre">Person</span></code> и път. Методът записва във файл информацията за човека</p></li>
+<li><p>Метод, който приема път и връща обект от тип <code class="docutils literal notranslate"><span class="pre">Person</span></code>, който е създаден на база данните от файла</p></li>
+<li><p>Метод, който приема списък от <code class="docutils literal notranslate"><span class="pre">Person</span></code> и път. Методът записва във файл информация за хората</p></li>
+<li><p>Метод, който приема път и връща списък от <code class="docutils literal notranslate"><span class="pre">Person</span></code>, които са създадени на база на информацията във файла</p></li>
+</ul>
+<p>При грешка при писането или четенето класът да хвърля <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>Може да приемем, че информацията за един човек ще бъде записана на един ред.</p>
+<section id="id18">
+<h4>Решение на пример 2<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">job</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__birthdate</span> <span class="o">=</span> <span class="n">birthdate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__job</span> <span class="o">=</span> <span class="n">job</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">first_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__first_name</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">last_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__last_name</span>
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">birthdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__birthdate</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__age</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__job</span>
+
+    <span class="c1"># Adding a __str__ magic method helps us with printing the info</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">birthdate</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job</span><span class="si">}</span><span class="s1">&#39;</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_string</span><span class="p">(</span><span class="n">person_info</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">job</span> <span class="o">=</span> <span class="n">person_info</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Person</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">birthdate</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">job</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">PersonSerializer</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">save_person</span><span class="p">(</span><span class="n">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">person</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create_person_from_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Person</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;File not found at </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">person_info</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Person</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">person_info</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">save_people</span><span class="p">(</span><span class="n">people</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Person</span><span class="p">],</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+            <span class="n">PersonSerializer</span><span class="o">.</span><span class="n">save_person</span><span class="p">(</span><span class="n">person</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create_people_from_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Person</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;File not found at </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">Person</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">person_info</span><span class="p">)</span> <span class="k">for</span> <span class="n">person_info</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">me</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Lyubo&#39;</span><span class="p">,</span> <span class="s1">&#39;Karev&#39;</span><span class="p">,</span> <span class="s1">&#39;20-09-1998&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">)</span>
+<span class="n">my_filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;lyubo.txt&#39;</span><span class="p">)</span>
+
+<span class="n">PersonSerializer</span><span class="o">.</span><span class="n">save_person</span><span class="p">(</span><span class="n">me</span><span class="p">,</span> <span class="n">my_filepath</span><span class="p">)</span>
+<span class="n">me_again</span> <span class="o">=</span> <span class="n">PersonSerializer</span><span class="o">.</span><span class="n">create_person_from_file</span><span class="p">(</span><span class="n">my_filepath</span><span class="p">)</span>  <span class="c1"># Hello me, meet the real me</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">me_again</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lyubo, Karev, 20-09-1998, 24, Developer
+Lyubo, Karev, 20-09-1998, 24, Developer
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bunch_of_people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Lyubo&#39;</span><span class="p">,</span> <span class="s1">&#39;Karev&#39;</span><span class="p">,</span> <span class="s1">&#39;20-09-1998&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignatov&#39;</span><span class="p">,</span> <span class="s1">&#39;22-10-1998&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Developer&#39;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Ivan&#39;</span><span class="p">,</span> <span class="s1">&#39;Luchev&#39;</span><span class="p">,</span> <span class="s1">&#39;28-04-1998&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Student&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">our_filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;files&#39;</span><span class="p">,</span> <span class="s1">&#39;us.txt&#39;</span><span class="p">)</span>
+
+<span class="n">PersonSerializer</span><span class="o">.</span><span class="n">save_people</span><span class="p">(</span><span class="n">bunch_of_people</span><span class="p">,</span> <span class="n">our_filepath</span><span class="p">)</span>
+<span class="n">us_again</span> <span class="o">=</span> <span class="n">PersonSerializer</span><span class="o">.</span><span class="n">create_people_from_file</span><span class="p">(</span><span class="n">our_filepath</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bunch of people:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">bunch_of_people</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Us again:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">us_again</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bunch of people:
+Lyubo, Karev, 20-09-1998, 24, Developer
+Alex, Ignatov, 22-10-1998, 24, Developer
+Ivan, Luchev, 28-04-1998, 24, Student
+Us again:
+Lyubo, Karev, 20-09-1998, 24, Developer
+Alex, Ignatov, 22-10-1998, 24, Developer
+Ivan, Luchev, 28-04-1998, 24, Student
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="id19">
+<h2>Задачи<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<p>Задачите може да намерите тук: <a class="reference external" href="https://github.com/lyubolp/PythonCourse2022/blob/08_files/08%20-%20Files/tasks/tasks.md">tasks.md</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./08 - Files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Грешки и изключения</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../09%20-%20Multithreading/09%20-%20Multithreading.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Многонишково програмиране с Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

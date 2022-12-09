@@ -1,0 +1,3051 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Обектно-ориентирано програмиране &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Функционално програмиране" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html" />
+    <link rel="prev" title="Променливи, разклонения, цикли, типове, функции" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/03 - OOP/03 - OOP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/03 - OOP/03 - OOP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F03 - OOP/03 - OOP.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/03 - OOP/03 - OOP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/03 - OOP/03 - OOP.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Обектно-ориентирано програмиране
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Основни принципи
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Енкапсулация
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Наследяване
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Магическите методи ✨
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#repr">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         __repr__
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Конвертиране в други типове
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Аритметични и логически оператори
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Хеширане
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Контейнери и итератори
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Функции
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pure-witchcraft">
+       Pure witchcraft
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Някои полезни помощни класове и декоратори
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Но първо, какво е “декоратор”?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#property">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @property
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#setter">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @setter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#staticmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @staticmethod
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#classmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @classmethod
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#abc-abstract-base-class-abstractmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ABC
+        </span>
+       </code>
+       (Abstract Base Class) и
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @abstractmethod
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   Примери (задачи за решаване в час)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Пример 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#counter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Counter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#twowaycounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TwowayCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitedcounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LimitedCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitedtwowaycounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LimitedTwowayCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#semaphore">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Semaphore
+        </span>
+       </code>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id16">
+         Двата примера достигат до вас благодарение на курса по ООП 2020/2021 за СИ.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   Задачи за упражнение (за вкъщи)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     Задача 0
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     Задача 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     Задача 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     Задача 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Пример
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Обектно-ориентирано програмиране</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Обектно-ориентирано програмиране
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Основни принципи
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Енкапсулация
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Наследяване
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Магическите методи ✨
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#repr">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         __repr__
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Конвертиране в други типове
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Аритметични и логически оператори
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Хеширане
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Контейнери и итератори
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Функции
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pure-witchcraft">
+       Pure witchcraft
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Някои полезни помощни класове и декоратори
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Но първо, какво е “декоратор”?
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#property">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @property
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#setter">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @setter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#staticmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @staticmethod
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#classmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @classmethod
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#abc-abstract-base-class-abstractmethod">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         ABC
+        </span>
+       </code>
+       (Abstract Base Class) и
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         @abstractmethod
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   Примери (задачи за решаване в час)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Пример 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#counter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Counter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#twowaycounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TwowayCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitedcounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LimitedCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitedtwowaycounter">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LimitedTwowayCounter
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#semaphore">
+       Клас
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Semaphore
+        </span>
+       </code>
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id16">
+         Двата примера достигат до вас благодарение на курса по ООП 2020/2021 за СИ.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id17">
+   Задачи за упражнение (за вкъщи)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     Задача 0
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     Задача 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     Задача 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     Задача 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id22">
+       Пример
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/03%20-%20OOP/03%20-%20OOP.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Обектно-ориентирано програмиране<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="id2">
+<h2>Основни принципи<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Енкапсулация</p></li>
+<li><p>Абстракция</p></li>
+<li><p>Наследяване</p></li>
+<li><p>Полиморфизъм</p></li>
+</ol>
+<p>Обектно-ориентираното програмиране се основава на използването на класове от обекти, които обменят съобщения помежду си. В Python използваме ключовата дума <code class="docutils literal notranslate"><span class="pre">class</span></code>, за да започнем дефиницията на клас:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class ExampleClass:
+    pass
+</pre></div>
+</div>
+</div>
+</div>
+<p>(ключовата дума <code class="docutils literal notranslate"><span class="pre">pass</span></code> обозначава празен блок (еквивалентно на <code class="docutils literal notranslate"><span class="pre">{}</span></code> в езиците, използващи скоби за scope))</p>
+<p>Инстанции на класа можем да създаваме чрез синтаксис подобен на извикването на функция със същото име. Новосъздадените обекти отиват в динамичната памет и по подразбиране когато искаме да <code class="docutils literal notranslate"><span class="pre">print</span></code>-нем информация за тях Python ни показва адреса в паметта, на който се намират, както и типа им (класа):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>example_object = ExampleClass()
+print(example_object)
+
+example_object_2 = ExampleClass()
+print(example_object_2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.ExampleClass object at 0x113bed6a0&gt;
+&lt;__main__.ExampleClass object at 0x112dbbc40&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is</span></code> сравнява дали два обекта съвпадат, т.е. ще върне <code class="docutils literal notranslate"><span class="pre">False</span></code>, когато адресите им в паметта са различни. Операторът <code class="docutils literal notranslate"><span class="pre">==</span></code> пък не е дефиниран за горния клас и затова и неговата стойност засега ще бъде <code class="docutils literal notranslate"><span class="pre">False</span></code> (по премълчаване се дефинира чрез <code class="docutils literal notranslate"><span class="pre">is</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;{example_object is example_object_2 = }&quot;)
+print(f&quot;{example_object == example_object_2 = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>example_object is example_object_2 = False
+example_object == example_object_2 = False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Горният клас с име <code class="docutils literal notranslate"><span class="pre">ExampleClass</span></code> така дефиниран е празен - не притежава нито член-данни, нито методи. Добре е да се знае, обаче, че поради динамичния характер на езика, такива могат да бъдат добавяни (и отнемани) по всяко време (както като част от инстанцията, така и като част от класа). Достъпът до атрибути и методи става чрез точка <code class="docutils literal notranslate"><span class="pre">.</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>example_object.example_property = &quot;I am an attribute of this instance only&quot;
+print(f&quot;{example_object.example_property = }&quot;)
+
+ExampleClass.example_shared_property = &quot;I am a shared/static attribute&quot;
+print(f&quot;{ExampleClass.example_shared_property = }&quot;)
+print(f&quot;{example_object.example_shared_property = }&quot;)
+print(f&quot;{example_object_2.example_shared_property = }&quot;)
+
+del example_object.example_property
+print(f&quot;{example_object.example_property = }&quot;)  # 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>example_object.example_property = &#39;I am an attribute of this instance only&#39;
+ExampleClass.example_shared_property = &#39;I am a shared/static attribute&#39;
+example_object.example_shared_property = &#39;I am a shared/static attribute&#39;
+example_object_2.example_shared_property = &#39;I am a shared/static attribute&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">980122267.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">del</span> <span class="n">example_object</span><span class="o">.</span><span class="n">example_property</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">example_object</span><span class="o">.</span><span class="n">example_property</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># 💥</span>
+
+<span class="ne">AttributeError</span>: &#39;ExampleClass&#39; object has no attribute &#39;example_property&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Обикновено обаче искаме да знаем винаги какви член-данни да очакваме от един клас, както и да можем да ги задаваме при конструирането му. Това е възможно, чрез дефинирането на <code class="docutils literal notranslate"><span class="pre">__init__</span></code> метода в класа:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това е първият от редица “dunder” (<strong>d</strong>ouble <strong>under</strong>score - двойна подчертавка) методи (още наричани <em>магически</em> методи), които ще разгледаме в лекцията. Този се нарича <em><strong>инициализатор</strong></em> и приема като първи аргумент новосъздадения обект (по конвенция го кръщаваме винаги <code class="docutils literal notranslate"><span class="pre">self</span></code>, но на теория може да е всякак). Следващите параметри дефинираме и означаваме по наш избор.</p>
+<p>Обърнете внимание, че нарочно не го наричаме <em>контруктор</em>, понеже истинският конструктор създава и връща нов обект от даден клас, докато инициализаторът приема този обект и задава начални стойности на член-данните му или изпълнява някакъв друг вид инициализация. Такъв конструктор има и в Python (<a class="reference external" href="https://www.pythontutorial.net/python-oop/python-__new__/"><code class="docutils literal notranslate"><span class="pre">__new__</span></code></a>), но на него няма да се спираме подробно.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p1 = Point(2, 3)
+p2 = Point(5j, 3.14)
+
+print(f&quot;{p1.x = }, {p1.y = }&quot;)
+print(f&quot;{p2.x = }, {p2.y = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p1.x = 2, p1.y = 3
+p2.x = 5j, p2.y = 3.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Инициализаторът си е функция като всяка други и може да има стойности на параметрите по подразбиране, както и <code class="docutils literal notranslate"><span class="pre">args</span></code> и <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Coordinate:
+    def __init__(self, la=0, lo=0, **kwargs):
+        self.latitude = la
+        self.longitude = lo
+        self.metadata = kwargs
+
+sofia = Coordinate(42.69, 23.420, city=&quot;Sofia&quot;, country=&quot;Bulgaria&quot;)
+null_island = Coordinate()
+
+print(f&quot;{sofia.latitude = }, {sofia.longitude = }, {sofia.metadata = }&quot;)
+print(f&quot;{null_island.latitude = }, {null_island.longitude = }, {null_island.metadata = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sofia.latitude = 42.69, sofia.longitude = 23.42, sofia.metadata = {&#39;city&#39;: &#39;Sofia&#39;, &#39;country&#39;: &#39;Bulgaria&#39;}
+null_island.latitude = 0, null_island.longitude = 0, null_island.metadata = {}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Произволни методи дефинираме по същия начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Path:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+    
+    def length(self):
+        return ((self.start.x - self.end.x) ** 2 + (self.start.y - self.end.y) ** 2) ** 0.5
+
+p1 = Point(0, 3)
+p2 = Point(4, 0)
+
+path = Path(p1, p2)
+l = path.length()
+
+print(f&quot;{l = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>l = 5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Липсата на <code class="docutils literal notranslate"><span class="pre">self</span></code> като първи аргумент ще е грешка, понеже Python винаги ще се опита да предаде инстанцията на класа като първи параметър на метода:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def a():
+        pass
+
+A().a()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">3247279650.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">pass</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">A</span><span class="p">()</span><span class="o">.</span><span class="n">a</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: a() takes 0 positional arguments but 1 was given
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Енкапсулация<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>В Python достъпа до всичко е <a class="reference external" href="https://www.youtube.com/watch?v=8H1nuRZrE6g">публичен</a>.</p>
+<p>По конвенция е общоприето <code class="docutils literal notranslate"><span class="pre">protected</span></code> имената да започват с една подчертавка (<code class="docutils literal notranslate"><span class="pre">_name</span></code>), а <code class="docutils literal notranslate"><span class="pre">private</span></code> - с две (<code class="docutils literal notranslate"><span class="pre">__name</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Counter:
+    def __init__(self, value=0):
+        self._value = value
+
+    def get_value(self):
+        return self._value
+    
+    def increment(self):
+        self._value += 1
+    
+    def decrement(self):
+        self._value -= 1
+
+c = Counter(41)
+c.increment()
+
+print(f&quot;{c.get_value() = }&quot;)
+print(f&quot;{c._value = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c.get_value() = 42
+c._value = 42
+</pre></div>
+</div>
+</div>
+</div>
+<p>При двойните подчертавки обаче съществува една особеност, която ни улеснява в енкапсулирането на private член-данни. Нарича се <strong>name mangling</strong> и представлява добавянето на <code class="docutils literal notranslate"><span class="pre">_</span></code> и името на класа в началото на името на тези член-данни. Тоа се прави с цел замаскиране на атрибута и премахването на достъпа чрез оригиналното му име.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Counter:
+    def __init__(self, value=0):
+        self.__value = value  # private access from within the class is OK
+
+    def get_value(self):
+        return self.__value
+
+    def increment(self):
+        self.__value += 1
+
+    def decrement(self):
+        self.__value -= 1
+
+
+c = Counter(41)
+c.increment()
+
+print(f&quot;{c.get_value() = }&quot;)
+print(f&quot;{c._Counter__value = }&quot;)  # name has been mangled
+print(f&quot;{c.__value = }&quot;)  # 💥 cannot be accessed at its original name
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c.get_value() = 42
+c._Counter__value = 42
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">3226284858.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">_Counter__value</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># name has been mangled</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="o">.</span><span class="n">__value</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># 💥 cannot be accessed at its original name</span>
+
+<span class="ne">AttributeError</span>: &#39;Counter&#39; object has no attribute &#39;__value&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Дълга тема за дискусия е колко често и кога да използваме public, private или protected член-данни и методи в Python. За разлика от повечето езици, които проповядват всичко по подразбиране да е максимално скрито, докато не ни се наложи друго, в Python не е толкова често срещана необходимостта от строгото забраняване на достъп, даже напротив, подходът най-често е по-скоро обратен.</p>
+<p>Хубави отговори на този въпрос може да намерите <a class="reference external" href="https://stackoverflow.com/a/7456865">тук</a>.</p>
+</section>
+<section id="id4">
+<h2>Наследяване<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>Както споменахме, всичко в Python е обект. По-точно <code class="docutils literal notranslate"><span class="pre">object</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">object</span></code> е най-базовия клас в езика, който имплицитно бива наследяван от всички класове.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    pass
+
+a = A()
+
+print(f&quot;{isinstance(a, A) = }&quot;)
+print(f&quot;{isinstance(a, object) = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>isinstance(a, A) = True
+isinstance(a, object) = True
+</pre></div>
+</div>
+</div>
+</div>
+<p>(с вградената функция <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> проверяваме дали даден обект е инстанция на даден клас или на негов базов такъв)</p>
+<p>Дори и да изглежда празен класът А, в него в момента се съдържат доста член-методи. С вградената функция <code class="docutils literal notranslate"><span class="pre">dir</span></code> можем да видим пълния набор от атрибути и методи, които даден обект притежава:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir(a)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__weakref__&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Почти всички от тези магически методи и атрибути са наследени от <code class="docutils literal notranslate"><span class="pre">object</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dir(object())
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__class__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме да наследим друг клас, записваме името му в скоби преди дефиницията на наследника:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class BaseClass:
+    x = 69
+
+class SubClass(BaseClass):
+    pass
+
+sub = SubClass()
+print(f&quot;{sub.x = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sub.x = 69
+</pre></div>
+</div>
+</div>
+</div>
+<p>Виждаме, че няма нужда да пишем експлицитно, че наследяваме от <code class="docutils literal notranslate"><span class="pre">object</span></code>. Важно е да се отбележи обаче, че това е задължително за Python 2.</p>
+<p>Предефинирането на методи от базовия клас не изисква някаква специална ключова дума. Тяхната дефиниция просто бива замествана от новата.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Foo:
+    def foo(self):
+        print(&quot;foo&quot;)
+
+class Bar(Foo):
+    def foo(self):
+        print(&quot;foobar&quot;)
+
+#  (I&#39;m sorry I couldn&#39;t come up with anything creative this time)
+
+bar = Bar()
+bar.foo()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>foobar
+</pre></div>
+</div>
+</div>
+</div>
+<p>Използването на <code class="docutils literal notranslate"><span class="pre">super()</span></code> ни връща обект-прокси, който пренасочва дефиниции на методи към базов клас:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Drink:
+    def __init__(self, name, alcoholic_percentage):
+        self.name = name
+        self.alcoholic_percentage = alcoholic_percentage
+
+
+class SoftDrink(Drink):
+    def __init__(self, name):
+        super().__init__(name, 0)
+
+
+drincc = SoftDrink(&quot;Coca-Cola&quot;)
+print(f&quot;{drincc.name = }, {drincc.alcoholic_percentage = }%&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>drincc.name = &#39;Coca-Cola&#39;, drincc.alcoholic_percentage = 0%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python е един от малкото езици, в които <strong>множественото наследяване е позволено</strong>. За избягване на проблема на <a class="reference external" href="https://youtu.be/nrSlqAb4ZLw?t=10">диаманта</a> и други подобни, които често това поражда, е хубаво базовите класове да са семпли и с ясно-дефинирана функционалност, по възможност непокриваща се.</p>
+<p>Mixin-ите са най-честия пример за използване на множествено наследяване в Python. Те са базови класове, които предоставят “наготово” имплементация на конкретна допълнителна функционалност.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import json
+
+class JSONSerializableMixin:
+    def to_json(self):
+        return json.dumps(self.__dict__)
+
+class DebugMixin:
+    def __repr__(self):
+        arguments = &quot;, &quot;.join(f&quot;{k}={v}&quot; for k, v in self.__dict__.items())
+        return f&quot;{self.__class__.__name__}({arguments})&quot;
+
+
+class Person(JSONSerializableMixin, DebugMixin):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Employee(Person, JSONSerializableMixin, DebugMixin):
+    def __init__(self, name, age, salary):
+        self.salary = salary
+        super().__init__(name, age)
+
+
+elon = Employee(&quot;Elon Musk&quot;, 51, 1_000_000_000)
+print(f&quot;{elon.to_json() = }&quot;)
+print(f&quot;{elon = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>elon.to_json() = &#39;{&quot;salary&quot;: 1000000000, &quot;name&quot;: &quot;Elon Musk&quot;, &quot;age&quot;: 51}&#39;
+elon = Employee(salary=1000000000, name=Elon Musk, age=51)
+</pre></div>
+</div>
+</div>
+</div>
+<p>В горните примери дефинирахме два mixin-a: един, който дефинира как да бъде сериализиран до JSON всеки обект, а другия - как да бъде принтиран в дебъг конзолата. Класът <code class="docutils literal notranslate"><span class="pre">Employee</span></code> наслодява както <code class="docutils literal notranslate"><span class="pre">Person</span></code>, така и двата други класа, като придобива всичката функционалност. В този случай <code class="docutils literal notranslate"><span class="pre">super()</span></code> знае към кой базов клас да се обърне чрез поредността на изпълнение на методи (Method Resolution Order), който зависи от реда, в който сме изброили базовите класове (може да се види чрез <code class="docutils literal notranslate"><span class="pre">__mro__</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>Employee.__mro__
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(__main__.Employee,
+ __main__.Person,
+ __main__.JSONSerializableMixin,
+ __main__.DebugMixin,
+ object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Повече за <code class="docutils literal notranslate"><span class="pre">super()</span></code> може да прочетете <a class="reference external" href="https://realpython.com/python-super/">тук</a>.</p>
+<p>В примерът по-горе използвахме доста непознати dunder-и: <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, <code class="docutils literal notranslate"><span class="pre">__dict__</span></code>, <code class="docutils literal notranslate"><span class="pre">__class__</span></code>, <code class="docutils literal notranslate"><span class="pre">__name__</span></code>. За тях, както и други, ще разясним в следващата секция.</p>
+</section>
+<section id="id5">
+<h2>Магическите методи ✨<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Документация: <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html">https://docs.python.org/3/reference/datamodel.html</a></p>
+<section id="repr">
+<h3><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#object.__repr__"><code class="docutils literal notranslate"><span class="pre">__repr__</span></code></a><a class="headerlink" href="#repr" title="Permalink to this headline">#</a></h3>
+<p>От англ. “representation”.</p>
+<p>Изиква се при изпълнението на <code class="docutils literal notranslate"><span class="pre">repr(self)</span></code>. Трябва да върне низ с репрезентация на обекта, подходящ за принт в конзолата при дебъгване например. Хубаво е тя максимално много да наподобява начина, по който можем да пресъздадем обекта с изпълним код. Ако това не е възможно е хубаво да върне низ във вида <code class="docutils literal notranslate"><span class="pre">&lt;...</span> <span class="pre">някакво</span> <span class="pre">полезно</span> <span class="pre">инфо...&gt;</span></code>.</p>
+<p>Например за клас <code class="docutils literal notranslate"><span class="pre">Point</span></code> (точка) с атрибути <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code>, които инициализаторът приема, вместо <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> е по-удачно да върнем <code class="docutils literal notranslate"><span class="pre">Point(x,</span> <span class="pre">y)</span></code>, понеже това може директно да бъде изпълнено като Python код и да получим еквивалентен обект.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f&quot;Point({self.x}, {self.y})&quot;
+
+p = Point(2, 3)
+print(p)
+print(repr(p))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point(2, 3)
+Point(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Конвертиране в други типове<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Можем да предефинираме начинът, по който нашият клас бива конвертиран в някои други вградени типове, чрез специалните <code class="docutils literal notranslate"><span class="pre">dunder</span></code> методи с тяхното име, предназначени за това. Възможните типове са <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bytes</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f&quot;Point({self.x}, {self.y})&quot;
+
+    def __str__(self):
+        return f&quot;({self.x}, {self.y})&quot;
+
+    def __bool__(self):
+        &quot;&quot;&quot;Return `True` only for (0, 0).&quot;&quot;&quot;
+        return not (not self.x and not self.y)
+
+p = Point(2, 3)
+
+print(f&quot;{str(p) = }&quot;)
+print(f&quot;The `__str__` method is called when using string interpolation: {p}&quot;)
+print(f&quot;If we want to use the `__repr__` instead we should write it like this: {p!r}&quot;)
+
+print(f&quot;{bool(p) = }&quot;)
+
+# `__bool__` is useful when building conditions
+
+if p:
+    print(&quot;p is truthy&quot;)
+
+z = Point()
+
+if not z:
+    print(&quot;z is falsey&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str(p) = &#39;(2, 3)&#39;
+The `__str__` method is called when using string interpolation: (2, 3)
+If we want to use the `__repr__` instead we should write it like this: Point(2, 3)
+bool(p) = True
+p is truthy
+z is falsey
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: За доста от класовете, които бихте срещнали, върнатите низове от <code class="docutils literal notranslate"><span class="pre">repr</span></code> и <code class="docutils literal notranslate"><span class="pre">str</span></code> съвпадат. Тук обаче умишлено сме избрали пример, в който има повече смисъл да са различни - <code class="docutils literal notranslate"><span class="pre">repr</span></code> е debuggable репрезентация на обекта точка (валиден изпълним код), а <code class="docutils literal notranslate"><span class="pre">str</span></code> - стандартен математически запис на точка.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Fraction:
+    def __init__(self, numerator=0, denominator=1):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def __float__(self):
+        return self.numerator / self.denominator
+
+    def __int__(self):
+        return self.numerator // self.denominator  # alternative is `return int(float(self))`
+    
+    def __complex__(self):
+        return complex(float(self))  # alternative is `return float(self) + 0j`
+    
+    def __str__(self):
+        return f&quot;{self.numerator}/{self.denominator}&quot;
+
+    def __repr__(self):
+        return f&quot;Fraction({self.numerator}, {self.denominator})&quot;
+
+    def __bool__(self):
+        return self.numerator != 0
+
+
+frac = Fraction(6, 9)
+print(f&quot;{float(frac) = }&quot;)
+print(f&quot;{int(frac) = }&quot;)
+print(f&quot;{complex(frac) = }&quot;)
+print(f&quot;{str(frac) = }&quot;)
+print(f&quot;{repr(frac) = }&quot;)
+print(f&quot;{bool(frac) = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float(frac) = 0.6666666666666666
+int(frac) = 0
+complex(frac) = (0.6666666666666666+0j)
+str(frac) = &#39;6/9&#39;
+repr(frac) = &#39;Fraction(6, 9)&#39;
+bool(frac) = True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note 2: Обърнете внимание, че <code class="docutils literal notranslate"><span class="pre">dunder(x)</span></code> в случая е същото като <code class="docutils literal notranslate"><span class="pre">x.__dunder__()</span></code>. Обикновено нямаме причина да използваме втория запис.</p>
+</section>
+<section id="id7">
+<h3>Аритметични и логически оператори<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>В Python (също както в С++ и повечето други ООП езици) можем да предефинираме поведението на аритметичните и логическите оператори от езика, когато биват извикани върху обект от нашия клас.</p>
+<p>Съответните магически методи за това са:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>оператор</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">dunder</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__eq__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code>/<code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__neq__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__lt__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__le__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__gt__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ge__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code> (2)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__add__</span></code>/<code class="docutils literal notranslate"><span class="pre">__radd__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__mul__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rmul__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code> (2)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__sub__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rsub__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rtruediv__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__floordiv__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rfloordiv__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__mod__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rmod__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">divmod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__divmod__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rdivmod__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**</span></code>/<code class="docutils literal notranslate"><span class="pre">pow</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__pow__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rpow__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__lshift__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rlshift__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__rshift__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rrshift__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__and__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rand__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__xor__</span></code>/<code class="docutils literal notranslate"><span class="pre">__rxor__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__or__</span></code>/<code class="docutils literal notranslate"><span class="pre">__ror__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__iadd__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__imul__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__isub__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__itruediv__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">//=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ifloordiv__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__imod__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">**=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ipow__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ilshift__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__irshift__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__iand__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">^=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ixor__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">|=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__ior__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code> (1)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__neg__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code> (1)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__pos__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">abs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__abs__</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__invert__</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Fraction:
+    def __init__(self, numerator=0, denominator=1):
+        self.numerator = numerator
+        self.denominator = denominator
+    
+    def __add__(self, other):
+        return Fraction(
+            self.numerator * other.denominator + other.numerator * self.denominator,
+            self.denominator * other.denominator
+        )
+    
+    def __sub__(self, other):
+        return Fraction(
+            self.numerator * other.denominator - other.numerator * self.denominator,
+            self.denominator * other.denominator
+        )
+    
+    def __mul__(self, other):
+        return Fraction(
+            self.numerator * other.numerator,
+            self.denominator * other.denominator
+        )
+
+    def __truediv__(self, other):
+        return Fraction(
+            self.numerator * other.denominator,
+            self.denominator * other.numerator
+        )
+
+    def __iadd__(self, other):
+        self.numerator = self.numerator * other.denominator + other.numerator * self.denominator
+        self.denominator = self.denominator * other.denominator
+        return self
+
+    def __isub__(self, other):
+        self.numerator = self.numerator * other.denominator - other.numerator * self.denominator
+        self.denominator = self.denominator * other.denominator
+        return self
+
+    def __imul__(self, other):
+        self.numerator = self.numerator * other.numerator
+        self.denominator = self.denominator * other.denominator
+        return self
+
+    def __itruediv__(self, other):
+        self.numerator = self.numerator * other.denominator
+        self.denominator = self.denominator * other.numerator
+        return self
+    
+    def __repr__(self):
+        return f&quot;Fraction({self.numerator}, {self.denominator})&quot;
+
+
+frac1 = Fraction(1, 2)
+frac2 = Fraction(1, 3)
+
+summ = frac1 + frac2
+diff = frac1 - frac2
+prod = frac1 * frac2
+quot = frac1 / frac2
+
+print(f&quot;{summ = }&quot;)
+print(f&quot;{diff = }&quot;)
+print(f&quot;{prod = }&quot;)
+print(f&quot;{quot = }&quot;)
+
+frac1 += frac2
+print(f&quot;{frac1 = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>summ = Fraction(5, 6)
+diff = Fraction(1, 6)
+prod = Fraction(1, 6)
+quot = Fraction(3, 2)
+frac1 = Fraction(5, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Вариантите на методите, започващи с <code class="docutils literal notranslate"><span class="pre">r</span></code>, дефиниращи поведението на операторите, се извикват с разменени аргументи. Те се използват само в случая, когато левият операнд не поддържа съответната операция и операндите са от различни типове.</p>
+<p>Нека например имаме израза <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> и нека <code class="docutils literal notranslate"><span class="pre">y</span></code> имплементира <code class="docutils literal notranslate"><span class="pre">__rsub__</span></code>. Той ще се извика в случая, когато <code class="docutils literal notranslate"><span class="pre">x</span></code> не поддържа <code class="docutils literal notranslate"><span class="pre">__sub__</span></code> (няма го дефиниран или връща <code class="docutils literal notranslate"><span class="pre">NotImplemented</span></code>) и <code class="docutils literal notranslate"><span class="pre">x</span></code> и <code class="docutils literal notranslate"><span class="pre">y</span></code> са от различни типове.</p>
+</section>
+<section id="id8">
+<h3>Хеширане<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>Колекции като <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> и <code class="docutils literal notranslate"><span class="pre">frozenset</span></code> изискват елементите им да могат да се хешират. Това се осъществява чрез извикването на вградената функция <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, която връща цяло число - съответният хеш.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hash(1)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hash(420)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>420
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hash(&quot;a&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5016004937874941484
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hash((1, &quot;a&quot;, False))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-5093137992435649037
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hash([1, &quot;a&quot;, False])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">1812877005.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">hash</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+
+<span class="ne">TypeError</span>: unhashable type: &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rule of thumb във всички езици за програмиране е с дефиниране на <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> винаги да има и дефиниция на <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> (обратното не е задължително да е вярно), понеже няма смисъл да се хешира обект, който не може да се сравнява с други.</p>
+<p>В Python при дефиниране на клас, по премълчаване той получава готова default-на дефиниция на <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> и <code class="docutils literal notranslate"><span class="pre">__hash__</span></code>. Тяхното поведение е такова, че две различни инстанции от този клас не са равни и не произвеждат един и същ хещ (равни са единствено на себе си, т.е. равенство настъпва само при сравняване на имена, сочещи към едно и също място в паметта).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+p1 = Point(4, 2)
+p2 = Point(4, 2)
+
+print(f&quot;{hash(p1) = }&quot;)
+print(f&quot;{hash(p2) = }&quot;)
+
+visited = set()
+visited.add(p1)
+visited.add(p2)
+
+print(f&quot;{visited = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hash(p1) = 289920877
+hash(p2) = 289920985
+visited = {&lt;__main__.Point object at 0x1147d7d90&gt;, &lt;__main__.Point object at 0x1147d76d0&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>В случая от примера може би не искаме две точки с едни и същи координати да се третират като различни. За да го постигнем, трябва да дефинираме <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> и <code class="docutils literal notranslate"><span class="pre">__hash__</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __hash__(self):
+        return hash((self.x, self.y))  # the hash of the tuple of the coordinates is sufficient
+
+
+p1 = Point(4, 2)
+p2 = Point(4, 2)
+
+print(f&quot;{hash(p1) = }&quot;)
+print(f&quot;{hash(p2) = }&quot;)
+
+visited = set()
+visited.add(p1)
+visited.add(p2)
+
+print(f&quot;{visited = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hash(p1) = -9131917124991031250
+hash(p2) = -9131917124991031250
+visited = {&lt;__main__.Point object at 0x113d60790&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>По този начин (чрез предефиниране на <code class="docutils literal notranslate"><span class="pre">==</span></code> и евентуално и на <code class="docutils literal notranslate"><span class="pre">hash()</span></code>) определяме еднаквост между инстанциите. След това единственият начин, по който можем да различим дали обектите съвпадат (т.е. са едни и същи от гледна точка на паметта) остава чрез използване на <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p1 is p2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p1 == p2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h3>Контейнери и итератори<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>Съществуват методи, които ни помагат в дефинирането на контейнери и мапинги:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code>: трябва да върне дължината на контейнера (цяло число <span class="math notranslate nohighlight">\( \ge 0 \)</span>). Извиква се от вградената функция <code class="docutils literal notranslate"><span class="pre">len()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code>: връща елемента с ключ <code class="docutils literal notranslate"><span class="pre">key</span></code> (на позиция <code class="docutils literal notranslate"><span class="pre">key</span></code>). Извиква се при read-only достъп с <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code>: задава стойността на елемента с ключ <code class="docutils literal notranslate"><span class="pre">key</span></code> (на позиция <code class="docutils literal notranslate"><span class="pre">key</span></code>) да бъде <code class="docutils literal notranslate"><span class="pre">value</span></code>. Извиква се при присвояване с <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code>: изтрива елемента с ключ <code class="docutils literal notranslate"><span class="pre">key</span></code> (на позиция <code class="docutils literal notranslate"><span class="pre">key</span></code>). Извиква се от ключовата дума <code class="docutils literal notranslate"><span class="pre">del</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code>: връща итератор, който да се използва за обхождане на контейнера. При мапинги трябва да обхожда ключовете на контейнера. Извиква се от вградената функция <code class="docutils literal notranslate"><span class="pre">iter()</span></code> когато е необходимо. Итераторът трябва да имплементира <code class="docutils literal notranslate"><span class="pre">__next__</span></code>, така че при обхождането му да връща следващия елемент при всяко извикване на <code class="docutils literal notranslate"><span class="pre">next()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__reversed__(self)</span></code>: връща обратен итератор, който да се използва за обхождане на контейнера. Извиква се от вградената функция <code class="docutils literal notranslate"><span class="pre">reversed()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">item)</span></code>: връща <code class="docutils literal notranslate"><span class="pre">bool</span></code>, казващ дали <code class="docutils literal notranslate"><span class="pre">item</span></code> се съдържа в контейнера. Извиква се при използване на <code class="docutils literal notranslate"><span class="pre">in</span></code> за проверка на съдържанието.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class DefaultArray:
+    &quot;&quot;&quot;
+    A container that behaves like a list with a maximum size (array)
+    but returns a default value for missing indices.
+    &quot;&quot;&quot;
+
+    def __init__(self, limit, default_element_func):
+        self._limit = limit
+        self._default_element_func = default_element_func
+        self._list = [None] * limit
+
+    def __len__(self):
+        return self._limit
+
+    def __getitem__(self, index):
+        element = self._list[index]
+        return self._default_element_func() if element is None else element
+
+    def __setitem__(self, index, element):
+        self._list[index] = element
+
+    def __delitem__(self, index):
+        self._list[index] = None
+
+    def __contains__(self, item):
+        return item in self._list
+
+arr = DefaultArray(10, int)  # `int` can be viewed as a function that returns 0 upon calling
+
+print(f&quot;{arr[1] = }&quot;)  # __getitem__
+
+arr[1] = 42  # __setitem__
+
+print(f&quot;{arr[1] = }&quot;)
+print(f&quot;{42 in arr = }&quot;)  # __contains__
+
+del arr[1]  # __delitem__
+
+print(f&quot;{arr[1] = }&quot;)
+print(f&quot;{42 in arr = }&quot;)
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>arr[1] = 0
+arr[1] = 42
+42 in arr = True
+arr[1] = 0
+42 in arr = False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Индексирането в Python е гъвкаво и позволява взимането на цели части (<code class="docutils literal notranslate"><span class="pre">slice</span></code>s) от дадена колекция, както и броене отзад-напред.</p>
+<p>Синтаксисът е <code class="docutils literal notranslate"><span class="pre">iterable[start:stop:step]</span></code>, където:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iterable</span></code> е въпросната колекция</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code> е началния индекс (default = 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stop</span></code> е крайният индекс (<em><strong>невключително</strong></em>) (default = len)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">step</span></code> е стъпката (default = 1), през която се взимат елементи. Ако е отрицателна, то обхождането е наобратно.</p></li>
+</ul>
+<p>Индексът, както и <code class="docutils literal notranslate"><span class="pre">start</span></code>/<code class="docutils literal notranslate"><span class="pre">stop</span></code> могат да бъдат отрицателни числа. В такъв случай <code class="docutils literal notranslate"><span class="pre">-1</span></code> означава последният елемент, <code class="docutils literal notranslate"><span class="pre">-2</span></code> - предпоследният и т.н.</p>
+<p>Също е хубаво да се отбележи, че при slicing не се хвърля <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>, в случай че някой от индексите е извън колекцията.</p>
+<p>Най-добре всичко това се демонстрира чрез примери:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>items = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+print(f&quot;{items[9] = }&quot;)
+print(f&quot;{items[-1] = }&quot;)
+print()
+print(f&quot;{items[1:5] = }&quot;)
+print(f&quot;{items[1:] = }&quot;)
+print(f&quot;{items[:5] = }&quot;)
+print(f&quot;{items[:-1] = }&quot;)
+print(f&quot;{items[-6:-1] = }&quot;)
+print()
+print(f&quot;{items[1:5:2] = }&quot;)
+print(f&quot;{items[1:5:-1] = }&quot;)
+print(f&quot;{items[5:1:-1] = }&quot;)
+print()
+print(f&quot;{items[5::-1] = }&quot;)
+print(f&quot;{items[::-1] = }&quot;)
+print(f&quot;{items[:] = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>items[9] = 9
+items[-1] = 9
+
+items[1:5] = [1, 2, 3, 4]
+items[1:] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+items[:5] = [0, 1, 2, 3, 4]
+items[:-1] = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+items[-6:-1] = [4, 5, 6, 7, 8]
+
+items[1:5:2] = [1, 3]
+items[1:5:-1] = []
+items[5:1:-1] = [5, 4, 3, 2]
+
+items[5::-1] = [5, 4, 3, 2, 1, 0]
+items[::-1] = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+items[:] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Чрез имплементиране на <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> нашият клас поддържа имплицитно slicing. Това е така, понеже горепоказаният начин за slicing е синтактична захар на създаването на <code class="docutils literal notranslate"><span class="pre">slice</span></code> обект и предаването му чрез <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>С други думи, следните две операции са екивалентни:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>usa_weekdays = [&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;]
+
+workdays1 = usa_weekdays[1:-1]
+workdays2 = usa_weekdays[slice(1, -1, None)]
+
+print(f&quot;{workdays1 = }&quot;)
+print(f&quot;{workdays2 = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>workdays1 = [&#39;Mon&#39;, &#39;Tue&#39;, &#39;Wed&#39;, &#39;Thu&#39;, &#39;Fri&#39;]
+workdays2 = [&#39;Mon&#39;, &#39;Tue&#39;, &#39;Wed&#39;, &#39;Thu&#39;, &#39;Fri&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това означава, че ако искаме (или пък нарочно и експлицитно не искаме) да поддържаме slicing по адекватен начин в нашия обект, в<code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code>, <code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key)</span></code> и <code class="docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code> може да е необходимо да проверяваме дали <code class="docutils literal notranslate"><span class="pre">key</span></code> е от тип <code class="docutils literal notranslate"><span class="pre">slice</span></code> в случаите, в които това има значение. Това може да стане с <code class="docutils literal notranslate"><span class="pre">isinstance(key,</span> <span class="pre">slice)</span></code> например.</p>
+<p>В горния пример с <code class="docutils literal notranslate"><span class="pre">DynamicArray</span></code> няма да имаме проблем, понеже параметъра го предаваме директно на <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> на листа който си пазим, а листовете както видяхме вече успешно се справят със <code class="docutils literal notranslate"><span class="pre">slice</span></code>-ове.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arr[:]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[None, None, None, None, None, None, None, None, None, None]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Итерирането в Python става с помощта на итератори. Итераторите са обекти, които имплементират метода <code class="docutils literal notranslate"><span class="pre">__next__</span></code>, който връща следващия елемент при всяко извикване. Когато няма повече елементи, трябва да се хвърли изключение <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code>. Итераторите се използват от <code class="docutils literal notranslate"><span class="pre">for</span></code>-циклите.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>iterable = [1, 2, 3]
+
+# `for i in iterable: print(i)` is equal to the following calls:
+
+iterator = iter(iterable)  # the `for` loop uses the iterator of the object
+
+print(f&quot;{iterator = }&quot;)  # printing here the iterator just for demo purposes
+
+print(f&quot;{next(iterator) = }&quot;)  # first iteration
+print(f&quot;{next(iterator) = }&quot;)  # second iteration
+print(f&quot;{next(iterator) = }&quot;)  # third iteration
+print(f&quot;{next(iterator) = }&quot;)  # this exception is caught by the `for` loop and is its exit condition
+# let&#39;s not catch it and let it boom 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iterator = &lt;list_iterator object at 0x118986490&gt;
+next(iterator) = 1
+next(iterator) = 2
+next(iterator) = 3
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">920778728.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># second iteration</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># third iteration</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># this exception is caught by the `for` loop and is its exit condition</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># let&#39;s not catch it and let it boom 💥</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>С други думи, <code class="docutils literal notranslate"><span class="pre">for</span></code> циклите правят следното:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def for_from_aliexpress(iterable, func):
+    iterator = iter(iterable)
+    while True:
+        try:
+            element = next(iterator)
+        except StopIteration:
+            break
+
+        func(element)
+
+for_from_aliexpress([1, 2, 3], print)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако не разбирате част от кода горе, не се притеснявайте. В последваща лекция ще учим за грешки и изключения, както и в друга говорим за итериране и функции от по-висок ред в повече дълбочина.</p>
+<p>За бъде итеруем (iterable) един клас, трябва да имплементира <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>, връщайки итератор. Възможно е да върне и собствената си инстанция, в случай, че има имплементиран <code class="docutils literal notranslate"><span class="pre">__next__</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class NotAnIterable:
+    pass
+
+not_an_iterable = NotAnIterable()
+
+for i in not_an_iterable:
+    print(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">2000024672.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">not_an_iterable</span> <span class="o">=</span> <span class="n">NotAnIterable</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">not_an_iterable</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;NotAnIterable&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class DefaultArray:
+    &quot;&quot;&quot;
+    A container that behaves like a list with a maximum size (array)
+    but returns a default value for missing indices.
+    &quot;&quot;&quot;
+
+    def __init__(self, limit, default_element_func):
+        self._limit = limit
+        self._default_element_func = default_element_func
+        self._list = [None] * limit
+
+    def __len__(self):
+        return self._limit
+
+    def __getitem__(self, index):
+        element = self._list[index]
+        return self._default_element_func() if element is None else element
+
+    def __setitem__(self, index, element):
+        self._list[index] = element
+
+    def __delitem__(self, index):
+        self._list[index] = None
+
+    def __contains__(self, item):
+        return item in self._list
+
+    def __iter__(self):
+        return iter(self._list)
+
+arr = DefaultArray(10, int)
+
+for i in range(10):
+    arr[i] = i*i*i  # squares are overrated, let&#39;s print the cubes
+
+for element in arr:  # __iter__ is called here
+    print(element)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+8
+27
+64
+125
+216
+343
+512
+729
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class FibonacciGenerator:
+    def __init__(self, max_index):
+        self.max_index = max_index
+        self._a = 1
+        self._b = 1
+        self._current_index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self._current_index &gt;= self.max_index:
+            raise StopIteration
+
+        current = self._a
+
+        self._a, self._b = self._b, self._a + self._b
+        self._current_index += 1
+
+        return current
+
+
+lateralus = FibonacciGenerator(16)
+
+for i in lateralus:
+    print(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class YetAnotherCustomIterable:
+    class CustomIterator:
+        def __init__(self, iterable):
+            self._iterable = iterable
+            self._index = 0
+
+        def __next__(self):
+            if self._index &gt;= len(self._iterable):
+                raise StopIteration
+
+            element = self._iterable[self._index]
+            self._index += 1
+            return element
+    
+    def __init__(self, iterable):
+        self._iterable = iterable
+    
+    def __iter__(self):
+        return YetAnotherCustomIterable.CustomIterator(self._iterable)
+
+it = YetAnotherCustomIterable(&quot;strings are also iterables&quot;)
+
+print(&quot;👏&quot;.join(i for i in it))  # __iter__ is also called by comprehensions
+# more info on list/generator/dict comprehensions in another lecture
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>s👏t👏r👏i👏n👏g👏s👏 👏a👏r👏e👏 👏a👏l👏s👏o👏 👏i👏t👏e👏r👏a👏b👏l👏e👏s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id10">
+<h3>Функции<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<p>Искате обектът ви да бъде извикан като функция?</p>
+<p>Няма проблеми.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class LinearBinomial:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def __call__(self, x):
+        return self.a * x + self.b
+
+    def __str__(self):
+        A = f&quot;{self.a}x&quot; if self.a != 1 else &quot;x&quot;
+        B = f&quot;{self.b}&quot; if self.b != 0 else &quot;&quot;
+        return f&quot;{A} + {B}&quot;
+
+
+f = LinearBinomial(1, 2)
+
+print(f&quot;f(x) = {f}&quot;)
+
+print(f&quot;f(0) = {f(0)}&quot;)
+print(f&quot;f(1) = {f(1)}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f(x) = x + 2
+f(0) = 2
+f(1) = 3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pure-witchcraft">
+<h3>Pure witchcraft<a class="headerlink" href="#pure-witchcraft" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class ExampleClass:
+    &quot;&quot;&quot;This is an example class.
+    
+    Note: The first multiline comment in a definition of a class, module or function
+    is called a &#39;docstring&#39;.
+    &quot;&quot;&quot;
+
+    def __init__(self, var):
+        &quot;&quot;&quot;Take a variable and store it in the instance.
+
+        Note: It is good practice to document as many public methods and classes as possible.
+        &quot;&quot;&quot;
+        self.var = var
+
+    def __repr__(self):
+        &quot;&quot;&quot;Return repr(self).
+        
+        Note: there are established strict conventions as to what good code documentation sould look like.
+        For example, such comments should always be imperative (e.g. &#39;return&#39;, not &#39;returns&#39;).
+        For more info check out `pydocstyle` (https://www.pydocstyle.org/en/stable/). It includes a linter
+        that can be configured inside your IDE to constantly check and give out warnings
+        regarding your code documentation and style.
+        Good thing to check out as well is PEP-8 but keep in mind that we will cover PEP-8 in details
+        in a following lecture.
+        &quot;&quot;&quot;
+        return f&quot;ExampleClass({self.var})&quot;
+
+    __str__ = __repr__  # after all, methods are objects too. They can be passed around and assigned.
+
+
+instance = ExampleClass(42)
+
+# now let the black magic begin
+print(f&quot;{instance.__doc__ = }&quot;)           # the docstring of the object
+print(f&quot;{instance.__repr__.__doc__ = }&quot;)  # the docstring of a method of the object
+print(f&quot;{ExampleClass.__name__ = }&quot;)  # the name of the class as a string
+print(f&quot;{instance.__class__ = }&quot;)  # the class of the instance as a class object
+print(f&quot;{instance.__module__ = }&quot;)  # the name of the module in which the object exists. In this case, it&#39;s `__main__` because we are in the REPL.
+print(f&quot;{instance.__dict__ = }&quot;)  # a `dict` containing all the attributes of the instance. It is returned by the `vars` builtin function:
+print(f&quot;{vars(instance) = }&quot;)
+print(f&quot;{instance.__repr__.__code__ = }&quot;)  # the code object of the method. Don&#39;t expect to see the exact code though, this is some representation of the compiled code.
+print(f&quot;{instance.__repr__.__code__.co_code = }&quot;)  # the actual compiled code. This is a `bytes` object.
+print(f&quot;{instance.__str__.__code__.co_code = }&quot;)  # it&#39;s the same picture
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>instance.__doc__ = &quot;This is an example class.\n    \n    Note: The first multiline comment in a definition of a class, module or function\n    is called a &#39;docstring&#39;.\n    &quot;
+instance.__repr__.__doc__ = &quot;Return repr(self).\n        \n        Note: there are established strict conventions as to what good code documentation sould look like.\n        For example, such comments should always be imperative (e.g. &#39;return&#39;, not &#39;returns&#39;).\n        For more info check out `pydocstyle` (https://www.pydocstyle.org/en/stable/). It includes a linter\n        that can be configured inside your IDE to constantly check and give out warnings\n        regarding your code documentation and style.\n        Good thing to check out as well is PEP-8 but keep in mind that we will cover PEP-8 in details\n        in a following lecture.\n        &quot;
+ExampleClass.__name__ = &#39;ExampleClass&#39;
+instance.__class__ = &lt;class &#39;__main__.ExampleClass&#39;&gt;
+instance.__module__ = &#39;__main__&#39;
+instance.__dict__ = {&#39;var&#39;: 42}
+vars(instance) = {&#39;var&#39;: 42}
+instance.__repr__.__code__ = &lt;code object __repr__ at 0x113d91df0, file &quot;/var/folders/7x/gdf0mbts74n8p_ckv_b_mfc40000gp/T/ipykernel_62173/2566046567.py&quot;, line 15&gt;
+instance.__repr__.__code__.co_code = b&#39;d\x01|\x00j\x00\x9b\x00d\x02\x9d\x03S\x00&#39;
+instance.__str__.__code__.co_code = b&#39;d\x01|\x00j\x00\x9b\x00d\x02\x9d\x03S\x00&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h2>Някои полезни помощни класове и декоратори<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<section id="id12">
+<h3>Но първо, какво е “декоратор”?<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<p>Накратко (понеже в друга лекция ще обясним по-подробно), това е функция, обграждаща и “добавяща” функционалност на друга такава. Т.е. приема за параметър някоя функция и връща друга, която е модифицирана версия на първата. В Python може да се използва и чрез <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, което е удобен syntax sugar за декориране.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def logged(func):
+    def wrapper(*args, **kwargs):
+        print(f&quot;Calling {func.__name__} with {args} and {kwargs}&quot;)
+        return func(*args, **kwargs)
+    return wrapper
+
+@logged
+def fibonacci(n=10_000):
+    a = 0
+    b = 1
+    for i in range(n):
+        a, b = b, a + b
+    return a
+
+lateralus = fibonacci(16)  # here we observe the added side effect of logging the call
+
+print(f&quot;{lateralus = }&quot;)  # as above, so below
+
+# and beyond I imagine
+fibonacci()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling fibonacci with (16,) and {}
+lateralus = 987
+Calling fibonacci with () and {}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33644764876431783266621612005107543310302148460680063906564769974680081442166662368155595513633734025582065332680836159373734790483865268263040892463056431887354544369559827491606602099884183933864652731300088830269235673613135117579297437854413752130520504347701602264758318906527890855154366159582987279682987510631200575428783453215515103870818298969791613127856265033195487140214287532698187962046936097879900350962302291026368131493195275630227837628441540360584402572114334961180023091208287046088923962328835461505776583271252546093591128203925285393434620904245248929403901706233888991085841065183173360437470737908552631764325733993712871937587746897479926305837065742830161637408969178426378624212835258112820516370298089332099905707920064367426202389783111470054074998459250360633560933883831923386783056136435351892133279732908133732642652633989763922723407882928177953580570993691049175470808931841056146322338217465637321248226383092103297701648054726243842374862411453093812206564914032751086643394517512161526545361333111314042436854805106765843493523836959653428071768775328348234345557366719731392746273629108210679280784718035329131176778924659089938635459327894523777674406192240337638674004021330343297496902028328145933418826817683893072003634795623117103101291953169794607632737589253530772552375943788434504067715555779056450443016640119462580972216729758615026968443146952034614932291105970676243268515992834709891284706740862008587135016260312071903172086094081298321581077282076353186624611278245537208532365305775956430072517744315051539600905168603220349163222640885248852433158051534849622434848299380905070483482449327453732624567755879089187190803662058009594743150052402532709746995318770724376825907419939632265984147498193609285223945039707165443156421328157688908058783183404917434556270520223564846495196112460268313970975069382648706613264507665074611512677522748621598642530711298441182622661057163515069260029861704945425047491378115154139941550671256271197133252763631939606902895650288268608362241082050562430701794976171121233066073310059947366875
+</pre></div>
+</div>
+</div>
+</div>
+<p>Съществуват различни полезни декоратори, които ни улесняват с имплеменетирането на често-срещани ООП фунцкионалности.</p>
+</section>
+<section id="property">
+<h3><code class="docutils literal notranslate"><span class="pre">&#64;property</span></code><a class="headerlink" href="#property" title="Permalink to this headline">#</a></h3>
+<p>В някои езици наричано “computed property”, това е поле/атрибут, чиято стойност се изчислява при използването му и обикновено не се съхранява никъде. На практика това е метод, който се използва със синтаксиса атрибут. Достатъчно е да декорираме с <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> нормален метод, за да го превърнем в атрибут.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Player:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+doncho = Player(&quot;Doncho&quot;)
+print(doncho.name)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Doncho
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setter">
+<h3><code class="docutils literal notranslate"><span class="pre">&#64;setter</span></code><a class="headerlink" href="#setter" title="Permalink to this headline">#</a></h3>
+<p>Освен read-only computed property-та, можем да имаме и writable такива. Това се постига чрез декоратора <code class="docutils literal notranslate"><span class="pre">&#64;{propertyname}.setter</span></code>, който се използва върху метод, който да се изпълнява при присвояване на стойност на атрибута (<code class="docutils literal notranslate"><span class="pre">{propertyname}</span></code> се замества с името на property-то).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Player:
+    def __init__(self, xp):
+        self._xp = xp
+
+    @property
+    def level(self):
+        return self._xp // 1000 + 1
+    
+    @level.setter
+    def level(self, value):  # has to have the same name!
+        self._xp = (value - 1) * 1000
+    
+newb = Player(0)
+print(f&quot;{newb.level = }&quot;)
+
+print(&quot;now the player buys something and advances some levels automatically...&quot;)
+newb.level = 10  # ...cheater
+
+print(f&quot;{newb.level = }&quot;)
+print(f&quot;{newb._xp = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>newb.level = 1
+now the player buys something and advances some levels automatically...
+newb.level = 10
+newb._xp = 9000
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="staticmethod">
+<h3><code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code><a class="headerlink" href="#staticmethod" title="Permalink to this headline">#</a></h3>
+<p>Ако дефинираме функция в блока за дефиниция на клас, тя става метод на класа и при извикването ѝ винаги имплицитно се предава като първи параметър съответната инстанция на класа. Но как да създадем метод, който не зависи от инстанцията?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+    def instance_method(self):
+        print(self)
+
+    def static_method():
+        print(&quot;I am free&quot;)
+
+a = A()
+a.instance_method()
+A.static_method()
+a.static_method()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.A object at 0x113d60be0&gt;
+I am free
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">666281317.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">a</span><span class="o">.</span><span class="n">instance_method</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">A</span><span class="o">.</span><span class="n">static_method</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">a</span><span class="o">.</span><span class="n">static_method</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: static_method() takes 0 positional arguments but 1 was given
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако в горния случай изпълним <code class="docutils literal notranslate"><span class="pre">A.static_method()</span></code> няма да бъде направен опит да се предаде инстанция като първи параметър, понеже такава нямаме. Но не винаги можем да сме сигурни, че метода ще бъде извикан върху класа, а не върху конкретен обект. Начинът по който можем да подсигурим безпроблемното изпълнение и в двата случая е да декорираме метода със <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class A:
+
+    @staticmethod
+    def static_method():
+        print(&quot;I am free&quot;)
+
+a = A()
+A.static_method()
+a.static_method()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am free
+I am free
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classmethod">
+<h3><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code><a class="headerlink" href="#classmethod" title="Permalink to this headline">#</a></h3>
+<p>Понякога може да искаме като първи аргумент на метода да ни бъде подадена не инстанцията, а самият клас. Такъв метод трябва да декорираме с <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>. Отново, също както със <code class="docutils literal notranslate"><span class="pre">self</span></code>, името на аргумента може да е всякакво, но по конвенция е прието да се кръщава <code class="docutils literal notranslate"><span class="pre">cls</span></code> (понеже <code class="docutils literal notranslate"><span class="pre">class</span></code> е запазена дума).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class User:
+    def __init__(self, username, email, money):
+        self.username = username
+        self.email = email
+        self.money = money
+
+    @classmethod
+    def from_json_dict(cls, json):
+        username = json[&quot;username&quot;]
+        email = json[&quot;email&quot;]
+        money = json[&quot;money&quot;]
+        return cls(username, email, money)
+
+    def __repr__(self):
+        return f&quot;User({self.username}, {self.email}, {self.money})&quot;
+
+
+json_data = {
+    &quot;username&quot;: &quot;yalishanda&quot;,
+    &quot;email&quot;: &quot;yalishanda@example.com&quot;,
+    &quot;money&quot;: 420
+}
+
+user = User.from_json_dict(json_data)
+print(user)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>User(yalishanda, yalishanda@example.com, 420)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="abc-abstract-base-class-abstractmethod">
+<h3><code class="docutils literal notranslate"><span class="pre">ABC</span></code> (Abstract Base Class) и <code class="docutils literal notranslate"><span class="pre">&#64;abstractmethod</span></code><a class="headerlink" href="#abc-abstract-base-class-abstractmethod" title="Permalink to this headline">#</a></h3>
+<p>Модулът <code class="docutils literal notranslate"><span class="pre">abc</span></code> ни предоставя начини, с които да дефинираме абстрактни базови класове. Те не могат да бъдат инстанцирани, когато съдържат един или повече от един абстрактни метода, чиято цел е да опишат общ интерфейс и да бъдат имплементирани от наследниците на класа.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    def __init__(self, name):
+        self._name = name
+
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+    def pet(self):
+        print(f&quot;Petting {self._name}...&quot;)
+        self.make_sound()
+
+class Dog(Animal):
+    def make_sound(self):
+        print(&quot;woof&quot;)
+
+class Cat(Animal):
+    def make_sound(self):
+        print(&quot;purr&quot;)
+
+class Snek(Animal):
+    def make_sound(self):
+        print(&quot;sss&quot;)
+
+doge = Dog(&quot;Doge&quot;)
+doge.pet()
+
+catto = Cat(&quot;Мишо&quot;)
+catto.pet()
+
+snek = Snek(&quot;Съска&quot;)
+snek.pet()
+
+base = Animal(&quot;опа&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Petting Doge...
+woof
+Petting Мишо...
+purr
+Petting Съска...
+sss
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_62173</span><span class="o">/</span><span class="mf">3318180173.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">snek</span><span class="o">.</span><span class="n">pet</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> 
+<span class="ne">---&gt; </span><span class="mi">36</span> <span class="n">base</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="s2">&quot;опа&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: Can&#39;t instantiate abstract class Animal with abstract method make_sound
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id13">
+<h1>Примери (задачи за решаване в час)<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h1>
+<section id="id14">
+<h2>Пример 1<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<p>Напишете клас <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, описващ правоъгълник, със следните характеристики:</p>
+<ul class="simple">
+<li><p>дължина</p></li>
+<li><p>широчина</p></li>
+<li><p>цвят (низ)</p></li>
+<li><p>методи, връщащи стойностите на член-данните на класа</p></li>
+<li><p>метод за изчисляване на лице</p></li>
+</ul>
+<p>Напишете клас <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, описващ кръг, със следните характеристики:</p>
+<ul class="simple">
+<li><p>радиус</p></li>
+<li><p>цвят (низ)</p></li>
+<li><p>методи, връщащи стойностите на член-данните на класа</p></li>
+<li><p>метод за изчисляване на лице</p></li>
+</ul>
+<p>Напишете клас <code class="docutils literal notranslate"><span class="pre">Shapes</span></code>, със следните характеристики:</p>
+<ul class="simple">
+<li><p>съдържа в себе си горе-дефинираните геометрични фигури</p></li>
+<li><p>метод за добавяне на нов кръг към колекцията</p></li>
+<li><p>метод за добавяне на нов правоъгълник към колекцията</p></li>
+<li><p>метод, който връща сумата от всички лица на правоъгълниците</p></li>
+<li><p>метод, който връща сумата от всички лица на кръговете</p></li>
+<li><p>метод, който връща геометрична фигура по подаден индекс</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>Пример 2<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h2>
+<p><em>Съществуват различни видове броячи - някои могат само да увеличават бройката, която пазят, други могат и да я намалят, а трети имат ограничение до колко могат да отброяват.</em></p>
+<section id="counter">
+<h3>Клас <code class="docutils literal notranslate"><span class="pre">Counter</span></code><a class="headerlink" href="#counter" title="Permalink to this headline">#</a></h3>
+<p><em>Най-простият брояч - само нагоре, без ограничение.</em></p>
+<ul class="simple">
+<li><p>Инициализатор с параметри <code class="docutils literal notranslate"><span class="pre">initial=0</span></code> (начална стойност) и <code class="docutils literal notranslate"><span class="pre">step=1</span></code> (стъпка)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">increment()</span></code>: увеличава текущата стойност със стъпката на брояча</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_total()</span></code>: връща <code class="docutils literal notranslate"><span class="pre">int</span></code> - текущата отброена стойност</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_step()</span></code>: връща <code class="docutils literal notranslate"><span class="pre">int</span></code> - стъпката на брояча (не трябва да може да бъде променяна)</p></li>
+</ul>
+</section>
+<section id="twowaycounter">
+<h3>Клас <code class="docutils literal notranslate"><span class="pre">TwowayCounter</span></code><a class="headerlink" href="#twowaycounter" title="Permalink to this headline">#</a></h3>
+<p><em>Брояч, който може и да намалява отброяваната стойност.</em></p>
+<p>Освен всичко изброено в <code class="docutils literal notranslate"><span class="pre">Counter</span></code>, съдържа и:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">decrement()</span></code>: намалява текущата стойност със стъпката на брояча</p></li>
+</ul>
+</section>
+<section id="limitedcounter">
+<h3>Клас <code class="docutils literal notranslate"><span class="pre">LimitedCounter</span></code><a class="headerlink" href="#limitedcounter" title="Permalink to this headline">#</a></h3>
+<p><em>Брояч, който отброява само до дадена максимална стойност.</em></p>
+<ul class="simple">
+<li><p>Инициализатор с 3 параметъра <code class="docutils literal notranslate"><span class="pre">max</span></code> (максимална стойност), <code class="docutils literal notranslate"><span class="pre">initial=0</span></code> (начална ст-т) и <code class="docutils literal notranslate"><span class="pre">step=1</span></code> (стъпка)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">increment()</span></code>: увеличава текущата стойност със стъпката на брояча само ако няма да надмине максималната</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_max()</span></code>: връща <code class="docutils literal notranslate"><span class="pre">int</span></code> - максималната стойност на брояча</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_total()</span></code>: същия като този на <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_step()</span></code>: същия като този на <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p></li>
+</ul>
+</section>
+<section id="limitedtwowaycounter">
+<h3>Клас <code class="docutils literal notranslate"><span class="pre">LimitedTwowayCounter</span></code><a class="headerlink" href="#limitedtwowaycounter" title="Permalink to this headline">#</a></h3>
+<p><em>Той е и LimitedCounter, и TwowayCounter едновременно: може да отброява нагоре до определена максимална стойност и надолу до определена минимална стойност.</em></p>
+<ul class="simple">
+<li><p>Инциализатор с 4 параметъра <code class="docutils literal notranslate"><span class="pre">min</span></code> (минимална ст-т), <code class="docutils literal notranslate"><span class="pre">max</span></code> (максимална ст-т), <code class="docutils literal notranslate"><span class="pre">initial=0</span></code> (начална ст-т) и <code class="docutils literal notranslate"><span class="pre">step=1</span></code> (стъпка)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">increment()</span></code>: същия като на <code class="docutils literal notranslate"><span class="pre">LimitedCounter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">decrement()</span></code>: намаля текущата стойност със стъпката на брояча само ако няма да стане по-ниска от минималната</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_min()</span></code>: връща минималната стойност на брояча</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_max()</span></code>: същия като този на <code class="docutils literal notranslate"><span class="pre">LimitedCounter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_total()</span></code>: същия като този на <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_step()</span></code>: същия като този на <code class="docutils literal notranslate"><span class="pre">Counter</span></code></p></li>
+</ul>
+</section>
+<section id="semaphore">
+<h3>Клас <code class="docutils literal notranslate"><span class="pre">Semaphore</span></code><a class="headerlink" href="#semaphore" title="Permalink to this headline">#</a></h3>
+<p><em>Най-простия бинарен семафор - това е <code class="docutils literal notranslate"><span class="pre">LimitedTwowayCounter</span></code>, който има минимална стойност 0, максимална стойност 1 и стъпка 1. Използва се от процесите в операционнитe системи за синхронизационни цели. (За повече информация: <a class="reference external" href="https://skelet.ludost.net">https://skelet.ludost.net</a>)</em></p>
+<ul class="simple">
+<li><p>Инициализатор с 1 параметър <code class="docutils literal notranslate"><span class="pre">is_available=False</span></code>. При <code class="docutils literal notranslate"><span class="pre">True</span></code> началната стойност на брояча е 1, а при <code class="docutils literal notranslate"><span class="pre">False</span></code> е 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_available()</span></code>: връща <code class="docutils literal notranslate"><span class="pre">bool</span></code>, показващ дали стойността на брояча е над 0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wait()</span></code> - прави същото като <code class="docutils literal notranslate"><span class="pre">decrement()</span></code> на <code class="docutils literal notranslate"><span class="pre">LimitedTwowayCounter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signal()</span></code> - прави същото като <code class="docutils literal notranslate"><span class="pre">increment()</span></code> на <code class="docutils literal notranslate"><span class="pre">LimitedTwowayCounter</span></code></p></li>
+</ul>
+<p><em><strong>Pythonic bonus:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> instead of all the getters.</p>
+<section id="id16">
+<h4>Двата примера достигат до вас благодарение на <a class="reference external" href="https://github.com/yalishanda42/oop2021">курса по ООП 2020/2021 за СИ</a>.<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id17">
+<h1>Задачи за упражнение (за вкъщи)<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h1>
+<section id="id18">
+<h2>Задача 0<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
+<p>Дефинирайте клас <code class="docutils literal notranslate"><span class="pre">PolarCoordinate</span></code>, който да моделира точка чрез двумерни полярни координати. Класът трябва да има:</p>
+<ul class="simple">
+<li><p>инициализатор, който приема два аргумента - радиус <span class="math notranslate nohighlight">\( r \)</span> и ъгъл <span class="math notranslate nohighlight">\( \phi \)</span> (ще интерпретираме мерната му единица да е в радиани)</p></li>
+<li><p>атрибути/методи <code class="docutils literal notranslate"><span class="pre">r</span></code> и <code class="docutils literal notranslate"><span class="pre">angle</span></code> за достъп до съответните полета, но не и за тяхната промяна</p></li>
+<li><p>метод <code class="docutils literal notranslate"><span class="pre">to_cartesian()</span></code>, който връща <code class="docutils literal notranslate"><span class="pre">tuple</span></code> от две числа <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> - координатите на точката, конвертирани в декартова система по формулата:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\( x = r\cos(\phi) \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( y = r \sin(\phi) \)</span></p></li>
+</ul>
+</li>
+<li><p>клас-метод <code class="docutils literal notranslate"><span class="pre">from_cartesian(x,</span> <span class="pre">y)</span></code>, който приема два аргумента - координатите на точката в декартова система - и създава и връща инстанция на <code class="docutils literal notranslate"><span class="pre">PolarCoordinate</span></code>, изчислена по формулата:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\( r = \sqrt{x^2 + y^2} \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \phi = \arctan(\frac{y}{x}) \)</span></p></li>
+</ul>
+</li>
+<li><p>дефинирана подходяща репрезентация на обекта</p></li>
+<li><p>дефиниция на конвертиране в <code class="docutils literal notranslate"><span class="pre">str</span></code> във формат <code class="docutils literal notranslate"><span class="pre">(r:</span> <span class="pre">{self.r},</span> <span class="pre">angle:</span> <span class="pre">{self.angle})</span></code></p></li>
+<li><p>дефиниране на хеширане</p></li>
+<li><p>дефиниране на сравнение с <code class="docutils literal notranslate"><span class="pre">==</span></code> и <code class="docutils literal notranslate"><span class="pre">!=</span></code></p></li>
+</ul>
+<p>Важно: стойностите на полетата на класа не трябва да могат да бъдат променяни по никакъв начин, освен чрез инициализатора, с цел гарантиране на immutability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import sqrt, sin, cos, atan  # you will need these
+from math import pi, isclose  # the tests below will need these
+
+
+class PolarCoordinate:
+    pass  # your code here
+
+
+p1 = PolarCoordinate(1, pi/6)
+
+print(p1.r == 1)
+print(p1.angle == pi/6)
+
+p2 = PolarCoordinate.from_cartesian(3, 4)
+print(isclose(p2.r, 5))
+print(isclose(p2.angle, atan(4/3)))
+
+x, y = p2.to_cartesian()
+print(isclose(x, 3))
+print(isclose(y, 4))
+
+p3 = PolarCoordinate(1, 0)
+print(str(p3) == &quot;(r: 1, angle: 0)&quot;)
+print(repr(p3) == &quot;PolarCoordinate(1, 0)&quot;)
+
+pp1, pp2, pp3 = PolarCoordinate(1, pi/6), PolarCoordinate.from_cartesian(3, 4), PolarCoordinate(1, 0)
+print(p1 == pp1)
+print(p2 == pp2)
+print(p3 == pp3)
+
+d = {p1: &quot;A&quot;, p2: &quot;B&quot;, p3: &quot;C&quot;}
+print(d[pp1] == &quot;A&quot;)
+print(d[pp2] == &quot;B&quot;)
+print(d[pp3] == &quot;C&quot;)
+
+s = {p1, p2, p3, pp1, pp2, pp3, p1, p2, p3}
+print(len(s) == 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id19">
+<h2>Задача 1<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h2>
+<p>Дефинирайте клас <code class="docutils literal notranslate"><span class="pre">Player</span></code>, който да моделира играч от RPG игра. Трябва да има следните атрибути и техните условия към тях:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - име на играча (read-only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hp</span></code> - жизнени точки на играча (да не могат да падат под 0, по подразбиране са 10)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xp</span></code> - опит на играча (да може само да бъде увеличаван, по подразбиране е 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">level</span></code> - ниво на играча (read-only), зависи от <code class="docutils literal notranslate"><span class="pre">xp</span></code> по формулата:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\( level = 1 \)</span>, ако <code class="docutils literal notranslate"><span class="pre">xp</span></code> е по-малко от 300;</p></li>
+<li><p><span class="math notranslate nohighlight">\( level = 2 + \log_2 int(\frac{xp}{300}) \)</span>, иначе.</p></li>
+</ul>
+</li>
+</ul>
+<p>(т.е. 0-299 XP са ниво 1, 300-599 XP са ниво 2, 600-1199 XP са ниво 3, 1200-2399 са ниво 4 и т.н.)</p>
+<p>Имате свобода при имплементацията на класа, стига горните атрибути да съществуват и условията им да са винаги изпълнени.</p>
+<p><em>Note</em>: за <span class="math notranslate nohighlight">\( log_2 \)</span> може да използвате <code class="docutils literal notranslate"><span class="pre">math.log2</span></code>. Функцията <code class="docutils literal notranslate"><span class="pre">int</span></code> в горната формула е аналогична на конструктора на <code class="docutils literal notranslate"><span class="pre">int</span></code> в Python, както и на <code class="docutils literal notranslate"><span class="pre">floor</span></code> функцията, т.е. закръглянето към цяло число е винаги надолу.</p>
+</section>
+<section id="id20">
+<h2>Задача 2<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h2>
+<p>Дефинирайте клас <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code>, който да репрезентира вектор в тримерното пространство. Класът трябва да има поне следните методи:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>: инициализира вектора със стойности <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> и <code class="docutils literal notranslate"><span class="pre">z</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code>: връща репрезентация на обекта</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code>: връща стрингово представяне на вектора във формат <code class="docutils literal notranslate"><span class="pre">&quot;(x,</span> <span class="pre">y,</span> <span class="pre">z)&quot;</span></code> (например, <code class="docutils literal notranslate"><span class="pre">&quot;(1,</span> <span class="pre">2,</span> <span class="pre">3)&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">other)</span></code>: връща сумата на два вектора (или на вектор (вляво) с число (вдясно))
+за целите на задачата, нека дефинираме:</p>
+<ul>
+<li><p>сума на вектор <span class="math notranslate nohighlight">\( v = (v_x, v_y, v_z) \)</span> с вектор <span class="math notranslate nohighlight">\( u = (u_x, u_y, u_z) \)</span> като <span class="math notranslate nohighlight">\( u + v = (v_x + u_x, v_y + u_y, v_z + u_z) \)</span></p></li>
+<li><p>сума на вектор <span class="math notranslate nohighlight">\( v = (v_x, v_y, v_z) \)</span> с число <span class="math notranslate nohighlight">\( \lambda \)</span> като <span class="math notranslate nohighlight">\( u + \lambda = (v_x + \lambda, v_y + \lambda, v_z + \lambda) \)</span></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__radd__(self,</span> <span class="pre">other)</span></code>: връща сумата на число (в ляво) с вектор (в дясно)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__iadd__(self,</span> <span class="pre">other)</span></code>: прибавя <code class="docutils literal notranslate"><span class="pre">other</span></code> към <code class="docutils literal notranslate"><span class="pre">self</span></code> и връща <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">other)</span></code>: връща “произведение”, дефинирано по следния начин:</p>
+<ul>
+<li><p>произведението <span class="math notranslate nohighlight">\( v * u \)</span> на два вектора <span class="math notranslate nohighlight">\( v = (v_x, v_y, v_z) \)</span> и <span class="math notranslate nohighlight">\( u = (u_x, u_y, u_z) \)</span> като <span class="math notranslate nohighlight">\( v * u = (v_x u_x, v_y u_y, v_z u_z) \)</span></p></li>
+<li><p>произведението <span class="math notranslate nohighlight">\( v * \lambda \)</span> на вектора <span class="math notranslate nohighlight">\( v = (v_x, v_y, v_z) \)</span> и числото <span class="math notranslate nohighlight">\( \lambda \)</span> като <span class="math notranslate nohighlight">\( v * \lambda = (v_x \lambda, v_y \lambda, v_z \lambda) \)</span></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rmul__(self,</span> <span class="pre">other)</span></code>: връща произведението (както е дефинирано горе) на число с вектор</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__imul__(self,</span> <span class="pre">other)</span></code>: умножава <code class="docutils literal notranslate"><span class="pre">other</span></code> към <code class="docutils literal notranslate"><span class="pre">self</span></code> и връща <code class="docutils literal notranslate"><span class="pre">self</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">other)</span></code>: връща <code class="docutils literal notranslate"><span class="pre">True</span></code>, ако два вектора са поелементно равни, и <code class="docutils literal notranslate"><span class="pre">False</span></code> в противен случай</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">other)</span></code>: връща обратното на <code class="docutils literal notranslate"><span class="pre">__eq__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__abs__(self)</span></code>: връща дължината на вектора (по формулата <span class="math notranslate nohighlight">\( \sqrt{x^2 + y^2 + z^2} \)</span> )</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__getattr__(self,</span> <span class="pre">name)</span></code>: пренасочва <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> и <code class="docutils literal notranslate"><span class="pre">Z</span></code> към <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> и <code class="docutils literal notranslate"><span class="pre">z</span></code> (например <code class="docutils literal notranslate"><span class="pre">vector.X</span></code> да е еквивалентно на <code class="docutils literal notranslate"><span class="pre">vector.x</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__setattr__(self,</span> <span class="pre">name,</span> <span class="pre">value)</span></code>, аналогичен на горния</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code>: връща итератор на вектора, който да позволява итериране в реда <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p></li>
+</ul>
+<p>Добавете още каквито методи смятате за нужни.</p>
+<p><em>Note 1</em>: нека в контекста на задачата за скалари смятаме <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> и <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
+<p><em>Note 2</em>: корен квадратен може да изчислите с <code class="docutils literal notranslate"><span class="pre">math.sqrt</span></code> или като повдигнете нещо на степен 0.5.</p>
+<p><em>Note 3</em>: понеже още не сме учили грешки и изключения, не се очаква да хвърляте такива в случай, че някой аргумент е невалиден. Очаква се обаче поне където се налага да проверите за това. Ако не ви се разучава как да <code class="docutils literal notranslate"><span class="pre">raise</span></code>-нете <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>, <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> или <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, може вместо това да <code class="docutils literal notranslate"><span class="pre">return</span></code>-нете <code class="docutils literal notranslate"><span class="pre">None</span></code> за сега.</p>
+</section>
+<section id="id21">
+<h2>Задача 3<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h2>
+<p>В тази задача ще направим мини-framework за чертане на UI в конзолата.</p>
+<p>С цел той да бъде декларативен и лесно композируем, всички елементи трябва да имат метод <code class="docutils literal notranslate"><span class="pre">render()</span></code>, който да връща <code class="docutils literal notranslate"><span class="pre">str</span></code> със съдържанието на елемента.</p>
+<p>Различните елементи могат да биват:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Spacer(length=1)</span></code>: празно място с дадена дължина (<code class="docutils literal notranslate"><span class="pre">length</span></code> на брой интервали)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Line(length,</span> <span class="pre">symbol=&quot;-&quot;)</span></code>: ред от символи с дадена дължина (примерно <code class="docutils literal notranslate"><span class="pre">Line(10).render()</span></code> трябва да върне <code class="docutils literal notranslate"><span class="pre">&quot;----------&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Text(text)</span></code>: текст със съдържание <code class="docutils literal notranslate"><span class="pre">text</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FancyText(text,</span> <span class="pre">symbol=&quot;=&quot;)</span></code>: текст със съдържание <code class="docutils literal notranslate"><span class="pre">text</span></code>, между всeки символ на който има сложен <code class="docutils literal notranslate"><span class="pre">symbol</span></code>, както и в началото и в края му (примерно <code class="docutils literal notranslate"><span class="pre">FancyText(&quot;Hello&quot;).render()</span></code> трябва да върне <code class="docutils literal notranslate"><span class="pre">&quot;=H=e=l=l=o=&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HorizontalStack(*elements)</span></code>: елементи, подредени един до друг в ред (слепени на реда / разделени чрез “”) (примерно <code class="docutils literal notranslate"><span class="pre">HorizontalStack(Text(&quot;Hello&quot;),</span> <span class="pre">Line(3),</span> <span class="pre">Text(&quot;World&quot;)).render()</span></code> трябва да върне <code class="docutils literal notranslate"><span class="pre">&quot;Hello---World&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VerticalStack(*elements)</span></code>: елементи, подредени един под друг (разделени чрез симвла за празен ред) (примерно <code class="docutils literal notranslate"><span class="pre">VerticalStack(Text(&quot;Hello&quot;),</span> <span class="pre">Line(3),</span> <span class="pre">Text(&quot;World&quot;)).render()</span></code> трябва да върне <code class="docutils literal notranslate"><span class="pre">&quot;Hello\n---\nWorld&quot;</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Box(width,</span> <span class="pre">*elements)</span></code>: елемент, който е като <code class="docutils literal notranslate"><span class="pre">VerticalStack</span></code>, с разликата че:</p>
+<ul>
+<li><p>преди и след <code class="docutils literal notranslate"><span class="pre">elements</span></code> добавя <code class="docutils literal notranslate"><span class="pre">HorizontalStack(Text(&quot;+&quot;),</span> <span class="pre">Line(width</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">symbol=&quot;=&quot;),</span> <span class="pre">Text(&quot;+&quot;))</span></code></p></li>
+<li><p>всеки ред е с дължина <code class="docutils literal notranslate"><span class="pre">width</span></code> и започва и завършва с <code class="docutils literal notranslate"><span class="pre">&quot;|&quot;</span></code>, т.е. при <code class="docutils literal notranslate"><span class="pre">render()</span></code>-ването на всеки елемент от <code class="docutils literal notranslate"><span class="pre">elements</span></code> добавя <code class="docutils literal notranslate"><span class="pre">Text(&quot;|&quot;)</span></code> в началото и в края на реда. В случай, че дължината на реда е повече от <code class="docutils literal notranslate"><span class="pre">width</span></code> отрязва излишъка от подадения елемент, a в случай, че дължината е по-малка - добавя <code class="docutils literal notranslate"><span class="pre">Spacer</span></code> след елемента с дължина <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">-</span> <span class="pre">len(element.render())</span> <span class="pre">-</span> <span class="pre">2</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressBar(length,</span> <span class="pre">progress)</span></code>: прогрес бар с дължина <code class="docutils literal notranslate"><span class="pre">length</span></code> символа и коефициент на запълване <code class="docutils literal notranslate"><span class="pre">progress</span></code> (<span class="math notranslate nohighlight">\( \in [0, 1] \)</span>) (примерно <code class="docutils literal notranslate"><span class="pre">ProgressBar(10,</span> <span class="pre">0.5).render()</span></code> трябва да върне <code class="docutils literal notranslate"><span class="pre">&quot;[====----]&quot;</span></code>)</p></li>
+</ul>
+<p>Добавяйте каквито прецените други класове и методи към тях.</p>
+<section id="id22">
+<h3>Пример<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ui</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span>
+    <span class="n">FancyText</span><span class="p">(</span><span class="s2">&quot;WELCOME!&quot;</span><span class="p">),</span>
+    <span class="n">Spacer</span><span class="p">(),</span>
+    <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;Loading packages:THIS SHOULD NOT BE SHOWN IN THE BOX&quot;</span><span class="p">),</span>
+    <span class="n">HorizontalStack</span><span class="p">(</span>
+        <span class="n">Line</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+        <span class="n">Spacer</span><span class="p">(),</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;cowsay&quot;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">HorizontalStack</span><span class="p">(</span>
+        <span class="n">Line</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+        <span class="n">Spacer</span><span class="p">(),</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;lolcat&quot;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">HorizontalStack</span><span class="p">(</span>
+        <span class="n">Line</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;&gt;&quot;</span><span class="p">),</span>
+        <span class="n">Spacer</span><span class="p">(),</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;whoami&quot;</span><span class="p">),</span>
+        <span class="n">Text</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">Spacer</span><span class="p">(),</span>
+    <span class="n">HorizontalStack</span><span class="p">(</span>
+        <span class="n">Spacer</span><span class="p">(),</span>
+        <span class="n">ProgressBar</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span>
+        <span class="n">Spacer</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ui</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Изход:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+=================+</span>
+<span class="o">|=</span><span class="n">W</span><span class="o">=</span><span class="n">E</span><span class="o">=</span><span class="n">L</span><span class="o">=</span><span class="n">C</span><span class="o">=</span><span class="n">O</span><span class="o">=</span><span class="n">M</span><span class="o">=</span><span class="n">E</span><span class="o">=!=|</span>
+<span class="o">|</span>                 <span class="o">|</span>
+<span class="o">|</span><span class="n">Loading</span> <span class="n">packages</span><span class="p">:</span><span class="o">|</span>
+<span class="o">|---</span> <span class="n">cowsay</span>       <span class="o">|</span>
+<span class="o">|---</span> <span class="n">lolcat</span>       <span class="o">|</span>
+<span class="o">|&gt;&gt;&gt;</span> <span class="n">whoami</span><span class="o">...</span>    <span class="o">|</span>
+<span class="o">|</span>                 <span class="o">|</span>
+<span class="o">|</span> <span class="p">[</span><span class="o">======-------</span><span class="p">]</span> <span class="o">|</span>
+<span class="o">+=================+</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03 - OOP"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Променливи, разклонения, цикли, типове, функции</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Функционално програмиране</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

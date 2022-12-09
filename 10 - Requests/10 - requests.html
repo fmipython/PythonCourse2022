@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>HTTP заявки с requests &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/10 - Requests/10 - requests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/10 - Requests/10 - requests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F10 - Requests/10 - requests.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/10 - Requests/10 - requests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/10 - Requests/10 - requests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#http">
+   HTTP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Методи
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Статус кодове
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requests">
+   Добавяне на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     requests
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Методи
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Проверка дали заявката е успешна
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Взимане на хедърите и съдържанието от отговора
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Параметри на методите за заявката
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     JSON
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Автентикация
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Сесии
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Адаптери
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   Неблокиращи решения
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>HTTP заявки с requests</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#http">
+   HTTP
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Методи
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Статус кодове
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requests">
+   Добавяне на
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     requests
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Методи
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Проверка дали заявката е успешна
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Взимане на хедърите и съдържанието от отговора
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Параметри на методите за заявката
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     JSON
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Автентикация
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Сесии
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Адаптери
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   Неблокиращи решения
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="http-requests">
+<h1>HTTP заявки с <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#http-requests" title="Permalink to this headline">#</a></h1>
+<section id="http">
+<h2>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">#</a></h2>
+<p>Hyper-text Transfer Protocol е протокол за трансфер на информация (в приложния слой на <a class="reference external" href="https://www.youtube.com/watch?v=mRuSoU_Pw4o">OSI</a> модела), който е стандарт за комуникация в мрежата.</p>
+<p>Версии:</p>
+<ul class="simple">
+<li><p>HTTP/1 - от 1996г.</p></li>
+<li><p>HTTP/2 - от 2015г.</p></li>
+<li><p>HTTP/3 - от 2022г.</p></li>
+</ul>
+<p>Примерна HTTP заявка:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">www.example.com</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Mozilla/5.0</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8</span>
+<span class="na">Accept-Language</span><span class="o">:</span> <span class="l">en-GB,en;q=0.5</span>
+<span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate, br</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</pre></div>
+</div>
+<p>Винаги първия ред е във формат <code class="docutils literal notranslate"><span class="pre">{HTTP</span> <span class="pre">метода}</span> <span class="pre">{URI}</span> <span class="pre">HTTP/{версия}</span></code>. В случая искаме да вземем ресурсът, намиращ се на <code class="docutils literal notranslate"><span class="pre">/</span></code> (т.е. root-a на <a class="reference external" href="http://example.com">example.com</a>) с GET метода.</p>
+<p>След него на всеки ред стои 1 хедър (заглавие) във формат <code class="docutils literal notranslate"><span class="pre">{име}:</span> <span class="pre">{стойност}</span></code></p>
+<p>Примерен HTTP отговор на заявка:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Date</span><span class="o">:</span> <span class="l">Mon, 23 May 2005 22:38:34 GMT</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/html; charset=UTF-8</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">155</span>
+<span class="na">Last-Modified</span><span class="o">:</span> <span class="l">Wed, 08 Jan 2003 23:11:55 GMT</span>
+<span class="na">Server</span><span class="o">:</span> <span class="l">Apache/1.3.3.7 (Unix) (Red-Hat/Linux)</span>
+<span class="na">ETag</span><span class="o">:</span> <span class="l">&quot;3f80f-1b6-3e1cb03b&quot;</span>
+<span class="na">Accept-Ranges</span><span class="o">:</span> <span class="l">bytes</span>
+<span class="na">Connection</span><span class="o">:</span> <span class="l">close</span>
+
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>An Example Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Hello World, this is a very simple HTML document.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Пърият ред винаги е във формат <code class="docutils literal notranslate"><span class="pre">HTTP/{версия}</span> <span class="pre">{статус</span> <span class="pre">код}</span> <span class="pre">{има</span> <span class="pre">на</span> <span class="pre">статус</span> <span class="pre">кода}</span></code>. В случая той е “200 OK”. (лист с всички кодове: <a class="reference external" href="https://http.cat">тук</a>)</p>
+<p>След това са хедърите, след които има празен ред и започва тялото на отговора. В случая това е HTML страница, “намираща” се на <a class="reference external" href="http://example.com">example.com</a>.</p>
+<section id="id1">
+<h3>Методи<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>GET (взимане на ресурс) (заявката <em>може да няма</em> тяло)</p></li>
+<li><p>POST (изпращане на ресурс) (заявката <em>има</em> тяло)</p></li>
+<li><p>PUT (заменяне на ресурс) (заявката <em>има</em> тяло)</p></li>
+<li><p>PATCH (промяна на част от ресурс) (заявката <em>има</em> тяло)</p></li>
+<li><p>DELETE (изтриване на ресурс) (заявката <em>може да няма</em> тяло)</p></li>
+<li><p>HEAD (взимане само на хедърите на ресурс (като GET, но без върнато тяло))</p></li>
+<li><p>OPTIONS (взимане на методите, поддържани от ресурса) (заявката <em>може да няма</em> тяло)</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Статус кодове<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>200 - 299: Успешно изпълнена заявка</p></li>
+<li><p>300 - 399: Пренасочване</p></li>
+<li><p>400 - 499: Грешка на клиента</p></li>
+<li><p>500 - 599: Грешка на сървъра</p></li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">лист с всички</a></p>
+</section>
+</section>
+<section id="requests">
+<h2>Добавяне на <code class="docutils literal notranslate"><span class="pre">requests</span></code><a class="headerlink" href="#requests" title="Permalink to this headline">#</a></h2>
+<p>Библиотеката <code class="docutils literal notranslate"><span class="pre">requests</span></code> не е вградена в езика (repo: <a class="reference external" href="https://github.com/psf/requests">https://github.com/psf/requests</a>), затова трябва да се инсталира допълнително.</p>
+<p>Чрез package manager-a <a class="reference external" href="https://pip.pypa.io/en/stable/installation/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a> това става с командата:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install requests  <span class="c1"># sometimes pip3 is the right one though</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!pip install requests
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting requests
+  Downloading requests-2.28.1-py3-none-any.whl (62 kB)
+     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">62.8/62.8 kB</span> <span class=" -Color -Color-Red">1.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>[36m0:00:01
+?25hCollecting idna&lt;4,&gt;=2.5
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">61.5/61.5 kB</span> <span class=" -Color -Color-Red">1.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hCollecting urllib3&lt;1.27,&gt;=1.21.1
+  Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">140.6/140.6 kB</span> <span class=" -Color -Color-Red">2.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>[31m4.5 MB/s eta <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hCollecting certifi&gt;=2017.4.17
+  Downloading certifi-2022.9.24-py3-none-any.whl (161 kB)
+     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">161.1/161.1 kB</span> <span class=" -Color -Color-Red">3.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span> MB/s eta <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hCollecting charset-normalizer&lt;3,&gt;=2
+  Downloading charset_normalizer-2.1.1-py3-none-any.whl (39 kB)
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests
+Successfully installed certifi-2022.9.24 charset-normalizer-2.1.1 idna-3.4 requests-2.28.1 urllib3-1.26.13
+</pre></div>
+</div>
+</div>
+</div>
+<p>След това трябва да се включи в текущия модул чрез <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>Методи<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>В модула има по една функция за всеки един HTTP метод. Всички те са с еднаква сигнатура, която по подразбиране изисква само един аргумент - URL адреса на ресурса.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.get(&quot;https://fmi.uni-sofia.bg&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.post(&quot;https://google.com&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [405]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.delete(&quot;https://tesla.com&quot;)  # cancel Musk
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [501]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Всеки един от тези методи връщат <code class="docutils literal notranslate"><span class="pre">Response</span></code> обект, в който се съдържа целия отговор.</p>
+</section>
+<section id="id4">
+<h3>Проверка дали заявката е успешна<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Статус кода на отговора можем да вземем чрез <code class="docutils literal notranslate"><span class="pre">status_code</span></code> атрибута (тип <code class="docutils literal notranslate"><span class="pre">int</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for url in [
+    &quot;https://httpbin.org/status/204&quot;,
+    &quot;https://httpbin.org/status/404&quot;,
+]:
+    response = requests.get(url)
+
+    if response.status_code in range(200, 400):
+        print(&quot;Request went well. Status code = &quot;, response.status_code)
+    else:
+        print(&quot;Sum Ting Went Wong. Status code = &quot;, response.status_code)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Request went well. Status code =  204
+Sum Ting Went Wong. Status code =  404
+</pre></div>
+</div>
+</div>
+</div>
+<p>Горния начин на проверка обаче е често срещан - всички 2хх и 3хх статус кодове означават, че грешка на клиента или съвръра не е имало. Затова <code class="docutils literal notranslate"><span class="pre">Response</span></code> обекта има предефиниран <code class="docutils literal notranslate"><span class="pre">__bool__</span></code>, който оценява <code class="docutils literal notranslate"><span class="pre">self</span></code> по същия начин като в горното сравнение:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for url in [
+    &quot;https://httpbin.org/status/204&quot;,
+    &quot;https://httpbin.org/status/404&quot;,
+]:
+    response = requests.get(url)
+
+    if response:
+        print(&quot;Request went well. Status code = &quot;, response.status_code)
+    else:
+        print(&quot;Sum Ting Went Wong. Status code = &quot;, response.status_code)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Request went well. Status code =  204
+Sum Ting Went Wong. Status code =  404
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако пък искаме да работим с изключения, може да извикаме <code class="docutils literal notranslate"><span class="pre">raise_for_status</span></code>, което би хвърлило <code class="docutils literal notranslate"><span class="pre">HTTPError</span></code> ако не е успешна заявката:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from requests.exceptions import HTTPError
+
+for url in [
+    &quot;https://httpbin.org/status/204&quot;,
+    &quot;https://httpbin.org/status/404&quot;,
+    &quot;example.com&quot;,  # thisis invalid so it will not even get to the `.raise_for_status()`
+]:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    
+    except HTTPError as http_err:
+        print(f&#39;HTTP error occurred: {http_err}&#39;)
+
+    except Exception as err:
+        print(f&#39;Other error occurred: {err}&#39;)
+    
+    else:
+        print(&#39;Success!&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Success!
+HTTP error occurred: 404 Client Error: NOT FOUND for url: https://httpbin.org/status/404
+Other error occurred: Invalid URL &#39;example.com&#39;: No scheme supplied. Perhaps you meant http://example.com?
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Взимане на хедърите и съдържанието от отговора<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response = requests.get(&quot;https://httpbin.org/json&quot;)
+response
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Заглавните части (хедърите) са в <code class="docutils literal notranslate"><span class="pre">headers</span></code>, което връща обект, подобен на <code class="docutils literal notranslate"><span class="pre">dict[str,</span> <span class="pre">str]</span></code>, но с case-insensitive ключове:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.headers
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Date&#39;: &#39;Mon, 28 Nov 2022 01:08:13 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;429&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.headers[&quot;CONTENT-TYPE&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;application/json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">content</span></code> връща тялото като <code class="docutils literal notranslate"><span class="pre">bytes</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.content
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;{\n  &quot;slideshow&quot;: {\n    &quot;author&quot;: &quot;Yours Truly&quot;, \n    &quot;date&quot;: &quot;date of publication&quot;, \n    &quot;slides&quot;: [\n      {\n        &quot;title&quot;: &quot;Wake up to WonderWidgets!&quot;, \n        &quot;type&quot;: &quot;all&quot;\n      }, \n      {\n        &quot;items&quot;: [\n          &quot;Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great&quot;, \n          &quot;Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets&quot;\n        ], \n        &quot;title&quot;: &quot;Overview&quot;, \n        &quot;type&quot;: &quot;all&quot;\n      }\n    ], \n    &quot;title&quot;: &quot;Sample Slide Show&quot;\n  }\n}\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако очакваме да е текстово съдържанието, можем да ползваме и <code class="docutils literal notranslate"><span class="pre">text</span></code>, за да ги конвертираме в <code class="docutils literal notranslate"><span class="pre">str</span></code>. По подразбиране <code class="docutils literal notranslate"><span class="pre">encoding</span></code>-ът е “utf-8”, може да се променя от едноименния атрибут.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(response.text)  # print will just prettify the output
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+  &quot;slideshow&quot;: {
+    &quot;author&quot;: &quot;Yours Truly&quot;, 
+    &quot;date&quot;: &quot;date of publication&quot;, 
+    &quot;slides&quot;: [
+      {
+        &quot;title&quot;: &quot;Wake up to WonderWidgets!&quot;, 
+        &quot;type&quot;: &quot;all&quot;
+      }, 
+      {
+        &quot;items&quot;: [
+          &quot;Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great&quot;, 
+          &quot;Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets&quot;
+        ], 
+        &quot;title&quot;: &quot;Overview&quot;, 
+        &quot;type&quot;: &quot;all&quot;
+      }
+    ], 
+    &quot;title&quot;: &quot;Sample Slide Show&quot;
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>JSON като формат за пренос на данни е най широко-използвания сред HTTP услугите поради леснотата на работата с него. В случая отговора е точно в такъв вид и можем да използваме и помощния метод <code class="docutils literal notranslate"><span class="pre">json()</span></code>, който ни връща отговора като <code class="docutils literal notranslate"><span class="pre">dict</span></code> (или <code class="docutils literal notranslate"><span class="pre">list</span></code>, е зависимост от обекта, който седи като корен на JSON-a):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.json()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;slideshow&#39;: {&#39;author&#39;: &#39;Yours Truly&#39;,
+  &#39;date&#39;: &#39;date of publication&#39;,
+  &#39;slides&#39;: [{&#39;title&#39;: &#39;Wake up to WonderWidgets!&#39;, &#39;type&#39;: &#39;all&#39;},
+   {&#39;items&#39;: [&#39;Why &lt;em&gt;WonderWidgets&lt;/em&gt; are great&#39;,
+     &#39;Who &lt;em&gt;buys&lt;/em&gt; WonderWidgets&#39;],
+    &#39;title&#39;: &#39;Overview&#39;,
+    &#39;type&#39;: &#39;all&#39;}],
+  &#39;title&#39;: &#39;Sample Slide Show&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Параметри на методите за заявката<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Можем да видим какво се съдържа в заявката с обекта върнат от <code class="docutils literal notranslate"><span class="pre">.request</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.request
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;PreparedRequest [GET]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.request.url
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://httpbin.org/json&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.request.headers
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;User-Agent&#39;: &#39;python-requests/2.28.1&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response.request.body
+</pre></div>
+</div>
+</div>
+</div>
+<p>С <code class="docutils literal notranslate"><span class="pre">params</span></code> задавaме query parameters - параметри на заявката. Те задължително трябва да бъдат подавани като <code class="docutils literal notranslate"><span class="pre">dict[str,</span> <span class="pre">str]</span></code> (може още като <code class="docutils literal notranslate"><span class="pre">list[tuple[str,</span> <span class="pre">str]]</span></code> или директно като <code class="docutils literal notranslate"><span class="pre">bytes</span></code>) като стойност на именования аргумент <code class="docutils literal notranslate"><span class="pre">params</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.get(
+    &quot;https://zamunda.net/catalogs/tv&quot;,
+    params={
+        &quot;search&quot;: &quot;Mr+Robot&quot;,
+        &quot;field&quot;: &quot;name&quot;,
+        &quot;comb&quot;: &quot;yes&quot;,
+    }
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: В <code class="docutils literal notranslate"><span class="pre">GET</span></code> заявките те биват слепени към края на URL-a след <code class="docutils literal notranslate"><span class="pre">?</span></code> във формат <code class="docutils literal notranslate"><span class="pre">name1=value1&amp;name2=value2&amp;...&amp;name=value</span></code>. За останалите HTTP методи обаче това не е в сила.</p>
+<p>За тези, които поддържат добавянето на данни в заявката, това става чрез аргумента <code class="docutils literal notranslate"><span class="pre">data</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.post(&#39;https://httpbin.org/post&#39;, data={&#39;key&#39;:&#39;value&#39;})
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако искаме да изпратим допълнителни хедъри, задаваме стойност на аргумента <code class="docutils literal notranslate"><span class="pre">headers</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response = requests.get(
+    &quot;https://api.github.com/search/repositories&quot;,
+    params={&quot;q&quot;: &quot;42+language:python&quot;},
+    headers={&quot;Accept&quot;: &quot;application/vnd.github.v3.text-match+json&quot;}  
+    # ^ така казваме на Github сървъра, че искаме да ни върне и text-matches списък от обекти
+    # за всяко намерено репозитори
+)
+
+response.json()[&quot;items&quot;][0][&quot;text_matches&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;object_url&#39;: &#39;https://api.github.com/repositories/10340514&#39;,
+  &#39;object_type&#39;: &#39;Repository&#39;,
+  &#39;property&#39;: &#39;description&#39;,
+  &#39;fragment&#39;: &#39;Modules to convert numbers to words. 42 --&gt; forty-two&#39;,
+  &#39;matches&#39;: [{&#39;text&#39;: &#39;42&#39;, &#39;indices&#39;: [37, 39]}]}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако не искаме автоматичното следване на редиректи, можем да го изключим с <code class="docutils literal notranslate"><span class="pre">allow_redirects=False</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>url = &quot;https://zamunda.net/catalogs/tv&quot;
+params={
+    &quot;search&quot;: &quot;Mr+Robot&quot;,
+    &quot;field&quot;: &quot;name&quot;,
+    &quot;comb&quot;: &quot;yes&quot;,
+}
+
+
+resp = requests.get(url, params=params)
+print(resp.url)
+
+resp = requests.get(url, params=params, allow_redirects=False)
+print(resp.url)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://zamunda.net/login.php?returnto=%2Fcatalogs%2Ftv%3Fsearch%3DMr%252BRobot%26field%3Dname%26comb%3Dyes
+https://zamunda.net/catalogs/tv?search=Mr%2BRobot&amp;field=name&amp;comb=yes
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако не ни трябва проверка за SSL сертификати, задаваме <code class="docutils literal notranslate"><span class="pre">verify=False</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>requests.get(&#39;https://api.github.com&#39;, verify=False)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host &#39;api.github.com&#39;. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>По подразбиране методите могат да чакат за отговор неопределено време, така че винаги е хубаво да сложим и <code class="docutils literal notranslate"><span class="pre">timeout</span></code>.  При прехвърляне на зададеното максимално време се хвърля <code class="docutils literal notranslate"><span class="pre">Timeout</span></code> изключение:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from requests.exceptions import Timeout
+
+susi = &quot;https://susi.uni-sofia.bg/ISSU/forms/students/ElectiveDisciplinesSubscribe.aspx&quot;
+try:
+    r = requests.get(susi, timeout=0.05)  # в секунди; нарочно толкова малък, за да хвърлим грешка
+except Timeout:
+    print(&quot;СУСИ ке падне&quot;)
+else:
+    print(&quot;Абсурд, записах избираемите&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>СУСИ ке падне
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="json">
+<h3>JSON<a class="headerlink" href="#json" title="Permalink to this headline">#</a></h3>
+<p>Ако тялото на съобщението, което искаме да пратим е във вид на JSON, то вместо <code class="docutils literal notranslate"><span class="pre">data</span></code> за удобство можем да ползваме <code class="docutils literal notranslate"><span class="pre">json</span></code> аргумента, подавайки <code class="docutils literal notranslate"><span class="pre">dict</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>response = requests.post(&#39;https://httpbin.org/post&#39;, json={&#39;key&#39;:&#39;value&#39;})
+response.json()[&#39;data&#39;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;{&quot;key&quot;: &quot;value&quot;}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>За работа с JSON обекти имаме вградената библиотека <code class="docutils literal notranslate"><span class="pre">json</span></code>. С <code class="docutils literal notranslate"><span class="pre">json.dumps</span></code> можем да превърнем JSON <code class="docutils literal notranslate"><span class="pre">dict</span></code> стринг, а с <code class="docutils literal notranslate"><span class="pre">json.loads</span></code> - обратното:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import json
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fetched_json_str = &quot;&quot;&quot;
+{
+    &quot;name&quot;: &quot;亚历山大&quot;,
+    &quot;age&quot;: 24.420,
+    &quot;hobbies&quot;: [
+        &quot;editing text files&quot;,
+        &quot;sh*tposting music&quot;,
+        &quot;drinking craft beer&quot;,
+        &quot;creating existential crisises&quot;
+    ],
+    &quot;sorrow&quot;: true,
+    &quot;purpose&quot;: null
+}
+&quot;&quot;&quot;
+json_dict = json.loads(fetched_json_str)
+print(&quot;loads -&gt; ,&quot;, json_dict)
+print(&quot;dumps -&gt; &quot;, json.dumps(json_dict))  # back to a string
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loads -&gt; , {&#39;name&#39;: &#39;亚历山大&#39;, &#39;age&#39;: 24.42, &#39;hobbies&#39;: [&#39;editing text files&#39;, &#39;sh*tposting music&#39;, &#39;drinking craft beer&#39;, &#39;creating existential crisises&#39;], &#39;sorrow&#39;: True, &#39;purpose&#39;: None}
+dumps -&gt;  {&quot;name&quot;: &quot;\u4e9a\u5386\u5c71\u5927&quot;, &quot;age&quot;: 24.42, &quot;hobbies&quot;: [&quot;editing text files&quot;, &quot;sh*tposting music&quot;, &quot;drinking craft beer&quot;, &quot;creating existential crisises&quot;], &quot;sorrow&quot;: true, &quot;purpose&quot;: null}
+</pre></div>
+</div>
+</div>
+</div>
+<p>С <code class="docutils literal notranslate"><span class="pre">dump</span></code> и <code class="docutils literal notranslate"><span class="pre">load</span></code> пък може да запишем/прочетем JSON директно от файл. Oсвен това, има начини за сериализация/десериализация на custom обекти чрез <code class="docutils literal notranslate"><span class="pre">JSONEncoder</span></code> и <code class="docutils literal notranslate"><span class="pre">JSONDecoder</span></code>. Повече информация <a class="reference external" href="https://realpython.com/python-json/">тук</a>.</p>
+</section>
+<section id="id7">
+<h3>Автентикация<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<p>Общоприето е удостоверянето на самоличността да се случва най-често през хедъра <code class="docutils literal notranslate"><span class="pre">Authentication</span></code>, пращан от клиентите. Стойността му е от вид “{тип на token} {token}”, като типовете могат да са Basic, Bearer и др. Със създаването му ни улеснява <code class="docutils literal notranslate"><span class="pre">auth</span></code> параметъра:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>r = requests.get(&quot;https://api.github.com/user&quot;, auth=(&quot;exampleuser&quot;, &quot;examplepassword&quot;))
+r.request.headers[&quot;Authorization&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Basic ZXhhbXBsZXVzZXI6ZXhhbXBsZXBhc3N3b3Jk&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>По подразбиране видът на удостоверяване е Basic, т.е. token-ът представлява просто base64-енкодираният стринг <code class="docutils literal notranslate"><span class="pre">&quot;{името}:{паролата}&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import base64
+
+token = r.request.headers[&quot;Authorization&quot;].split()[1]
+decoded = base64.b64decode(token).decode(&quot;utf-8&quot;)
+
+print(f&quot;{token} is actually {decoded}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ZXhhbXBsZXVzZXI6ZXhhbXBsZXBhc3N3b3Jk is actually exampleuser:examplepassword
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да ползваме и <code class="docutils literal notranslate"><span class="pre">AuthBase</span></code> наследник, който да подадем като стойност на <code class="docutils literal notranslate"><span class="pre">auth</span></code>. По подразбиране се използва <code class="docutils literal notranslate"><span class="pre">HTTPBasicAuth</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from requests.auth import HTTPBasicAuth
+
+r = requests.get(
+    &quot;https://api.github.com/user&quot;,
+    auth=HTTPBasicAuth(&quot;exampleuser&quot;, &quot;examplepassword&quot;)
+)
+r.request.headers[&quot;Authorization&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Basic ZXhhbXBsZXVzZXI6ZXhhbXBsZXBhc3N3b3Jk&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем и собствени начини на автентикация да дефинираме чрез наследяване. Тогава трябва задължително в <code class="docutils literal notranslate"><span class="pre">__call__</span></code> да променим дадения <code class="docutils literal notranslate"><span class="pre">Request</span></code> така, че да има необходимите хедъри:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from requests import PreparedRequest
+from requests.auth import AuthBase
+
+class CustomAuth(AuthBase):
+    &quot;&quot;&quot;Implements a custom authentication scheme.&quot;&quot;&quot;
+
+    def __init__(self, token: str):
+        self.token = token
+
+    def __call__(self, r: PreparedRequest) -&gt; PreparedRequest:
+        &quot;&quot;&quot;Attach an API token to a custom auth header.&quot;&quot;&quot;
+        r.headers[&#39;X-TokenAuth&#39;] = f&quot;{self.token}&quot;
+        return r
+
+
+r = requests.get(&#39;https://httpbin.org/get&#39;, auth=CustomAuth(&#39;deadbeef&#39;))
+r.request.headers
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;User-Agent&#39;: &#39;python-requests/2.28.1&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;X-TokenAuth&#39;: &#39;deadbeef&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h3>Сесии<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<p>Потребителските сесии се използват за да се запазят настройки през различните заявки. Например ако искаме един и същ начин на оторизация да се използва за няколко заявки:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import requests
+
+with requests.Session() as session:
+    session.auth = (&quot;username&quot;, &quot;password&quot;)
+
+    response = session.get(&#39;https://api.github.com/user&#39;)
+    print(response.request.headers)
+    
+    response = session.patch(&#39;https://api.github.com/user&#39;)
+    print(response.request.headers)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;User-Agent&#39;: &#39;python-requests/2.28.1&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Authorization&#39;: &#39;Basic dXNlcm5hbWU6cGFzc3dvcmQ=&#39;}
+{&#39;User-Agent&#39;: &#39;python-requests/2.28.1&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Length&#39;: &#39;0&#39;, &#39;Authorization&#39;: &#39;Basic dXNlcm5hbWU6cGFzc3dvcmQ=&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h3>Адаптери<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>За да добавим допълнителна функционалност/логика към всяка заявка за конкретна услуга, можем да използваме собствен <code class="docutils literal notranslate"><span class="pre">TransportAdapter</span></code>, който да закачим към сесията. В <code class="docutils literal notranslate"><span class="pre">request</span></code> идва вграден един такъв, наречен <code class="docutils literal notranslate"><span class="pre">HttpAdapter</span></code>, с който можем например да дефинираме колко пъти да опитаме отново да изпратим заявката, в случай че е неуспешна:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from requests.adapters import HTTPAdapter
+from requests.exceptions import ConnectionError
+
+github_adapter = HTTPAdapter(max_retries=3)
+
+with requests.Session() as session:
+    session.mount(&#39;https://api.github.com&#39;, github_adapter)
+
+    try:
+        session.get(&#39;https://api.github.com&#39;)
+    except ConnectionError as ce:
+        print(ce)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id10">
+<h2>Неблокиращи решения<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<p>Извикването на <code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span></code> и т.н. блокира изпълнението на програмата, докато <code class="docutils literal notranslate"><span class="pre">content</span></code> не се свали. В случай, че се търси по-асинхронен подход, то съществуват билбиотеки като <a class="reference external" href="https://github.com/requests/requests-threads"><code class="docutils literal notranslate"><span class="pre">requests-threads</span></code></a>, <a class="reference external" href="https://github.com/spyoungtech/grequests"><code class="docutils literal notranslate"><span class="pre">grequests</span></code></a>, <a class="reference external" href="https://github.com/encode/httpx"><code class="docutils literal notranslate"><span class="pre">httpx</span></code></a> и др.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./10 - Requests"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,2471 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Променливи, разклонения, цикли, типове, функции &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Обектно-ориентирано програмиране" href="../03%20-%20OOP/03%20-%20OOP.html" />
+    <link rel="prev" title="Курс “Програмиране с Python” 2022" href="../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/02 - Variables, types, control flow/02 - Variables, types, control flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/02 - Variables, types, control flow/02 - Variables, types, control flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F02 - Variables, types, control flow/02 - Variables, types, control flow.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/02 - Variables, types, control flow/02 - Variables, types, control flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/02 - Variables, types, control flow/02 - Variables, types, control flow.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vs-round-1">
+     Динамично vs. статично типизиране. Round 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Какви типове има?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Числа
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Низове
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Булеви
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#none">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         None
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         type
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tuple-list-set-dict">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         tuple
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         list
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         set
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         dict
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-vs-immutable">
+     Mutable vs Immutable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unpacking">
+       Unpacking
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Блокове
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Контролни структури
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#if">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         if
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#while">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         while
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         for
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-version-3-10">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         match
+        </span>
+       </code>
+       (version 3.10+ !!!)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Функции
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Обхвати на видимост
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   Задачи за упражнение
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Задача 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Задача 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inside">
+     Задача 3 (бонус точки inside)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Променливи, разклонения, цикли, типове, функции</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vs-round-1">
+     Динамично vs. статично типизиране. Round 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Какви типове има?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Числа
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Низове
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Булеви
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#none">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         None
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         type
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tuple-list-set-dict">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         tuple
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         list
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         set
+        </span>
+       </code>
+       ,
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         dict
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-vs-immutable">
+     Mutable vs Immutable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#unpacking">
+       Unpacking
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Блокове
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Контролни структури
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#if">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         if
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#while">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         while
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         for
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#match-version-3-10">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         match
+        </span>
+       </code>
+       (version 3.10+ !!!)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Функции
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Обхвати на видимост
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id10">
+   Задачи за упражнение
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Задача 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     Задача 2
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inside">
+     Задача 3 (бонус точки inside)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Променливи, разклонения, цикли, типове, функции<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<section id="vs-round-1">
+<h2>Динамично vs. статично типизиране. Round 1<a class="headerlink" href="#vs-round-1" title="Permalink to this headline">#</a></h2>
+<p>Python е <strong>динамично</strong>-типизиран език. Това означава, че за разлика от статично-типизираните езици (като например C++, Java или C#), променливите (които биват наричани <em><strong>имена</strong></em>/<em><strong>names</strong></em> в Python) биват проверявани за коректността на типа им при изпълнението на програмата, а не при компилацията (каквато и няма в Python, понеже кодът се интерпретира вместо да се компилира). Друга особеност е, че типът на променливата може да се промени по време на изпълнението на програмата и също така не се декларира предварително.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># I want it to be a number
+a = 42
+print(&quot;a = &quot;, a)
+
+# No, sorry, changed my mind, let it be a string
+a = &quot;a string&quot;
+print(&quot;a = &quot;, a)
+
+# Actually l... You know what? Screw it. I don&#39;t need it.
+del a
+print(&quot;a = &quot;, a)  # 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  42
+a =  a string
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">3048814692.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Actually l... You know what? Screw it. I don&#39;t need it.</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">del</span> <span class="n">a</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a = &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># 💥</span>
+
+<span class="ne">NameError</span>: name &#39;a&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Какви типове има?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<section id="id3">
+<h3>Числа<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Съществуват три основни вградени типа, които описват числови стойности: <strong>int</strong>, <strong>float</strong> и <strong>complex</strong>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> - цели числа</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> - реални числа (с плаваща запетая)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex</span></code> - комплексни числа</p></li>
+</ul>
+<p>И за трите типа са дефинирани аритметичните оператори <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, както и <code class="docutils literal notranslate"><span class="pre">**</span></code> (степенуване).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>whole = -42
+fraction = 0.999
+imag = 3 + 2j  # this is the complex number (3 + 2i)
+
+print(1j ** 2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ Резултатът на <code class="docutils literal notranslate"><span class="pre">/</span></code>, приложен между два <code class="docutils literal notranslate"><span class="pre">int</span></code>-а е <code class="docutils literal notranslate"><span class="pre">float</span></code>. Всички от останалите оператори запазват резултата в <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(4 / 2)
+print(1 / 3)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+0.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>За целочислени сметки имаме и операторите <code class="docutils literal notranslate"><span class="pre">//</span></code> и <code class="docutils literal notranslate"><span class="pre">%</span></code> (целочислено деление и остатък от деление).</p>
+<p><code class="docutils literal notranslate"><span class="pre">//</span></code> е и операторът, който трябва да ползваме, ако искаме при делението на два <code class="docutils literal notranslate"><span class="pre">int</span></code>-а да получим отново <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(7 / 2)
+print(7 // 2)
+print(7 % 2)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.5
+3
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hey Siri, how much is 0 divided by 0?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(0 / 0)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">2444630372.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>С безкрайността обаче нямаме такъв проблем (<code class="docutils literal notranslate"><span class="pre">math.inf</span></code> е специален <code class="docutils literal notranslate"><span class="pre">float</span></code>, който има за цел да бъде еквивалентен на <span class="math notranslate nohighlight">\(\infty\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import inf
+
+print(1 / inf)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Размерът на <code class="docutils literal notranslate"><span class="pre">int</span></code> не е фиксиран както в повечето статично-типизирани езици, при които програмистът избира дали да използва 32-битов, 64-битов или някаква друга размерност за целочислена променлива. Тук integer overflow се избягва като динамично се изчислява размерът на паметта, нужен за съхранението на число с произволна големина.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sys import getsizeof
+
+print(&quot;size of 1 is&quot;, getsizeof(1), &quot;bytes&quot;)
+print(&quot;size of 2 ** 16 is&quot;, getsizeof(2 ** 16), &quot;bytes&quot;)
+print(&quot;size of 2 ** 30 is&quot;, getsizeof(2 ** 30), &quot;bytes&quot;)
+print(&quot;size of 2 ** 30 ** 5 is&quot;, getsizeof(2 ** 30 ** 5), &quot;bytes&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>size of 1 is 28 bytes
+size of 2 ** 16 is 28 bytes
+size of 2 ** 30 is 32 bytes
+size of 2 ** 30 ** 5 is 3240028 bytes
+</pre></div>
+</div>
+</div>
+</div>
+<p>Обърнете внимание, че изписаните резултати са в байтове, а не битове. Причината числото <span class="math notranslate nohighlight">\( 1 \)</span> да заема цели 28 байта например е понеже в python всичко е обект и си има своите член-данни и методи, дори и типове като <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>От друга страна, <code class="docutils literal notranslate"><span class="pre">float</span></code> винаги заема фиксиран брой байтове. Причината за това е, че прецизността е константна - до 18 знака след десетичната запетая. В случай, че не ни е достатъчна такава прецизност, могат да се използват типове от някои вградени и не-вградени библиотеки, като например <code class="docutils literal notranslate"><span class="pre">decimal.Decimal</span></code>, с който можем да боравим с до 28 знака след десетичната запетая.</p>
+<p>Целочислени литерали могат да се задават и в двоична, осмична и 16-ична бройни системи, използвайки като префикс <code class="docutils literal notranslate"><span class="pre">0b</span></code>, <code class="docutils literal notranslate"><span class="pre">0o</span></code> и <code class="docutils literal notranslate"><span class="pre">0x</span></code> съответно:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 0b1010
+b = 0o12
+c = 0xA
+
+print(&quot;a =&quot;, a)
+print(&quot;b =&quot;, b)
+print(&quot;c =&quot;, c)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 10
+b = 10
+c = 10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Низове<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>Текстовите низовете в Python имат тип <code class="docutils literal notranslate"><span class="pre">str</span></code>. Те могат да бъдат с произволна дължина, като в литерал се обграждат или с <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, или с <code class="docutils literal notranslate"><span class="pre">'</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s1 = &quot;abra&quot;
+s2 = &#39;cad&#39;
+
+print(s1 + s2 + s1 + &#39;!&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abracadabra!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Многоредови низови литерали биват задавани с тройни кавички, също както специалните многоредови коментари, наричани <code class="docutils literal notranslate"><span class="pre">docstring</span></code>-ове (повече за тях в следваща лекция):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>this_text_is_too_long_to_fit_on_a_single_line = &quot;&quot;&quot;This text is too long to fit on a single line
+so I&#39;m going to break it up into multiple lines
+so that I can see how it looks
+This string has been sponsored by Github Copilot.&quot;&quot;&quot;
+
+print(this_text_is_too_long_to_fit_on_a_single_line)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This text is too long to fit on a single line
+so I&#39;m going to break it up into multiple lines
+so that I can see how it looks
+This string has been sponsored by Github Copilot.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Подържат се Unicode символи, но трябва да се внимава при взимането на дължината им (например емоджитата с флагове кодират двоен брой байтове, което доведе до <a class="reference external" href="https://www.theverge.com/2018/10/11/17963230/twitter-emoji-character-limit-bug-fixed-diversity">това</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>moyai = &quot;🗿🇨🇳&quot;
+print(&quot;the length of it =&quot;, len(moyai))  # never ignore the red flags...
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the length of it = 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Escape символът както обикновено е <code class="docutils literal notranslate"><span class="pre">\</span></code>. Някои специални символи по този начин написани са:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\n</span></code> - нов ред (Line Feed, ASCII стойност 13 (0x0D))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\t</span></code> - хоризонтална табулация (ASCII стойност 9)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\r</span></code> - Carriage Return, ASCII стойност 10 (0x0A)</p></li>
+</ul>
+<p>С <code class="docutils literal notranslate"><span class="pre">\'</span></code> или  <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code> се запазват и кавичките в случай, че вида кавичка съвпада с тази, ограждаща низа.</p>
+<p>Самата обратно-наклонена черта се въвежда с <code class="docutils literal notranslate"><span class="pre">\\</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &#39;Is it readable?\nYesn\&#39;t\n&#39;
+print(s)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is it readable?
+Yesn&#39;t
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако знаем 16-чния код на конкретен Unicode символ, можем да го запишем след <code class="docutils literal notranslate"><span class="pre">\u</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rip_lemmy = &quot;A\u2660&quot;
+print(rip_lemmy)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A♠
+</pre></div>
+</div>
+</div>
+</div>
+<p>В случай пък че ни трябва конкретен байт в низа, чийто 16-ичен код знаем, може да се използва <code class="docutils literal notranslate"><span class="pre">\x</span></code>. Например <code class="docutils literal notranslate"><span class="pre">\x00</span></code> е null-byte, a <code class="docutils literal notranslate"><span class="pre">\x1B</span></code> - <code class="docutils literal notranslate"><span class="pre">ESC</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>not_your_c_string = &quot;You can safely have \x00 in the middle of a string&quot;
+print(not_your_c_string)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<pre class="output stream literal-block">You can safely have in the middle of a string
+</pre>
+</div>
+</div>
+<p>Относно ASCII кодове, съществуват две функции за преобразуване от и във кода на символа: <code class="docutils literal notranslate"><span class="pre">chr</span></code> и <code class="docutils literal notranslate"><span class="pre">ord</span></code> съответно.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;ord(&#39;A&#39;) =&quot;, ord(&#39;A&#39;))
+print(&quot;chr(65) =&quot;, chr(65))
+
+alphabet = [chr(c) for c in range(ord(&#39;A&#39;), ord(&#39;Z&#39;) + 1)]
+alphabet_kebab = &quot;-&quot;.join(alphabet)
+print(alphabet_kebab)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ord(&#39;A&#39;) = 65
+chr(65) = A
+A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z
+</pre></div>
+</div>
+</div>
+</div>
+<p>Съществува и тип за низ от байтове - <code class="docutils literal notranslate"><span class="pre">bytes</span></code>. Има си и литерал, който е като този на <code class="docutils literal notranslate"><span class="pre">str</span></code>, но просто с едно <code class="docutils literal notranslate"><span class="pre">b</span></code> преди отварящите кавички.</p>
+<p>Конвертирането му от и до <code class="docutils literal notranslate"><span class="pre">str</span></code> става единственo чрез подбиране на правилен енкодинг (UTF-8 или друг) и може да хвърли грешка.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bytes_literal = b&quot;You can use ASCII characters as well as \x5C\x78 syntax, e.g. \x00\x01, etc.&quot;
+print(&quot;bytes_literal =&quot;, bytes_literal)
+
+str_from_bytes = bytes_literal.decode(&quot;utf-8&quot;)
+print(&quot;str_from_bytes =&quot;, str_from_bytes)
+
+bytes_from_str = str_from_bytes.encode(&quot;utf-8&quot;)
+print(&quot;bytes_from_str =&quot;, bytes_from_str)
+
+deadbeef = b&quot;\xDE\xAD\xBE\xEF&quot;
+deadbeef.decode(&quot;utf-8&quot;)  # it&#39;s dead
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<pre class="output stream literal-block">bytes_literal = b'You can use ASCII characters as well as \\x syntax, e.g. \x00\x01, etc.'
+str_from_bytes = You can use ASCII characters as well as \x syntax, e.g. , etc.
+bytes_from_str = b'You can use ASCII characters as well as \\x syntax, e.g. \x00\x01, etc.'
+</pre>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">3353544668.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">deadbeef</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\xDE\xAD\xBE\xEF</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">deadbeef</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>  <span class="c1"># it&#39;s dead</span>
+
+<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xbe in position 2: invalid start byte
+</pre></div>
+</div>
+</div>
+</div>
+<p>Интерполацията на низове е възможна по три основни начина:</p>
+<ul class="simple">
+<li><p>Форматиране с <code class="docutils literal notranslate"><span class="pre">%</span></code> (old-school)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str.format</span></code> (от Python 3 насам, back-port-нат към Python 2.7)</p></li>
+<li><p>f-strings (от Python 3.6 насам)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from math import pi
+from time import time
+
+archaic = &quot;This year %s turns %x hex-years old.&quot; % (&quot;AJ&quot;, 24)
+print(archaic)
+
+classic = &quot;{} only knows the first 5 decimal places of π: {:.5f}.&quot;.format(&quot;Ton4ou&quot;, pi)
+print(classic)
+
+name = &quot;bot.py&quot;
+fstr = f&quot;Program {name} finished execution at {time()} unix time.&quot;
+print(fstr)
+
+some_variable = 0xdeadbeef
+debug_fstr = f&quot;Debug info: {some_variable=}&quot;  # the &#39;=&#39; here puts the name as well as the value
+print(debug_fstr)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This year AJ turns 18 hex-years old.
+Ton4ou only knows the first 5 decimal places of π: 3.14159.
+Program bot.py finished execution at 1661079240.858315 unix time.
+Debug info: some_variable=3735928559
+</pre></div>
+</div>
+</div>
+</div>
+<p>Низовете са колекции и могат да бъдат използвани като такива. Повече за тях в следваща лекция, засега може да ги мислим като масиви от символи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;Hello&quot;
+
+length = len(s)     # the length
+first_char = s[0]  # the first character (element @ index 0)
+
+print(f&quot;{length=}, {first_char=}&quot;)
+
+for char in s:
+    print(&quot;===&quot; + char + &quot;===&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>length=5, first_char=&#39;H&#39;
+===H===
+===e===
+===l===
+===l===
+===o===
+</pre></div>
+</div>
+</div>
+</div>
+<p>Обработката на низове става сравнително лесно чрез предоставените ни вградени функции и методи:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>with_umlauts = &quot;Deutschland über alles!&quot;
+no_umlauts = with_umlauts.replace(&quot;ü&quot;, &quot;ue&quot;)  # returns a new string in which all occurrences of &quot;ü&quot; are replaced with &quot;ue&quot;
+print(f&quot;{no_umlauts=}&quot;)
+
+post_hastags = &quot;#nofilter #nomakeup #felt_cute_might_delete_later #f4f #follow4follow&quot;
+tags = post_hastags.replace(&quot;#&quot;, &quot;&quot;).split(&quot; &quot;)  # first removes all #&#39;s, then splits using a space as a delimiter into a list of strings
+marked_tags_list = &quot; &quot;.join(f&quot;({tag})&quot; for tag in tags)  # surrounds each element of the list with brackets and concatenates them with spaces
+print(f&quot;{marked_tags_list=}&quot;)
+
+allowed_inputs = [&quot;y&quot;, &quot;yes&quot;, &quot;proceed&quot;, &quot;correct&quot;, &quot;da&quot;, &quot;yy&quot;, &quot;yesh&quot;, &quot;yass&quot;]
+user_input = &quot;Yes&quot;  # hardcoded for simplicity
+if user_input.lower() in allowed_inputs:
+    print(&quot;Access granted.&quot;)
+else:
+    print(&quot;Access denied.&quot;)
+
+# .lower() converts the string to lowercase, .upper() converts it to uppercase
+# there is also .capitalize() which capitalizes only the first letter of the string
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>no_umlauts=&#39;Deutschland ueber alles!&#39;
+marked_tags_list=&#39;(nofilter) (nomakeup) (felt_cute_might_delete_later) (f4f) (follow4follow)&#39;
+Access granted.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Булеви<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<p>Тип <code class="docutils literal notranslate"><span class="pre">bool</span></code> има две възможни стойности: <code class="docutils literal notranslate"><span class="pre">True</span></code> и <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>За разлика от повечето други езици, вместо <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code> и <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> използваме <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> и <code class="docutils literal notranslate"><span class="pre">and</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t = True
+f = not t
+
+print(f&quot;{f = }&quot;)
+print(f&quot;{t or f = }&quot;)
+print(f&quot;{t and f = }&quot;)
+print(f&quot;{t and not f = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f = False
+t or f = True
+t and f = False
+t and not f = True
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ <code class="docutils literal notranslate"><span class="pre">or</span></code> и <code class="docutils literal notranslate"><span class="pre">and</span></code> всъщност не връщат <code class="docutils literal notranslate"><span class="pre">bool</span></code>, а стойността на първия аргумент отляво надясно, след който каквито и да са стойностите на другите резултатът остава същия:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a, b, c = 1, 2, 3
+
+print(f&quot;{a or b or c = }&quot;)
+print(f&quot;{a and b and c = }&quot;)
+print(f&quot;{a or 0 or c = }&quot;)
+print(f&quot;{a and 0 and c = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a or b or c = 1
+a and b and c = 3
+a or 0 or c = 1
+a and 0 and c = 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да се възползваме от това в кода ни с изрази и функции, чието изпълнение зависи от предходния резултат:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def func1():
+    print(&quot;Function 1 is being executed.&quot;)
+    return True
+
+def func2():
+    print(&quot;Function 2 is being executed.&quot;)
+    return True
+
+if func1() or func2():
+    print(&quot;OK&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Function 1 is being executed.
+OK
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="none">
+<h3><code class="docutils literal notranslate"><span class="pre">None</span></code><a class="headerlink" href="#none" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">None</span></code> е стойност (и тип), обозначаваща липса на стойност (🤔).</p>
+<p>Когато една функция <strong>не</strong> преминава през <code class="docutils literal notranslate"><span class="pre">return</span></code> израз, тя всъщност връща <code class="docutils literal notranslate"><span class="pre">None</span></code> като резултат.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result_of_print = print(&quot;The print function isn&#39;t intended to return a specific value.&quot;)
+print(result_of_print)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The print function isn&#39;t intended to return a specific value.
+None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="type">
+<h3><code class="docutils literal notranslate"><span class="pre">type</span></code><a class="headerlink" href="#type" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">type</span></code> е функция, която ни връща типа на дадена стойност:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(42)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Но всичко в Python е обект, включително и функциите:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(print)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>builtin_function_or_method
+</pre></div>
+</div>
+</div>
+</div>
+<p>Следователно, <code class="docutils literal notranslate"><span class="pre">type</span></code> също си има тип:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(type)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+<p>😵‍💫</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type(type(type(type(type(type)))))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tuple-list-set-dict">
+<h3><code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code><a class="headerlink" href="#tuple-list-set-dict" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>: наредена <span class="math notranslate nohighlight">\(n\)</span>-торка (още кортеж), която не може да се променя</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: списък от елементи, който може да се променя</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code>: множество от елементи без наредба и повторения (HashSet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code>: речник от ключове и стойности (HashMap)</p></li>
+</ul>
+<p>Елементите и на четирите колекции могат да бъдат от различни типове.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t = (1, &quot;b&quot;, False)  # tuples are with () or without any brackets
+l = [1, &quot;b&quot;, False]  # lists are with []
+s = {1, &quot;b&quot;, False}                     # sets are with {}
+d = {&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3, &quot;幸&quot;: None}   # dicts are also with {}
+
+print(f&quot;{t = }&quot;)
+print(f&quot;{l = }&quot;)
+print(f&quot;{s = }&quot;)
+print(f&quot;{d = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t = (1, &#39;b&#39;, False)
+l = [1, &#39;b&#39;, False]
+s = {False, 1, &#39;b&#39;}
+d = {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;幸&#39;: None}
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ <code class="docutils literal notranslate"><span class="pre">{}</span></code> е празен <code class="docutils literal notranslate"><span class="pre">dict</span></code>, а не празен <code class="docutils literal notranslate"><span class="pre">set</span></code>. За празен <code class="docutils literal notranslate"><span class="pre">set</span></code> се ползва конструктора <code class="docutils literal notranslate"><span class="pre">set()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>type({})
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ Понеже нормалните скоби са и… нормални скоби, които обособяват израз и връщат стойността му, <code class="docutils literal notranslate"><span class="pre">tuple</span></code> с един елемент се дефинира със запетайка след елемента. Освен това няма нужда от обграждащи скоби при задаване на <code class="docutils literal notranslate"><span class="pre">tuple</span></code> с повече от нула елементи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_tuple = (42,)
+definitely_not_a_tuple = (42)
+print(f&quot;{a_tuple = }&quot;)
+print(f&quot;{definitely_not_a_tuple = }&quot;)
+
+btw_brackets_are_for_plebs = 42,
+print(f&quot;{btw_brackets_are_for_plebs = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a_tuple = (42,)
+definitely_not_a_tuple = 42
+btw_brackets_are_for_plebs = (42,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Кога кое да ползваме? Rule of thumb:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> - когато искаме функция да върне няколко неща / анонимен <code class="docutils literal notranslate"><span class="pre">dataclass</span></code> / списък, който не може да бъде променян</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> - когато искаме нареден списък, който да може да бъде променян и може да има повторения</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> - когато наредбата не ни трябва и нямаме повторения</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> - когато искаме да асоциираме дадени ключове с дадени стойности</p></li>
+</ul>
+<p>Ключовата дума <code class="docutils literal notranslate"><span class="pre">in</span></code> е полезна при работа с такива колекции. Тя връща <code class="docutils literal notranslate"><span class="pre">bool</span></code> който ни казва дали даден елемент се среща вътре:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>impostor = 1j
+
+squad = [0, 1j, 2, 3, 4, 5]
+print(f&quot;{impostor in squad = }&quot;)
+
+members = {&quot;A&quot;: 0, &quot;B&quot;: 1j, &quot;C&quot;: 2, &quot;D&quot;: 3, &quot;E&quot;: 4, &quot;F&quot;: 5}  # `in` searches in the dictionary&#39;s keys, not values
+print(f&quot;{impostor in members = }&quot;)
+print(f&quot;{impostor in members.values() = }&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>impostor in squad = True
+impostor in members = False
+impostor in members.values() = True
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code> може да се ползва и за <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot;mile&quot; in &quot;smiles&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Дължината им се взима с <code class="docutils literal notranslate"><span class="pre">len</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>len([0, 1, 2])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> и <code class="docutils literal notranslate"><span class="pre">list</span></code> поддържат индексиране, като за <code class="docutils literal notranslate"><span class="pre">tuple</span></code> това е само read-only:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>t = (1, 2, 3)
+l = [1, 2, 3]
+print(f&quot;{t[0] = }&quot;)
+print(f&quot;{l[0] = }&quot;)
+
+l[0] = -1
+print(f&quot;{l = }&quot;)
+
+t[0] = -1  # 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t[0] = 1
+l[0] = 1
+l = [-1, 2, 3]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">165187029.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># 💥</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>По същия начин става взимането/записването на стойност в <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Съществува и метода <code class="docutils literal notranslate"><span class="pre">get</span></code> който ни предоставя по-безопасен начин при достъпването на несъществуващи ключове:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = {}
+d[&quot;a&quot;] = 1
+
+print(f&quot;{d[&#39;a&#39;] = }&quot;)
+print(f&quot;{d.get(&#39;a&#39;) = }&quot;)
+
+print(f&quot;{d.get(&#39;b&#39;) = }&quot;)     # returns None if not present
+print(f&quot;{d.get(&#39;b&#39;, 0) = }&quot;)  # returns the provided default value if not present
+print(f&quot;{d[&#39;b&#39;] = }&quot;)         # 💥
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d[&#39;a&#39;] = 1
+d.get(&#39;a&#39;) = 1
+d.get(&#39;b&#39;) = None
+d.get(&#39;b&#39;, 0) = 0
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">1199089680.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>     <span class="c1"># returns None if not present</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># returns the provided default value if not present</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>         <span class="c1"># 💥</span>
+
+<span class="ne">KeyError</span>: &#39;b&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro tip: <code class="docutils literal notranslate"><span class="pre">collections.defalutdict</span></code> е <code class="docutils literal notranslate"><span class="pre">dict</span></code> със зададена стойност по подразбиране, която се връща при липсващ ключ.</p>
+</section>
+</section>
+<section id="mutable-vs-immutable">
+<h2>Mutable vs Immutable<a class="headerlink" href="#mutable-vs-immutable" title="Permalink to this headline">#</a></h2>
+<p>Имената в Python сочат към някаква стойност в паметта.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>name = 1
+name += 1000
+print(name)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Горното парче код не променя стойността на <code class="docutils literal notranslate"><span class="pre">1</span></code>, а кара <code class="docutils literal notranslate"><span class="pre">name</span></code> да сочи към нова стойност - <code class="docutils literal notranslate"><span class="pre">1001</span></code>.</p>
+<p>Това е така, понеже <code class="docutils literal notranslate"><span class="pre">int</span></code> е immutable тип (такъв който не може да си променя стойността). Immutable са още всички числа, низове, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code> и <a class="reference external" href="https://www.youtube.com/watch?v=EuUYM-E5-1U">т.н.</a></p>
+<p>Mutable типовете пък са <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> и почти всичко останало.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = 1
+b = a
+b += 1
+print(f&quot;{a=}, {b=}&quot;)
+
+a = [1, 2]
+b = a
+b.append(3)
+print(f&quot;{a=}, {b=}&quot;)  # if you think they can be different now, you are dead wrong
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a=1, b=2
+a=[1, 2, 3], b=[1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да се отбележи също, че валидни <strong>ключове</strong> за <code class="docutils literal notranslate"><span class="pre">dict</span></code> и елементи за <code class="docutils literal notranslate"><span class="pre">set</span></code> са само <strong>immutable</strong> стойности.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [1, 2]
+d = {l: 1}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">1443935741.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">l</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="ne">TypeError</span>: unhashable type: &#39;list&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="unpacking">
+<h3>Unpacking<a class="headerlink" href="#unpacking" title="Permalink to this headline">#</a></h3>
+<p>Unpacking-ът ни позволява да извлечем всички елементи от колекции в няколко различни други имена.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>firstname, lastname = &quot;Вовеки&quot;, &quot;Веков&quot;
+
+tup = 1, 2, 3
+a, b, c = tup
+
+print(f&quot;{firstname=}, {lastname=}&quot;)
+print(f&quot;{a=}, {b=}, {c=}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>firstname=&#39;Вовеки&#39;, lastname=&#39;Веков&#39;
+a=1, b=2, c=3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pro tip: размяната на стойностите на две променливи в Python не изисква да дефинираме трета:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a, b = 1, 2
+a, b = b, a
+print(f&quot;{a=}, {b=}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a=2, b=1
+</pre></div>
+</div>
+</div>
+</div>
+<p>За да посочим име, в което да се присвоят всички останали неприсвоени елементи от колекцията, която unpack-ваме, използваме астериск <code class="docutils literal notranslate"><span class="pre">*</span></code> (няма нищо общо с pointer, спокойно). Типът на такава променлива винаги става <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>head, *tail = [1, 2, 3, 4, 5]
+first, *inbetween, last = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+print(f&quot;{head=}, {tail=}&quot;)
+print(f&quot;{first=}, {inbetween=}, {last=}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>head=1, tail=[2, 3, 4, 5]
+first=1, inbetween=[2, 3, 4, 5, 6, 7, 8, 9], last=10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това може да бъде приложимо при слепване на колекции, като за <code class="docutils literal notranslate"><span class="pre">dict</span></code> ползваме <code class="docutils literal notranslate"><span class="pre">**</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>original_ingredients = [&quot;water&quot;, &quot;salt&quot;, &quot;sugar&quot;]
+new_ingredients = [&quot;flour&quot;, &quot;eggs&quot;, &quot;butter&quot;, *original_ingredients]
+
+studio_band = {&quot;GUITAR&quot;: &quot;Vasko&quot;, &quot;MICROPHONE&quot;: &quot;Ceca&quot;}
+live_band = {&quot;BASS&quot;: &quot;Pesho&quot;, &quot;DRUMS&quot;: &quot;亚历山大&quot;, **studio_band}
+
+print(f&quot;{new_ingredients=}&quot;)
+print(f&quot;{live_band=}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>new_ingredients=[&#39;flour&#39;, &#39;eggs&#39;, &#39;butter&#39;, &#39;water&#39;, &#39;salt&#39;, &#39;sugar&#39;]
+live_band={&#39;BASS&#39;: &#39;Pesho&#39;, &#39;DRUMS&#39;: &#39;亚历山大&#39;, &#39;GUITAR&#39;: &#39;Vasko&#39;, &#39;MICROPHONE&#39;: &#39;Ceca&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>Блокове<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>В Python блоковете от код се отделят не чрез къдрави скоби, а с индентация.</p>
+<p>За съжаление на хората, предпочитащи скоби, това няма да се промени в бъдещи версии на езика:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from __future__ import braces
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/7x/gdf0mbts74n8p_ckv_b_mfc40000gp/T/ipykernel_18944/3905450354.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">braces</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: not a chance
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да се отбележи, че всеки блок започва след двуеточие и всеки негов ред започва с определен брой интервали (или една табулация) по-навътре от предходния блок. За да бъде валдна индентацията трябва да е консистентна в целия файл, в противен случай ще се хвърли <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code>. Общоприето е в Python да си използват 4 интервала за тази цел.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>if True:
+    print(&quot;This line is ok&quot;)
+        print(&quot;But this one is not&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/7x/gdf0mbts74n8p_ckv_b_mfc40000gp/T/ipykernel_18944/1618609151.py&quot;</span><span class="gt">, line </span><span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;But this one is not&quot;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Side note: едноредови блокове могат да се запишат и на същия ред след двуеточието. Често срещана конвенция обаче е да не се пишат по този начин.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>if True: print(&quot;This will run&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This will run
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>Контролни структури<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<section id="if">
+<h3><code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#if" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>age = 21
+
+if age == 18:
+    print(&quot;Barely legal&quot;)
+elif age &lt; 18:
+    print(&quot;Sorry, you are not allowed.&quot;)
+else:
+    print(&quot;You good.&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You good.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Няма нужда от скоби около условията.</p>
+<p>Едно условие се оценява на <code class="docutils literal notranslate"><span class="pre">False</span></code>, когато стойността му е <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">0j</span></code>, <code class="docutils literal notranslate"><span class="pre">''</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">{}</span></code> и всички празни контейнери. Всички други стойности се оценяват до <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Съществува и едноредова версия на <code class="docutils literal notranslate"><span class="pre">if</span></code> с <code class="docutils literal notranslate"><span class="pre">else</span></code>, която има за цел да служи като тернарния оператор в повечето езици:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>num = 420
+statement = &quot;odd&quot; if num % 2 == 1 else &quot;definitely not odd&quot;
+print(f&quot;{num} is {statement}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>420 is definitely not odd
+</pre></div>
+</div>
+</div>
+</div>
+<p>Операторите за сравнение са <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>. Съществува и <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>, който е просто различен запис на <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
+<p>В Python е възможно комбинирането им. Например <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span> <span class="pre">and</span> <span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">3</span></code> може да бъде записано като <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span> <span class="pre">&lt;</span> <span class="pre">3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>code = 404
+
+if 100 &lt;= code &lt; 200:
+    print(&quot;Informational response&quot;)
+elif 200 &lt;= code &lt; 300:
+    print(&quot;OK response&quot;)
+elif 300 &lt;= code &lt; 400:
+    print(&quot;Redirection&quot;)
+elif 400 &lt;= code &lt; 500:
+    print(&quot;Client error&quot;)
+elif 500 &lt;= code &lt; 600:
+    print(&quot;Server error&quot;)
+else:
+    print(&quot;Not a valid HTTP status code&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Client error
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ключовата дума <code class="docutils literal notranslate"><span class="pre">is</span></code> сравнява по референция, докато <code class="docutils literal notranslate"><span class="pre">==</span></code> сравнява по стойност:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = [1, 2, 3]
+b = [1, 2, 3]
+
+if a == b:
+    print(&quot;a and b are equal&quot;)
+else:
+    print(&quot;a and b are not equal&quot;)
+
+if a is b:
+    print(&quot;a is the same thing as b&quot;)
+else:
+    print(&quot;a is not the same thing as b&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a and b are equal
+a is not the same thing as b
+</pre></div>
+</div>
+</div>
+</div>
+<p>Side note: сравнение с <code class="docutils literal notranslate"><span class="pre">None</span></code> може да бъде направено и по двата начина, но за четимост се ползва по-често <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = None
+
+if result is not None:  # clear &#39;nuff, innit 
+    print(f&quot;We got a result, it is {result}.&quot;)
+else:
+    print(&quot;No result.&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No result.
+</pre></div>
+</div>
+</div>
+</div>
+<p>⚠️ Трябва да се внимава винаги с очакваната прецизност на числата с плаваща запетая:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>if 0.1 + 0.2 == 0.3:
+    print(&quot;Естествено, че ще влезе тука&quot;)
+else:
+    print(f&quot;Да, ама не: 0.1 + 0.2 == {0.1 + 0.2}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Да, ама не: 0.1 + 0.2 == 0.30000000000000004
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="while">
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code><a class="headerlink" href="#while" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>num = 0
+while num &lt; 20:
+    num += 1
+    current_output = f&quot;{num}: &quot;
+
+    if num % 3 == 0 and num % 5 == 0:
+        current_output += &quot;FizzBuzz&quot;
+    elif num % 3 == 0:
+        current_output += &quot;Fizz&quot;
+    elif num % 5 == 0:
+        current_output += &quot;Buzz&quot;
+
+    print(current_output)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1: 
+2: 
+3: Fizz
+4: 
+5: Buzz
+6: Fizz
+7: 
+8: 
+9: Fizz
+10: Buzz
+11: 
+12: Fizz
+13: 
+14: 
+15: FizzBuzz
+16: 
+17: 
+18: Fizz
+19: 
+20: Buzz
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">continue</span></code> прекъсва изпълнението на текущaта итерация и продължава със следващата.</p>
+<p><code class="docutils literal notranslate"><span class="pre">break</span></code> прекъсва изпълнението на цикъла.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n = 0
+while True:
+    if n &gt; 100:
+        break
+
+    n += 1
+
+    if n % 3 != 0 or n % 5 != 0:
+        continue
+    
+    print(n)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+30
+45
+60
+75
+90
+</pre></div>
+</div>
+</div>
+</div>
+<p>Възможно е да се напише и <code class="docutils literal notranslate"><span class="pre">else</span></code> блок след тялото на <code class="docutils literal notranslate"><span class="pre">while</span></code>-a. Тогава той ще се изпълни само ако условието в <code class="docutils literal notranslate"><span class="pre">while</span></code>-a стане <code class="docutils literal notranslate"><span class="pre">False</span></code> без да бъде прекъсвано изпълнението на цикъла чрез <code class="docutils literal notranslate"><span class="pre">break</span></code> или <code class="docutils literal notranslate"><span class="pre">return</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s = &quot;aababcbccbbbabbabccbbaabbacccaababbc&quot;
+# s = 1000 * &quot;s&quot;
+
+letters = []
+i = 0
+
+while i &lt; len(s):
+    current_letter = s[i]
+    i += 1
+
+    if i &gt; 100 and len(letters) &lt;= 1:
+        print(&quot;I want to break free!&quot;)
+        break
+
+    if letters and current_letter == letters[-1]:
+        continue
+
+    letters.append(current_letter)
+else:
+    print(&quot;&quot;.join(letters))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ababcbcbababcbabacababc
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="for">
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#for" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-циклите в Python итерират върху дадена колекция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ingredients = [&quot;eggs&quot;, &quot;milk&quot;, &quot;flour&quot;, &quot;sugar&quot;]
+ingredients_price = {&quot;eggs&quot;: 0.98, &quot;milk&quot;: 1.23, &quot;flour&quot;: 1.59, &quot;sugar&quot;: 0.88}
+
+for i in ingredients:
+    print(f&quot;I will need {i}&quot;)
+
+for ingr, price in ingredients_price.items():
+    print(f&quot;We got {ingr} for ${price}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I will need eggs
+I will need milk
+I will need flour
+I will need sugar
+We got eggs for $0.98
+We got milk for $1.23
+We got flour for $1.59
+We got sugar for $0.88
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> ни позволява да създадем колекция от числа от началото до края на даден интервал през определена стъпка:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(20):
+    print(i, end=&quot; &quot;)
+
+print()
+
+for i in range(10, 20):
+    print(i, end=&quot; &quot;)
+
+print()
+
+for i in range(10, 20, 3):
+    print(i, end=&quot; &quot;)
+
+print()
+
+for i in range(20, 10, -3):
+    print(i, end=&quot; &quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 
+10 11 12 13 14 15 16 17 18 19 
+10 13 16 19 
+20 17 14 11 
+</pre></div>
+</div>
+</div>
+</div>
+<p>По същия начин както при <code class="docutils literal notranslate"><span class="pre">while</span></code>-циклите, <code class="docutils literal notranslate"><span class="pre">else</span></code> може да бъде използван и с <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for n in range(2, 20):
+    for x in range(2, n):
+        if n % x == 0:
+            print(n, &#39;=&#39;, x, &#39;*&#39;, n // x)
+            break
+    else:
+        print(n, &#39;is a prime number&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 is a prime number
+3 is a prime number
+4 = 2 * 2
+5 is a prime number
+6 = 2 * 3
+7 is a prime number
+8 = 2 * 4
+9 = 3 * 3
+10 = 2 * 5
+11 is a prime number
+12 = 2 * 6
+13 is a prime number
+14 = 2 * 7
+15 = 3 * 5
+16 = 2 * 8
+17 is a prime number
+18 = 2 * 9
+19 is a prime number
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="match-version-3-10">
+<h3><code class="docutils literal notranslate"><span class="pre">match</span></code> (version 3.10+ !!!)<a class="headerlink" href="#match-version-3-10" title="Permalink to this headline">#</a></h3>
+<p>В Python <code class="docutils literal notranslate"><span class="pre">switch-case</span></code> нарочно няма. От версия 3.10 насам обаче съществува <code class="docutils literal notranslate"><span class="pre">match</span></code>, което е по-скоро подобно на <code class="docutils literal notranslate"><span class="pre">switch</span></code> или <code class="docutils literal notranslate"><span class="pre">match</span></code> във функционалните езици за програмиране. С него можем да съпоставяме структурата на изрази в различни случаи, които ни интересуват, елиминирайки нуждата от вложени <code class="docutils literal notranslate"><span class="pre">if</span></code>-ове, проверки за типа на променливи, сложни проверки за размерности и структура на колекции и др. Това е мощно ново свойство на езика, за което повече информация може да намерим <a class="reference external" href="https://realpython.com/python310-new-features/#structural-pattern-matching">тук</a>.</p>
+</section>
+</section>
+<section id="id8">
+<h2>Функции<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x):
+    return x ** x
+
+print(f(8))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16777216
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">def</span></code> е ключовата дума, която започва дефинията на функция. След името и списък от аргументите в скоби, следва блок с код, който се изпълнява при извикването ѝ.</p>
+<p>При достигане на <code class="docutils literal notranslate"><span class="pre">return</span></code> или крaя на блокът от код, изпълнението на функцията прекъсва. Във втория случай или когато след <code class="docutils literal notranslate"><span class="pre">return</span></code> няма нищо посочено, функцията връща <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def procedure():
+    print(&quot;I am Procedure.&quot;)
+    print(&quot;I shall be the reigning lord of the kingdom of side effects.&quot;)
+    print(&quot;I don&#39;t return anything.&quot;)
+    print(&quot;...Or do I?&quot;)
+
+result = procedure()
+print(result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am Procedure.
+I shall be the reigning lord of the kingdom of side effects.
+I don&#39;t return anything.
+...Or do I?
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def greeting(name):
+    if not name:
+        return
+    
+    print(f&quot;Hello, {name}!&quot;)
+
+greeting(&quot;&quot;)
+greeting(&quot;John Smith&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, John Smith!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def factorial(n):
+    if n &lt;= 0:
+        return 1
+    
+    return n * factorial(n - 1)
+
+print(factorial(70))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11978571669969891796072783721689098736458938142546425857555362864628009582789845319680000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Аргументите на функциите могат да имат стойности по подразбиране:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(a, b=0):
+    return a + b
+
+print(add(1))
+print(add(1, 1))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def my_custom_print(text=&quot;&quot;, terminator=&quot;\n&quot;, capitalize=False):
+    new_text = text.capitalize() if capitalize else text
+    print(new_text, end=terminator)
+
+my_custom_print()
+my_custom_print(&quot;hello&quot;)
+my_custom_print(&quot;hello&quot;, capitalize=True)
+my_custom_print(&quot;hello&quot;, &quot;!\n&quot;, capitalize=True)
+my_custom_print(&quot;hello&quot;, terminator=&quot;!\n&quot;, capitalize=True)
+my_custom_print(&quot;hello&quot;, capitalize=True, terminator=&quot;!\n&quot;)
+my_custom_print(capitalize=True, terminator=&quot;!\n&quot;, text=&quot;hello&quot;)  # y tho
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+Hello
+Hello!
+Hello!
+Hello!
+Hello!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Функции могат да приемат произволен брой аргументи, които биват два типа: позиционни (обикновено кръщавани <code class="docutils literal notranslate"><span class="pre">args</span></code>) и именовани (обикновено кръщавани <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> (от англ. keyword arguments)). След именован аргумент не можем да подадем позиционен.</p>
+<p>Позиционните стават достъпни като <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, а именованите - като <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def variadic_args(fixed_arg1, fixed_arg2, *args, **kwargs):
+    print(f&quot;{fixed_arg1=}&quot;)
+    print(f&quot;{fixed_arg2=}&quot;)
+    print(f&quot;{args=}&quot;)
+    print(f&quot;{kwargs=}&quot;)
+
+variadic_args(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, name=&quot;Pesho&quot;, age=20)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fixed_arg1=1
+fixed_arg2=2
+args=(3, 4, 5, 6, 7, 8, 9, 10)
+kwargs={&#39;name&#39;: &#39;Pesho&#39;, &#39;age&#39;: 20}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id9">
+<h2>Обхвати на видимост<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<p>Всякo име може да бъде свързанo със стойност (binding). Съществуват операции, които променят свързването, като <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<p>Свързването на име със стойност може да се проверява с две функции, връщащи речници: <code class="docutils literal notranslate"><span class="pre">locals</span></code> и <code class="docutils literal notranslate"><span class="pre">globals</span></code>, които пазят стойностите на всички имена в локалния и в глобалния обхват на видимост съответно.</p>
+<p>Едно име дефинирано в локален обхват (scope) не се вижда от глобалния такъв:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>global_one = 1
+
+def foo():
+    local_one = 2
+    print(locals())
+
+
+foo()
+print(globals()[&quot;global_one&quot;])  # `print(globals())` will not have a very pretty output in the Jupyter notebook but you can try it
+print(globals()[&quot;local_one&quot;])
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;local_one&#39;: 2}
+1
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">7</span><span class="n">x</span><span class="o">/</span><span class="n">gdf0mbts74n8p_ckv_b_mfc40000gp</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_18944</span><span class="o">/</span><span class="mf">700200652.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">foo</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;global_one&quot;</span><span class="p">])</span>  <span class="c1"># `print(globals())` will not have a very pretty output in the Jupyter notebook but you can try it</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;local_one&quot;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+
+<span class="ne">KeyError</span>: &#39;local_one&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Всеки блок от код си има своя област на видимост, в която стоят локално дефинираните имена.
+Ако една функция не може да намери дадена променлива в локалния си scope, търси в обграждащия (глобалния) за променлива със същото име:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>global_one = 1
+
+def foo():
+    print(global_one)
+
+foo()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>По подразбиране пренасочването на имена става в локалния scope.
+Използването на ключовата дума <code class="docutils literal notranslate"><span class="pre">global</span></code> позволява пренасочването на глобални имена. Това обаче въобще не е добра практика.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>global_one = 1
+
+def foo():
+    global_one = 2
+    print(global_one)
+    print(locals())
+
+foo()
+
+print(globals()[&quot;global_one&quot;])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+{&#39;global_one&#39;: 2}
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Аргументите на функциите отиват в <code class="docutils literal notranslate"><span class="pre">locals</span></code> речника, достъпен от тялото им (съответно не и извън него):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fn(x, y, *args, **kwargs):
+    print(locals())
+
+fn(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, name=&quot;Pesho&quot;, age=20)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;x&#39;: 1, &#39;y&#39;: 2, &#39;args&#39;: (3, 4, 5, 6, 7, 8, 9, 10), &#39;kwargs&#39;: {&#39;name&#39;: &#39;Pesho&#39;, &#39;age&#39;: 20}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>В случай, че имаме вложени блокове, ключовата дума <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> позволява пренасочване на име, дефинирано в обграждащ блок (за разлика от <code class="docutils literal notranslate"><span class="pre">global</span></code>, където името е дефинирано в глобалния обхват). Също както <code class="docutils literal notranslate"><span class="pre">global</span></code>, изполването му е лоша практика.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id10">
+<h1>Задачи за упражнение<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h1>
+<section id="id11">
+<h2>Задача 1<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<p>Създайте функция, която приема число, указващо брой секунди и го връща трансформирано в наредена тройка от часове, минути и секунди.</p>
+<p>Например</p>
+<ul class="simple">
+<li><p>3661 -&gt; (1, 1, 1), понеже 3661 секунди са 1hr 1min 1sec.</p></li>
+<li><p>86399 -&gt; (23, 59, 59), понеже 86399 секунди са 23hr 59min 59sec.
+и т.н.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def seconds_to_time(seconds):
+    pass  # write your code here
+
+
+print(seconds_to_time(0) == (0, 0, 0))
+print(seconds_to_time(1) == (0, 0, 1))
+print(seconds_to_time(69) == (0, 1, 9))
+print(seconds_to_time(420) == (0, 7, 0))
+print(seconds_to_time(3661) == (1, 1, 1))
+print(seconds_to_time(86399) == (23, 59, 59))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id12">
+<h2>Задача 2<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<p>Създайте функция, която да връща броя на гласните в даден текст (нека за улеснение считаме за гласни само <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">e</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">u</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def number_of_vowels(text):
+    pass  # write your code here
+
+
+print(number_of_vowels(&quot;grrrrgh!&quot;) == 0)
+print(number_of_vowels(&quot;The quick brown fox jumps over the lazy dog.&quot;) == 11)
+print(number_of_vowels(&quot;MONTHY PYTHON&quot;) == 2)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inside">
+<h2>Задача 3 (бонус точки inside)<a class="headerlink" href="#inside" title="Permalink to this headline">#</a></h2>
+<p>Създайте функция, която проверява дали дадено българско ЕГН е <a class="reference external" href="https://bg.wikipedia.org/wiki/%D0%95%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD_%D0%B3%D1%80%D0%B0%D0%B6%D0%B4%D0%B0%D0%BD%D1%81%D0%BA%D0%B8_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80#%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0">валидно</a>.</p>
+<p>По-конкретно, функцията трябва:</p>
+<ul class="simple">
+<li><p>да има за първи задължителен позиционен параметър ЕГН-то (очаква се да е <code class="docutils literal notranslate"><span class="pre">str</span></code>, но получавате <strong>бонус</strong> точки ако го направите да работи едновременно и за <code class="docutils literal notranslate"><span class="pre">str</span></code>, и за <code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p>да има именован параметър <code class="docutils literal notranslate"><span class="pre">should_bypass_checksum</span></code>, който по подразбиране е <code class="docutils literal notranslate"><span class="pre">False</span></code>. Ако е <code class="docutils literal notranslate"><span class="pre">True</span></code>, функцията трябва да НЕ проверява валидността на последната цифра, а да я счита за валидна по подразбиране.</p></li>
+<li><p>да връща <code class="docutils literal notranslate"><span class="pre">True</span></code> ако ЕГН-то е валидно, <code class="docutils literal notranslate"><span class="pre">False</span></code> в противен случай. За валидно ЕГН се смята такова, при което:</p>
+<ul>
+<li><p>цифрите за месец и ден съответстват на валидна дата. Това означава цифрите на месеца да са в интервала [1, 12] за хора, родени 1900-2000г. и в интервала [41, 52] за хора, родени след 2000г., като пожелание може да проверявате и за интервала [21, 32] за хора, родени преди 1900г. (не е задължително да проверявате и за високосни години, ако не ви се занимава, но би ви дало <strong>бонус</strong> точки).</p></li>
+<li><p>Ако <code class="docutils literal notranslate"><span class="pre">should_bypass_checksum</span></code> e <code class="docutils literal notranslate"><span class="pre">False</span></code>, то последната 1 цифра трябва да е валиден checksum на останалите. Алгоритъмът за изчисляване на последната цифра може да намерите <a class="reference external" href="https://bg.wikipedia.org/wiki/%D0%95%D0%B4%D0%B8%D0%BD%D0%B5%D0%BD_%D0%B3%D1%80%D0%B0%D0%B6%D0%B4%D0%B0%D0%BD%D1%81%D0%BA%D0%B8_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80#%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0">тук</a>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def is_valid_UCN(ucn, should_bypass_checksum=False):
+    pass  # write your code here
+
+print(is_valid_UCN(&quot;6101057509&quot;) == True)
+print(is_valid_UCN(&quot;6101057500&quot;, shoul_bypass_checksum=True) == True)
+print(is_valid_UCN(&quot;6101057500&quot;) == False)
+print(is_valid_UCN(&quot;6913136669&quot;) == False)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02 - Variables, types, control flow"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Курс “Програмиране с Python” 2022</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../03%20-%20OOP/03%20-%20OOP.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Обектно-ориентирано програмиране</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

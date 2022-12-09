@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Работа с Git &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Модули и пакети" href="../13%20-%20Modules/13%20-%20Modules.html" />
+    <link rel="prev" title="Сравнение на версии 2 и 3 на Python: прилики и разлики" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F12 - Git/README.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/12 - Git/README.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/12 - Git/README.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Какво е Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Как да изтегля Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Как да управлявам папки с Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Как се пази и следи историята?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commit">
+   Как да създам нови commit-и?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Как да кача/сваля промените си към/от друго репозитори?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Как да сливаме промени?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pro-tips-for-people-living-in-the-terminal">
+   Pro tips for people living in the terminal
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Работа с Git</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Какво е Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Как да изтегля Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Как да управлявам папки с Git?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Как се пази и следи историята?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#commit">
+   Как да създам нови commit-и?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Как да кача/сваля промените си към/от друго репозитори?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   Как да сливаме промени?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pro-tips-for-people-living-in-the-terminal">
+   Pro tips for people living in the terminal
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="git">
+<h1>Работа с Git<a class="headerlink" href="#git" title="Permalink to this headline">#</a></h1>
+<p>Тази тема не е пряко свързана с Python, но е необходимо всеки от вас да е усвоил понятията от нея, понеже:</p>
+<ol class="simple">
+<li><p>Всички домашни се предават чрез GitHub Classroom, което изисква да се работи с Git.</p></li>
+<li><p>Version control системи на работа винаги се използват и много рядко са нещо различно от Git (освен ако нямате късмета на Любо).</p></li>
+</ol>
+<section id="id1">
+<h2>Какво е Git?<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Децентрализирана система за контрол на версиите на сорс кода.</p>
+<p>Накратко: това означава, че може да се възстановяват предишни версии на кода, като се пази и историята на промените на всеки файл от проекта. Git (и други системи за контрол на версиите) са причината хората да не си разменят zip файлчета с код насам-натам и да не получават инфаркт ако се направи фатална грешка, след която кодът на проекта трябва да се върне до предишно по-стабилно състояние. Git ни предоставя начин за колабориране с други колеги, чрез внасяне и сливане на промени по кода по прозрачен начин и обратим начин.</p>
+</section>
+<section id="id2">
+<h2>Как да изтегля Git?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">git</span></code> е командата, която се използва за да управляваме repository-та чрез Git. Тя има много подкоманди, които се използват за различни цели. Сред най-използваните са <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> и други. Ще ги обясним подробно малко по-нататък.</p>
+<ul class="simple">
+<li><p><strong>Windows</strong>: препоръчва се инсталирането на <a class="reference external" href="https://git-scm.com/download/win">Git Bash</a>, което инсталира <code class="docutils literal notranslate"><span class="pre">git</span></code> и предоставя терминал, който позволява използването на <code class="docutils literal notranslate"><span class="pre">bash</span></code> команди и синтаксис и е доста по-удобен от <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> примерно.</p></li>
+<li><p><strong>Linux</strong>: би трябвало да го има вече за повечето дистрибуции. Ако все пак го няма: копи-пейст на съответната команда <a class="reference external" href="https://git-scm.com/download/linux">оттука</a>:</p></li>
+<li><p><strong>macOS</strong>: ако имате XCode command-line tools инсталирани (които идват с XCode), значи би трябвало да имате <code class="docutils literal notranslate"><span class="pre">git</span></code>. Ако все пак нямате, ползвайте Homebrew да си го сложите: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">git</span></code>.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>Как да управлявам папки с Git?<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>За да бъде една папка, както и подпапките ѝ, поддържана от Git, трябва да  съществува скритата папка <code class="docutils literal notranslate"><span class="pre">.git</span></code> в нея с необходимите за работата на Git файлове. Там се пазят т.нар. “refs” (references) към съдържанието на всички файлове и историята на техните промени.</p>
+<p>Такава папка се нарича Git repository. За да създадем такава, трябва да изпълним командата <a class="reference external" href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code></a> в root-a на папката, която искаме да поддържаме с Git (т.е. тази, която да стане нашето repository, заедно с подпапките си).</p>
+</section>
+<section id="id4">
+<h2>Как се пази и следи историята?<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>Промените в Git се разделят на т.нар. <em><strong>commit</strong></em>-и.</p>
+<p>Всеки commit съдържа:</p>
+<ul class="simple">
+<li><p><strong>hash</strong>: уникален идентификатор (хешкод) на commit-a, който се генерира автоматично.</p></li>
+<li><p><strong>message</strong>: кратко описание на промените</p></li>
+<li><p><strong>parents</strong>: кой/кои са предшествениците на този commit. Всеки commit има обикновено точно един предшественик (освен първия, който няма такива). Един commit може да има няколко предшественика, ако е в следствие на <em><strong>merge</strong></em> операция например.</p></li>
+<li><p><strong>author</strong>: кой е направил промените</p></li>
+<li><p><strong>date</strong>: кога са направени промените</p></li>
+</ul>
+<p>Историята на commit-ите на практика представлява нещо като дърво, в който всеки node е commit, имаш пойнтър към предишния такъв (понякога към повече от 1 предишни, в случай на merge). Тя е достъпна чрез <a class="reference external" href="https://www.atlassian.com/git/tutorials/git-log"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></a>.</p>
+<p>Всеки commit се асоциира и със съответните промени, които той донася в кодбазата (т.е. във файловете в repository-то). Това се нарича <em><strong>diff</strong></em>. Различните видове промени биват добавяне и премахване на ред, добавяне, изтриване и преименуване на файл. Чрез <a class="reference external" href="https://www.atlassian.com/git/tutorials/saving-changes/git-diff"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code></a> може да се направи сравнение между две версии на файлове.</p>
+<p>Ако искаме да отидем до някой специфичен къмит, използваме <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;commit-hash&gt;</span></code>. Това ще промени съдържанието на файловете в директорията, така че да отговарят на състоянието на кода в този commit.</p>
+<p>Обикновено, за да можем паралелно да работим с други хора, или пък да пазим различни състояние едновременно, искаме да използваме различни бранчове (branches). Един branch на практика представлява пойнтър към даден commit. Управлението им става чрез <a class="reference external" href="https://www.atlassian.com/git/tutorials/using-branches"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></a>, а преминаването от един в друг - чрез <a class="reference external" href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout"><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;branch-name&gt;</span></code></a>. Когато сме в даден бранч и създадем нов къмит, бранчът ще бъде променен да сочи към новия къмит (чийто предшественик е предходния) и по този начин създаваме и развиваме на практика нов свързан клон на дървото на промените.</p>
+</section>
+<section id="commit">
+<h2>Как да създам нови commit-и?<a class="headerlink" href="#commit" title="Permalink to this headline">#</a></h2>
+<p>Да речем, че имаме папка <code class="docutils literal notranslate"><span class="pre">my-project</span></code>, която е празна. Изпълняваме <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, за да я добавим към Git. Изпълняваме <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>, за да проверим на кой бранч се намираме и какво е текущото състояние на промените и индекса:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+
+<span class="n">No</span> <span class="n">commits</span> <span class="n">yet</span>
+
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span> <span class="p">(</span><span class="n">create</span><span class="o">/</span><span class="n">copy</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">use</span> <span class="s2">&quot;git add&quot;</span> <span class="n">to</span> <span class="n">track</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Това означава, че сме в бранч на име <code class="docutils literal notranslate"><span class="pre">master</span></code> - това е името по подразбиране за главен бранч. След бунтовете от 2020 във връзка с Джордж Флойд обаче все повече се налага и името <code class="docutils literal notranslate"><span class="pre">main</span></code>, така че може и това да срещнете (an interesting read on the histeria that was then: <a class="reference external" href="https://github.com/rubocop/rubocop/issues/8091">https://github.com/rubocop/rubocop/issues/8091</a> (hail Bacov)).</p>
+<p>Да речем също, че искаме като за първи къмит да добавим файл <code class="docutils literal notranslate"><span class="pre">main.py</span></code> със следното съдържание:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Нека първия ни commit-a се казва “Initial commit”. Създаването му би станало с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Initial</span> <span class="pre">commit&quot;</span></code>. Ако се опитаме в момента обаче да го изпълним, ще получим грешка със съобщение, че нямаме никакви промени, които да къмитнем:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nothing</span> <span class="n">added</span> <span class="n">to</span> <span class="n">commit</span> <span class="n">but</span> <span class="n">untracked</span> <span class="n">files</span> <span class="n">present</span> <span class="p">(</span><span class="n">use</span> <span class="s2">&quot;git add&quot;</span> <span class="n">to</span> <span class="n">track</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Как така, нали добавихме файл?</p>
+<p>Това е защото първо трябва да го добавим към индекса.</p>
+<p>Т.нар. index/staging е междинно “място”, съдържащо промените ни, които искаме да включим в следващия къмит (т.е. които <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> ще вземе).</p>
+<p>При изпълнение на <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> в момента виждаме:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Untracked</span> <span class="n">files</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> <span class="n">to</span> <span class="n">include</span> <span class="ow">in</span> <span class="n">what</span> <span class="n">will</span> <span class="n">be</span> <span class="n">committed</span><span class="p">)</span>
+	<span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>“Untracked files” означава нови файлове, които досега не са били част от репозиторито.</p>
+<p>За да добавим промени/файлове към индекса, трябва да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file&gt;</span></code>. В нашия случай - <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">main.py</span></code>. (Или <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> - това добавя абс. всичко към индекса).</p>
+<p>След изпълнението му, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> вече показва:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Changes</span> <span class="n">to</span> <span class="n">be</span> <span class="n">committed</span><span class="p">:</span>
+  <span class="p">(</span><span class="n">use</span> <span class="s2">&quot;git rm --cached &lt;file&gt;...&quot;</span> <span class="n">to</span> <span class="n">unstage</span><span class="p">)</span>
+	<span class="n">new</span> <span class="n">file</span><span class="p">:</span>   <span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Премахване на файлове/промени от индекса най-общо казано става с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">restore</span> <span class="pre">--staged</span> <span class="pre">&lt;file&gt;</span></code> или с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">resed</span> <span class="pre">HEAD</span> <span class="pre">&lt;file&gt;</span></code>. Това не променя файла, а просто го премахва от индекса - т.е. <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> просто няма да вземе тези промени, но те си остават в текущата директория.</p>
+<p>Сега вече можем да си направим къмита с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Initial</span> <span class="pre">commit&quot;</span></code>.</p>
+<p>След като сме направили къмита, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> вече показва:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">On</span> <span class="n">branch</span> <span class="n">master</span>
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span><span class="p">,</span> <span class="n">working</span> <span class="n">tree</span> <span class="n">clean</span>
+</pre></div>
+</div>
+<p>С <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> можем да видим новия къмит в дървото на историята:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">commit</span> <span class="mi">0</span><span class="n">a2ba7a9d3af36dd03a656955e2b246b9b1c8dc7</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">)</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Alexander</span> <span class="n">Ignatov</span> <span class="o">&lt;</span><span class="n">aleksandar</span><span class="o">.</span><span class="n">ignatov</span><span class="nd">@smule</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Mon</span> <span class="n">Oct</span> <span class="mi">3</span> <span class="mi">22</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">28</span> <span class="mi">2022</span> <span class="o">+</span><span class="mi">0300</span>
+
+    <span class="n">Initial</span> <span class="n">commit</span>
+</pre></div>
+</div>
+<p>След това за да добавим още къмити, ако трябва да обобщим, трябва да направим следните неща:</p>
+<ol class="simple">
+<li><p>Добавяме промени към индекса с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file1&gt;</span> <span class="pre">&lt;file2&gt;</span> <span class="pre">...</span></code></p></li>
+<li><p>Къмитваме промените с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Commit</span> <span class="pre">message&quot;</span></code> (или <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> - това ще отвори текстов редактор, в който ще трябва да напишете съобщението си. При невъзможност за излизане от <code class="docutils literal notranslate"><span class="pre">vim</span></code>, моля позвънете на 112).</p></li>
+</ol>
+<p><img alt="diagram" src="../_images/local-changes.png" /></p>
+</section>
+<section id="id5">
+<h2>Как да кача/сваля промените си към/от друго репозитори?<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Git е децентрализиран. Към всяко едно репозитори могат да се добавят един или повече т.нар. remotes. Това са други репозиторита, с които нашето може да синхронизира къмити и бранчове. Те се добавят с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">&lt;remote_name&gt;</span> <span class="pre">&lt;remote_url&gt;</span></code>. Общоприето е да се използва <code class="docutils literal notranslate"><span class="pre">origin</span></code> за името на remote-а, ако е един и/или има централна роля.</p>
+<p>За пример, ако имаме репозитори в GitHub създадено и искаме да го свържем с нашето, трябва да го добавим чрез HTTPS линка му с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">origin</span> <span class="pre">https://github.com/user/reponame</span></code>. (SSH е предпочитан с цел по-добра сигурност). Това свързване става автоматично, ако нямаме локална копие на репото и използваме <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> за да го създадем, например в този случай <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/user/reponame</span></code>,</p>
+<p>За да свържем наш локален бранч към такъв, намиращ се в <code class="docutils literal notranslate"><span class="pre">origin</span></code>, трябва да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">--set-upstream-to=origin/&lt;branch_name&gt;</span> <span class="pre">&lt;branch_name&gt;</span></code>. Това ще създаде локален бранч с името на remote-а и името на бранча, към който сме свързали нашия. Това е нещо, което може да се направи и автоматично, като се отиде на съответния бранч с <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;branch_name&gt;</span></code>, ако <code class="docutils literal notranslate"><span class="pre">&lt;branch_name&gt;</span></code> е име на бранч, който още нямаме локално, но вече съществува на remote-a.</p>
+<p>За да качим промените си, трябва да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>. Това ще качи всички промени, които имаме локално на текущия бранч, към remote-а, към който сме свързани, и на бранча, към който текущия е свързан. В случай, че не е свързан с никой, то тогава ще трябва да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">&lt;branch_name&gt;</span></code>, където <code class="docutils literal notranslate"><span class="pre">&lt;branch_name&gt;</span></code> е името на бранча, намиращ се в origin, към който искаме да качим промените си (обикновено същото име като текущия локален).</p>
+<p>Хубаво е периодично да се прави <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>. Това обновява ref-овете с тези, намиращи се на remote-а. Това не променя локалните файлове, а само обновява информацията за къмити и бранчове, достъпни на remote-а.</p>
+<p>За да обновим наш бранч до състоянието на remote-а, трябва да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> (за по-сложни репозиторита се препоръчва и с параметър <code class="docutils literal notranslate"><span class="pre">--rebase</span></code>). Това ще извлече промените от remote-а и ще ги слеят с текущия бранч. Това е еквивалентно на последователното изпълнение на <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> и <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">FETCH_HEAD</span></code>.</p>
+</section>
+<section id="id6">
+<h2>Как да сливаме промени?<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<p>Има два основни метода - merge и rebase. Тук ще говорим само за merge.</p>
+<p>Когато сливаме два бранча, то това означава, че искаме да включим промените от единия бранч в другия. Ако искаме например да включим промените от бранч <code class="docutils literal notranslate"><span class="pre">A</span></code> в бранч <code class="docutils literal notranslate"><span class="pre">B</span></code>, то трябва:</p>
+<ol>
+<li><p>Да се уверим, че локалното съдържание в бранч А е последното, в случай, че има шанс то да е променено на remote-a (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">A</span> <span class="pre">&amp;&amp;</span> <span class="pre">git</span> <span class="pre">pull</span></code>).</p></li>
+<li><p>Да отидем на бранч B (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">B</span></code>)</p></li>
+<li><p>Да изпълним <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span> <span class="pre">A</span></code></p></li>
+<li><p>Да оправим конфликтите, ако има такива</p>
+<ol class="simple">
+<li><p>В конфликтите части от файловете ще се появят merge маркери, които изглеждат по подобен начин:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">HEAD</span>
+<span class="n">Тук</span> <span class="n">е</span> <span class="n">конфликтното</span> <span class="n">съдържание</span> <span class="n">на</span> <span class="n">файла</span> <span class="n">в</span> <span class="n">бранча</span><span class="p">,</span> <span class="n">в</span> <span class="n">който</span> <span class="n">сме</span>
+<span class="o">=======</span>
+<span class="n">Тук</span> <span class="n">е</span> <span class="n">конфликтното</span> <span class="n">съдържание</span> <span class="n">на</span> <span class="n">файла</span> <span class="n">в</span> <span class="n">бранча</span><span class="p">,</span> <span class="n">който</span> <span class="n">сливаме</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="n">A</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Трябва да оправим конфликтите, като изтрием всичко, което не искаме да остане и да оставим само това, което искаме да остане (Captain Obvious here)</p></li>
+<li><p>След save-ване на файловете, трябва да ги добавим в индекса (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file1&gt;</span> <span class="pre">&lt;file2&gt;</span> <span class="pre">...</span></code>)</p></li>
+<li><p>Изпълняваме <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> и обикновено не променяме съобщението по подразбиране (ако се отвори <code class="docutils literal notranslate"><span class="pre">vim</span></code> и отново не можете да излезете, подайте жалба <a class="reference external" href="https://armenskipop.com">тук</a>)</p></li>
+</ol>
+</li>
+</ol>
+<p>Тази процедура ще създаде нов merge commit в B, който има 2 parent-a: последния къмит в А и последния такъв в B. Бранч А е успешно слят с B и вече може спокойно да бъде изтрит.</p>
+</section>
+<section id="pro-tips-for-people-living-in-the-terminal">
+<h2>Pro tips for people living in the terminal<a class="headerlink" href="#pro-tips-for-people-living-in-the-terminal" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>За улеснение препоръчваме използването на теми и плъгини за терминала, които показват като част от prompt-a информация като това текущата директория дали е под git, в кой бранч се намира в момента и т.н. В Git Bash това е вградено, а за <code class="docutils literal notranslate"><span class="pre">zsh</span></code> (или <code class="docutils literal notranslate"><span class="pre">bash</span></code>) може да изтеглят framework-ове и плъгини, като например <a class="reference external" href="https://ohmyz.sh">oh-my-zsh</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/so-fancy/diff-so-fancy"><code class="docutils literal notranslate"><span class="pre">diff-so-fancy</span></code></a> е tool, който прави четенето на diff-ове в терминала една идея по-човешко (за който е hardcore и държи да си ползва терминала вместо някой GUI като <a class="reference external" href="https://www.sourcetreeapp.com">SourceTree</a> например или дори вградената Git функционалност на VSCode).</p></li>
+<li><p>Писането на команди като <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> и т.н. бързо се превръща в нещо, което ни се иска да не ни отнема толкова време да пишем. За да се спести време, може да се използват alias-и, които са съкращения на командите. Например, ако искаме да съкратим <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> до <code class="docutils literal notranslate"><span class="pre">gs</span></code>, можем да напишем във файла с настройките на терминала (<code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> или <code class="docutils literal notranslate"><span class="pre">.zshrc</span></code>) следното:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">gs</span><span class="o">=</span><span class="s1">&#39;git status&#39;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Идеи за alias-и, теми, плъгини и т.н. за <code class="docutils literal notranslate"><span class="pre">zsh</span></code> и <code class="docutils literal notranslate"><span class="pre">oh-my-zsh</span></code> може да почерпите от нечии dotfiles, като например <a class="reference external" href="https://github.com/yalishanda42/dotfiles">моите</a>.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./12 - Git"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Сравнение на версии 2 и 3 на Python: прилики и разлики</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../13%20-%20Modules/13%20-%20Modules.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Модули и пакети</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

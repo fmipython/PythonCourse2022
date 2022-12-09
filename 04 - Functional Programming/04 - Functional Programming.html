@@ -1,0 +1,2858 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Функционално програмиране &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Structures &amp; Oddities" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html" />
+    <link rel="prev" title="Обектно-ориентирано програмиране" href="../03%20-%20OOP/03%20-%20OOP.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07%20-%20Exceptions%20Handling/07%20-%20Exceptions%20Handling.html">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/04 - Functional Programming/04 - Functional Programming.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/04 - Functional Programming/04 - Functional Programming.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F04 - Functional Programming/04 - Functional Programming.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/04 - Functional Programming/04 - Functional Programming.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/04 - Functional Programming/04 - Functional Programming.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Какво е функционално програмиране ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#immutability">
+   Immutability и странични ефекти
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-immutable">
+     Накратко за mutable/immutable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Накратко за страничните ефекти
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Функции, като обекти
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Декоратори
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda">
+   Анонимни (lambda) функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lazy-evaluation">
+   Lazy evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generators">
+   Generators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map">
+   Map
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Отговор
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zip">
+   Zip
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter">
+   Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce">
+   Reduce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-comprehension">
+   List comprehension
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Скорост
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dict-comprehension">
+   Dict comprehension
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Примери
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Пример 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Решение на Пример 1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Решение на пример 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Пример 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Решение на Пример 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Решение на пример 4
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Пример 5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Условие 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id19">
+       Условие 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     Пример 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     Пример 7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Функционално програмиране</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Какво е функционално програмиране ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#immutability">
+   Immutability и странични ефекти
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mutable-immutable">
+     Накратко за mutable/immutable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Накратко за страничните ефекти
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Функции, като обекти
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Декоратори
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda">
+   Анонимни (lambda) функции
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lazy-evaluation">
+   Lazy evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generators">
+   Generators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map">
+   Map
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Отговор
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zip">
+   Zip
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter">
+   Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reduce">
+   Reduce
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#list-comprehension">
+   List comprehension
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   Скорост
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dict-comprehension">
+   Dict comprehension
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   Примери
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Пример 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Решение на Пример 1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Пример 2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Решение на пример 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Пример 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Решение на Пример 3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Пример 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id16">
+       Решение на пример 4
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     Пример 5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id18">
+       Условие 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id19">
+       Условие 2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     Пример 6
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     Пример 7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Функционално програмиране<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>План на лекцията:</p>
+<ul class="simple">
+<li><p>Какво е функционално програмиране ?</p></li>
+<li><p>Immutability &amp; side-effects</p></li>
+<li><p>Функции като обекти</p></li>
+<li><p>Декоратори</p></li>
+<li><p>Анонимни (lambda) функции</p></li>
+<li><p>Lazy evaluation</p></li>
+<li><p>Generators</p></li>
+<li><p>Map</p></li>
+<li><p>Filter</p></li>
+<li><p>Reduce</p></li>
+<li><p>Zip</p></li>
+<li><p>List comprehension</p></li>
+<li><p>Скорост</p></li>
+<li><p>Dict comprehension</p></li>
+<li><p>Примери</p></li>
+</ul>
+<section id="id2">
+<h2>Какво е функционално програмиране ?<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>Функционалното програмиране е парадигма в програмирането, фокусираща се върху използването на функции. В езиците за функционално програмиране, функциите могат да се третират като обекти. Друга особенност на функционалното програмиране (или поне в чистата му форма), е липсата на състояние (а и от там, липсата на променливи в традиционния смисъл). В повечето езици за функционално програмиране липсват и класове.</p>
+<p>Основни концепции във функционалното програмиране:</p>
+<ul class="simple">
+<li><p>Функции като обекти</p></li>
+<li><p>Функции от по-висок ред</p></li>
+<li><p>“Чисти” функции</p></li>
+<li><p>Рекурсия</p></li>
+</ul>
+<p>Примери за езици, които следват единствено функционалната парадигма са Scheme, Haskell, Lisp.</p>
+<p>В повечето модерни езици за програмиране могат да се открият елементи от функционалното програмиране - Python не е изключение.</p>
+</section>
+<section id="immutability">
+<h2>Immutability и странични ефекти<a class="headerlink" href="#immutability" title="Permalink to this headline">#</a></h2>
+<section id="mutable-immutable">
+<h3>Накратко за mutable/immutable<a class="headerlink" href="#mutable-immutable" title="Permalink to this headline">#</a></h3>
+<p>По дефиниция, една променлива е <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, ако можем да променим стойността ѝ, след като е създадена. Съответно <code class="docutils literal notranslate"><span class="pre">immutable</span></code> променлива, е променлива, на която не можем да променяме стойността. На практика, това означава, че стойността на една <code class="docutils literal notranslate"><span class="pre">immutable</span></code> променлива може да бъде задедена, само при създаването на променливата.</p>
+<p>В езици като C++ или Java, това е еквивалентно на дефинирането на променлива като константа. Тогава стойността ѝ е ясна по време на компилация.</p>
+</section>
+<section id="id3">
+<h3>Накратко за страничните ефекти<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Страничен ефект е когато променим състоянието на някоя променлива от дадена функция. Например нека разгледаме следната функция</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add_to_list(l):
+    l.append(5)
+
+l = []
+
+add_to_list(l)
+print(l)
+
+add_to_list(l)
+print(l)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5]
+[5, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тази функция, променя стойността на подадения аргумент <code class="docutils literal notranslate"><span class="pre">l</span></code>. Казваме, че тази функция съдържа страничен ефект.</p>
+<p>Страничните ефекти са силно използвани в обектно-ориентираното и процедурното програмиране, за разлика от функционалното програмиране. Както по-горе споменахме, в класическите езици за функционално програмиране, липсват променливи в познатия ни вид. Там можем да присвоим име на дадена стойност, без да я променяме повече.</p>
+<p>Функции, които не променят стойностите на променливи, се наричат “чисти”. Във функционалното програмиране (а и не само), е прието всички функции да са чисти.</p>
+<p>Можем да променим нашата функция <code class="docutils literal notranslate"><span class="pre">add</span></code> по следния начин, за да стане чиста:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add_to_list(l):
+    return l + [5]
+
+l = []
+
+l1 = add_to_list(l)
+print(l1)
+
+l2 = add_to_list(l)
+print(l2)
+
+print(l)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5]
+[5]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>Функции, като обекти<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>В Python, функциите са т.нар. “first-class objects” - което на български може да се преведе като “първокласни обекти”. А ако трябва да го обясним с прости думи, функциите могат да се третират като “нормалните” типове - числа, низове и т.н. Това означава, че можем да ги използваме като променливи - да им даваме имена, да ги подаваме към аргументи на други функции, да ги връщаме като резултат от функции и да ги пазим в колекции.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def multiply(a, b):
+    return a * b
+
+f = multiply
+
+print(f(2, 3))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да направим разлика между <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">multiply</span></code> и <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">multiply()</span></code>. Макар и разликата да е малка синтактично, поведението на двата реда е различно. Първото извикване <strong>присвоява функцията</strong> към променливата <code class="docutils literal notranslate"><span class="pre">f</span></code>, докато второто <strong>присвоява резултата от извикването</strong> на функцията.</p>
+<p>Когато присвоим цялата функция (може да си го представяме като function pointer в C++), можем да ползваме функцията като нормална променлива:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def multiply(a, b):
+    return a * b
+
+def sum_(a, b):
+    return a + b
+
+
+def apply_to_numbers(a, b, f):
+    print(f&#39;Applying a function to {a} and {b}&#39;)
+    return f(a, b)
+
+print(apply_to_numbers(2, 3, sum_))
+print(apply_to_numbers(2, 3, multiply))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Applying a function to 2 and 3
+5
+Applying a function to 2 and 3
+6
+</pre></div>
+</div>
+</div>
+</div>
+<p>А можем и да връщаме функция като резултат от друга функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def foo():
+    print(&quot;Foo called&quot;)
+
+def bar():
+    return foo
+
+f = bar()
+f()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Foo called
+</pre></div>
+</div>
+</div>
+</div>
+<p>В тялото на една функция, можем да дефинираме друга функция, която да върнем:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def foo():
+    def bar():
+        print(&quot;Bar called&quot;)
+    
+    return bar
+
+f = foo()
+f() 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bar called
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това, че функциите са обекти, ни позволява да правим интересни неща - например, можем да направим проста функция, която да използваме за logging.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def log_and_run(f, args=(), kwargs={}):
+    print(f&#39;Calling {f} with {args} and {kwargs}&#39;)
+    return f(*args, **kwargs)
+
+def add(a, b):
+    return a + b
+
+print(log_and_run(add, (2, 3)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling &lt;function add at 0x7f2c9d108320&gt; with (2, 3) and {}
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Припомням, че <code class="docutils literal notranslate"><span class="pre">args</span></code> съдържа позиционните аргументи и е от тип <code class="docutils literal notranslate"><span class="pre">Tuple</span></code>, а <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> съдържа keyword аргументите и е от тип <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<p>Освен като аргументи и резултат, функциите могат да се пазят и в колекции (списъци, речници, т.н.):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    return a / b
+
+actions = {
+    &#39;+&#39;: add,
+    &#39;-&#39;: subtract,
+    &#39;*&#39;: multiply,
+    &#39;/&#39;: divide
+}
+
+first = input(&#39;Enter a number: &#39;)
+operation = input(&#39;Enter an operation (+, -, * or /)&#39;)
+second = input(&#39;Enter a number: &#39;)
+
+if operation not in actions:
+    print(&#39;Operation not supported&#39;)
+else:
+    if not first.isnumeric() or not second.isnumeric():
+        print(&#39;Input is not a number&#39;)
+    else:
+        first = int(first)
+        second = int(second)
+
+        result = actions[operation](first, second)
+        print(f&#39;{first} {operation} {second} = {result}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a number: 2
+Enter an operation (+, -, * or /)+
+Enter a number: 3
+2 + 3 = 5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>Декоратори<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Една от по-интересните функционалности на Python са т.нар. декоратори (decorators). Всъщност, ние вече видяхме как се пише декоратор и как работи - нека се върнем на примера от по-горе с <code class="docutils literal notranslate"><span class="pre">log_and_run</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def log_and_run(f, args=(), kwargs={}):
+    print(f&#39;Calling {f} with {args} and {kwargs}&#39;)
+    return f(*args, **kwargs)
+
+def add(a, b):
+    return a + b
+
+print(log_and_run(add, (2, 3)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling &lt;function add at 0x7f2c9d0b7170&gt; with (2, 3) and {}
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Това изглежда леко грозно, да трябва да извикваме <code class="docutils literal notranslate"><span class="pre">log_and_run</span></code> вместо функцията, която всъщност искаме да извикаме. Ако добавим функции за изваждане, умножение и деление, всяко извикване ще трябва да преминава през <code class="docutils literal notranslate"><span class="pre">log_and_run</span></code>.</p>
+<p>А няма ли по-лесен начин с който да кажем - нека преди изпълнението на нашата функция <code class="docutils literal notranslate"><span class="pre">f1</span></code>, да се изпълни функция <code class="docutils literal notranslate"><span class="pre">f</span></code> (Както преди <code class="docutils literal notranslate"><span class="pre">add</span></code> се изпълнява <code class="docutils literal notranslate"><span class="pre">log_and_run</span></code>) ?</p>
+<p>Преди да разгледаме как точно се прави декоратор функция в Python, нека всъщност разберем какво искаме да постигнем:</p>
+<ol class="simple">
+<li><p>Искаме да приемем функция (нека я кръстим <code class="docutils literal notranslate"><span class="pre">g</span></code>), която да изпълним</p></li>
+<li><p>Преди да изпълним <code class="docutils literal notranslate"><span class="pre">g</span></code>, искаме да изпълним някакви други действия (нека те са събрани във функцията <code class="docutils literal notranslate"><span class="pre">f</span></code></p></li>
+<li><p>Искаме да върнем нова функция (нека да я кръстим <code class="docutils literal notranslate"><span class="pre">h</span></code>), която първо да изпълни <code class="docutils literal notranslate"><span class="pre">f</span></code>, а после <code class="docutils literal notranslate"><span class="pre">g</span></code>.</p></li>
+</ol>
+<p>Нека първо се фокусираме върху 1 и 2 :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def pseudo_decorator(f, g):
+    f()
+    g()
+
+
+def print_hello():
+    print(&quot;Hello&quot;)
+
+def print_bye():
+    print(&quot;Bye&quot;)
+
+
+pseudo_decorator(print_hello, print_bye)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+bye
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека променим поведението на <code class="docutils literal notranslate"><span class="pre">pseudo_decorator</span></code> от това просто да изпълнява <code class="docutils literal notranslate"><span class="pre">f</span></code> и <code class="docutils literal notranslate"><span class="pre">g</span></code> към това да връща нова функция, която да изпълнява <code class="docutils literal notranslate"><span class="pre">f</span></code> и <code class="docutils literal notranslate"><span class="pre">g</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def pseudo_decorator(f, g):
+    def inner():
+        f()
+        g()
+    return inner
+
+
+def print_hello():
+    print(&quot;Hello&quot;)
+
+def print_bye():
+    print(&quot;bye&quot;)
+
+
+f = pseudo_decorator(print_hello, print_bye)
+f()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+bye
+</pre></div>
+</div>
+</div>
+</div>
+<p>Почти сме до истинските декоратори. За съжаление, следващата част е възможна заради малко синтактична захар.</p>
+<p>Основната идея е, че искаме да вземем нашата функция <code class="docutils literal notranslate"><span class="pre">g</span></code> и да я заместим с резултата от <code class="docutils literal notranslate"><span class="pre">pseudo_decorator</span></code>, без да се налага реално да извикваме <code class="docutils literal notranslate"><span class="pre">pseudo_decorator</span></code>. С цел опростяване, ще приемем, че <code class="docutils literal notranslate"><span class="pre">f</span></code> е просто принтиране.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def print_decorator(g):
+    def inner():
+        print(&quot;Hello&quot;)
+        g()
+    return inner
+
+@print_decorator
+def print_bye():
+    print(&quot;bye&quot;)
+
+print_bye()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+bye
+</pre></div>
+</div>
+</div>
+</div>
+<p>С помощта на <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, последвано от функция, която връща друга функция, ние можем да “декорираме” всяка функция в Python.</p>
+<p>Това, което се случва в случая е, че взимаме <code class="docutils literal notranslate"><span class="pre">print_bye</span></code> като първи аргумент на <code class="docutils literal notranslate"><span class="pre">print_decorator</span></code> и изпълняваме <code class="docutils literal notranslate"><span class="pre">print_decorator</span></code>. Тя от своя страна ни връща нова функция, която принтира “Hello” и след това изпълнява подадената от нас функция.</p>
+<p>Обяснено още по-просто: При извикване на <code class="docutils literal notranslate"><span class="pre">print_bye</span></code>, всъщност ще се извика <code class="docutils literal notranslate"><span class="pre">print_decorator</span></code> с аргумент <code class="docutils literal notranslate"><span class="pre">print_bye</span></code>.</p>
+<p>Нека използваме този нов подход върху примера с <code class="docutils literal notranslate"><span class="pre">log_and_run</span></code> (която ще преименуваме само на <code class="docutils literal notranslate"><span class="pre">log</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def log(f):
+    def inner(*args, **kwargs):
+        print(f&#39;Calling {f} with {args} and {kwargs}&#39;)
+        return f(*args, **kwargs)
+    return inner
+
+@log
+def add(a, b):
+    return a + b
+
+print(add(2, 3))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling &lt;function add at 0x7f2c9d0be440&gt; with (2, 3) and {}
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Сега ако добавим нови методи за изваждане, умножение и деление, можем лесно да се използваме от <code class="docutils literal notranslate"><span class="pre">log</span></code>, без да се налага да променяме начина им на извикване:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def log(f):
+    def inner(*args, **kwargs):
+        print(f&#39;Calling {f} with {args} and {kwargs}&#39;)
+        return f(*args, **kwargs)
+    return inner
+
+@log
+def add(a, b):
+    return a + b
+
+@log 
+def subtract(a, b):
+    return a - b
+
+@log
+def multiply(a, b):
+    return a * b
+
+@log
+def divide(a, b):
+    return a / b
+
+print(add(2, 3))
+print(subtract(3, 1))
+print(multiply(1.5, b=3))
+print(divide(a=12, b=6))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling &lt;function add at 0x7f2c9d0be170&gt; with (2, 3) and {}
+5
+Calling &lt;function subtract at 0x7f2c9d0be440&gt; with (3, 1) and {}
+2
+Calling &lt;function multiply at 0x7f2c9d0bedd0&gt; with (1.5,) and {&#39;b&#39;: 3}
+4.5
+Calling &lt;function divide at 0x7f2c9d0bef80&gt; with () and {&#39;a&#39;: 12, &#39;b&#39;: 6}
+2.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Друг пример за декоратор може да бъде декоратор, който измерва времето за изпълнение на функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import time
+
+def time_it(f):
+    def inner(*args, **kwargs):
+        start = time.time()
+        result = f(*args, **kwargs)
+        end = time.time()
+        print(f&#39;{f} took {end - start:.2f} second&#39;)
+    return inner
+
+@time_it
+def slow_function(a):
+    return (a ** a) ** a
+
+slow_function(1000)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function slow_function at 0x7f2c9d0c4950&gt; took 1.56 second
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lambda">
+<h2>Анонимни (lambda) функции<a class="headerlink" href="#lambda" title="Permalink to this headline">#</a></h2>
+<p>Lambda функции идват от т.нар ламбда смятане (lambda calculus) и изразяват изпълнението на дадени изчисления върху дадени стойности. Няма да навлизаме в математическите доказателства и формализми. Lambda функциите са анонимни функции - т.е. не се дефинират с <code class="docutils literal notranslate"><span class="pre">def</span></code> и без да е необходимо да им се дава име.</p>
+<p>Всяка ламбда функция има две основни части - входни променливи и един израз (expression). В Python, ламбда функциите се дефинират с ключовата дума <code class="docutils literal notranslate"><span class="pre">lambda</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lambda x: x + 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function __main__.&lt;lambda&gt;(x)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>По-горната функция приема един аргумент (на име <code class="docutils literal notranslate"><span class="pre">x</span></code>), и изпълнява израза <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code>. Важно е да се отбележи, че една ламбда функция може да съдържа само един израз.</p>
+<p>Припомням, че израз в Python е всичко, което съдържа някакъв индетификатор (напр. променлива), литерал (напр. <code class="docutils literal notranslate"><span class="pre">'hello'</span></code>) или оператор (напр. извикване на функция, оператор <code class="docutils literal notranslate"><span class="pre">[]</span></code>)</p>
+<p>Или казано по-просто: не може да създадем ламбда, която да присвоява стойност на някаква променлива:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lambda x: a = x
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-65-6a40442b8e41&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">x</span>
+                   <span class="o">^</span>
+<span class="ne">SyntaxError</span>: can&#39;t assign to lambda
+</pre></div>
+</div>
+</div>
+</div>
+<p>Не можем също и да имаме два израза един след друг (Това чисто синтактично няма как да ни се позволи - ламбдите са на един ред, а в Python нямаме символ за край на израз.</p>
+<p>Можем да извикваме дадена lambda функция, като просто използваме <code class="docutils literal notranslate"><span class="pre">()</span></code> след нея</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(lambda x: print(x))(5)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Макар и анонимни, можем да присвоим ламбда функция към дадена променлива</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f = lambda x: x + 1
+
+print(f(5))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Горното парче код изпълнява следните стъпки:</p>
+<ol class="simple">
+<li><p>Създава анонимна функция, която приема един аргумент (<code class="docutils literal notranslate"><span class="pre">x</span></code>) и връща стойноста на <code class="docutils literal notranslate"><span class="pre">x</span></code> събрана с 1</p></li>
+<li><p>Присвояваме новосъздадената ни функция към променливата <code class="docutils literal notranslate"><span class="pre">f</span></code></p></li>
+<li><p>Принтираме резултата от извикването на <code class="docutils literal notranslate"><span class="pre">f</span></code> със стойност 5</p>
+<ul class="simple">
+<li><p>В тялото на ламбда функцията, стойноста на <code class="docutils literal notranslate"><span class="pre">x</span></code> се замества с 5</p></li>
+<li><p>От там, 5 + 1 = 6</p></li>
+</ul>
+</li>
+</ol>
+<p>Едно от местата, където често се ползват lambda функции, са вградените функции за сортиране. Както знаем, метода <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> може да приема функция, която да сравнява обектите.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [5, 2, 7, 3]
+l.sort(key=lambda x: -x)
+print(l)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7, 5, 3, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>С помощта на тази ламбда, можем да сортираме числата в обратен ред.</p>
+<p>Можем да използваме ламбди за да сортираме и по-сложни списъци - например списък от наредени n-торки.</p>
+<p>Нека е даден списък, съставен от имена на хора, и тяхната възраст.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>people_data = [(&#39;Иван&#39;, 22), (&#39;Георги&#39;, 71), (&#39;Мария&#39;, 35), (&#39;Митко&#39;, 51), (&#39;Любо&#39;, 35)]
+people_data.sort(key=lambda person: (person[1], person[0]))
+print(people_data)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 22), (&#39;Любо&#39;, 35), (&#39;Мария&#39;, 35), (&#39;Митко&#39;, 51), (&#39;Георги&#39;, 71)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук първо сортираме хората по тяхната възраст, а после лексикографкси, по тяхното име.</p>
+<p>Можем да използваме и функцията <code class="docutils literal notranslate"><span class="pre">sorted</span></code> с ламбда функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>people_data = [(&#39;Иван&#39;, 22), (&#39;Георги&#39;, 71), (&#39;Мария&#39;, 35), (&#39;Митко&#39;, 51), (&#39;Любо&#39;, 35)]
+print(sorted(people_data, key=lambda person: (person[1], person[0])))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 22), (&#39;Любо&#39;, 35), (&#39;Мария&#39;, 35), (&#39;Митко&#39;, 51), (&#39;Георги&#39;, 71)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lazy-evaluation">
+<h2>Lazy evaluation<a class="headerlink" href="#lazy-evaluation" title="Permalink to this headline">#</a></h2>
+<p>Съществуват различни стратегии за оценяване (или изчисляване) на изрази - най-позната е т.нар. “нетърпеливо оценяване” или “оценяване на момента” - целия израз се изчислява на момента.</p>
+<p>Нека е даден израза <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">c</span></code>. Първо, ще бъде оценена стойността на <code class="docutils literal notranslate"><span class="pre">a</span></code>, после на <code class="docutils literal notranslate"><span class="pre">b</span></code>. Следващата стъпка е да се извърши операцията събиране. Резултатът от първата операция ще бъде използван за следващата операция събиране, заедно с <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<p>Пример за оценяване на момента може да бъде следната функция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(x):
+    print(f&#39;x = {x}&#39;)
+    return x
+
+print(f(1) + f(2))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 1
+x = 2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>При оценяването на момента (eager evaluation), всички необходими данни за извършване на изчислението (променливи, функции, др.) се зареждат наведнъж в паметта. Освен това, всички изчисления трябва да бъда извършени точно на момента.</p>
+<p>Тук се намесва т.нар. “мързеливо” оценяване - изчисленията се извършват само при необходимост. Това ни позволява да си спестим някои изчисления (както и да работим с т.нар. “безкрайни” колекции).</p>
+<p>Най-близкото до “мързеливо” оценяване, което познаваме е изчисляването на логическите изрази при <code class="docutils literal notranslate"><span class="pre">if</span></code> блокове и други булеви изрази - там, всеки елемент от израза се изчислява, при условие че предишния израз не е достатъчен за оценяване на целия израз (т.е. ако имаме един израз който е със стойност на <code class="docutils literal notranslate"><span class="pre">True</span></code> при изрази съдържащи <code class="docutils literal notranslate"><span class="pre">or</span></code>, тези след него не се оценяват. Ако имаме израз, който съдържа <code class="docutils literal notranslate"><span class="pre">and</span></code>, трябва да оценим всички стойности).</p>
+<p>По подобен начин работи и мързеливото оценяване, с разликата, че изразите се оценяват при поискване.</p>
+</section>
+<section id="generators">
+<h2>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">#</a></h2>
+<p>Генераторите са специални функции, които позволяват “мързеливо” итериране на дадена (дори и безкрайна) поредица. Генераторите не държат всичките си стойности в паметта, а изчисляват стойността при поискване (това позволява работата с “безкрайни” поредици).</p>
+<p>Нека разгледаме следния пример - искаме да създадем генератор, който да ни връща числата, които са точни квадрати (число, получено чрез повдигане на друго цяло число на квадрат - 1, 4, 9, 16, 25, т.н.).</p>
+<p>Ако за момент се абстрахираме от идеята за генератори, как бихме могли да напишем функция, която ни връща <code class="docutils literal notranslate"><span class="pre">n</span></code>-тия точен квадрат ? Първия точен квардрат е 0 (<span class="math notranslate nohighlight">\(0^2 = 0\)</span>, защото са неотрицателни), втория е 1 (<span class="math notranslate nohighlight">\(1^2 = 1\)</span>), третия е 4 (<span class="math notranslate nohighlight">\(2^2 = 4\)</span>) и т.н.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def generate_nth_perfect_square(n):
+    return (n-1) ** 2
+
+print(generate_nth_perfect_square(3))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да променим нашата функция, която да ни връща списък от всички точни квадрати до <code class="docutils literal notranslate"><span class="pre">n</span></code>-тия.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def generate_all_perfect_squares_until(n):
+    result = []
+    for i in range(1, n+1):
+        result.append(generate_nth_perfect_square(i))
+    
+    return result
+
+print(generate_all_perfect_squares_until(5))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Проблемът с горната функция, е че изчислява всички стойности до <code class="docutils literal notranslate"><span class="pre">n</span></code> едновременно - ние искаме те да се изчисляват една по една, при поискване. По-важното е, че искаме да можем да итерираме по тях - т.е. да ги вкараме в един <code class="docutils literal notranslate"><span class="pre">for</span></code> цикъл, и да ги обходим.</p>
+<p>За да постигнем тази цел, ни трябват две неща - функция, която да “спре” изпълнението до дадено място и да ни върне някаква стойност - функцията, която извършва това, е <code class="docutils literal notranslate"><span class="pre">yield</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def perfect_squares(n):
+    for i in range(1, n+1):
+        yield generate_nth_perfect_square(i)
+
+
+print(perfect_squares(5))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object perfect_squares at 0x7f2c9d0b8350&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук виждаме, че нашата функция вече ни връща <code class="docutils literal notranslate"><span class="pre">generator</span></code> обект.</p>
+<p>За да работим с нашия генератор обект, е необходимо да го подадем като обект на функцията <code class="docutils literal notranslate"><span class="pre">next</span></code> - тя ни връща следващия елемент от генератор/итератор.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>perfect_square_generator = perfect_squares(5)
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+4
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както се вижда, <code class="docutils literal notranslate"><span class="pre">next</span></code> изпълнява нашия код, до следващото срещане на <code class="docutils literal notranslate"><span class="pre">yield</span></code>, и връща стойността, която <code class="docutils literal notranslate"><span class="pre">yield</span></code> връща.</p>
+<p>Благодарение на факта, че получваме генератор, може да използваме нашата функция <code class="docutils literal notranslate"><span class="pre">perfect_squares</span></code> директно във <code class="docutils literal notranslate"><span class="pre">for</span></code> цикъл. Начина по който <code class="docutils literal notranslate"><span class="pre">for</span></code> цикъла работи е, че извиква <code class="docutils literal notranslate"><span class="pre">next</span></code> метода на подадения от нас обект.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in perfect_squares(5):
+    print(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+4
+9
+16
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека направим нещата една идея по-сложни. Вместо да създаваме генератор на точни квадрати до дадено число, нека променим нашия генератор, да връща точни квадрати до безкрайност (понеже точните квадрати са дефинирани върху всички неотрицателни числа, е възможно до безкрайност да генерираме такива).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def perfect_square():
+    n = 1
+    while True:
+        yield generate_nth_perfect_square(n)
+        n += 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>perfect_square_generator = perfect_square()
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+print(next(perfect_square_generator))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+4
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Използването на <code class="docutils literal notranslate"><span class="pre">yield</span></code> не е единствения начин да бъде създаден генератор. Python поддържа т.нар. “generator expressions”. Generator expressions е синтактична конструкция, която ни позволява да създаваме генератор на базата на друга колекция/генератор. Синтактично, generator expression следва математическата нотация за дефиниране на множество:</p>
+<div class="math notranslate nohighlight">
+\[ S = \{x^2 \mid x \in [1;100] , x \text{ is even}\} \]</div>
+<p>Това математическо заклинание ни дава целите числа в диапазона от 1 до 100, които са четни, като всяко от тях е повдигнато на квадрат.</p>
+<p>В общият случай, един generator expression изглежда по следния начин: <code class="docutils literal notranslate"><span class="pre">(f(x)</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">X</span> <span class="pre">if</span> <span class="pre">p(x))</span></code>, където <code class="docutils literal notranslate"><span class="pre">f</span></code> е функция, която прилагаме върху <code class="docutils literal notranslate"><span class="pre">x</span></code>, а <code class="docutils literal notranslate"><span class="pre">p</span></code> е филтрираща функция (повече за прилагането на функции върху елементи и филтрирането му по-долу)</p>
+<p>Ако искаме да запишем нашата функция <code class="docutils literal notranslate"><span class="pre">perfect_squares(n)</span></code>, която ни връща точните квадрати до <code class="docutils literal notranslate"><span class="pre">n</span></code> като generator expression, тя би изглеждала по следния начин.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>perfect_squares_generator_exp = (generate_nth_perfect_square(i) for i in range(1, 6))
+
+print(perfect_squares_generator_exp)
+print(next(perfect_squares_generator_exp))
+print(next(perfect_squares_generator_exp))
+print(next(perfect_squares_generator_exp))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object &lt;genexpr&gt; at 0x7f2ca22f6950&gt;
+0
+1
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>В горния пример, нашия генератор ще ни върне първите 5 точни квадрата, с помощта на generator expression. Как би изглеждал кода обаче, ако искаме да можем да приемаме <code class="docutils literal notranslate"><span class="pre">n</span></code>, с което да заместим 5 ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>perfect_squares_n_generator_exp = lambda n: (generate_nth_perfect_square(i) for i in range(1, n + 1))
+
+for num in perfect_squares_n_generator_exp(3):
+    print(num)
+
+print(&#39;--&#39;)
+for num in perfect_squares_n_generator_exp(10):
+    print(num)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+4
+--
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+</pre></div>
+</div>
+</div>
+</div>
+<p>Едно последно нещо - един от най-използваните генератори е <code class="docutils literal notranslate"><span class="pre">range</span></code>. <code class="docutils literal notranslate"><span class="pre">range</span></code> приема три аргумента - начало, край и стъпка. В резултат, получаваме генератор, който генерира числата от това множество.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for i in range(2, 7, 2):
+    print(i)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Няма значение колко е голям размера на <code class="docutils literal notranslate"><span class="pre">range</span></code>-а за представянето му - това е защото <code class="docutils literal notranslate"><span class="pre">range</span></code> изчислява следващия елемент на момента.</p>
+</section>
+<section id="map">
+<h2>Map<a class="headerlink" href="#map" title="Permalink to this headline">#</a></h2>
+<p>Map е специална функция, която има една-единствена цел - да приложи друга функция към всеки елемент от дадена колекция. Нека е даден списък с числа и функция, която приема число, и го умножава по 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [2, 7, 3, 9, -1, 12]
+
+def multiply(number):
+    return number * 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако трябва сами да разпишем map функцията, тя би изглеждала по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def my_map(map_function, collection):
+    result = []
+
+    for item in collection:
+        result.append(map_function(item))
+    
+    return result
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека извикаме нашата map функция, с дефинираните по-горе числа и функция, която да бъде приложена</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;Squared numbers: {my_map(multiply, numbers)}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Squared numbers: [4, 14, 6, 18, -2, 24]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да подадем и функция, която променя типа на обектите - нека разгледаме функция, която приема цяло число от 1 до 7 и връща съответния ден от седмицата (1 - Понеделник, 2 - Вторник, т.н.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def number_to_day(number):
+    days = [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;, &quot;Sunday&quot;]
+    return days[number - 1]
+
+days = [2, 3, 1, 4, 6]
+
+print(f&#39;Days of the week: {my_map(number_to_day, days)}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Days of the week: [&#39;Tuesday&#39;, &#39;Wednesday&#39;, &#39;Monday&#39;, &#39;Thursday&#39;, &#39;Saturday&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека сега разгледаме и вградена функция <code class="docutils literal notranslate"><span class="pre">map</span></code> в Python - тя приема като първи аргумент функцията, която ще бъде приложена, а като втори - колекцията, върху която да се приложи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3, 4]
+
+def square(number):
+    return number ** 2
+
+print(f&#39;Appyling map directly returns: {map(square, numbers)}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Appyling map directly returns: &lt;map object at 0x7f2c9d1100d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да се отбележи, че резултатът от map функцията е <code class="docutils literal notranslate"><span class="pre">map</span></code> обект - или поне така изглежда. Всъщност това, което се връща е генератор, който ни дава новите стойности. Съвсем лесно можем да превърнем този генератор в списък, с едно просто извикване на <code class="docutils literal notranslate"><span class="pre">list()</span></code> функцията.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3, 4]
+
+def square(number):
+    return number ** 2
+
+print(f&#39;Converting the map object into a list: {list(map(square, numbers))}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converting the map object into a list: [1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Освен да подаваме нормална функция, можем да използваме и <code class="docutils literal notranslate"><span class="pre">lambda</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3, 4]
+
+mapped_numbers = map(lambda number: number ** 2, numbers)
+result = list(mapped_numbers)
+
+print(result)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека усложим нещата - ако се върнем на първоначалната ни дефиниция за <code class="docutils literal notranslate"><span class="pre">map</span></code> (Функция, която прилага друга функция върху колекция), си задаваме въпроса - какво става, ако имаме повече от една колекция, върху която искаме да приложим функция ? Възможно ли е въобще ?</p>
+<p>Отговора е да - <code class="docutils literal notranslate"><span class="pre">map</span></code> приема една или повече колекции. Единствената особенност е, че функцията която подаваме трябва да може да приеме повече от един аргумент. На по-прост език - ако подадем два списъка на <code class="docutils literal notranslate"><span class="pre">map</span></code>, функцията която ще се приложи върху тях трябва да приема два аргумента.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>first_numbers = [1, 2, 3, 4]
+second_numbers = [5, 6, 7, 8]
+
+def multiply(a, b):
+    return a * b
+
+print(list(map(multiply, first_numbers, second_numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 12, 21, 32]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Важно е да се отбележи, че резултата от <code class="docutils literal notranslate"><span class="pre">map</span></code> операция винаги е <strong>една</strong> поредица от обекти - дори и да приемем 10 колекции, винаги на изхода ще имаме една.</p>
+<p><strong>Въпрос:</strong> Как може да “измамим” системата, и да върнем повече от една колекция ?</p>
+<section id="id6">
+<h3>Отговор<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<p>Няма как да върнем повече от една колекция - това което можем да направим, е да върнем колекция, която съдържа наредени n-торки (tuples).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>first_numbers = [1, 2, 3, 4]
+second_numbers = [5, 6, 7, 8]
+
+def return_as_tuple(a, b):
+    return a, b
+
+print(list(map(return_as_tuple, first_numbers, second_numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, 5), (2, 6), (3, 7), (4, 8)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zip">
+<h2>Zip<a class="headerlink" href="#zip" title="Permalink to this headline">#</a></h2>
+<p>Нека се върнем за кратко към примера за използването на <code class="docutils literal notranslate"><span class="pre">map</span></code>, при който от два списъка, ние направихме един, който съдържаше елементите на двата, групирани по позицията им:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>first_numbers = [1, 2, 3, 4]
+second_numbers = [5, 6, 7, 8]
+
+def return_as_tuple(a, b):
+    return a, b
+
+print(list(map(return_as_tuple, first_numbers, second_numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, 5), (2, 6), (3, 7), (4, 8)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>В Python има готова функция, която прави това обединение за нас - <code class="docutils literal notranslate"><span class="pre">zip</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>first_numbers = [1, 2, 3, 4]
+second_numbers = [5, 6, 7, 8]
+
+print(zip(first_numbers, second_numbers))
+print(list(zip(first_numbers, second_numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;zip object at 0x7f2c9d130f00&gt;
+[(1, 5), (2, 6), (3, 7), (4, 8)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Не е нужно списъците да са от еднакви типове елементи.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&#39;Иван&#39;, &#39;Любо&#39;, &#39;Алекс&#39;]
+favorite_number = [3, 20, 8]
+
+print(list(zip(names, favorite_number)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 3), (&#39;Любо&#39;, 20), (&#39;Алекс&#39;, 8)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако единият списък е по-дълъг от другия, по-дългия списък ще бъде отрязан:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&#39;Иван&#39;, &#39;Любо&#39;, &#39;Алекс&#39;, &#39;Иво&#39;]
+favorite_number = [3, 20, 7]
+
+print(list(zip(names, favorite_number)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 3), (&#39;Любо&#39;, 20), (&#39;Алекс&#39;, 7)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&#39;Иван&#39;, &#39;Любо&#39;, &#39;Алекс&#39;]
+favorite_number = [3, 20, 7, -1]
+
+print(list(zip(names, favorite_number)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 3), (&#39;Любо&#39;, 20), (&#39;Алекс&#39;, 7)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Или поне това е поведението по подразбиране. <code class="docutils literal notranslate"><span class="pre">zip</span></code> предлага още два метода на работа. С помощта на аргумента <code class="docutils literal notranslate"><span class="pre">strict=True</span></code>, ако подадените списъци са с различен размер, <code class="docutils literal notranslate"><span class="pre">zip</span></code> ще ни хвърли грешка (това е въведено в Python3.10).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>names = [&#39;Иван&#39;, &#39;Любо&#39;, &#39;Алекс&#39;]
+favorite_number = [3, 20, 7, -1]
+
+zip(names, favorite_number, strict=True)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">64</span><span class="o">-</span><span class="n">acdcfbd62260</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">favorite_number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">favorite_number</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: zip() takes no keyword arguments
+</pre></div>
+</div>
+</div>
+</div>
+<p>А ако искаме да добавим някакви “празни” стойности към по-късия списък, може да използваме</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from itertools import zip_longest
+
+names = [&#39;Иван&#39;, &#39;Любо&#39;, &#39;Алекс&#39;]
+favorite_number = [3, 20, 7, -1, -2]
+
+print(list(zip_longest(names, favorite_number, fillvalue=&#39;Dummy&#39;)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Иван&#39;, 3), (&#39;Любо&#39;, 20), (&#39;Алекс&#39;, 7), (&#39;Dummy&#39;, -1), (&#39;Dummy&#39;, -2)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако трябва да сме на 100% коректни, <code class="docutils literal notranslate"><span class="pre">zip</span></code> приема каквато и да е колекция:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3]
+letters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+
+print(list(zip(map(lambda x: x ** 2, numbers), letters)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;a&#39;), (4, &#39;b&#39;), (9, &#39;c&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Горният пример, малко по-културно разписан, изглежда по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3]
+letters = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+
+squared_numbers = map(lambda x: x ** 2, numbers)
+zipped_together = zip(squared_numbers, letters)
+zipped_together_as_a_list = list(zipped_together)
+
+print(zipped_together_as_a_list)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(1, &#39;a&#39;), (4, &#39;b&#39;), (9, &#39;c&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filter">
+<h2>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">#</a></h2>
+<p>Както името подсказва, <code class="docutils literal notranslate"><span class="pre">filter</span></code> е функция която ни връща елементите от дадена колекция, удолетворяващи дадено условие.</p>
+<p>Нека отново имаме някакви числа, и функция която връща дали дадено число е четно или не.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [2, 7, 11, 12]
+
+def is_even(number):
+    return number % 2 == 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ако трябва сами да разпишем функцията, тя би изглеждала по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def my_filter(filter_fn, collection):
+    result = []
+    for item in collection:
+        if filter_fn(item):
+            result.append(item)
+    
+    return result
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(my_filter(is_even, numbers))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 12]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Извикването на вградената функция <code class="docutils literal notranslate"><span class="pre">filter</span></code> изглежда по следния начин</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(filter(is_even, numbers))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;filter object at 0x7f2c9d0c7510&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както <code class="docutils literal notranslate"><span class="pre">map</span></code>, така и <code class="docutils literal notranslate"><span class="pre">filter</span></code> връщат генератор обекти - с едно извикване на <code class="docutils literal notranslate"><span class="pre">list</span></code> можем да превърнем резултата в списък</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(list(filter(is_even, numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 12]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Може и с <code class="docutils literal notranslate"><span class="pre">lambda</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(list(filter(lambda number: number % 2 == 0, numbers)))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 12]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reduce">
+<h2>Reduce<a class="headerlink" href="#reduce" title="Permalink to this headline">#</a></h2>
+<p>Тук нещата стават една идея по-сложни. Нека започнем с един пример: трябва да намерим произведението на всички числа в даден списък.</p>
+<p>Нека за момент се абстрахираме от програмирането - как бихме намерили произведението на числа 3, 5 и 8 ? Първо бихме умножили 3 и 5, което прави 15. След това, получения резултат от предишната операция (в нашия случай 15) и ще го умножим с 8.</p>
+<p>Тази процедура може да бъде използвана за списъци с произволен брой числа - всяко следващо число бива умножено с резултата до момента.</p>
+<p>Ако трябва да представим тази идея с код, тя би изглеждала по следния начин:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def get_product_of_all_nums(nums):
+    result = nums[0]
+
+    for num in nums[1:]:
+        result = result * num
+    
+    return result
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [3, 5, 8]
+print(get_product_of_all_nums(numbers))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>Нека генерализираме нашата функция - вместо умножение, тя да може да работи с подадена функция, приемаща два аргумента - резултата до момента и текущото число</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def my_reduce(function, collection):
+    result = collection[0]
+
+    for item in collection[1:]:
+        result = function(result, item)
+    
+    return result
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [3, 5, 8]
+def multiply(result_so_far, current_number):
+    return result_so_far * current_number
+
+print(my_reduce(multiply, numbers))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>Една промяна, която можем да направим е следната - вместо за начало да взимаме първия елемент от колекцията, може да приемаме началната стойност като аргумент на функцията. Така нашата функция би работела и с празни колекции.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def my_reduce_with_start(function, collection, start):
+    result = start
+
+    for item in collection:
+        result = function(result, item)
+    
+    return result
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [3, 5, 8]
+def multiply(result_so_far, current_number):
+    return result_so_far * current_number
+
+print(my_reduce_with_start(multiply, numbers, 1))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ето че стигнахме и до <code class="docutils literal notranslate"><span class="pre">reduce</span></code> - функция, която приема функция и колекция. Функцията бива приложена върху резултата, който имаме до момента и всеки елемент от колекцията.
+Важно е да уточним терминологията тук - в някои езици може да срещенете тази функция като <code class="docutils literal notranslate"><span class="pre">accumulate</span></code>, <code class="docutils literal notranslate"><span class="pre">fold</span></code> или пък <code class="docutils literal notranslate"><span class="pre">foldl</span></code>.</p>
+<p>Тук е важно да спомена за наличието на т.нар “ляв” и “десен” <code class="docutils literal notranslate"><span class="pre">reduce</span></code>. В други функционални езици (като Haskell), имаме концепцията за ляв и десен <code class="docutils literal notranslate"><span class="pre">fold</span></code> - в каква посока се изпълнява функцията - отляво надясно или отдясно наляво. За някои операции (например умножение) реда на изпълнение няма значение, но например при деление би имало значение дали започваме от ляво или от дясно. Повече информация за fold функцията в другите езици, може да намерите <a class="reference external" href="https://www.wikiwand.com/en/Fold_(higher-order_function)">тук</a>.</p>
+<p>Вградената функция reduce в Python се намира в библиотеката <code class="docutils literal notranslate"><span class="pre">functools</span></code>. За да я използваме, първо трябва да я заредим (<code class="docutils literal notranslate"><span class="pre">import</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from functools import reduce
+
+numbers = [3, 5, 8]
+
+def multiply(result_so_far, current_number):
+    return result_so_far * current_number
+
+print(reduce(multiply, numbers, 1))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както може би сте се досетили, тук не получаваме генератор - резултатът от <code class="docutils literal notranslate"><span class="pre">reduce</span></code> е една стойност (в нашия случай това е число).</p>
+<p><code class="docutils literal notranslate"><span class="pre">reduce</span></code>, също както <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code> работи и с <code class="docutils literal notranslate"><span class="pre">lambda</span></code> функции. Тук е добро място да се отбележи, че първия аргумент, който бива подаден на функцията е стойността до момента (или стойността, която се е <strong>акумулирала</strong> (<strong>accumulate</strong>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [3, 5, 8]
+
+print(reduce(lambda acc, number: acc * number, numbers))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+</pre></div>
+</div>
+</div>
+</div>
+<p>А можем и да подадем начална стойност:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [3, 5, 8]
+print(reduce(lambda acc, number: acc * number, numbers, 1))
+print(reduce(lambda acc, number: acc * number, numbers, 2))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>120
+240
+</pre></div>
+</div>
+</div>
+</div>
+<p>А сега един по-сложен пример: Нека имаме списък, чийто елементи са списъци с числа. С помощта на <code class="docutils literal notranslate"><span class="pre">reduce</span></code>, подходяща функция и подходяща начална стойност, бихме могли да получим един списък, който съдържа числата, без те да са в отделни списъци.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers_2d = [[1, 2, 3], [4, 5, 6], [7, 8, 9, 10]]
+
+print(reduce(lambda acc, item: acc + item, numbers_2d, []))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Припомням, че операция събиране (<code class="docutils literal notranslate"><span class="pre">+</span></code>) приложена върху два списъка ни връща конкатенацията на двата списъка.</p>
+<p>В горната операция, ние взехме един списък, и го “изравнихме” (flatten). Операцията “flatten” върху списъци е често срещата в езиците за функционално програмиране, макар и в Python да нямаме готова функция за това.</p>
+</section>
+<section id="list-comprehension">
+<h2>List comprehension<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">#</a></h2>
+<p>В Python съществува функционалност, наречена “list comprehension”. List comprehension е синтактична конструкция, която ни позволява да създаваме списъци на базата на други колекции/итератори/генератори. Синтактично, list comprehension прилича на generator expressions:</p>
+<p>Можем да изразим тази идея в Python като използваме вече познатите ни <code class="docutils literal notranslate"><span class="pre">map</span></code> и <code class="docutils literal notranslate"><span class="pre">filter</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = range(1, 101)
+
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+squared_numbers = map(lambda x: x ** 2, even_numbers)
+
+print(f&#39;Squared even numbers: {list(squared_numbers)}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Squared even numbers: [4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784, 900, 1024, 1156, 1296, 1444, 1600, 1764, 1936, 2116, 2304, 2500, 2704, 2916, 3136, 3364, 3600, 3844, 4096, 4356, 4624, 4900, 5184, 5476, 5776, 6084, 6400, 6724, 7056, 7396, 7744, 8100, 8464, 8836, 9216, 9604, 10000]
+</pre></div>
+</div>
+</div>
+</div>
+<p>В общия случай, синтаксиса на list comprehension е следния: <code class="docutils literal notranslate"><span class="pre">[f(item)</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">collection</span> <span class="pre">if</span> <span class="pre">p(item)]</span></code> - т.е. кода по-горе би изглеждал по следния начин като list comprehension:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;Squared even numbers: {[x ** 2 for x in range(1, 101) if x % 2 == 0]}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Squared even numbers: [4, 16, 36, 64, 100, 144, 196, 256, 324, 400, 484, 576, 676, 784, 900, 1024, 1156, 1296, 1444, 1600, 1764, 1936, 2116, 2304, 2500, 2704, 2916, 3136, 3364, 3600, 3844, 4096, 4356, 4624, 4900, 5184, 5476, 5776, 6084, 6400, 6724, 7056, 7396, 7744, 8100, 8464, 8836, 9216, 9604, 10000]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> часта или функцията, която се прилага върху всяка променливата могат да бъдат изпуснати:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [1, 2, 3]
+print(f&#39;Odd numbers: {[number for number in numbers if number % 2 != 0]}&#39;)
+print(f&#39;Multiplying all numbers by 2: {[number * 2 for number in numbers]}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Odd numbers: [1, 3]
+Multiplying all numbers by 2: [2, 4, 6]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Тук е добре да отбележем, че основната синтактична разлика между list comprehension и generator comprehension е скобите (<code class="docutils literal notranslate"><span class="pre">[]</span></code> за list comprehension и <code class="docutils literal notranslate"><span class="pre">()</span></code> за generator comprehension)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calculate_area_of_rectangle(a, b):
+    return a * b
+
+rectangles = [(1, 2), (5, 4), (3, 2.5), (-2, 3)]
+areas = [calculate_area_of_rectangle(x, y) for x, y in rectangles if x &gt;= 0 and y &gt;= 0]
+
+print(f&#39;Areas of valid rectangles: {areas}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Areas of valid rectangles: [2, 20, 7.5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Може би забелязвате, че когато функцията която изпълняваме не е външна, не използваме <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, а директно пишем операцията която искаме да приложим - това е част от опростяването на синтаксиса на list comprehension-ите.</p>
+<p>Нека имаме дадени числа - искаме да върнем списък, в който за всяко число да пише “Yes” ако се дели на 3 или 5 и “No” в противен случай. Това може да стане лесно, чрез използването на тернарния оператор в Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numbers = [7, 12, 5, 6, 9, 15, 1, 11]
+
+results = [&quot;Yes&quot; if number % 3 == 0 or number % 5 == 0 else &quot;No&quot; for number in numbers]
+
+print(f&#39;Results are: {results}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results are: [&#39;No&#39;, &#39;Yes&#39;, &#39;Yes&#39;, &#39;Yes&#39;, &#39;Yes&#39;, &#39;Yes&#39;, &#39;No&#39;, &#39;No&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>Скорост<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<p>Едно от най-“шокиращите” неща в Python е скоростта, която получаваме при използването на обикновенни <code class="docutils literal notranslate"><span class="pre">for</span></code> цикли, <code class="docutils literal notranslate"><span class="pre">map</span></code> или list comprehension.</p>
+<p>За да демонстрираме разликата, ще създадем функция, която повдига число на квадрат, и ще я приложим върху списък от 40 000 000 числа.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from time import time
+
+def power_up(a):
+    return a ** 2
+
+numbers = list(range(1, 40000000))
+
+for_loop_start = time()
+
+for_loop_result = []
+for number in numbers:
+    for_loop_result.append(power_up(number))
+
+for_loop_end = time()
+print(f&#39;For-looping took {for_loop_end - for_loop_start:.2f} seconds&#39;)
+
+
+map_start = time()
+
+map_result = list(map(power_up, numbers))
+
+map_end = time()
+print(f&#39;map() took {map_end - map_start:.2f} seconds&#39;)
+
+
+list_comprehension_start = time()
+
+list_comprehension_result = [power_up(x) for x in numbers]
+
+list_comprehension_end = time()
+print(f&#39;List comprehension took {list_comprehension_end - list_comprehension_start:.2f} seconds&#39;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For-looping took 19.72 seconds
+map() took 13.60 seconds
+List comprehension took 15.08 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Основната разлика във времето идва от факта, че <code class="docutils literal notranslate"><span class="pre">append()</span></code> операцията е бавна. <code class="docutils literal notranslate"><span class="pre">map</span></code> и list comprehension-ите използва хитрини при заделянето на паметта, затова може да се каже че са с около 30% по-бързи. Няма да се впускам повече в темата, за по-любопитните, <a class="reference external" href="https://web.archive.org/web/20190319205826/http://blog.cdleary.com/2010/04/efficiency-of-list-comprehensions/">тук</a> нещата са обяснение в повече детайли.</p>
+<p>На въпросът, кой от трите подхода се използват, моят отговор е следния: list comprehension и <code class="docutils literal notranslate"><span class="pre">map</span></code> дават доста по-добро представяне спрямо <code class="docutils literal notranslate"><span class="pre">for</span></code> loop + <code class="docutils literal notranslate"><span class="pre">append</span></code>, затова и са за предпочитане. Синтаксисът на list comprehension-ите е по-прост спрямо този на <code class="docutils literal notranslate"><span class="pre">map</span></code> (особенно ако трябва и да филтрираме елементите), което води до това, че <strong>list comprehension-ите са за предпочитане</strong>.</p>
+</section>
+<section id="dict-comprehension">
+<h2>Dict comprehension<a class="headerlink" href="#dict-comprehension" title="Permalink to this headline">#</a></h2>
+<p>Подобно на list comprehension, можем да използваме подобен запис да създадем и речник (dictionary, dict).</p>
+<p>Синтаксисът е същият, само че вместо <code class="docutils literal notranslate"><span class="pre">[]</span></code>, използваме <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Също така, вместо един елемент, използваме <code class="docutils literal notranslate"><span class="pre">key:value</span></code> - т.е. общия вид би изглеждал по следния начин: <code class="docutils literal notranslate"><span class="pre">{f(item):g(value)</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">collection</span> <span class="pre">if</span> <span class="pre">p(item)}</span></code></p>
+<p>Нека като пример разглеждаме dict, който съдържа число (измежду 1 и 10), и дали е четно или не</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>my_dict = {num:num%2 == 0 for num in range(1, 11)}
+
+print(my_dict)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: False, 2: True, 3: False, 4: True, 5: False, 6: True, 7: False, 8: True, 9: False, 10: True}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както при generator изразите и list comprehension, можем да добавим <code class="docutils literal notranslate"><span class="pre">if</span></code> част.</p>
+<p>Нека създадем речник, който съдържа четните числа от 1 до 20, както и тяхната репрезентация като низ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>even_numbers_as_strs = {num:str(num) for num in range(1, 21) if num % 2 == 0}
+
+print(even_numbers_as_strs)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2: &#39;2&#39;, 4: &#39;4&#39;, 6: &#39;6&#39;, 8: &#39;8&#39;, 10: &#39;10&#39;, 12: &#39;12&#39;, 14: &#39;14&#39;, 16: &#39;16&#39;, 18: &#39;18&#39;, 20: &#39;20&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h2>Примери<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<p>Нека разгледаме някои примери за функционално програмиране от живия живот</p>
+<section id="id9">
+<h3>Пример 1<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<p>Нека е даден клас <code class="docutils literal notranslate"><span class="pre">Student</span></code> с полета <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">student_id_number</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">courses</span></code>, където <code class="docutils literal notranslate"><span class="pre">courses</span></code> е списък с курсове и оценки към тях, представени от класа <code class="docutils literal notranslate"><span class="pre">Course</span></code>.</p>
+<p>Да се напише функция, която приема списък от студенти, и връща списък, съдържащ номерата на студентите, които имат среден успех над 4.50.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class Course:
+    def __init__(self, name=&#39;&#39;, grade=2.0):
+        self.__name = name
+        self.__grade = gradeНаправете преводач от кирилица към &quot;шльокавица&quot;.
+
+Нека приемем, че азбуката на шльокавицата e A, B, V, G, D, E, J, Z, I, Y, K, L, M, N, O, P, R, S, T, U, F, H, C, 4, 6, 6T, U, Y, YU, Q.
+    
+    @property
+    def name(self):
+        return self.__name
+    
+    @property
+    def grade(self):
+        return self.__grade
+
+    @grade.setter
+    def grade(self, new_grade):
+        self.__grade = new_grade
+
+class Student:
+    def __init__(self, name, student_id_number, year):
+        self.__name = name
+        self.__student_id_number = student_id_number
+        self.__year = year
+        self.__courses = []
+    
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def student_id_number(self):
+        return self.__student_id_number
+
+    @property
+    def year(self):
+        return self.__year
+
+    @property
+    def courses(self):
+        return self.__courses
+
+    def start_new_year(self):
+        self.__year += 1
+        self.__courses = []
+    
+    def add_new_course(self, course):
+        self.__courses.append(course)
+
+student_1 = Student(&#39;Ivan the Programmer&#39;, &#39;12345&#39;, 1)
+student_1.add_new_course(Course(&#39;Algebra&#39;, 4.50))
+student_1.add_new_course(Course(&#39;Intro to programming&#39;, 6.00))
+student_1.add_new_course(Course(&#39;Geometry&#39;, 3.00))
+student_1.add_new_course(Course(&#39;Calculus&#39;, 2.00))
+
+student_2 = Student(&#39;Maria&#39;, &#39;12346&#39;, 1)
+student_2.add_new_course(Course(&#39;Algebra&#39;, 5.75))
+student_2.add_new_course(Course(&#39;Intro to programming&#39;, 6.00))
+student_2.add_new_course(Course(&#39;Geometry&#39;, 6.00))
+student_2.add_new_course(Course(&#39;Calculus&#39;, 6.00))
+
+student_3 = Student(&#39;Gosho from break&#39;, &#39;12347&#39;, 1)
+student_3.add_new_course(Course(&#39;Algebra&#39;, 2.00))
+student_3.add_new_course(Course(&#39;Intro to programming&#39;, 2.00))
+student_3.add_new_course(Course(&#39;Geometry&#39;, 2.00))
+student_3.add_new_course(Course(&#39;Calculus&#39;, 3.00))
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id10">
+<h4>Решение на Пример 1<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def average_grade(student):
+    grades = [course.grade for course in student.courses]
+    return sum(grades) / len(grades)
+
+def get_students_with_high_enough_grades(students):
+    target_grade = 4.50
+
+    return [student.name for student in students if average_grade(student) &gt;= target_grade]
+
+all_students = [student_1, student_2, student_3]
+
+print(get_students_with_high_enough_grades(all_students))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Maria&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id11">
+<h3>Пример 2<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<p>Напишете декоратор, който “защитава” изпълнението на функция със специална супер секретна парола (например ‘super_safe_password`). Нашият декоратор трябва да пита потребителя за парола. Ако въведената парола съвпада, изпълнява подадената функция. В противен случай, връща ‘Invalid password’.</p>
+<section id="id12">
+<h4>Решение на пример 2<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def login_required(f):
+    def inner():
+        password = input(&#39;Please enter a password&#39;)
+        if password == &#39;super_safe_password&#39;:
+            result = f()
+        else:
+            result = &#39;Invalid password&#39;
+        return result
+    return inner
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>@login_required
+def get_super_secret_message(name):
+    return f&#39;Hi, {name}. Your mission is to learn Python.&#39;
+
+@login_required
+def foo(a, b, c, d):
+    return a + b + c + d
+
+print(foo(2, 3, 4, d=5))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nd">@login_required</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: inner() takes 0 positional arguments but 4 were given
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id13">
+<h3>Пример 3<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">range</span></code> ни връща генератор, който ни дава числата в даден интервал. Нека разширим тази идея, и напишем генератор, който ни дава координатите в двумерно пространство при зададено начало и край.</p>
+<p>Пример: начало - (1, 1), край - (3, 4)</p>
+<p>Резултат: (1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3)</p>
+<section id="id14">
+<h4>Решение на Пример 3<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def range_2d(start, end):
+    for i in range(start[0], end[0]):
+        for j in range(start[1], end[1]):
+            yield (i, j)
+
+# for coord in range_2d((1, 1), (3, 4)):
+#     print(coord)
+
+save = range_2d((1, 1), (3, 4))
+current = range_2d((1, 1), (3, 4))
+
+print(next(current))
+print(next(current))
+print(next(save))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 1)
+(1, 2)
+(1, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id15">
+<h3>Пример 4<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>Напишете функция <code class="docutils literal notranslate"><span class="pre">bind_countries_to_capitals</span></code>, която приема два списъка - списък с имена на държави и списък с имена на столици.
+Функцията трябва да върне речник, който съдържа държавите като ключове и съответните им столици като стойности. (приемаме, че на същия индекс на който е държавата стои и столицата ѝ в другия списък)</p>
+<section id="id16">
+<h4>Решение на пример 4<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def bind_countries_to_capitals(countries, capitals):
+    return dict(zip(countries, capitals))
+
+
+countries = [&#39;Bulgaria&#39;, &#39;Italy&#39;, &#39;Turkey&#39;]
+capitals = [&#39;Sofia&#39;, &#39;Rome&#39;, &#39;Ankara&#39;]
+
+result = bind_countries_to_capitals(countries, capitals)
+print(result)
+# {&#39;Bulgaria&#39;: &#39;Sofia&#39;, &#39;Italy&#39;: &#39;Rome&#39;, &#39;Turkey&#39;: &#39;Ankara&#39;}
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Bulgaria&#39;: &#39;Sofia&#39;, &#39;Italy&#39;: &#39;Rome&#39;, &#39;Turkey&#39;: &#39;Ankara&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id17">
+<h3>Пример 5<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<section id="id18">
+<h4>Условие 1<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h4>
+<p>Даден е следният клас <code class="docutils literal notranslate"><span class="pre">RGB</span></code>, който моделира цвят в RGB формат:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class RGB:
+    def __init__(self, r, g, b):
+        &quot;&quot;&quot;Initialize the RGB class with the given values for red, green and blue.
+        Each value should be an integer between 0 and 255.
+        &quot;&quot;&quot;
+
+        if r &lt; 0 or r &gt; 255:
+            raise ValueError(&#39;Invalid red value&#39;)
+        if g &lt; 0 or g &gt; 255:
+            raise ValueError(&#39;Invalid green value&#39;)
+        if b &lt; 0 or b &gt; 255:
+            raise ValueError(&#39;Invalid blue value&#39;)
+
+        self._r = r
+        self._g = g
+        self._b = b
+
+    @property
+    def r(self):
+        return self._r
+
+    @property
+    def g(self):
+        return self._g
+
+    @property
+    def b(self):
+        return self._b
+
+    def to_hex(self):
+        return f&#39;#{self.r:02X}{self.g:02X}{self.b:02X}&#39;
+    
+    @classmethod
+    def from_hex(cls, hex):
+        r = int(hex[1:3], base=16)
+        g = int(hex[3:5], base=16)
+        b = int(hex[5:7], base=16)
+
+        return cls(r, g, b)
+        
+    def __repr__(self):
+        return f&#39;RGB({self.r}, {self.g}, {self.b})&#39;
+
+    def __eq__(self, other):
+        return self.r == other.r and self.g == other.g and self.b == other.b
+
+    def __hash__(self):
+        return hash((self.r, self.g, self.b))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Да се напишат функции <code class="docutils literal notranslate"><span class="pre">rgb_pallette_to_hex_str</span></code> и <code class="docutils literal notranslate"><span class="pre">hex_str_pallette_to_rgb</span></code>, които:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rgb_pallette_to_hex_str</span></code>: конвертира лист от цветове като <code class="docutils literal notranslate"><span class="pre">RGB</span></code> до лист от <code class="docutils literal notranslate"><span class="pre">str</span></code> (цветовете във формат <code class="docutils literal notranslate"><span class="pre">#RRGGBB</span></code>, където <code class="docutils literal notranslate"><span class="pre">RR</span></code>, <code class="docutils literal notranslate"><span class="pre">GG</span></code>, <code class="docutils literal notranslate"><span class="pre">BB</span></code> са сътответно стойностите на червеното, зеленото и синьото в шестнадесетична бройна система)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hex_str_pallete_to_rgb</span></code>: конвертира лист от <code class="docutils literal notranslate"><span class="pre">str</span></code> в горепосочения hex формат (case-insensitive!) и връща лист от <code class="docutils literal notranslate"><span class="pre">RGB</span></code> обекти (цветовете в RGB формат)</p></li>
+</ul>
+<p><em><strong>Hint 1</strong></em>: съществуват начини в <code class="docutils literal notranslate"><span class="pre">str.format</span></code> или <code class="docutils literal notranslate"><span class="pre">f-string</span></code>-овете да се специфицират колко цифри и в каква бройна система да се използват при форматиране на числа</p>
+<p><em><strong>Hint 2</strong></em>: разгледайте всички варианти на конструиране на <code class="docutils literal notranslate"><span class="pre">int</span></code> по даден <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def rgb_pallette_to_hex_str(colors):
+    return [color.to_hex() for color in colors]
+
+colors = [RGB(255, 0, 255)]
+
+def hex_pallette_to_rgb(hex_colors):
+    return [RGB.from_hex(hex_color) for hex_color in hex_colors]
+
+result = rgb_pallette_to_hex_str(colors)
+print(result)
+
+print(hex_pallette_to_rgb(result))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;#FF00FF&#39;]
+[RGB(255, 0, 255)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id19">
+<h4>Условие 2<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h4>
+<p>Нека имаме и имена за някои от цветовете:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>PALLETTE = {
+    RGB(255, 255, 255): &#39;white&#39;,
+    RGB(0, 0, 0): &#39;black&#39;,
+    RGB(255, 0, 0): &#39;red&#39;,
+    RGB(0, 255, 0): &#39;green&#39;,
+    RGB(0, 0, 255): &#39;blue&#39;,
+    RGB(69, 69, 69): &quot;the 51st shade of grey&quot;,
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>hex_colors = [&quot;#696969&quot;, &quot;#00FF00&quot;, &quot;#AAAAAA&quot;]
+
+def extract_only_named_colors(hex_colors):
+    # 1. Convert hex to RGB objects
+    # 2. Check if each RGB object is in Pallette
+    # 3. Return the names those who are in Pallette
+
+    rgb_objects = hex_pallette_to_rgb(hex_colors)
+    filtered_objects = [rgb_object for rgb_object in rgb_objects if rgb_object in PALLETTE]
+    names_of_filtered_objects = [PALLETTE[filtered_object] for filtered_object in filtered_objects]
+
+    return names_of_filtered_objects
+</pre></div>
+</div>
+</div>
+</div>
+<p>Да се напише функция <code class="docutils literal notranslate"><span class="pre">extract_only_named_colors</span></code> по подаден списък от цветове във формат <code class="docutils literal notranslate"><span class="pre">#RRGGBB</span></code> връща списък от имената им (само на тези, които присъстват в <code class="docutils literal notranslate"><span class="pre">PALLETTE</span></code> - другите се игнорират).</p>
+</section>
+</section>
+<section id="id20">
+<h3>Пример 6<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h3>
+<p>Рефакторирайте долния код така, че да съответства на функционалния стил на програмиране:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class PrettyPrint:
+    def __init__(self):
+        self.__border = &#39;|&#39;
+        self.__content = &#39;&#39;
+        self.__prefix = &#39;***&#39;
+        self.__suffix = &#39;***&#39;
+
+    def pretty_print(self):
+        return f&#39;{self.__border} {self.__prefix} {self.__content} {self.__suffix} {self.__border}&#39;
+
+    @property
+    def border(self):
+        return self.__border
+
+    @border.setter
+    def border(self, new_border):
+        self.__border = new_border
+
+    @property
+    def content(self):
+        return self.__content
+
+    @content.setter
+    def content(self, new_content):
+        self.__content = new_content
+
+    @property
+    def prefix(self):
+        return self.__prefix
+
+    @prefix.setter
+    def prefix(self, new_prefix):
+        self.__prefix = new_prefix
+
+    @property
+    def suffix(self):
+        return self.__suffix
+
+    @suffix.setter
+    def suffix(self, new_suffix):
+        self.__suffix = new_suffix
+
+pretty_printer = PrettyPrint()
+
+pretty_printer.content = &#39;Hello world&#39;
+print(pretty_printer.pretty_print())
+
+pretty_printer.prefix = &#39;&lt;&lt;&lt;&#39;
+pretty_printer.suffix = &#39;&gt;&gt;&gt;&#39;
+print(pretty_printer.pretty_print())
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| *** Hello world *** |
+| &lt;&lt;&lt; Hello world &gt;&gt;&gt; |
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def pretty_print(content, border=&#39;|&#39;, prefix=&#39;666&#39;, suffix=&#39;666&#39;):
+    return f&#39;{border} {prefix} {content} {suffix} {border}&#39;
+
+print(pretty_print(&#39;Hell world&#39;))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 666 Hell world 666 |
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id21">
+<h3>Пример 7<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h3>
+<p>Направете преводач от кирилица към “шльокавица”.</p>
+<p>Нека приемем, че азбуката на шльокавицата e A, B, V, G, D, E, J, Z, I, Y, K, L, M, N, O, P, R, S, T, U, F, H, C, 4, 6, 6T, U, Y, YU, Q.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./04 - Functional Programming"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../03%20-%20OOP/03%20-%20OOP.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Обектно-ориентирано програмиране</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Structures &amp; Oddities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1096 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Грешки и изключения &#8212; Python Course 2022/2023</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Работа с файлове в Python" href="../08%20-%20Files/08%20-%20Files.html" />
+    <link rel="prev" title="Type Hints" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course 2022/2023</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Курс “Програмиране с Python” 2022
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02%20-%20Variables%2C%20types%2C%20control%20flow/02%20-%20Variables%2C%20types%2C%20control%20flow.html">
+   Променливи, разклонения, цикли, типове, функции
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03%20-%20OOP/03%20-%20OOP.html">
+   Обектно-ориентирано програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04%20-%20Functional%20Programming/04%20-%20Functional%20Programming.html">
+   Функционално програмиране
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05%20-%20Data%20Structures%20and%20Oddities/05%20-%20Data%20Structures%20and%20Oddities.html">
+   Data Structures &amp; Oddities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html">
+   Type Hints
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Грешки и изключения
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08%20-%20Files/08%20-%20Files.html">
+   Работа с файлове в Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09%20-%20Multithreading/09%20-%20Multithreading.html">
+   Многонишково програмиране с Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11%20-%20Python%202%20vs%20Python%203/11%20-%20Python%202%20vs%20Python%203.html">
+   Сравнение на версии 2 и 3 на Python: прилики и разлики
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12%20-%20Git/README.html">
+   Работа с Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13%20-%20Modules/13%20-%20Modules.html">
+   Модули и пакети
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/fmipython/PythonCourse2022/main?urlpath=tree/07 - Exceptions Handling/07 - Exceptions Handling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/fmipython/PythonCourse2022/blob/main/07 - Exceptions Handling/07 - Exceptions Handling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/issues/new?title=Issue%20on%20page%20%2F07 - Exceptions Handling/07 - Exceptions Handling.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/fmipython/PythonCourse2022/edit/main/07 - Exceptions Handling/07 - Exceptions Handling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/07 - Exceptions Handling/07 - Exceptions Handling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   (Синтактични) Грешки
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Изключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Хващане на изключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Хвърляне на изключения
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Грешки и изключения</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   (Синтактични) Грешки
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   Изключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   Хващане на изключения
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   Хвърляне на изключения
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Грешки и изключения<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>Понякога се случват неща, които не очакваме, или програмата ни влиза в състояние, което е грешно или пък е с недефинирано поведение. Например, ако се опитаме да отворим файл, който не съществува, или ако се опитаме да разделим число на 0 и т.н. Ако такава “грешка” е фатална, то е редно програмата да спре изпълнението си, съобщавайки за това с някаъв вид програмна грешка (error). Ако не е толкова фатална, например е просто специален случай, който можем да третираме по по-различен начин, то това наричаме “изключение” (exception). Ние като програмисти не е редно да “хващаме” и обработваме грешките, а само изключенията.</p>
+<section id="id2">
+<h2>(Синтактични) Грешки<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<p>В Python грешките биват единствено синтактични - от тип <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>. Тази грешка се хвърля когато Python parser-a забележи синтектичен проблем в кода, което би довело до невъзможността му за изпълнение.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print((&quot;I like brackets&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;I like brackets&quot;</span><span class="p">)</span>
+                             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: incomplete input
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Изключения<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<p>Дори и кодът да е синтактично правилен обаче, изпълнението му е възможно да доведе до грешка. Такива грешки, които се засичат по време на изпълнението на програмата се наричат “изключения” (exceptions) и е възможно да бъдат “хванати” и обработени по желан от нас начин. Примери за често-срещани изключения:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>42 / 0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">42</span> <span class="o">/</span> <span class="mi">0</span>
+
+<span class="ne">ZeroDivisionError</span>: division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot;I love &quot; + name_of_crush
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;I love &quot;</span> <span class="o">+</span> <span class="n">name_of_crush</span>
+
+<span class="ne">NameError</span>: name &#39;name_of_crush&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>&quot;1&quot; + 1
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
+math.sqrt(-1)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: math domain error
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>l = [1, 2, 3]
+l[3]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">l</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>d = {&quot;a&quot;: 1, &quot;b&quot;: 2}
+d[&quot;c&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
+
+<span class="ne">KeyError</span>: &#39;c&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Note:</em> въпреки, че са всъщност exceptions, а не errors, имената на доста вградени изключения завършват на <code class="docutils literal notranslate"><span class="pre">Error</span></code> в Python.</p>
+</section>
+<section id="id4">
+<h2>Хващане на изключения<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<p>С <code class="docutils literal notranslate"><span class="pre">try-except</span></code> конструкцията можем да хванем изключение при изпълнение на даден код и да извършим някакво действие, ако се случи такова. В <code class="docutils literal notranslate"><span class="pre">try</span></code> блокът се слага кодът, който искаме да изпълним, а в <code class="docutils literal notranslate"><span class="pre">except</span></code> блокът - кодът, който искаме да се изпълни, ако се случи изключение. При хващане на изключение програмата не се терминира, а продължава изпълнението си след <code class="docutils literal notranslate"><span class="pre">try-except</span></code> конструкцията.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>while True:
+    try:
+        x = int(input(&quot;Please enter a number: &quot;))
+        print(&quot;You entered: &quot;, x)
+        break
+    except ValueError:
+        print(&quot;Sorry bro, that&#39;s not a valid number. Try again...&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sorry bro, that&#39;s not a valid number. Try again...
+Sorry bro, that&#39;s not a valid number. Try again...
+You entered:  123
+</pre></div>
+</div>
+</div>
+</div>
+<p>Забележете, че можем да укажем изрично типа на изключението, което искаме да хванем, като аргумент на <code class="docutils literal notranslate"><span class="pre">except</span></code> блока. В горният пример искаме да хванем единствено изключения от тип <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, т.е. проблеми с въведената стойност. Така позволяваме на потребителят например да приключи изпълнението на програмата с Ctrl+C (или подобен метод), понеже това действие би хвърлило <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> изключение.</p>
+<p>Можем естествено и да не укажем тип, а да хванем абсолютно всички възможни изключения:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    risky_func()
+except:
+    pass  # never ever do this, for the sake of humanity
+</pre></div>
+</div>
+</div>
+</div>
+<p>Много коварен antipattern обаче е обграждането на проблематичен код с <code class="docutils literal notranslate"><span class="pre">except</span></code> блок, който е празен. Повече по темата: <a class="reference external" href="https://realpython.com/the-most-diabolical-python-antipattern/">https://realpython.com/the-most-diabolical-python-antipattern/</a></p>
+<p>Вместо това, може например да логнем грешката в някой файл или на стандартния изход (или по-добре от STDOUT - в STDERR). Има библиотеки, улесняващи логването, включително и вградена такава - <code class="docutils literal notranslate"><span class="pre">logging</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import logging
+
+logger = logging.getLogger()
+
+try:
+    risky_func()
+except Exception as e:
+    logger.error(e)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name &#39;risky_func&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Както се вижда от примера, можем да присвоим изключението към променлива, която да използваме в <code class="docutils literal notranslate"><span class="pre">except</span></code> блока. Това е полезно ако искаме да използваме изключението или аргументите на изключението, които се намират в <code class="docutils literal notranslate"><span class="pre">args</span></code> атрибута на всяко изключение.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    risky_func()
+except Exception as e:
+    logger.error(e.args)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&quot;name &#39;risky_func&#39; is not defined&quot;,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да очакваме повече от един тип изключения по няколко начина:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def f(): return 42
+def g(): return 0
+
+try:
+    # f()[2]    # uncomment for third error
+    # y = h()  # uncomment for second error
+    y = f() / g()
+except ZeroDivisionError:
+    print(&quot;Division by zero.&quot;)
+except NameError as e:
+    print(&quot;Name error: &quot;, e)
+except Exception as e:
+    print(&quot;Other error: &quot;, e)
+
+try:
+    y = f() / g() + h()
+except (ZeroDivisionError, NameError) as e:
+    print(&quot;Oops: &quot;, e)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Division by zero.
+Oops:  division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>Създателите на Python обичат да дефинират <code class="docutils literal notranslate"><span class="pre">else</span></code> блокове за всевъзможни езикови контролни конструкции, и <code class="docutils literal notranslate"><span class="pre">try</span></code> не е изключение (no pun intended). Кодът в <code class="docutils literal notranslate"><span class="pre">else</span></code> след <code class="docutils literal notranslate"><span class="pre">try-except</span></code> би се изпълнил само тогава, когато не е засечена никаква грешка при изпълнение.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    # y = 0 / 42
+    y = 42 / 0
+except ZeroDivisionError:
+    print(&quot;Division by zero.&quot;)
+else:
+    print(&quot;Everything is fine.&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Division by zero.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Освен това имаме и друг опционален блок - <code class="docutils literal notranslate"><span class="pre">finally</span></code>. Той се изпълнява абсолютно винаги като последна част на <code class="docutils literal notranslate"><span class="pre">try-(except)-(else)-finally</span></code> конструкцията, независимо от това дали е била прихваната грешка или не.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    # y = 0 / 42
+    y = 42 / 0
+except ZeroDivisionError:
+    print(&quot;Division by zero.&quot;)
+else:
+    print(&quot;Everything is fine.&quot;)
+finally:
+    print(&quot;I&#39;m always here. o.o&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Division by zero.
+I&#39;m always here. o.o
+</pre></div>
+</div>
+</div>
+</div>
+<img src="assets/try_except_else_finally.png" width="500" heigth="400" /></section>
+<section id="id5">
+<h2>Хвърляне на изключения<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<p>Изключенията наследяват класa <code class="docutils literal notranslate"><span class="pre">Exception</span></code>. Списък от вграденитe такива може да откриете тук: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">https://docs.python.org/3/library/exceptions.html</a></p>
+<p>Изключенията ги “хвърляме” с ключовата дума <code class="docutils literal notranslate"><span class="pre">raise</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>raise Exception(&quot;This is an exceptionally exceptional exception.&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This is an exceptionally exceptional exception.&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: This is an exceptionally exceptional exception.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>raise ValueError  # може и без извикването на конструктора от нас
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">ValueError</span>
+
+<span class="ne">ValueError</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def get_name_by_id(id: int) -&gt; str | None:
+    if not isinstance(id, int):
+        raise TypeError(&quot;id must be int!&quot;)
+    
+    if id &lt; 0:
+        raise ValueError(&quot;id must be a positive integer!&quot;)
+
+    database = [&quot;Alex&quot;, &quot;Lyubo&quot;, &quot;Vankata&quot;]
+
+    if id &gt;= len(database):
+        return None
+    
+    return database[id]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Те се пропагират нагоре по стека на изпълнението на програмата, докато не се срещне <code class="docutils literal notranslate"><span class="pre">try</span></code> блок, който може да ги обработи. Ако няма такъв, програмата се терминира и се извежда съобщение за грешка. Това пропагиране е и причината да виждаме т.нар. Stacktrace:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def a(): raise Exception(&quot;Hello, stack!&quot;)
+def b(): a()
+def c(): b()
+def d(): c()
+def e(): d()
+
+def f():
+    try:
+        e()
+    except:
+        print(f&quot;Goodbye, stack. ;-;&quot;)
+
+def g(): f()
+def h(): g()
+def i(): h()
+
+
+i()  # f will catch it
+
+e()  # nothing will catch it and kaboom
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Goodbye, stack. ;-;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">i</span><span class="p">():</span> <span class="n">h</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">i</span><span class="p">()</span>  <span class="c1"># f will catch it</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">e</span><span class="p">()</span>
+
+<span class="nn">Cell In [18], line 5,</span> in <span class="ni">e</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">e</span><span class="p">():</span> <span class="n">d</span><span class="p">()</span>
+
+<span class="nn">Cell In [18], line 4,</span> in <span class="ni">d</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">d</span><span class="p">():</span> <span class="n">c</span><span class="p">()</span>
+
+<span class="nn">Cell In [18], line 3,</span> in <span class="ni">c</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">c</span><span class="p">():</span> <span class="n">b</span><span class="p">()</span>
+
+<span class="nn">Cell In [18], line 2,</span> in <span class="ni">b</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">def</span> <span class="nf">b</span><span class="p">():</span> <span class="n">a</span><span class="p">()</span>
+
+<span class="nn">Cell In [18], line 1,</span> in <span class="ni">a</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">a</span><span class="p">():</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Hello, stack!&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Hello, stack!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Можем да си дефинираме собствени изключения, като наследяваме класа <code class="docutils literal notranslate"><span class="pre">Exception</span></code> (или някой от неговите наследници):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class InvalidPortionException(Exception):
+    def __init__(self, portion: tuple[str, str]) -&gt; None:
+        super().__init__(*portion)
+    
+    def __str__(self) -&gt; str:
+        ingredients = &quot; sus &quot;.join(self.args)
+        return f&quot;Ama kak taka, ne moje {ingredients}!&quot;
+
+
+class LelkataOtStolaDoNas:
+    def __init__(self):
+        osnovni = (&quot;schnietzel&quot;, &quot;kyufteta&quot;, &quot;kartofeni kyufteta&quot;)
+        garnituri = (&quot;kartofi&quot;, &quot;oriz&quot;, &quot;zele&quot;)
+        self.__allowed_portions = dict(zip(osnovni, garnituri))  # private shototo samo tq si gi znae...
+    
+    def order(self, osnovno: str, garnitura: str) -&gt; None:
+        portion = (osnovno, garnitura)
+
+        if portion not in self.__allowed_portions.items():
+            raise InvalidPortionException(portion)
+        
+        print(&quot;Krem, airqn?&quot;)
+
+lelkata = LelkataOtStolaDoNas()
+lelkata.order(&quot;kyufteta&quot;, &quot;kartofi&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">InvalidPortionException</span><span class="g g-Whitespace">                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Krem, airqn?&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">lelkata</span> <span class="o">=</span> <span class="n">LelkataOtStolaDoNas</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">lelkata</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;kyufteta&quot;</span><span class="p">,</span> <span class="s2">&quot;kartofi&quot;</span><span class="p">)</span>
+
+<span class="nn">Cell In [19], line 20,</span> in <span class="ni">LelkataOtStolaDoNas.order</span><span class="nt">(self, osnovno, garnitura)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">portion</span> <span class="o">=</span> <span class="p">(</span><span class="n">osnovno</span><span class="p">,</span> <span class="n">garnitura</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">if</span> <span class="n">portion</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__allowed_portions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="k">raise</span> <span class="n">InvalidPortionException</span><span class="p">(</span><span class="n">portion</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Krem, airqn?&quot;</span><span class="p">)</span>
+
+<span class="ne">InvalidPortionException</span>: Ama kak taka, ne moje kyufteta sus kartofi!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Възможно е освен това да се chain-ват изключения, когато в <code class="docutils literal notranslate"><span class="pre">except</span></code> блока се хвърли друго:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>class UnbeknownstToMeException(Exception):
+    def __init__(self, fact: str) -&gt; None:
+        msg = f&quot;Е аз откъде да знам, че не може {fact}...&quot;
+        super().__init__(msg)
+
+
+lelka = LelkataOtStolaDoNas()
+try:
+    lelka.order(&quot;kyufteta&quot;, &quot;zele&quot;)
+except InvalidPortionException as e:
+    portion = &quot; със &quot;.join(e.args)
+    raise UnbeknownstToMeException(portion)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">InvalidPortionException</span><span class="g g-Whitespace">                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">lelka</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="s2">&quot;kyufteta&quot;</span><span class="p">,</span> <span class="s2">&quot;zele&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">except</span> <span class="n">InvalidPortionException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">Cell In [19], line 20,</span> in <span class="ni">LelkataOtStolaDoNas.order</span><span class="nt">(self, osnovno, garnitura)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">if</span> <span class="n">portion</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__allowed_portions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="k">raise</span> <span class="n">InvalidPortionException</span><span class="p">(</span><span class="n">portion</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Krem, airqn?&quot;</span><span class="p">)</span>
+
+<span class="ne">InvalidPortionException</span>: Ama kak taka, ne moje kyufteta sus zele!
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">UnbeknownstToMeException</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">except</span> <span class="n">InvalidPortionException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">portion</span> <span class="o">=</span> <span class="s2">&quot; със &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">raise</span> <span class="n">UnbeknownstToMeException</span><span class="p">(</span><span class="n">portion</span><span class="p">)</span>
+
+<span class="ne">UnbeknownstToMeException</span>: Е аз откъде да знам, че не може kyufteta със zele...
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Disclaimer:</em> историята е по действителен случай, obv.</p>
+<p>За да индикираме, че дадено изключение е директно следствие на друго, може да използваме <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">...</span> <span class="pre">from</span> <span class="pre">...</span></code>. Повече инфо в <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html#exception-chaining">документацията</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code></p>
+<p>Когато искаме да предпазим изпълнението на код от недифинрано поведение, можем да използваме ключовата дума <code class="docutils literal notranslate"><span class="pre">assert</span></code>. Тя проверява дали дадено условие е изпълнено и ако не е, то хвърля <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> с някакво съобщение за грешка, което може да зададем ако искаме. Обикновено се използва на фаза разработка и тестване на код, но може и да се използва и в production код, ако сме сигурни, че няма никога да се изпълни и че ако все пак се изпълни, то е окей програмата ни да крашне.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from typing import Iterable
+
+def evaluate(test_results: Iterable[int], actual_results: Iterable[int]) -&gt; float:
+    assert len(test_results) == len(actual_results), &quot;Expected and actual result series must be of equal length!&quot;
+    return (sum((t - a) ** 2 for t, a in zip(test_results, actual_results)) / len(test_results)) ** 0.5  # RMSE
+
+
+print(evaluate([1, 2, 3], [2, 2, 4]))
+print(evaluate([1, 2, 3], [2, 2, 4, 5]))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.816496580927726
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_results</span><span class="p">,</span> <span class="n">actual_results</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_results</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>  <span class="c1"># RMSE</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="n">evaluate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="n">evaluate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+
+<span class="nn">Cell In [21], line 4,</span> in <span class="ni">evaluate</span><span class="nt">(test_results, actual_results)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">test_results</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">actual_results</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_results</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">actual_results</span><span class="p">),</span> <span class="s2">&quot;Expected and actual result series must be of equal length!&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_results</span><span class="p">,</span> <span class="n">actual_results</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_results</span><span class="p">))</span> <span class="o">**</span> <span class="mf">0.5</span>
+
+<span class="ne">AssertionError</span>: Expected and actual result series must be of equal length!
+</pre></div>
+</div>
+</div>
+</div>
+<p>В някои случаи можем да очакваме да прихванем и <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code>, примерно за да логнем това състояние, вместо да ни крашне програмата:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>try:
+    evaluate([1, 2, 3], [2, 2, 4, 5])
+except AssertionError as e:
+    logger.error(e)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Expected and actual result series must be of equal length!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./07 - Exceptions Handling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../06%20-%20Typing%20Hints/06%20-%20Typing%20Hints.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Type Hints</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../08%20-%20Files/08%20-%20Files.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Работа с файлове в Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Alexander Ignatov, Lyuboslav Karev, Ivan Luchev<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

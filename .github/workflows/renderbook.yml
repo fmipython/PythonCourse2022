@@ -1,0 +1,35 @@
+name: Render JupyterBook
+
+on:
+  push:
+    branches:
+      - main
+      - setup_jupyter_book
+  pull_request:
+    branches:
+      - main
+      - setup_jupyter_book
+  workflow_dispatch:  # allow manual triggers
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install jupyter-book
+
+      - name: Build JupyterBook
+        run: |
+          jupyter-book build .
+        
+      - name: Deploy to Github Pages
+        uses: JamesIves/github-pages-deploy-action@4.4.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: _build/html

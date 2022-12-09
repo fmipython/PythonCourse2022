@@ -11,6 +11,10 @@ email: pythoncoursefmi@gmail.com
 
 ## Материали
 
+Всички лекции са събрани под формата на Jupyter notebook интерактивни записки. 
+
+JupyterBook "книжка" с всички теми има тук: https://fmipython.github.io/PythonCourse2022
+
 | Тема номер | Тема                                                      | Дата       | Лектор     |
 | ---------- | --------------------------------------------------------- | ---------- | ---------- |
 | 0 | [Въведение към курса](https://github.com/fmipython/PythonCourse2022/blob/main/00%20-%20%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5%20%D1%81%20Python.pdf) | 05.10.2022 | [Любо](https://github.com/lyubolp)/[Алекс](https://github.com/yalishanda42)/[Иван](https://github.com/luchev) |

@@ -1,0 +1,15 @@
+format: jb-book
+root: README
+chapters:
+  - file: "02 - Variables, types, control flow/02 - Variables, types, control flow"
+  - file: "03 - OOP/03 - OOP"
+  - file: "04 - Functional Programming/04 - Functional Programming"
+  - file: "05 - Data Structures and Oddities/05 - Data Structures and Oddities"
+  - file: "06 - Typing Hints/06 - Typing Hints"
+  - file: "07 - Exceptions Handling/07 - Exceptions Handling"
+  - file: "08 - Files/08 - Files"
+  - file: "09 - Multithreading/09 - Multithreading"
+  - file: "10 - requests/10 - requests"
+  - file: "11 - Python 2 vs Python 3/11 - Python 2 vs Python 3"
+  - file: "12 - Git/README"
+  - file: "13 - Modules/13 - Modules"

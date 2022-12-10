@@ -48,7 +48,9 @@ class BesenitsaEngine:
 
 
 if __name__ == "__main__":
-    from players.mock_player import MockPlayer
+    # Executed when running `python3 -m game.engine`
+    
+    from game.players.mock_player import MockPlayer
 
     print("Testing win case...")
     player_win = MockPlayer(1, "oba")

@@ -28,9 +28,9 @@ JupyterBook "книжка" с всички теми има тук: https://fmipy
 | 8          | [Работа с файлове](https://github.com/fmipython/PythonCourse2022/tree/main/08%20-%20Files) | 18.11.2022 | [Любо](https://github.com/lyubolp)       |
 | 9          | [Многонишково програмиране](https://github.com/fmipython/PythonCourse2022/tree/main/09%20-%20Multithreading) | 22.11.2022, 23.11.2022 | [Любо](https://github.com/lyubolp)       |
 | 10         | [Работа със заявки](https://github.com/fmipython/PythonCourse2022/tree/main/10%20-%20Requests) | 30.11.2022 | [Алекс](https://github.com/yalishanda42)      |
-| 11         | Сравнение на версии 2 и 3 на Python: прилики и разлики    | 02.12.2022 | [Любо](https://github.com/lyubolp)       |
+| 11         | [Сравнение на версии 2 и 3 на Python: прилики и разлики](https://github.com/fmipython/PythonCourse2022/tree/main/11%20-%20Python%202%20vs%20Python%203)  | 02.12.2022 | [Любо](https://github.com/lyubolp)       |
 | 12         | [Работа с Git](https://github.com/fmipython/PythonCourse2022/tree/main/12%20-%20Git)                                              | 02.12.2022 | [Алекс](https://github.com/yalishanda42)      |
-| 13         | Модули и пакети                                           | 07.12.2022, 14.12.2022, 16.12.2022 | [Алекс](https://github.com/yalishanda42)      |
+| 13         | [Модули и пакети](https://github.com/fmipython/PythonCourse2022/tree/main/13%20-%20Modules)                                           | 07.12.2022, 14.12.2022, 16.12.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 14         | Принципи на качествения код на Python                     | 19.12.2022, 21.12.2022 | [Любо](https://github.com/lyubolp)       |
 | 15         | Тестване в Python                                         | 04.01.2023, 06.01.2023 | [Алекс](https://github.com/yalishanda42)      |
 | 16         | Уеб програмиране. Flask                                   | 11.01.2023 | [Любо](https://github.com/lyubolp)       |

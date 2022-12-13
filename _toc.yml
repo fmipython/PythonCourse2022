@@ -1,6 +1,10 @@
 format: jb-book
+
 root: README
-chapters:
+
+parts:
+- caption: Лекции
+  chapters:
   - file: "02 - Variables, types, control flow/02 - Variables, types, control flow"
   - file: "03 - OOP/03 - OOP"
   - file: "04 - Functional Programming/04 - Functional Programming"
@@ -13,3 +17,13 @@ chapters:
   - file: "11 - Python 2 vs Python 3/11 - Python 2 vs Python 3"
   - file: "12 - Git/README"
   - file: "13 - Modules/13 - Modules"
+
+- caption: Проекти
+  chapters:
+  - file: projects
+    title: Указания
+
+- caption: Домашни
+  chapters:
+  - file: assignments
+    title: Инструкции

@@ -11,6 +11,8 @@ email: pythoncoursefmi@gmail.com
 
 ## Материали
 
+### Лекции
+
 Всички лекции са събрани под формата на Jupyter notebook интерактивни записки. 
 
 JupyterBook "книжка" с всички теми има тук: https://fmipython.github.io/PythonCourse2022
@@ -36,6 +38,13 @@ JupyterBook "книжка" с всички теми има тук: https://fmipy
 | 16         | Уеб програмиране. Flask                                   | 11.01.2023 | [Любо](https://github.com/lyubolp)       |
 | 17         | Използване на C код в Python                              | 13.01.2023 | [Любо](https://github.com/lyubolp)       |
 | 18         | Външни библиотеки (numpy, pandas, matplotlib)             | 18.01.2023 | [Любо](https://github.com/lyubolp)       |
+
+### Live coding demos
+
+| Тема          | Папка                                                                                |
+|---------------|--------------------------------------------------------------------------------------|
+| Console app   | [console-demo](https://github.com/fmipython/PythonCourse2022/tree/main/console-demo) |
+| Project setup | [project-setup-demo](https://github.com/fmipython/PythonCourse2022/tree/main/project-setup-demo) |
 
 ## Как да си пуснем материалите ?
 

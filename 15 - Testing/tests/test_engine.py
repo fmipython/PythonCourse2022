@@ -1,6 +1,6 @@
 import unittest
 
-from game.players.mock_player import MockPlayer
+from tests.mocks.mock_player import MockPlayer
 from game.engine import BesenitsaEngine, GameState
 
 class EngineTests(unittest.TestCase):

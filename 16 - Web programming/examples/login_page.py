@@ -14,17 +14,19 @@ def login_action():
 
     if request.form['username'] == 'admin' and request.form['password'] == 'admin':
         username = request.form['username']
-        return redirect(url_for('user', name=username))
+        return redirect(url_for('user_page', name=username))
     else:
         return redirect(url_for('login', message='Invalid username or password'))
 
 
 @app.route("/login")
 def login(message=None):
+    if 'message' in request.args:
+        message = request.args['message']
     print(message)
     return render_template('login.html', title='Login', message=message)
 
 
-@app.route("/user/<name>")
+@app.route("/user_page/<name>")
 def user_page(name):
     return render_template('user.html', title='User', user=name)

@@ -18,6 +18,7 @@ parts:
   - file: "12 - Git/README"
   - file: "13 - Modules/13 - Modules"
   - file: "14 - Clean code/14 - Clean code in Python"
+  - file: "15 - Testing/15 - Testing"
   - file: "16 - Web programming/16 - Web programming"
 
 - caption: Проекти

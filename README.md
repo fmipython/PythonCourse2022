@@ -33,7 +33,7 @@ JupyterBook "книжка" с всички теми има тук: https://fmipy
 | 11         | [Сравнение на версии 2 и 3 на Python: прилики и разлики](https://github.com/fmipython/PythonCourse2022/tree/main/11%20-%20Python%202%20vs%20Python%203)  | 02.12.2022 | [Любо](https://github.com/lyubolp)       |
 | 12         | [Работа с Git](https://github.com/fmipython/PythonCourse2022/tree/main/12%20-%20Git)                                              | 02.12.2022 | [Алекс](https://github.com/yalishanda42)      |
 | 13         | [Модули и пакети](https://github.com/fmipython/PythonCourse2022/tree/main/13%20-%20Modules)                                           | 07.12.2022, 14.12.2022, 16.12.2022 | [Алекс](https://github.com/yalishanda42)      |
-| 14         | Принципи на качествения код на Python                     | 19.12.2022, 21.12.2022 | [Любо](https://github.com/lyubolp)       |
+| 14         | [Принципи на качествения код на Python](https://github.com/fmipython/PythonCourse2022/tree/main/14%20-%20Clean%20code)                     | 19.12.2022, 21.12.2022 | [Любо](https://github.com/lyubolp)       |
 | 15         | Тестване в Python                                         | 04.01.2023, 06.01.2023 | [Алекс](https://github.com/yalishanda42)      |
 | 16         | Уеб програмиране. Flask                                   | 11.01.2023 | [Любо](https://github.com/lyubolp)       |
 | 17         | Използване на C код в Python                              | 13.01.2023 | [Любо](https://github.com/lyubolp)       |

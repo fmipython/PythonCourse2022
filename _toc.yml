@@ -17,6 +17,8 @@ parts:
   - file: "11 - Python 2 vs Python 3/11 - Python 2 vs Python 3"
   - file: "12 - Git/README"
   - file: "13 - Modules/13 - Modules"
+  - file: "14 - Clean code/14 - Clean code in Python"
+  - file: "16 - Web programming/16 - Web programming"
 
 - caption: Проекти
   chapters:

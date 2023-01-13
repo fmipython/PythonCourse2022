@@ -10,6 +10,20 @@ struct DynamicArray create(const int capacity) {
     return instance;
 }
 
+struct DynamicArray create_from_raw(const int* items, const int capacity) {
+    struct DynamicArray instance;
+
+    instance.capacity = capacity;
+    instance.size = capacity;
+    instance.items = malloc(sizeof(int) * capacity);
+
+    for (int i = 0; i < capacity; i++) {
+        instance.items[i] = items[i];
+    }
+
+    return instance;
+}
+
 void add(struct DynamicArray* instance, const int item) {
     if (instance->capacity == instance->size) {
         resize(instance);

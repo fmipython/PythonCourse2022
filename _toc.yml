@@ -20,6 +20,7 @@ parts:
   - file: "14 - Clean code/14 - Clean code in Python"
   - file: "15 - Testing/15 - Testing"
   - file: "16 - Web programming/16 - Web programming"
+  - file: "17 - Using C code in Python/17 - Using C code in Python"
 
 - caption: Проекти
   chapters:

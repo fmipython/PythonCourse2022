@@ -21,6 +21,7 @@ parts:
   - file: "15 - Testing/15 - Testing"
   - file: "16 - Web programming/16 - Web programming"
   - file: "17 - Using C code in Python/17 - Using C code in Python"
+  - file: "18 - numpy, pandas, matplotlib/18 - numpy, pandas, matplotlib"
 
 - caption: Проекти
   chapters:
